@@ -11436,7 +11436,16 @@ p {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
+    background-color: #000000;
+  }
+  #mainNav.navbar-shrink a {
+    color: white!important;
+  }
+  #mainNav.navbar-shrink p {
+    color: white!important;
+  }
+  #mainNav.navbar-shrink button {
+    border: solid 2px white!important;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -11457,7 +11466,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/background.jpg");
+  /* background-image: url("../assets/img/background.jpg"); */
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11479,7 +11488,7 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 17rem;
+    padding-top: 10rem;
     padding-bottom: 12.5rem;
   }
   header.masthead .masthead-subheading {
@@ -11765,7 +11774,7 @@ header.masthead .masthead-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
+  /* background-image: url("../assets/img/map-image.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
