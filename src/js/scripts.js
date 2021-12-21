@@ -16,9 +16,9 @@ window.addEventListener('DOMContentLoaded', event => {
             return;
         }
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink');
+            navbarCollapsible.classList.remove('navbar-shrink')
         } else {
-            navbarCollapsible.classList.add('navbar-shrink');
+            navbarCollapsible.classList.add('navbar-shrink')
         }
 
     };
@@ -60,3 +60,53 @@ $(document).ready(function () {
         $("#cookieConsent").fadeOut(200);
     });
 });
+
+// CERRAR COOKIES
+const boton_aceptar = $('.boton_cookie button');
+boton_aceptar.click(cerrarCookies);
+
+const boton_cerrar = $('.cerrar_cookies');
+boton_cerrar.click(cerrarCookies);
+
+function cerrarCookies() {
+    const cookies = $('.cookies');
+    cookies.fadeOut();
+}
+// FIN CERRAR COOKIES
+
+// ANIMACIÓN IMÁGENES CURSOS
+    const cards_cursos = $('.portfolio-item');
+    cards_cursos.mouseover(escalarImagenes);
+    cards_cursos.mouseout(rescalarImagenes);
+
+    function escalarImagenes() {
+        const card_curso = $(this);
+        let id_card = card_curso.attr('id');
+
+        let imagen_card = $('#' + id_card + ' .imagen_card img');
+        imagen_card.css('transition', 'transform .2s');
+        imagen_card.css('transform', 'scale(1.1)');
+
+        const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
+        modalidad.css('transition', 'opacity .2s ease-in-out');
+        modalidad.css('opacity', '1');
+        modalidad.css('transition', 'box-shadow .2s ease-in-out');
+        modalidad.css('box-shadow', '#0B132B 0px 0px 2px');
+    }
+
+    function rescalarImagenes() {
+        const card_curso = $(this);
+        let id_card = card_curso.attr('id');
+
+        let imagen_card = $('#' + id_card + ' img');
+        imagen_card.css('transition', 'transform .2s');
+        imagen_card.css('transform', 'scale(1)');
+
+        const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
+        modalidad.css('transition', 'opacity .2s ease-in-out');
+        modalidad.css('opacity', '.8');
+        modalidad.css('transition', 'box-shadow .2s ease-in-out');
+        modalidad.css('box-shadow', 'transparent 0px 0px 0px');
+    }
+// FIN ANIMACIÓN IMÁGENES CURSOS
+

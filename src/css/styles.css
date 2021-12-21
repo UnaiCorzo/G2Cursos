@@ -70,72 +70,10 @@
   box-sizing: border-box;
 }
 
-.items {
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.boton_sesion:hover {
-    background-color: rgba(255, 255, 255, 0.75)!important;
-}
-
-@media (max-width: 540px) {
-    .slogan {
-        font-size: 2rem!important;
-    }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
   }
-}
-
-#cookieConsent {
-  background-color: rgba(20,20,20,0.8);
-  min-height: 26px;
-  font-size: 14px;
-  color: #ccc;
-  line-height: 26px;
-  padding: 8px 0 8px 30px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: none;
-  z-index: 9999;
-}
-
-#cookieConsent a {
-  color: #4B8EE7;
-  text-decoration: none;
-}
-
-#closeCookieConsent {
-  float: right;
-  cursor: pointer;
-  height: 20px;
-  width: 20px;
-  margin: -10px 0 0 0;
-  font-weight: bold;
-}
-
-#closeCookieConsent:hover {
-  color: #FFF;
-}
-
-#cookieConsent a.cookieConsentOK {
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 0 20px;
-  cursor: pointer;
-  float: right;
-  margin: 0 60px 0 10px;
-}
-
-#cookieConsent a.cookieConsentOK:hover {
-  background-color: #000000;
 }
 
 body {
@@ -174,7 +112,6 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
 }
-
 @media (min-width: 1200px) {
   h1, .h1 {
     font-size: 2.5rem;
@@ -659,7 +596,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "—";
+  content: "— ";
 }
 
 .img-fluid {
@@ -704,11 +641,11 @@ progress {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;
   }
-}
+} */
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
     max-width: 720px;
@@ -4045,7 +3982,7 @@ textarea.form-control-lg {
 }
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #ffffff;
+  color: #495057;
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
 }
@@ -4543,7 +4480,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.55);
 }
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
@@ -5678,7 +5615,6 @@ textarea.form-control-lg {
     max-width: 300px;
   }
 }
-
 @media (min-width: 992px) {
   .modal-lg,
 .modal-xl {
@@ -11401,12 +11337,120 @@ p {
   border-radius: 100%;
 }
 
+#mainNav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #e8eef2;
+}
+
+#mainNav .navbar-toggler {
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  font-weight: 700;
+}
+#mainNav .navbar-brand {
+  color: #ffc800;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  letter-spacing: 0.0625em;
+  text-transform: uppercase;
+}
+#mainNav .navbar-brand img {
+  height: 1.5rem;
+}
+#mainNav .navbar-nav .nav-item .nav-link {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: 0.0625em;
+}
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: #ffc800;
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border: none;
+    background-color: transparent;
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand {
+    font-size: 1.5em;
+    transition: font-size 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand img {
+    height: 2rem;
+    transition: height 0.3s ease-in-out;
+  }
+  
+  #mainNav .navbar-nav .nav-item {
+    margin-right: 1rem;
+  }
+  #mainNav .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+}
+
+#mainNav.navbar-shrink {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #e8eef2;
+  box-shadow: #0B132B 0px 0px 10px;
+}
+#mainNav.navbar-shrink .navbar-brand {
+  font-size: 1.25em;
+}
+#mainNav.navbar-shrink .navbar-brand svg,
+#mainNav.navbar-shrink .navbar-brand img {
+  height: 1.5rem;
+}
+
+#mainNav.navbar-shrink p {
+  color: #3B8EA5!important;
+  text-shadow: transparent 0px 0px 0px!important;
+}
+
+#mainNav.navbar-shrink a {
+  color: #0B132B!important;
+  text-shadow: transparent 0px 0px 0px!important;
+}
+
+#mainNav.navbar-shrink .boton_sesion {
+  text-shadow: transparent 0px 0px 0px!important;
+}
+
+#mainNav.navbar-shrink .boton_sesion2 {
+  color: #0B132B!important;
+  text-shadow: transparent 0px 0px 0px!important;
+  border: 1px solid #0B132B!important;
+}
+
+#mainNav.navbar-shrink .boton_sesion2:before {
+  content:"";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  background: rgba(0, 0, 0, 0.05);
+  transition: all .3s ease;
+}
+
+#mainNav.navbar-shrink .boton_sesion2:hover:before {
+  height: 100%;
+}
+
 header.masthead {
+  height: 100vh;
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  /* background-image: url("../assets/img/background.jpg"); */
+  background-image: url("../assets/img/fondo.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11428,7 +11472,7 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 10rem;
+    padding-top: 17rem;
     padding-bottom: 12.5rem;
   }
   header.masthead .masthead-subheading {
@@ -11713,10 +11757,11 @@ header.masthead .masthead-heading {
 }
 
 section#contact {
-  background-color: #212529;
-  /* background-image: url("../assets/img/map-image.png"); */
+  background-image: linear-gradient(to right top, #3b8ea5, #2b6c89, #204c6a, #162e4a, #0b132b);
+  /* background-image: url("../assets/img/map-image.png");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 section#contact .section-heading {
   color: #fff;
@@ -11771,3 +11816,555 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+/* ESTILOS PROPIOS */
+input:focus {
+  border-color: #0B132B!important;
+  box-shadow: #0B132B 0px 0px 3px!important;
+}
+
+textarea:focus {
+  border-color: #0B132B!important;
+  box-shadow: none!important;
+}
+
+button:focus {
+  box-shadow: none!important;
+}
+
+a:focus {
+  border: none!important;
+  box-shadow: none!important;
+}
+
+.items {
+font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.boton_sesion {
+  box-shadow: #b3001b 1px 1px 1px; 
+  background-color: #b3001b; 
+  color: #e8eef2!important;
+  position: relative;
+  border: none!important;
+}
+
+.boton_sesion:before {
+  content:"";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: all .3s ease;
+}
+
+.boton_sesion:hover:before {
+  height: 100%;
+}
+
+.boton_sesion2 {
+  color: #e8eef2!important;
+  border: 1px solid #e8eef2!important;
+  position: relative;;
+}
+
+.boton_sesion2:before {
+  content:"";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: all .3s ease;
+}
+
+.boton_sesion2:hover:before {
+  height: 100%;
+}
+
+/* MODAL DE INICIAR SESIÓN */
+.fondo_formulario_sesion {
+display: flex;
+justify-content: space-between;
+align-items: stretch;
+padding: 0!important;
+}
+
+.contenedor_sesion {
+width: 100%!important; 
+padding: 0!important;
+}
+
+.formulario_sesion {
+height: 100%;
+}
+
+.iconos_sesion {
+font-size: 1.4rem;
+}
+
+.campos_sesion {
+width: 90%;
+}
+
+.campos_sesion::placeholder {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.submit_sesion {
+  box-shadow: #b3001b 1px 1px 1px; 
+  background-color: #b3001b!important; 
+  color: #e8eef2!important;
+  font-weight: bold!important;
+}
+
+.registrarse_sesion {
+color: #343a40;
+opacity: .8;
+}
+
+.registrarse_sesion:hover {
+color: #343a40;
+opacity: 1;
+}
+
+.texto_sesion {
+width: 45%!important;
+height: 100%!important;
+display: flex;
+align-items: center;
+justify-content: center;
+align-self: center;
+padding: 0 10px!important;
+background-image: url("../assets/img/login.jpg")!important;
+background-size: 100% 100%!important;
+background-repeat: no-repeat!important;
+}
+
+.texto_sesion p {
+font-size: 2.2rem; 
+text-shadow: black 1px 1px 10px;
+}
+
+.boton_cerrar_modal {
+color: #0B132B!important;
+background-color: transparent!important;
+font-size: 2rem;
+opacity: .9!important;
+position: absolute; 
+top: 15px; 
+right: 15px;
+cursor: pointer;
+}
+
+.boton_cerrar_modal:hover {
+opacity: 1!important;
+}
+/* FIN MODAL DE INICIAR SESIÓN */
+
+/* MODAL DE REGISTRARSE */
+.fondo_formulario_registro {
+height: 70vh!important;
+display: flex;
+justify-content: space-between;
+align-items: stretch;
+padding: 0!important;
+position: relative;
+}
+
+.contenedor_registro {
+width: 55%!important;
+padding: 0!important;
+}
+
+.formulario_registro {
+height: 100%;
+}
+
+.iconos_registro {
+font-size: 1.1rem;
+}
+
+.campos_registro {
+width: 90%;
+}
+
+.campos_registro input::placeholder {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.campos_registro p {
+font-size: .8rem;
+}
+
+.submit_registro {
+  box-shadow: #b3001b 1px 1px 1px; 
+  background-color: #b3001b!important; 
+  color: #e8eef2!important;
+  font-weight: bold!important;
+}
+
+.sesion_registro {
+color: #343a40;
+opacity: .8;
+}
+
+.sesion_registro:hover {
+color: #343a40;
+opacity: 1;
+}
+
+.texto_registro {
+width: 45%!important;
+height: 100%!important;
+display: flex;
+align-items: center;
+justify-content: center;
+align-self: center;
+padding: 0 10px!important;
+background-image: url("../assets/img/registrarse_imagen.jpg")!important;
+background-repeat: no-repeat!important;
+background-size: auto 100%;
+background-position: center;
+border-top-right-radius: .3rem;
+border-bottom-right-radius: .3rem;
+}
+
+.texto_registro p {
+font-size: 2.2rem; 
+text-shadow: black 1px 1px 10px;
+}
+
+.modal-content {
+  border: none!important;
+  background-color: transparent!important;
+}
+/* FIN MODAL DE REGISTRARSE */
+
+/* COOKIES */
+.cookies {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0B132B;
+  padding: 15px 50px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  box-shadow: #0B132B 0px 0px 2px;
+}
+
+.texto_cookies {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.texto_cookies p {
+  color: #E8EEF2;
+}
+
+.texto_cookies a {
+  color: #3B8EA5;
+}
+
+.boton_cookie {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.boton_cookie button {
+  box-shadow: #b3001b 1px 1px 1px; 
+  background-color: #b3001b; 
+  color: #e8eef2;
+  font-weight: bold;
+}
+
+.cerrar_cookies {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 1.2rem;
+  color: #e8eef2;
+  padding: 2px;
+  opacity: .9;
+}
+
+.cerrar_cookies:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.cerrar_cookies i {
+  font-size: 1.3rem;
+  color: #e8eef2;
+}
+/* FIN COOKIES */
+
+/* SECCIÓN CURSOS */
+.seccion_cursos {
+  background-image: linear-gradient(to left top, #3b8ea5, #6ea5b9, #99bccd, #c1d5e0, #e8eef2);
+}
+
+.portfolio-item {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: #0B132B 1px 1px 5px;
+}
+
+.portfolio-item:hover {
+  cursor: pointer;
+}
+
+.imagen_card {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagen_card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.imagen_card, .imagen_card img {
+  will-change: transform, scale;
+}
+
+.imagen_card .modalidad {
+  position: absolute; 
+  top: 17px;
+  right: 20px;  
+  padding: 5px 15px;
+  font-size: .7rem;
+  border-radius: 30px;
+  z-index: 2;
+  opacity: .8;
+}
+
+.valoracion {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+}
+
+.valoracion svg {
+  font-size: 1.2rem;
+  color: gold;
+}
+
+.portfolio-caption {
+  background-color: white;
+  padding: 10px 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.titulo_curso {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.descripcion_cursos {
+  text-align: justify;
+}
+
+.categorias {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.categorias_cursos {
+  padding: 5px 15px;
+  font-size: .7rem;
+  border-radius: 30px;
+}
+
+.docente_cursos {
+  font-style: italic;
+  font-size: .8rem;
+}
+
+.boton_ver_mas {
+  width: auto!important;
+  padding: 8px 25px!important;
+  box-shadow: #b3001b 1px 1px 1px; 
+  background-color: #b3001b; 
+  color: #e8eef2!important;
+  font-weight: bold;
+}
+/* FIN SECCIÓN CURSOS */
+
+/* SECCIÓN SERVICIOS */
+.iconos_servicios {
+  color: #0B132B!important;
+}
+/* FIN SECCIÓN SERVICIOS */
+
+/* SECCIÓN CONTACTO */
+.formulario_contacto {
+  width: 70%!important;
+  margin: 0 auto!important;
+}
+
+.iconos_contacto {
+  font-size: 1.7rem;
+  color: #e8eef2;
+  margin-top: 5px;
+}
+
+.campos_contacto {
+  width: 90%;
+}
+
+.campos_contacto::placeholder {
+  color: #6c757d!important;
+  font-weight: normal!important;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.boton_contacto {
+  font-weight: bold;
+  margin-top: 15px;
+}
+/* FIN SECCIÓN CONTACTO */
+
+/* FOOTER */
+.iconos_footer {
+  border: none!important;
+  position: relative;
+}
+
+.iconos_footer:before {
+  content:"";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: all .3s ease;
+}
+
+.iconos_footer:hover:before {
+  height: 100%;
+}
+
+.icono_twitter {
+  background-color: #00acee!important;
+}
+
+.icono_facebook {
+  background-color: #3b5998!important;
+}
+
+.icono_linkedin {
+  background-color: #0e76a8!important;
+}
+/* FIN FOOTER */
+
+/* RESPONSIVE */
+@media screen and (max-width: 991px) {
+  #mainNav {
+      padding-left: 20px!important;
+      padding-right: 20px!important;
+  }
+
+  #mainNav a {
+      text-shadow: none!important;
+      color: #0B132B!important;
+  }
+
+  #mainNav .navbar-toggler {
+      border: 1px solid #0B132B;
+      color: #0B132B!important;
+  }
+
+  #mainNav .boton_sesion2 {
+      color: #0B132B!important;
+      text-shadow: transparent 0px 0px 0px!important;
+      border: 1px solid #0B132B!important;
+  }
+
+  #mainNav .boton_sesion2:before {
+      content:"";
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 0px;
+      background: rgba(0, 0, 0, 0.05);
+      transition: all .3s ease;
+  }
+
+  #mainNav .boton_sesion2:hover:before {
+      height: 100%;
+  }
+
+  #mainNav li {
+      margin: 10px 0;
+  }
+
+  .formulario_contacto {
+      width: 90%!important;
+  }
+
+  .contenedor_registro {
+      width: 100%!important;
+      padding: 0!important;
+      height: 70%!important;
+  }
+
+  .texto_registro {
+      display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  header.masthead {
+      display: flex!important;
+      flex-direction: column!important;
+      justify-content: center!important;
+      align-items: center!important;
+  }
+  
+  .masthead-heading {
+      font-size: 2rem!important;
+  }
+
+  .iconos_contacto {
+      padding-right: 5px!important;
+  }
+
+  .cookies {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+  }
+  
+  .texto_cookies {
+      flex-basis: 70%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 20px;
+  }
+}
+/* FIN RESPONSIVE */
+/* FIN ESTILOS PROPIOS */
