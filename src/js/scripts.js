@@ -75,39 +75,39 @@ function cerrarCookies() {
 // FIN CERRAR COOKIES
 
 // ANIMACIÓN IMÁGENES CURSOS
-    const cards_cursos = $('.portfolio-item');
-    cards_cursos.mouseover(escalarImagenes);
-    cards_cursos.mouseout(rescalarImagenes);
+const cards_cursos = $('.portfolio-item');
+cards_cursos.mouseover(escalarImagenes);
+cards_cursos.mouseout(rescalarImagenes);
 
-    function escalarImagenes() {
-        const card_curso = $(this);
-        let id_card = card_curso.attr('id');
+function escalarImagenes() {
+    const card_curso = $(this);
+    let id_card = card_curso.attr('id');
 
-        let imagen_card = $('#' + id_card + ' .imagen_card img');
-        imagen_card.css('transition', 'transform .2s');
-        imagen_card.css('transform', 'scale(1.1)');
+    let imagen_card = $('#' + id_card + ' .imagen_card img');
+    imagen_card.css('transition', 'transform .2s');
+    imagen_card.css('transform', 'scale(1.1)');
 
-        const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
-        modalidad.css('transition', 'opacity .2s ease-in-out');
-        modalidad.css('opacity', '1');
-        modalidad.css('transition', 'box-shadow .2s ease-in-out');
-        modalidad.css('box-shadow', '#0B132B 0px 0px 2px');
-    }
+    const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
+    modalidad.css('transition', 'opacity .2s ease-in-out');
+    modalidad.css('opacity', '1');
+    modalidad.css('transition', 'box-shadow .2s ease-in-out');
+    modalidad.css('box-shadow', '#0B132B 0px 0px 2px');
+}
 
-    function rescalarImagenes() {
-        const card_curso = $(this);
-        let id_card = card_curso.attr('id');
+function rescalarImagenes() {
+    const card_curso = $(this);
+    let id_card = card_curso.attr('id');
 
-        let imagen_card = $('#' + id_card + ' img');
-        imagen_card.css('transition', 'transform .2s');
-        imagen_card.css('transform', 'scale(1)');
+    let imagen_card = $('#' + id_card + ' img');
+    imagen_card.css('transition', 'transform .2s');
+    imagen_card.css('transform', 'scale(1)');
 
-        const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
-        modalidad.css('transition', 'opacity .2s ease-in-out');
-        modalidad.css('opacity', '.8');
-        modalidad.css('transition', 'box-shadow .2s ease-in-out');
-        modalidad.css('box-shadow', 'transparent 0px 0px 0px');
-    }
+    const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
+    modalidad.css('transition', 'opacity .2s ease-in-out');
+    modalidad.css('opacity', '.8');
+    modalidad.css('transition', 'box-shadow .2s ease-in-out');
+    modalidad.css('box-shadow', 'transparent 0px 0px 0px');
+}
 // FIN ANIMACIÓN IMÁGENES CURSOS
 
 // INPUTS DE EMPRESA
@@ -140,3 +140,133 @@ function mostrarOcularOpciones() {
 }
 // FIN INPUTS DE EMPRESA
 
+// VALIDACIÓN FORMULARIOS
+$(document).ready(function () {
+    $.validator.addMethod("formatoEmail", function (value, element) {
+        var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+        return this.optional(element) || pattern.test(value);
+    });
+
+    $("#iniciar_sesion").validate({
+        onkeyup: false,
+        rules: {
+            email: {
+                required: true,
+                formatoEmail: true,
+                email: true,
+            },
+            password: {
+                required: true,
+                minlength: 8,
+                maxlength: 32,
+            },
+        },
+        messages: {
+            email: {
+                required: "El email es requerido",
+                formatoEmail: "Formato de email no válido",
+                email: "Formato de email no válido",
+            },
+            password: {
+                required: "La contraseña es requerida",
+                minlength: "La contraseña debe tener al menos 8 caracteres",
+                maxlength: "La contraseña no puede exceder los 32 caracteres",
+            },
+        },
+    });
+
+    $.validator.addMethod("formatoDNI", function (value, element) {
+        if (/^([0-9]{8})*[a-zA-Z]+$/.test(value)) {
+            var numero = value.substr(0, value.length - 1);
+            var let = value.substr(value.length - 1, 1).toUpperCase();
+            numero = numero % 23;
+            var letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+            letra = letra.substring(numero, numero + 1);
+            if (letra == let) {
+                return true
+            };
+            return false;
+        }
+        return this.optional(element);
+    });
+
+    $.validator.addMethod("formatoTexto", function (value, element) {
+        let matchPattern = value.match(/\d+/g);
+        if (matchPattern != null) {
+            return this.optional(element);
+        }
+        return true;
+    });
+
+    $.validator.addMethod("matchPassword", function (value, element) {
+        if ($("#password_1").val() == value) {
+            return true;
+        }
+        return this.optional(element);
+    });
+
+    $("#registrarse").validate({
+        onkeyup: false,
+        rules: {
+            name: {
+                required: true,
+                maxlength: 32,
+                formatoTexto: true,
+            },
+            surnames: {
+                required: true,
+                maxlength: 64,
+                formatoTexto: true,
+            },
+            dni: {
+                required: true,
+                formatoDNI: true,
+            },
+            email: {
+                required: true,
+                formatoEmail: true,
+                email: true,
+            },
+            password1: {
+                required: true,
+                minlength: 8,
+                maxlength: 32,
+            },
+            password2: {
+                required: true,
+                matchPassword: true,
+            },
+        },
+        messages: {
+            name: {
+                required: "El nombre es requerido",
+                maxlength: "El nombre no puede exceder los 32 caracteres",
+                formatoTexto: "El nombre no es válido",
+            },
+            surnames: {
+                required: "El nombre es requerido",
+                maxlength: "El nombre no puede exceder los 64 caracteres",
+                formatoTexto: "El nombre no es válido",
+            },
+            dni: {
+                required: "El DNI es requerido",
+                formatoDNI: "DNI no válido",
+            },
+            email: {
+                required: "El email es requerido",
+                formatoEmail: "Formato de email no válido",
+                email: "Formato de email no válido",
+            },
+            password1: {
+                required: "La contraseña es requerida",
+                minlength: "La contraseña debe tener al menos 8 caracteres",
+                maxlength: "La contraseña no puede exceder los 32 caracteres",
+            },
+            password2: {
+                required: "Repite la contraseña",
+                matchPassword: "Las contraseñas no coinciden",
+            },
+        },
+    });
+});
+// FIN VALIDACIÓN FORMULARIOS
