@@ -33,13 +33,13 @@
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
                         <div class="dropdown d-flex justify-content-between align-items-center gap-3 icono_perfil">
                             <button type="button" class="btn d-flex justify-content-between align-items-center p-0 gap-3" data-bs-toggle="dropdown">
-                                <p class="m-0 items text-dark">Nombre Usuario</p>
+                                <p class="m-0 items text-dark">{{ auth()->user()->name}}  {{   auth()->user()->surnames}}</p>
                                 <img src="assets/img/perfil.jpg" alt="perfil" class="rounded-circle border border-1 border-dark" width="50px;">
                             </button>
                             <div class="dropdown-menu mt-3 p-2" style="width: 100%;" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item items text-end opciones_perfil" href="#"><i class="fas fa-user-alt"></i>Mi Perfil</a>
                               <a class="dropdown-item items text-end opciones_perfil" href="#"><i class="fas fa-clipboard-list"></i>Mis Cursos</a>
-                              <a class="dropdown-item items text-end opciones_perfil" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
+                              <a href="/logout" class="dropdown-item items text-end opciones_perfil" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                             </div>
                           </div>
                     </li>
@@ -51,13 +51,14 @@
 
     
 
-    <!-- MODAL DE INICIAR SESIÓN -->
+    <!-- MODAL DE HACERSE CREADOR -->
     <div class="modal fade" id="modal_creador">
         <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
-                        <form class="form-control formulario_sesion">
+                        <form class="form-control formulario_sesion" method="post" action="/file" enctype="multipart/form-data">
+                        {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
                                 <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
                                     <div class="row">
@@ -68,7 +69,7 @@
                                             <i class="fas fa-file-pdf iconos_sesion"></i>
                                             <div class="campos_sesion">
                                                 <label class="form-file-label items mb-1" for="curriculum">Inserta tu CV:</label>
-                                                <input class="form-control-file items" type="file" id="curriculum" name="curiculum">
+                                                <input class="form-control-file items" type="file" id="file" name="file">
                                             </div>
                                         </div>
                                         <div class="col-12 form-group px-5 mb-5 d-flex justify-content-start align-items-center gap-3">
@@ -80,15 +81,15 @@
                                         </div>
                                         <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-center" id="nombre">
                                             <i class="fas fa-sign mb-2 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="nombre" placeholder="Nombre empresa"/>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="name" placeholder="Nombre empresa"/>
                                         </div>
                                         <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-center" id="direccion">
                                             <i class="fas fa-map-marked-alt mb-2 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="direccion" placeholder="Dirección empresa"/>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="address" placeholder="Dirección empresa"/>
                                         </div>
                                         <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-center" id="localidad">
                                             <i class="fas fa-map-marker-alt mb-2 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="localidad" placeholder="Localidad"/>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="location" placeholder="Localidad"/>
                                         </div>
                                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
                                             <button class="btn submit_sesion boton_sesion py-2 items"

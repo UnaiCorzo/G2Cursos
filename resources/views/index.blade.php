@@ -59,7 +59,8 @@
             <div class="modal-content">
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
-                        <form class="form-control formulario_sesion" id="iniciar_sesion" method="post" name="signin">
+                        <form class="form-control formulario_sesion" id="iniciar_sesion" method="post" name="signin" action="/session">
+                            {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
                                 <div
                                     class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
@@ -82,6 +83,11 @@
                                                 <input class="form-control p-2 campos_sesion" type="password"
                                                     placeholder="Contraseña" name="password" />
                                             </div>
+                                            @error ('message')
+                                          
+                                              <div class="text-center"><p style="color:red">{{ $message }}</p></div>
+                                            
+                                            @enderror
                                         </div>
                                         <div
                                             class="col-12 d-flex justify-content-between align-items-end px-5 text-center mt-3 mb-4">
@@ -109,7 +115,8 @@
             <div class="modal-content">
                 <section class="fondo_formulario_registro">
                     <div class="container contenedor_modal contenedor_registro">
-                        <form class="form-control formulario_registro" id="registrarse" method="post">
+                        <form class="form-control formulario_registro" id="registrarse" method="post" action="/user">
+                            {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_registro">
                                 <div
                                     class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
