@@ -25,8 +25,8 @@
             <div class="collapse navbar-collapse p-0" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto me-lg-5 p2-2 py-lg-0 text-center">
                     <li class="nav-item d-flex justify-content-center align-items-center me-1">
-                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"  data-bs-toggle="modal" data-bs-target="#modal_registro">
-                            HÁZTE CREADOR
+                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"  data-bs-toggle="modal" data-bs-target="#modal_creador">
+                            HAZTE CREADOR
                         </button>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link" href="#">Buscador</a></li>
@@ -48,6 +48,64 @@
         </div>
     </nav>
     <!-- FIN BARRA DE NAVEGACIÓN -->
+
+    
+
+    <!-- MODAL DE INICIAR SESIÓN -->
+    <div class="modal fade" id="modal_creador">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <section class="fondo_formulario_sesion">
+                    <div class="container contenedor_modal contenedor_sesion">
+                        <form class="form-control formulario_sesion">
+                            <div class="row d-flex justify-content-start formulario_sesion">
+                                <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
+                                    <div class="row">
+                                        <div class="col-12 mb-5">
+                                            <h2 class="section-heading m-0 text-center text-dark h3">HACERSE CREADOR</h2>
+                                        </div>
+                                        <div class="col-12 form-group px-5 mb-4 d-flex justify-content-start align-items-center gap-3">
+                                            <i class="fas fa-file-pdf iconos_sesion"></i>
+                                            <div class="campos_sesion">
+                                                <label class="form-file-label items mb-1" for="curriculum">Inserta tu CV:</label>
+                                                <input class="form-control-file items" type="file" id="curriculum" name="curiculum">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 form-group px-5 mb-5 d-flex justify-content-start align-items-center gap-3">
+                                            <i class="fas fa-building iconos_sesion"></i>
+                                            <div class="form-check form-switch items campos_sesion">
+                                                <input class="form-check-input empresa" type="checkbox" id="mySwitch" name="empresa" value="no">
+                                                <label class="form-check-label" for="mySwitch">Pertenezco a una empresa</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-center" id="nombre">
+                                            <i class="fas fa-sign mb-2 iconos_sesion"></i>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="nombre" placeholder="Nombre empresa"/>
+                                        </div>
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-center" id="direccion">
+                                            <i class="fas fa-map-marked-alt mb-2 iconos_sesion"></i>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="direccion" placeholder="Dirección empresa"/>
+                                        </div>
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-center" id="localidad">
+                                            <i class="fas fa-map-marker-alt mb-2 iconos_sesion"></i>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="localidad" placeholder="Localidad"/>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
+                                            <button class="btn submit_sesion boton_sesion py-2 items"
+                                                id="submitButton" type="submit">ENVIAR
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <i class="far fa-times-circle boton_cerrar_modal" data-bs-dismiss="modal"></i>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL DE INICIAR SESIÓN -->
 
     <!-- SECCIÓN CURSOS DEMO -->
     <section class="page-section seccion_cursos mt-3" id="cursos">

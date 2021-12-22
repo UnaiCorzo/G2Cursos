@@ -110,3 +110,33 @@ function cerrarCookies() {
     }
 // FIN ANIMACIÓN IMÁGENES CURSOS
 
+// INPUTS DE EMPRESA
+const switch_empresa = $('#mySwitch');
+switch_empresa.change(mostrarOcularOpciones);
+
+function mostrarOcularOpciones() {
+    const nombre_empresa = $('#nombre');
+    const direccion_empresa = $('#direccion');
+    const localidad_empresa = $('#localidad');
+
+    if (switch_empresa.prop('checked')) {
+        nombre_empresa.removeClass('d-none');
+        direccion_empresa.removeClass('d-none');
+        localidad_empresa.removeClass('d-none');
+
+        nombre_empresa.addClass('d-flex');
+        direccion_empresa.addClass('d-flex');
+        localidad_empresa.addClass('d-flex');
+    }
+    else {
+        nombre_empresa.removeClass('d-flex');
+        direccion_empresa.removeClass('d-flex');
+        localidad_empresa.removeClass('d-flex');
+
+        nombre_empresa.addClass('d-none');
+        direccion_empresa.addClass('d-none');
+        localidad_empresa.addClass('d-none');
+    }
+}
+// FIN INPUTS DE EMPRESA
+
