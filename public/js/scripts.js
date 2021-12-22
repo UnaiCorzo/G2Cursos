@@ -52,15 +52,6 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 });
 
-$(document).ready(function () {
-    setTimeout(function () {
-        $("#cookieConsent").fadeIn(200);
-    }, 1000);
-    $("#closeCookieConsent, .cookieConsentOK").click(function () {
-        $("#cookieConsent").fadeOut(200);
-    });
-});
-
 // CERRAR COOKIES
 const boton_aceptar = $('.boton_cookie button');
 boton_aceptar.click(cerrarCookies);
@@ -140,8 +131,16 @@ function mostrarOcularOpciones() {
 }
 // FIN INPUTS DE EMPRESA
 
-// VALIDACIÓN FORMULARIOS
 $(document).ready(function () {
+    // COOKIES
+    setTimeout(function () {
+        $("#cookieConsent").fadeIn(200);
+    }, 1000);
+    $("#closeCookieConsent, .cookieConsentOK").click(function () {
+        $("#cookieConsent").fadeOut(200);
+    });
+
+    // VALIDACIÓN FORMULARIOS
     $.validator.addMethod("formatoEmail", function (value, element) {
         var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
         return this.optional(element) || pattern.test(value);
@@ -268,5 +267,11 @@ $(document).ready(function () {
             },
         },
     });
+    // FIN VALIDACIÓN FORMULARIOS
+
+    // ABRIR MODAL CON ERROR
+    if ($("#error_sesion").length > 0) {
+        $("#modal_sesion").modal("show");
+    }
+    // FIN ABRIR MODAL CON ERROR
 });
-// FIN VALIDACIÓN FORMULARIOS
