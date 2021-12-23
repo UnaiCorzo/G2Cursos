@@ -130,6 +130,7 @@
                                 <div class="col-12 p-0 docente_cursos">
                                     <p class="m-0 items">Alberto Ramírez (Backskills)</p>
                                 </div>
+                                
                                 <div class="col-12 p-0 valoracion">
                                     <p class="m-0 me-1 pt-1 items">3.5</p>
                                     <i class="fas fa-star"></i>

@@ -14,9 +14,9 @@ class UserController extends Controller
         User::create([
             'name' => $validatedData["name"],
             'surnames' => $validatedData["surnames"],
-            'email' => $validatedData["email"],
+            'email' => strtolower($validatedData["email"]),
             'password' => $validatedData["password1"],
-            'dni' => $validatedData["dni"],
+            'dni' => strtoupper($validatedData["dni"]),
             'role_id' => 1,
         ]);
         return redirect('/');    
