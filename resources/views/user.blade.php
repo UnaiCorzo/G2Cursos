@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>G2Cursos</title>
+    <title>{{ auth()->user()->name}} | G2Cursos</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="userNav">
         <div class="container-fluid">
-            <p class="h3 ms-lg-5 mb-0"><a href="index.html" style="text-decoration: none;">G2Cursos</a></p>
+            <p class="h3 ms-lg-5 mb-0">G2Cursos</p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -49,8 +48,6 @@
     </nav>
     <!-- FIN BARRA DE NAVEGACIÓN -->
 
-    
-
     <!-- MODAL DE HACERSE CREADOR -->
     <div class="modal fade" id="modal_creador">
         <div class="modal-dialog modal-md modal-dialog-centered">
@@ -58,7 +55,7 @@
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
                         <form class="form-control formulario_sesion" method="post" action="/file" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                            {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
                                 <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
                                     <div class="row">
@@ -112,7 +109,7 @@
     <section class="page-section seccion_cursos mt-3" id="cursos">
         <div class="container mt-0">
             <div class="text-center">
-                <p class="h5 items mb-5 mt-2">Aquí tienes tus cursos:</p>
+                <p class="h5 items mb-5 mt-2">Mis cursos:</p>
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -130,7 +127,7 @@
                                 <div class="col-12 p-0 docente_cursos">
                                     <p class="m-0 items">Alberto Ramírez (Backskills)</p>
                                 </div>
-                                
+
                                 <div class="col-12 p-0 valoracion">
                                     <p class="m-0 me-1 pt-1 items">3.5</p>
                                     <i class="fas fa-star"></i>
@@ -181,6 +178,6 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/user.js"></script>
-    
+
 </body>
 </html>

@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUser;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
-    public function store(StoreUser $request){
+    public function store(StoreUser $request)
+    {
         $validatedData = $request->validated();
         User::create([
             'name' => $validatedData["name"],
@@ -19,14 +19,16 @@ class UserController extends Controller
             'dni' => strtoupper($validatedData["dni"]),
             'role_id' => 1,
         ]);
-        return redirect('/');    
+        return redirect('/');
     }
 
-    public function myprofile() {
+    public function myprofile()
+    {
         return view("profile");
     }
 
-    public function modify(Request $request, $id) {
+    public function modify(Request $request, $id)
+    {
         $user_modify = User::find($id);
         if ($request->get("name") != null) {
             $user_modify->name = $request->get("name");
@@ -40,5 +42,20 @@ class UserController extends Controller
 
         $user_modify->save();
         return redirect('/profile');
+    }
+
+    public function password(Request $request)
+    {
+        $password = $request->get('password1');
+
+        if (auth()->attempt(['email' => auth()->user()->email, "password" => $password]) == true) {
+            $user_modify = User::find(auth()->user()->id);
+            $new_password = $request->get('password2');
+            $user_modify->password = $new_password;
+            $user_modify->save();
+
+            return redirect('/profile');
+        }
+        return back()->withErrors(['message' => 'La contraseña no es correcta']);
     }
 }

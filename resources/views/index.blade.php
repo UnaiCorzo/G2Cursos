@@ -35,7 +35,7 @@
                             style="color: #E8EEF2; text-shadow: #0B132B 1px 1px 1px;">Contacto</a></li>
                     <li class="nav-item d-flex justify-content-center align-items-center">
                         <button class="btn text-uppercase ms-2 py-2 items boton_sesion2"
-                            style="height: 100%;font-weight: bold; text-shadow: #0B132B 1px 1px 1px;"
+                            style="height: 100%; font-weight: bold; text-shadow: #0B132B 1px 1px 1px;"
                             data-bs-toggle="modal" data-bs-target="#modal_sesion">
                             INICIAR SESIÓN
                         </button>
@@ -81,11 +81,11 @@
                                             <i class="fas fa-lock mb-2 iconos_sesion icono_formulario"></i>
                                             <div class="campos_registro">
                                                 <input class="form-control p-2 campos_sesion" type="password"
-                                                    placeholder="Contraseña" name="password" />
+                                                    placeholder="Contraseña" name="password" id="password_sesion"/>
+                                                    @error ('message')
+                                                        <label class="error" id="error_sesion" for="password_sesion">{{ $message }}</label>
+                                                    @enderror
                                             </div>
-                                            @error ('message')
-                                              <div class="text-center" id="error_sesion"><p style="color:red">{{ $message }}</p></div>
-                                            @enderror
                                         </div>
                                         <div
                                             class="col-12 d-flex justify-content-between align-items-end px-5 text-center mt-3 mb-4">

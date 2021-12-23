@@ -10,22 +10,14 @@ $(document).ready(function () {
         input_habilitar.removeAttr('disabled');
         input_habilitar.focus();
 
-        if (input_habilitar.attr('name') == 'contrasena') {
-            const bloque_repetir = $('#repetir_contrasena_perfil');
-            bloque_repetir.removeClass('d-none');
-            bloque_repetir.addClass('d-flex');
-        }
-
         const boton_modificar = $('#modifyButton');
         boton_modificar.removeAttr('disabled');
     });
-    // FIN HABILITAR INPUTS DE EDITAR INFORMACIÓN PERSONAL
+    // FIN HABILITAR INPUTS DE EDITAR INFORMACIÓN 
 
     // INPUTS DE EMPRESA
     const switch_empresa = $('#mySwitch');
-    switch_empresa.change(mostrarOcularOpciones);
-
-    function mostrarOcularOpciones() {
+    switch_empresa.change(function () {
         const nombre_empresa = $('#nombre');
         const direccion_empresa = $('#direccion');
         const localidad_empresa = $('#localidad');
@@ -48,7 +40,7 @@ $(document).ready(function () {
             direccion_empresa.addClass('d-none');
             localidad_empresa.addClass('d-none');
         }
-    }
+    });
     // FIN INPUTS DE EMPRESA
 
     // VALIDACIÓN FORMULARIO
@@ -102,5 +94,54 @@ $(document).ready(function () {
             },
         },
     });
+
+    $.validator.addMethod("matchPassword", function (value, element) {
+        if ($("#password_2").val() == value) {
+            return true;
+        }
+        return this.optional(element);
+    });
+
+    $("#modificar_password").validate({
+        onkeyup: false,
+        rules: {
+            password1: {
+                required: true,
+                minlength: 8,
+                maxlength: 32,
+            },
+            password2: {
+                required: true,
+                minlength: 8,
+                maxlength: 32,
+            },
+            password3: {
+                required: true,
+                matchPassword: true,
+            },
+        },
+        messages: {
+            password1: {
+                required: "La contraseña es requerida",
+                minlength: "La contraseña debe tener al menos 8 caracteres",
+                maxlength: "La contraseña no puede exceder los 32 caracteres",
+            },
+            password2: {
+                required: "La contraseña es requerida",
+                minlength: "La contraseña debe tener al menos 8 caracteres",
+                maxlength: "La contraseña no puede exceder los 32 caracteres",
+            },
+            password3: {
+                required: "Repite la contraseña",
+                matchPassword: "Las contraseñas no coinciden",
+            },
+        },
+    });
     // FIN VALIDACIÓN FORMULARIO
+
+    // ABRIR MODAL CON ERROR
+    if ($("#error_password").length > 0) {
+        $("#modal_password").modal("show");
+    }
+    // FIN ABRIR MODAL CON ERROR
 });

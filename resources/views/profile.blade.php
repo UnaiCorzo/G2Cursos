@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>G2Cursos</title>
+    <title>Mi perfil | G2Cursos</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="userNav">
         <div class="container-fluid">
-            <p class="h3 ms-lg-5 mb-0"><a href="index.html" style="text-decoration: none;">G2Cursos</a></p>
+            <p class="h3 ms-lg-5 mb-0">G2Cursos</p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -49,7 +49,7 @@
     </nav>
     <!-- FIN BARRA DE NAVEGACIÓN -->
 
-    <!-- MODAL DE INICIAR SESIÓN -->
+    <!-- MODAL DE HCAERSE CREADOR -->
     <div class="modal fade" id="modal_creador">
         <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
@@ -103,13 +103,13 @@
             </div>
         </div>
     </div>
-    <!-- FIN MODAL DE INICIAR SESIÓN -->
+    <!-- FIN MODAL DE HACERSE CREADOR -->
 
     <!-- SECCIÓN PERFIL -->
     <section class="page-section seccion_perfil mt-3" id="perfil">
         <div class="container mt-0">
             <div class="text-center">
-                <p class="h5 items mb-5 mt-2">Información personal:</p>
+                <p class="h5 items mb-5 mt-2">Mi perfil:</p>
             </div>
             <form class="form-control" id="modificar_perfil" method="post" action="/profile/modify/{{ auth()->user()->id }}">
                 {{ csrf_field() }}
@@ -143,13 +143,14 @@
                             </button>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group mb-1 d-flex justify-content-end align-items-start gap-2" id="dni_pefil">
-                            <button class="btn py-2 items boton_editar d-flex justify-content-between align-items-center gap-3" id="editButton3" type="button">
+                            <button class="btn py-2 items boton_sesion d-flex justify-content-between align-items-center gap-3" id="editButton3" type="button" data-bs-toggle="modal" data-bs-target="#modal_password">
                                 <i class="fas fa-lock"></i>
                                 <p class="m-0 items">CAMBIAR CONTRASEÑA</p>
                             </button>
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
-                            <button class="btn submit_sesion boton_sesion py-2 items" id="modifyButton" type="submit" disabled>MODIFICAR
+                            <button class="btn submit_sesion boton_sesion py-2 items" id="modifyButton" type="submit" disabled>
+                                MODIFICAR
                             </button>
                         </div>
                     </div>
@@ -158,6 +159,65 @@
         </div>
     </section>
     <!-- FIN SECCIÓN PERFIL -->
+
+    <!-- MODAL DE CAMBIAR CONTRASEÑA -->
+    <div class="modal fade" id="modal_password">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <section class="fondo_formulario_sesion">
+                    <div class="container contenedor_modal contenedor_sesion">
+                        <form class="form-control formulario_sesion" id="modificar_password" method="post" name="change_password" action="/profile/reset/password">
+                            {{ csrf_field() }}
+                            <div class="row d-flex justify-content-start formulario_sesion">
+                                <div
+                                    class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
+                                    <div class="row">
+                                        <div class="col-12 mb-5 mt-2">
+                                            <h2 class="section-heading m-0 text-center text-dark h3">CAMBIAR CONTRASEÑA</h2>
+                                        </div>
+                                        <div
+                                            class="col-12 form-group px-5 d-flex justify-content-between flex-wrap mt-3 mb-3">
+                                            <i class="fas fa-lock mb-2 iconos_sesion icono_formulario"></i>
+                                            <div class="campos_registro">
+                                                <input class="form-control p-2 campos_sesion" id="password_1" type="password"
+                                                    placeholder="Contraseña actual" name="password1" />
+                                                    @error ('message')
+                                                        <label class="error" id="error_password" for="password_1">{{ $message }}</label>
+                                                    @enderror
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-12 form-group px-5 d-flex justify-content-between flex-wrap mt-3 mb-3">
+                                            <i class="fas fa-lock mb-2 iconos_sesion icono_formulario"></i>
+                                            <div class="campos_registro">
+                                                <input class="form-control p-2 campos_sesion" id="password_2" type="password"
+                                                    placeholder="Nueva contraseña" name="password2" />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-12 form-group px-5 d-flex justify-content-between flex-wrap mt-3 mb-3">
+                                            <i class="fas fa-lock mb-2 iconos_sesion icono_formulario"></i>
+                                            <div class="campos_registro">
+                                                <input class="form-control p-2 campos_sesion" id="password_3" type="password"
+                                                    placeholder="Repetir contraseña" name="password3" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-center align-items-center text-center mt-2 mb-2">
+                                            <button class="btn submit_sesion boton_sesion py-2 items" id="modifyPasswordButton" type="submit">
+                                                MODIFICAR
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <i class="far fa-times-circle boton_cerrar_modal" data-bs-dismiss="modal"></i>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL DE CAMBIAR CONTRASEÑA -->
 
     <!-- PIE DE LA PÁGINA -->
     <footer class="footer py-4">
@@ -184,6 +244,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/profile.js"></script>
-    
+
 </body>
 </html>
