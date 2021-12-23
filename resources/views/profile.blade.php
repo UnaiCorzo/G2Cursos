@@ -49,7 +49,7 @@
     </nav>
     <!-- FIN BARRA DE NAVEGACIÓN -->
 
-    <!-- MODAL DE HCAERSE CREADOR -->
+    <!-- MODAL DE HACERSE CREADOR -->
     <div class="modal fade" id="modal_creador">
         <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
