@@ -29,7 +29,7 @@
                             HAZTE CREADOR
                         </button>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link" href="#">Buscador</a></li>
+                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" href="#">Buscador</a></li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
                         <div class="dropdown d-flex justify-content-between align-items-center gap-3 icono_perfil">
                             <button type="button" class="btn d-flex justify-content-between align-items-center p-0 gap-3" data-bs-toggle="dropdown">
@@ -37,8 +37,8 @@
                                 <img src="assets/img/perfil.jpg" alt="perfil" class="rounded-circle border border-1 border-dark" width="50px;">
                             </button>
                             <div class="dropdown-menu mt-3 p-2" style="width: 100%; min-width: 200px;" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item items text-end opciones_perfil link_activo" href="#"><i class="fas fa-clipboard-list"></i>Mis Cursos</a>
                               <a class="dropdown-item items text-end opciones_perfil" href="/profile"><i class="fas fa-user-alt"></i>Mi Perfil</a>
-                              <a class="dropdown-item items text-end opciones_perfil" href="#"><i class="fas fa-clipboard-list"></i>Mis Cursos</a>
                               <a href="/logout" class="dropdown-item items text-end opciones_perfil"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                             </div>
                           </div>
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-    <!-- FIN MODAL DE INICIAR SESIÓN -->
+    <!-- FIN MODAL DE HACERSE CREADOR -->
 
     <!-- SECCIÓN CURSOS DEMO -->
     <section class="page-section seccion_cursos mt-3" id="cursos">

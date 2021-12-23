@@ -37,9 +37,9 @@
                                 <img src="assets/img/perfil.jpg" alt="perfil" class="rounded-circle border border-1 border-dark" width="50px;">
                             </button>
                             <div class="dropdown-menu mt-3 p-2" style="width: 100%; min-width: 200px;" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item items text-end opciones_perfil" href="/profile"><i class="fas fa-user-alt"></i>Mi Perfil</a>
-                              <a class="dropdown-item items text-end opciones_perfil" href="/logged"><i class="fas fa-clipboard-list"></i>Mis Cursos</a>
-                              <a class="dropdown-item items text-end opciones_perfil" href="/logout"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
+                                <a class="dropdown-item items text-end opciones_perfil" href="/logged"><i class="fas fa-clipboard-list"></i>Mis Cursos</a>
+                                <a class="dropdown-item items text-end opciones_perfil link_activo" href="/profile"><i class="fas fa-user-alt"></i>Mi Perfil</a>
+                                <a class="dropdown-item items text-end opciones_perfil" href="/logout"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                             </div>
                           </div>
                     </li>
