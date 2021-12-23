@@ -12324,6 +12324,52 @@ opacity: 1;
   border-color: #0B132B!important;
 }
 
+/* SECCIÓN PERFIL */
+.seccion_perfil {
+  background-image: linear-gradient(to left top, #3b8ea5, #6ea5b9, #99bccd, #c1d5e0, #e8eef2);
+}
+
+.iconos_perfil {
+  width: 10%!important;
+  font-size: 1.4rem;
+  margin-top: 12px;
+}
+
+.campos_perfil {
+  width: 100%;
+  min-height: 4.5rem;
+}
+
+.campos_perfil input::placeholder {
+  color: #6c757d!important;
+  font-weight: normal!important;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.boton_editar {
+  background-color: #b3001b; 
+  color: #e8eef2!important;
+  position: relative;
+  border: none!important;
+}
+
+.boton_editar:before {
+  content:"";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: all .3s ease;
+}
+
+.boton_editar:hover:before {
+  height: 100%;
+  cursor: pointer;
+}
+/* FIN SECCIÓN PERFIL */
+
 /* PÁGINA DEL USUARIO */
 
 /* RESPONSIVE */

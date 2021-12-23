@@ -23,6 +23,8 @@ Route::get('/logged', function () {
 });
 
 Route::post('/user', [UserController::class, 'store']);
+Route::get('/profile', [UserController::class, 'myprofile']);
+Route::post('/profile/modify/{id}', [UserController::class, 'modify']);
 Route::post('/session', [SessionController::class, 'store']);
 Route::post('/file', [FileController::class, 'store']);
 Route::get('/show/{file}',[FileController::class,'show']);
