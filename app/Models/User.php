@@ -51,8 +51,18 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Role');
     }
+    public function course_teacher()
+    {
+        return $this->hasMany('App\Models\Course','teacher_id');
+    }
+    public function courses(){
+        return $this->belongsToMany('App\Models\Course')
+        ->withTimestamps();
+    }
     public function setPasswordAttribute($password){
         $this->attributes['password'] = bcrypt($password);
     }
-
+    public function company(){
+        return $this->belongsTo('App\Models\Company');
+    }
 }

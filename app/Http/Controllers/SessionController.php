@@ -20,12 +20,5 @@ class SessionController extends Controller
         auth()->logout();
         return redirect()->to('/');
     }
-  /*  public function admin(){
-        if (Gate::allows('access-admin',auth()->user())) {
-            return view('admin');
-        }
-        else{
-            return view('index');
-        }
-    }*/
+
 }
