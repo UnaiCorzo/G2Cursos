@@ -53,8 +53,9 @@ class UserController extends Controller
             $new_password = $request->get('password2');
             $user_modify->password = $new_password;
             $user_modify->save();
+            auth()->logout();
 
-            return redirect('/profile');
+            return redirect('/');
         }
         return back()->withErrors(['message' => 'La contraseña no es correcta']);
     }
