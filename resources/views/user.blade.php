@@ -54,7 +54,7 @@
             <div class="modal-content">
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
-                        <form class="form-control formulario_sesion" method="post" action="/file" enctype="multipart/form-data">
+                        <form class="form-control formulario_sesion" id="hacerse_creador" method="post" action="/file" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
                                 <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
@@ -62,31 +62,39 @@
                                         <div class="col-12 mb-5">
                                             <h2 class="section-heading m-0 text-center text-dark h3">HACERSE CREADOR</h2>
                                         </div>
-                                        <div class="col-12 form-group px-5 mb-4 d-flex justify-content-start align-items-center gap-3">
+                                        <div class="col-12 form-group px-5 d-flex justify-content-start align-items-start gap-3">
                                             <i class="fas fa-file-pdf iconos_sesion"></i>
                                             <div class="campos_sesion">
                                                 <label class="form-file-label items mb-1" for="curriculum">Inserta tu CV:</label>
-                                                <input class="form-control-file items" type="file" id="file" name="file">
+                                                <div class="campos_registro">
+                                                    <input class="form-control-file items archivo" type="file" id="file" name="file">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 mb-5 d-flex justify-content-start align-items-center gap-3">
+                                        <div class="col-12 form-group px-5 mb-4 d-flex justify-content-start align-items-center gap-3">
                                             <i class="fas fa-building iconos_sesion"></i>
                                             <div class="form-check form-switch items campos_sesion">
                                                 <input class="form-check-input empresa" type="checkbox" id="mySwitch" name="empresa" value="no">
                                                 <label class="form-check-label" for="mySwitch">Pertenezco a una empresa</label>
                                             </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 py-2 mb-2 d-none justify-content-between align-items-center" id="nombre">
-                                            <i class="fas fa-sign mb-2 mt-1 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="name" placeholder="Nombre empresa"/>
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start" id="nombre">
+                                            <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
+                                            <div class="campos_registro">
+                                                <input class="form-control p-2 campos_sesion" type="text" name="name" placeholder="Nombre empresa"/>
+                                            </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 py-2 mb-2 d-none justify-content-between align-items-center" id="direccion">
-                                            <i class="fas fa-map-marked-alt mb-2 mt-1 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="address" placeholder="Dirección empresa"/>
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start" id="direccion">
+                                            <i class="fas fa-map-marked-alt mb-2 mt-2 iconos_sesion"></i>
+                                            <div class="campos_registro">
+                                                <input class="form-control p-2 campos_sesion" type="text" name="address" placeholder="Dirección empresa"/>
+                                            </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 py-2 mb-2 d-none justify-content-between align-items-center" id="localidad">
-                                            <i class="fas fa-map-marker-alt mb-2  mt-1iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="locality" placeholder="Localidad"/>
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start" id="localidad">
+                                            <i class="fas fa-map-marker-alt mb-2 mt-2 iconos_sesion"></i>
+                                            <div class="campos_registro">
+                                                <input class="form-control p-2 campos_sesion" type="text" name="locality" placeholder="Localidad"/>
+                                            </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
                                             <button class="btn submit_sesion boton_sesion py-2 items"
@@ -176,8 +184,8 @@
     <!-- LINKS SCRIPTS DE BOOTSTRAP -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/user.js"></script>
-
 </body>
 </html>

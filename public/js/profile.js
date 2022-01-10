@@ -139,6 +139,40 @@ $(document).ready(function () {
     });
     // FIN VALIDACIÓN FORMULARIO
 
+    // VALIDACIÓN HACERSE CREADOR
+    $("#hacerse_creador").validate({
+        onkeyup: false,
+        rules: {
+            file: {
+                required: true,
+            },
+            name: {
+                required: true,
+            },
+            address: {
+                required: true,
+            },
+            locality: {
+                required: true,
+            },
+        },
+        messages: {
+            file: {
+                required: "El currículum es requerido",
+            },
+            name: {
+                required: "El nombre es requerido",
+            },
+            address: {
+                required: "La dirección es requerida",
+            },
+            locality: {
+                required: "La localidad es requerida",
+            },
+        },
+    });
+    // FIN VALIDACIÓN HACERSE CREADOR
+
     // ABRIR MODAL CON ERROR
     if ($("#error_password").length > 0) {
         $("#modal_password").modal("show");

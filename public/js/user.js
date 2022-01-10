@@ -64,4 +64,38 @@ $(document).ready(function () {
         modalidad.css('box-shadow', 'transparent 0px 0px 0px');
     }
     // FIN ANIMACIÓN IMÁGENES CURSOS
+
+    // VALIDACIÓN HACERSE CREADOR
+    $("#hacerse_creador").validate({
+        onkeyup: false,
+        rules: {
+            file: {
+                required: true,
+            },
+            name: {
+                required: true,
+            },
+            address: {
+                required: true,
+            },
+            locality: {
+                required: true,
+            },
+        },
+        messages: {
+            file: {
+                required: "El currículum es requerido",
+            },
+            name: {
+                required: "El nombre es requerido",
+            },
+            address: {
+                required: "La dirección es requerida",
+            },
+            locality: {
+                required: "La localidad es requerida",
+            },
+        },
+    });
+    // FIN VALIDACIÓN HACERSE CREADOR
 });
