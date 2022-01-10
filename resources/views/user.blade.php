@@ -78,15 +78,15 @@
                                         </div>
                                         <div class="col-12 form-group px-5 py-2 mb-2 d-none justify-content-between align-items-center" id="nombre">
                                             <i class="fas fa-sign mb-2 mt-1 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="nombre" placeholder="Nombre empresa"/>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="name" placeholder="Nombre empresa"/>
                                         </div>
                                         <div class="col-12 form-group px-5 py-2 mb-2 d-none justify-content-between align-items-center" id="direccion">
                                             <i class="fas fa-map-marked-alt mb-2 mt-1 iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="direccion" placeholder="Dirección empresa"/>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="address" placeholder="Dirección empresa"/>
                                         </div>
                                         <div class="col-12 form-group px-5 py-2 mb-2 d-none justify-content-between align-items-center" id="localidad">
                                             <i class="fas fa-map-marker-alt mb-2  mt-1iconos_sesion"></i>
-                                            <input class="form-control p-2 campos_sesion" type="text" name="localidad" placeholder="Localidad"/>
+                                            <input class="form-control p-2 campos_sesion" type="text" name="locality" placeholder="Localidad"/>
                                         </div>
                                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
                                             <button class="btn submit_sesion boton_sesion py-2 items"

@@ -22,10 +22,24 @@ class FileController extends Controller
                 ->limit(1)
                 ->update(array('cv' => $fileName));
 
-            // Falta insertar empresa
+            if (isset($request->name)) {
+                $nombre = strtolower($request->name);
+                $id = DB::table('companies')
+                    ->where('name', $nombre)
+                    ->value('id');
+  
+                if (is_null($id)) {
+                    $id = DB::table('companies')->insertGetId(
+                        ['name' => $nombre, 'direction' => $request->address,'location'=>$request->locality]
+                    );  
+                } 
+                DB::table('users')
+                    ->where('id', auth()->user()->id)
+                    ->limit(1)
+                    ->update(array('company_id' => $id));
+            }
             return redirect()->to('/logged')->withSuccess(__('File added successfully.'));
-        }
-        else{
+        } else {
             return redirect()->to('/logged');
         }
     }
