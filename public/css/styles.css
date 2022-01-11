@@ -12382,6 +12382,35 @@ opacity: 1;
 }
 /* FIN SECCIÓN PERFIL */
 
+/* PÁGINA DE CURSO */
+.link_curso {
+  text-decoration: none;
+  color: black;
+}
+
+.link_curso:hover {
+  color: black;
+}
+
+.descripcion_larga {
+  font-size: .9rem;
+  text-align: justify;
+}
+
+.creador_curso {
+  font-size: .8rem;
+}
+
+.img_curso {
+  border-radius: 0px!important;
+}
+
+.mod_curso {
+  /* right: 34px; */
+  opacity: 1!important;
+}
+/* FIN PÁGINA DE CURSO */
+
 /* PÁGINA DEL USUARIO */
 
 /* RESPONSIVE */

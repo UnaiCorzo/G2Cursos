@@ -30,7 +30,7 @@ $(document).ready(function () {
     // FIN INPUTS DE EMPRESA
 
     // ANIMACIÓN IMÁGENES CURSOS
-    const cards_cursos = $('.portfolio-item');
+    const cards_cursos = $('.portfolio-item a');
     cards_cursos.mouseover(escalarImagenes);
     cards_cursos.mouseout(rescalarImagenes);
 
