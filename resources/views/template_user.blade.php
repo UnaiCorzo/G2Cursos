@@ -32,7 +32,7 @@
                         @else
                             <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" href="#">CREAR CURSO</a></li>
                         @endif
-                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" href="#">Buscador</a></li>
+                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" id="link4" href="/find">Buscador</a></li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
                         <div class="dropdown d-flex justify-content-between align-items-center gap-3 icono_perfil">
                             <button type="button" class="btn d-flex justify-content-between align-items-center p-0 gap-3" data-bs-toggle="dropdown">

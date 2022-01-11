@@ -114,3 +114,4 @@ else if (title_pagina == 'Mi Perfil | G2Cursos') {
 function eliminarActivoPerfil() {
     $('.opciones_perfil').removeClass('link_activo');
 }
+

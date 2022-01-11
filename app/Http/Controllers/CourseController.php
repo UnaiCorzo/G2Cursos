@@ -10,4 +10,9 @@ class CourseController extends Controller
     {
         return view("course");
     }
+
+    public function find()
+    {
+        return view("find_courses");
+    }
 }

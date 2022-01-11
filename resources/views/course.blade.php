@@ -45,13 +45,13 @@
                 <div class="col-lg-5 col-12 order-lg-last order-first mb-5 mb-lg-0">
                     <div class="row px-3">
                         <div class="col-12 imagen_card p-0">
-                            <span class="badge badge-pill text-white bg-success items modalidad mod_curso">Presencial</span>
+                            <span class="badge badge-pill text-white bg-success items modalidad mod_curso">Modalidad</span>
                             <img class="img-fluid img_curso" src="assets/img/laravel.png" alt="..."/>
                         </div>
                         <div class="col-12 m-0 p-0 mt-3 categorias d-flex justify-content-end align-items-center">
-                            <span class="badge badge-pill text-white items categorias_cursos bg-info">PHP</span>
-                            <span class="badge badge-pill text-white items categorias_cursos bg-warning">Laravel</span>
-                            <span class="badge badge-pill text-white items categorias_cursos bg-success">Backend</span>
+                            <span class="badge badge-pill text-white items categorias_cursos bg-info">CAT1</span>
+                            <span class="badge badge-pill text-white items categorias_cursos bg-warning">CAT2</span>
+                            <span class="badge badge-pill text-white items categorias_cursos bg-success">CAT3</span>
                         </div>
                     </div>
                 </div>

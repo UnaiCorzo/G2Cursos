@@ -123,5 +123,3 @@
 @section('script_link')
     <script src="js/profile.js"></script>
 @endsection
-</body>
-</html>

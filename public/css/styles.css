@@ -12411,6 +12411,45 @@ opacity: 1;
 }
 /* FIN PÁGINA DE CURSO */
 
+/* PÁGINA BÚSQUEDA DE CURSOS */
+.input_busqueda {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.input_busqueda input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+.input_busqueda input:focus {
+  border-color: transparent!important;
+  box-shadow: transparent 0px 0px 3px!important;
+  outline: none!important;
+}
+
+.input_busqueda i {
+  font-size: 1.5rem!important;
+  color: #0B132B!important;
+}
+
+.boton_busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+/* FIN PÁGINA BÚSQUEDA DE CURSOS */
+
 /* PÁGINA DEL USUARIO */
 
 /* RESPONSIVE */
