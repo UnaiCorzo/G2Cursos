@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,4 +48,5 @@ class FileController extends Controller
     {
         return response()->download(public_path('files/' . $file));
     }
+
 }

@@ -4,6 +4,9 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +31,11 @@ Route::get('/logged', function () {
 
 Route::get('/admin', function () {
     if (Gate::allows('access-admin')) {
-        return view('admin');
+        $users = User::select("*")
+        ->whereNotNull('cv')
+        ->where('role_id',1)
+        ->get();
+        return view('admin',['users' => $users]);
     }
     return view('index');
 });
@@ -40,5 +47,6 @@ Route::get('/course', [CourseController::class, 'course'])->middleware('auth');
 Route::get('/find', [CourseController::class, 'find'])->middleware('auth');
 Route::post('/session', [SessionController::class, 'store']);
 Route::post('/file', [FileController::class, 'store']);
+Route::post('/user/upgrade', [UserController::class, 'upgrade']);
 Route::get('/show/{file}', [FileController::class, 'show']);
 Route::get('/logout', [SessionController::class, 'destroy']);

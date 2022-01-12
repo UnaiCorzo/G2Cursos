@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
     public function store(StoreUser $request)
     {
         $validatedData = $request->validated();
@@ -58,5 +60,20 @@ class UserController extends Controller
             return redirect('/');
         }
         return back()->withErrors(['message' => 'La contraseña no es correcta']);
+    }
+    public function upgrade(Request $request)
+    { 
+
+        if ($request->btn == "accept") {
+           DB::table('users')
+              ->where('id', $request->user)
+              ->update(['role_id' => 2, 'cv' => null]);
+        } 
+        else {
+            DB::table('users')
+            ->where('id', $request->user)
+            ->update(['cv' => null]);
+        }
+        return back();
     }
 }
