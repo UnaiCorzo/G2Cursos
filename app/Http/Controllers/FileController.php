@@ -39,14 +39,14 @@ class FileController extends Controller
                     ->limit(1)
                     ->update(array('company_id' => $id));
             }
-            return redirect()->to('/logged')->withSuccess(__('File added successfully.'));
+            return redirect()->to(route('home', app()->getLocale()))->withSuccess(__('File added successfully.'));
         } else {
-            return redirect()->to('/logged');
+            return redirect()->to(route('home', app()->getLocale()));
         }
     }
-    public function show(Request $request, $file)
+    public function show(Request $request, $lang, $file)
     {
-        return response()->download(public_path('files/' . $file));
+        return response()->download(public_path("asset('files/" . $file . "')"));
     }
 
 }

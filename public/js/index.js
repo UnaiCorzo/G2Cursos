@@ -234,4 +234,11 @@ $(document).ready(function () {
         },
     });
     // FIN VALIDACIÓN FORMULARIOS
+
+    // CAMBIAR IDIOMA
+    $("#prueba").change(function () {
+        let language = $("#prueba option:selected").val();
+        $(location).attr("href", language);
+    });
+    // FIN CAMBIAR IDIOMA
 });

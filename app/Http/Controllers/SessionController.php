@@ -9,12 +9,12 @@ class SessionController extends Controller
         if (auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors(['message' => 'El email o la contraseña no es correcta']);
         }
-        return redirect()->to('/logged');
+        return redirect()->to(route('home', app()->getLocale()));
     }
+
     public function destroy()
     {
         auth()->logout();
-        return redirect()->to('/');
+        return redirect()->to(route('login', app()->getLocale()));
     }
-
 }

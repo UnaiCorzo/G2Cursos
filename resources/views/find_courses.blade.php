@@ -1,7 +1,7 @@
 @extends('template_user')
 
 @section('title')
-    <title>Cursos | G2Cursos</title>
+    <title>{{ __('Cursos') }} | G2Cursos</title>
 @endsection
 
 @section('user_content')
@@ -12,19 +12,19 @@
                 <div class="col-12 mb-5 d-flex justify-content-between align-items-center">
                     <div class="input_busqueda">
                         <i class="fas fa-search"></i>
-                        <input type="text" name="course_name" placeholder="Nombre del curso...">
+                        <input type="text" name="course_name" placeholder="{{ __('Nombre del curso...') }}">
                     </div>
                     <button class="btn text-uppercase mx-2 py-2 items boton_sesion boton_busqueda" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
-                        Filtros
+                        {{ __('Filtros') }}
                         <i class="fas fa-filter"></i>
                     </button>
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="portfolio-item">
-                        <a href="/course" class="link_curso" id="curso">
+                        <a href="{{ route('course', app()->getLocale()) }}" class="link_curso" id="curso">
                             <div class="imagen_card">
-                                <span class="badge badge-pill text-white bg-success items modalidad">Presencial</span>
-                                <img class="img-fluid" src="assets/img/laravel.png" alt="..."/>
+                                <span class="badge badge-pill text-white bg-success items modalidad">{{ __('Presencial') }}</span>
+                                <img class="img-fluid" src="{{ asset('assets/img/laravel.png') }}" alt="..."/>
                             </div>
                             <div class="portfolio-caption">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -62,5 +62,5 @@
 @endsection
 
 @section('script_link')
-    <script src="js/user.js"></script>
+    <script src="{{ asset('js/user.js') }}"></script>
 @endsection

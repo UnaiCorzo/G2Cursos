@@ -21,7 +21,7 @@ class UserController extends Controller
             'dni' => strtoupper($validatedData["dni"]),
             'role_id' => 1,
         ]);
-        return redirect('/');
+        return redirect()->to(route('login', app()->getLocale()));
     }
 
     public function myprofile()
@@ -29,7 +29,7 @@ class UserController extends Controller
         return view("profile");
     }
 
-    public function modify(Request $request, $id)
+    public function modify(Request $request, $lang, $id)
     {
         $user_modify = User::find($id);
         if ($request->get("name") != null) {
@@ -43,7 +43,7 @@ class UserController extends Controller
         }
 
         $user_modify->save();
-        return redirect('/profile');
+        return redirect()->to(route('profile', $lang));
     }
 
     public function password(Request $request)
@@ -57,10 +57,11 @@ class UserController extends Controller
             $user_modify->save();
             auth()->logout();
 
-            return redirect('/');
+            return redirect()->to(route('login', app()->getLocale()));
         }
         return back()->withErrors(['message' => 'La contraseña no es correcta']);
     }
+
     public function upgrade(Request $request)
     { 
 

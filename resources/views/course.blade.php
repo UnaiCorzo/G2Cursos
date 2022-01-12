@@ -1,7 +1,7 @@
 @extends('template_user')
 
 @section('title')
-    <title>Curso | G2Cursos</title>
+    <title>{{ __('Curso') }} | G2Cursos</title>
 @endsection
 
 @section('user_content')
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-12 d-flex justify-content-center mt-5">
                             <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
-                                QUITAR
+                            {{ __('Quitar') }}
                             </button>
                         </div>
                     </div>
@@ -45,8 +45,8 @@
                 <div class="col-lg-5 col-12 order-lg-last order-first mb-5 mb-lg-0">
                     <div class="row px-3">
                         <div class="col-12 imagen_card p-0">
-                            <span class="badge badge-pill text-white bg-success items modalidad mod_curso">Modalidad</span>
-                            <img class="img-fluid img_curso" src="assets/img/laravel.png" alt="..."/>
+                            <span class="badge badge-pill text-white bg-success items modalidad mod_curso">{{ __('Presencial') }}</span>
+                            <img class="img-fluid img_curso" src="{{ asset('assets/img/laravel.png') }}" alt="..."/>
                         </div>
                         <div class="col-12 m-0 p-0 mt-3 categorias d-flex justify-content-end align-items-center">
                             <span class="badge badge-pill text-white items categorias_cursos bg-info">CAT1</span>
@@ -62,6 +62,6 @@
 @endsection
 
 @section('script_link')
-    <script src="js/user.js"></script>
-    <script src="js/course.js"></script>
+    <script src="{{ asset('js/user.js') }}"></script>
+    <script src="{{ asset('js/course.js') }}"></script>
 @endsection

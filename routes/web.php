@@ -21,32 +21,37 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('index');
-})->name("login");
+Route::redirect('/', '/es');
 
-Route::get('/logged', function () {
-    return view('user');
-})->middleware('auth');
+Route::group(['prefix' => '{language}'], function () {
+    Route::get('/', function () {
+        return view('index');
+    })->name("login");
 
-Route::get('/admin', function () {
-    if (Gate::allows('access-admin')) {
-        $users = User::select("*")
-        ->whereNotNull('cv')
-        ->where('role_id',1)
-        ->get();
-        return view('admin',['users' => $users]);
-    }
-    return view('index');
+    Route::get('/home', function () {
+        return view('user');
+    })->middleware('auth')->name('home');
+
+    Route::get('/admin', function () {
+        if (Gate::allows('access-admin')) {
+            $users = User::select("*")
+            ->whereNotNull('cv')
+            ->where('role_id', 1)
+            ->get();
+            return view('admin', ['users' => $users]);
+        }
+        return redirect()->to(route('login', app()->getLocale()));
+    })->name('admin');
+
+    Route::post('/user', [UserController::class, 'store'])->name('user');
+    Route::get('/profile', [UserController::class, 'myprofile'])->middleware('auth')->name('profile');
+    Route::post('/profile/modify/{id}', [UserController::class, 'modify'])->name('profile_modify');
+    Route::post('/profile/reset/password', [UserController::class, 'password'])->name('reset_password');
+    Route::get('/course', [CourseController::class, 'course'])->middleware('auth')->name('course');
+    Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
+    Route::post('/session', [SessionController::class, 'store'])->name('session');
+    Route::post('/file', [FileController::class, 'store'])->name('file');
+    Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');
+    Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
+    Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
 });
-Route::post('/user', [UserController::class, 'store']);
-Route::get('/profile', [UserController::class, 'myprofile'])->middleware('auth');
-Route::post('/profile/modify/{id}', [UserController::class, 'modify']);
-Route::post('/profile/reset/password', [UserController::class, 'password']);
-Route::get('/course', [CourseController::class, 'course'])->middleware('auth');
-Route::get('/find', [CourseController::class, 'find'])->middleware('auth');
-Route::post('/session', [SessionController::class, 'store']);
-Route::post('/file', [FileController::class, 'store']);
-Route::post('/user/upgrade', [UserController::class, 'upgrade']);
-Route::get('/show/{file}', [FileController::class, 'show']);
-Route::get('/logout', [SessionController::class, 'destroy']);

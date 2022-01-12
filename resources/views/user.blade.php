@@ -1,7 +1,7 @@
 @extends('template_user')
 
 @section('title')
-    <title>Mis Cursos | G2Cursos</title>
+    <title>{{ __('Mis Cursos') }} | G2Cursos</title>
 @endsection
 
 @section('user_content')
@@ -9,15 +9,15 @@
     <section class="page-section seccion_cursos mt-3" id="cursos">
         <div class="container mt-0">
             <div class="text-center">
-                <p class="h5 items mb-5 mt-2">Mis cursos:</p>
+                <p class="h5 items mb-5 mt-2">{{ __('Mis cursos') }}</p>
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="portfolio-item">
-                        <a href="/course" class="link_curso" id="curso">
+                        <a href="{{ route('course', app()->getLocale()) }}" class="link_curso" id="curso">
                             <div class="imagen_card">
-                                <span class="badge badge-pill text-white bg-success items modalidad">Presencial</span>
-                                <img class="img-fluid" src="assets/img/laravel.png" alt="..."/>
+                                <span class="badge badge-pill text-white bg-success items modalidad">{{ __('Presencial') }}</span>
+                                <img class="img-fluid" src="{{ asset('assets/img/laravel.png') }}" alt="..."/>
                             </div>
                             <div class="portfolio-caption">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center m-0 mt-4">
-                    <div class="col-lg-2 col-md-3 col-sm-3 py-2 px-1 btn mt-2 ms-sm-2 items boton_ver_mas boton_sesion" data-bs-toggle="modal" data-bs-target="#modal_sesion">DESCUBIR MÁS</div>
+                    <a href="{{ route('find', app()->getLocale()) }}" class="col-lg-2 col-md-4 col-sm-6 col-6 btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; text-decoration: none; color: white;">{{ __('Descubrir más') }}</a>
                 </div>
             </div>
         </div>
@@ -58,5 +58,5 @@
 @endsection
 
 @section('script_link')
-    <script src="js/user.js"></script>
+    <script src="{{ asset('js/user.js') }}"></script>
 @endsection

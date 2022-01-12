@@ -10,7 +10,7 @@
     <div class="container mt-0">
 
         <div class="table table-white d-flex justify-content-center text-center">
-            <table class="" border="1px">
+            <table border="1">
                 <tr>
                     <th class="p-1 pe-4 ps-4">Nombre</th>
                     <th class="p-1 pe-4">Apellidos</th>
@@ -22,13 +22,13 @@
                     <th class="p-1 pe-4">Rechazar</th>
                 </tr>
                 @foreach($users as $user)
-                <form class="form-control formulario_sesion" method="post" action="/user/upgrade" enctype="multipart/form-data">
+                <form class="form-control formulario_sesion" method="post" action="{{ route('upgrade', app()->getLocale()) }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type='hidden' name='user' value="{{$user->id}}">
                     <tr>
                         <td class="p-1 pe-4">{{$user->name}}</td>
                         <td class="p-1 pe-4">{{$user->surnames}}</td>
-                        <td class="p-1 pe-4"><a class="text-dark" href="/show/{{$user->cv}}">{{ $user->cv }}</a></td>
+                        <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', array(app()->getLocale(), $user->cv)) }}">{{ $user->cv }}</a></td>
                         @if(isset($user->company->name))
                         <td class="p-1 pe-4">{{$user->company->name}}</td>
                         <td class="p-1 pe-4">{{$user->company->direction}}</td>
