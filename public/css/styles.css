@@ -12380,6 +12380,34 @@ opacity: 1;
 .link_activo {
   background-color: #0B132B30!important;
 }
+
+.modal-content {
+  background-color: #fff!important;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-header p {
+  color: #101214!important;
+}
+
+.modal-body {
+  color: #007849;
+  border: none;
+}
+
+.modal-footer {
+  border: none;
+}
+
+/* .btn-close {
+  background-color: white;
+  border-radius: 20px;
+  opacity: 1;
+  margin-right: 3px!important;
+} */
 /* FIN SECCIÓN PERFIL */
 
 /* PÁGINA DE CURSO */

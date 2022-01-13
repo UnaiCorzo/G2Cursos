@@ -53,6 +53,9 @@
                                 {{ __('Modificar') }}
                             </button>
                         </div>
+                        <div class="col-12 mt-3 d-flex justify-content-end align-items-center">
+                            <a href="" class="registrarse_sesion items ms-5" data-bs-toggle="modal" data-bs-target="#modal_eliminar_usuario">{{ __('Borrar cuenta') }}</a>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -118,6 +121,26 @@
         </div>
     </div>
     <!-- FIN MODAL DE CAMBIAR CONTRASEÑA -->
+
+    <!-- MODAL ELIMINAR PERFIL -->
+    <div class="modal fade" id="modal_eliminar_usuario">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header align-items-start">
+                    <p class="modal-title text-danger text-center h4 items">{{ __('¿Seguro que quieres borrar este perfil?') }}</p>
+                    <button type="button" class="btn-close close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ route('delete_profile', array(app()->getLocale(), auth()->user()->id)) }}" method="post" class="col-12 d-flex justify-content-center gap-3">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn boton_sesion text-uppercase" data-bs-dismiss="modal">{{ __('Sí') }}</button>
+                        <button type="button" class="btn boton_sesion text-uppercase" data-bs-dismiss="modal">{{ __('No') }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL ELIMINAR PERFIL -->
 @endsection
 
 @section('script_link')

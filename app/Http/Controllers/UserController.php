@@ -77,4 +77,11 @@ class UserController extends Controller
         }
         return back();
     }
+
+    public function delete($lang, $id)
+    {
+        $user_delete = User::find($id);
+        $user_delete->delete();
+        return redirect()->to(route('login', app()->getLocale()));
+    }
 }

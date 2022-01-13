@@ -47,6 +47,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/profile', [UserController::class, 'myprofile'])->middleware('auth')->name('profile');
     Route::post('/profile/modify/{id}', [UserController::class, 'modify'])->name('profile_modify');
     Route::post('/profile/reset/password', [UserController::class, 'password'])->name('reset_password');
+    Route::post('/profile/delete/{id}', [UserController::class, 'delete'])->name('delete_profile');
     Route::get('/course', [CourseController::class, 'course'])->middleware('auth')->name('course');
     Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
     Route::post('/session', [SessionController::class, 'store'])->name('session');

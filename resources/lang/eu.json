@@ -59,5 +59,9 @@
     "Panel administrador": "Administrazio-panela",
     "Panel": "Panela",
     "Crear curso": "Sortu kurtsoa",
-    "Cursos creados": "Sortutako kurtsoak"
+    "Cursos creados": "Sortutako kurtsoak",
+    "Borrar cuenta": "Kontua ezabatu",
+    "¿Seguro que quieres borrar este perfil?": "Ziur zaude profil hau ezabatu nahi duzula?",
+    "Sí": "Bai",
+    "No": "Ez"
 }

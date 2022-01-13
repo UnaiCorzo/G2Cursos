@@ -58,5 +58,8 @@
     "Curso": "Course",
     "Panel administrador": "Administrator panel",
     "Crear curso": "Create course",
-    "Cursos creados": "Created courses"
+    "Cursos creados": "Created courses",
+    "Borrar cuenta": "Delete account",
+    "¿Seguro que quieres borrar este perfil?": "Are you sure you want to delete this profile?",
+    "Sí": "Yes"
 }
