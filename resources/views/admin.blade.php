@@ -1,7 +1,7 @@
 @extends('template_user')
 
 @section('title')
-<title>Curso | G2Cursos</title>
+<title>{{ __('Panel') }} | G2Cursos</title>
 
 @endsection
 @section('user_content')
@@ -28,7 +28,7 @@
                     <tr>
                         <td class="p-1 pe-4">{{$user->name}}</td>
                         <td class="p-1 pe-4">{{$user->surnames}}</td>
-                        <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', array(app()->getLocale(), $user->cv)) }}">{{ $user->cv }}</a></td>
+                        <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', $user->cv) }}">{{ $user->cv }}</a></td>
                         @if(isset($user->company->name))
                         <td class="p-1 pe-4">{{$user->company->name}}</td>
                         <td class="p-1 pe-4">{{$user->company->direction}}</td>

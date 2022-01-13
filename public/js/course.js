@@ -3,10 +3,16 @@ $(document).ready(function () {
     var title_pagina = $(document).attr("title");
     eliminarActivoPerfil();
 
-    if (title_pagina == 'Mis Cursos | G2Cursos' || title_pagina == 'My Courses | G2Cursos') {
+    if (title_pagina == 'Mis Cursos | G2Cursos'
+        || title_pagina == 'My Courses | G2Cursos'
+        || title_pagina == 'Nire Kurtsoak | G2Cursos'
+    ) {
         $('#link2').addClass('link_activo');
     }
-    else if (title_pagina == 'Mi Perfil | G2Cursos' || title_pagina == 'My Profile | G2Cursos') {
+    else if (title_pagina == 'Mi Perfil | G2Cursos'
+        || title_pagina == 'My Profile | G2Cursos'
+        || title_pagina == 'Profila | G2Cursos'
+    ) {
         $('#link3').addClass('link_activo');
     }
 

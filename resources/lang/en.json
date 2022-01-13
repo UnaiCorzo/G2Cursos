@@ -39,7 +39,7 @@
     "Entrar": "Enter",
     "Mis cursos": "My courses",
     "Descubrir más": "Discover more",
-    "Mi perfil": "My Profile",
+    "Mi perfil": "My profile",
     "Cerrar sesión": "Sign out",
     "Cambiar contraseña": "Change password",
     "Modificar": "Modify",
@@ -56,5 +56,7 @@
     "Mis Cursos": "My Courses",
     "Mi Perfil": "My Profile",
     "Curso": "Course",
-    "Panel administrador": "Administrator panel"
+    "Panel administrador": "Administrator panel",
+    "Crear curso": "Create course",
+    "Cursos creados": "Created courses"
 }

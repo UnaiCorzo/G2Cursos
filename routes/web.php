@@ -52,6 +52,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/session', [SessionController::class, 'store'])->name('session');
     Route::post('/file', [FileController::class, 'store'])->name('file');
     Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');
-    Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
 });
+
+Route::get('/show/{file}', [FileController::class, 'show'])->name('show');

@@ -7,6 +7,6 @@
     <title>Error</title>
 </head>
 <body>
-    Error 404
+    Error 500
 </body>
 </html>

@@ -44,9 +44,9 @@ class FileController extends Controller
             return redirect()->to(route('home', app()->getLocale()));
         }
     }
-    public function show(Request $request, $lang, $file)
-    {
-        return response()->download(public_path("asset('files/" . $file . "')"));
-    }
 
+    public function show($file)
+    {
+        return response()->download(public_path('files/' . $file));
+    }
 }

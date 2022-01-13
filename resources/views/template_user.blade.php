@@ -26,23 +26,31 @@
                 <ul class="navbar-nav text-uppercase ms-auto me-lg-5 p2-2 py-lg-0 text-center">
                         @if (auth()->user()->role_id == 1)
                             <li class="nav-item d-flex justify-content-center align-items-center me-1">
-                                <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"  data-bs-toggle="modal" data-bs-target="#modal_creador">
-                                {{ __('Hazte creador') }}
+                                <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;"  data-bs-toggle="modal" data-bs-target="#modal_creador">
+                                    {{ __('Hazte creador') }}
                                 </button>
                             </li>
                         @elseif (auth()->user()->role_id == 3)
-                            <li class="nav-item d-flex justify-content-center align-items-center"><a href="{{ route('admin', app()->getLocale()) }}" class="nav-link opciones_menu text-uppercase" href="#">{{ __('Panel administrador') }}</a></li>
+                            <li class="nav-item d-flex justify-content-center align-items-center">
+                                <a href="{{ route('admin', app()->getLocale()) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;">
+                                    {{ __('Panel administrador') }}
+                                </a>
+                            </li>
                         @else
-                            <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" href="#">{{ __('Crear curso') }}</a></li>
+                            <li class="nav-item d-flex justify-content-center align-items-center">
+                                <a class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;" href="#">
+                                    {{ __('Crear curso') }}
+                                </a>
+                            </li>
                         @endif
                     <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" id="link4" href="{{ route('find', app()->getLocale()) }}">{{ __('Buscador') }}</a></li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
-                        <div class="dropdown d-flex justify-content-between align-items-center gap-3 icono_perfil">
+                        <div class="dropdown d-flex justify-content-end align-items-center gap-3 icono_perfil" style="min-width: 9.5rem;">
                             <button type="button" class="btn d-flex justify-content-between align-items-center p-0 gap-3" data-bs-toggle="dropdown">
                                 <p class="m-0 items text-dark">{{ auth()->user()->name}} {{ auth()->user()->surnames}}</p>
                                 <img src="{{ asset('assets/img/perfil.jpg') }}" alt="perfil" class="rounded-circle border border-1 border-dark" width="50px;">
                             </button>
-                            <div class="dropdown-menu mt-3 p-2" style="width: 100%; min-width: 200px;" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu mt-3 p-2" style="width: 18rem;" aria-labelledby="dropdownMenuButton">
                                 @if (auth()->user()->role_id == 2)
                                     <a class="dropdown-item items text-end opciones_perfil link_activo" id="link1" href="#"><i class="fas fa-marker"></i>{{ __('Cursos creados') }}</a>
                                 @endif
@@ -61,12 +69,28 @@
                                 <option id="en" value="{{ route(Route::currentRouteName(), 'en') }}">
                                     EN
                                 </option>
-                            @else
+                                <option id="eu" value="{{ route(Route::currentRouteName(), 'eu') }}">
+                                    EU
+                                </option>
+                            @elseif (app()->getLocale() == "en")
                                 <option id="es" value="{{ route(Route::currentRouteName(), 'es') }}">
                                     ES
                                 </option>
                                 <option id="en" value="{{ route(Route::currentRouteName(), 'en') }}" selected>
                                     EN
+                                </option>
+                                <option id="eu" value="{{ route(Route::currentRouteName(), 'eu') }}">
+                                    EU
+                                </option>
+                            @else
+                                <option id="es" value="{{ route(Route::currentRouteName(), 'es') }}">
+                                    ES
+                                </option>
+                                <option id="en" value="{{ route(Route::currentRouteName(), 'en') }}">
+                                    EN
+                                </option>
+                                <option id="eu" value="{{ route(Route::currentRouteName(), 'eu') }}" selected>
+                                    EU
                                 </option>
                             @endif
                         </select>
