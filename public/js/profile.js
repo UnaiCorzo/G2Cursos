@@ -57,6 +57,38 @@ $(document).ready(function () {
         return true;
     });
 
+    let idioma = $('html').attr('lang');
+
+    let name_1 = "El nombre es requerido";
+    let name_2 = "El nombre no puede exceder los 32 caracteres";
+    let name_3 = "El nombre no es válido";
+    let surnames_1 = "Los apellidos son requeridos";
+    let surnames_2 = "Los apellidos no pueden exceder los 32 caracteres";
+    let surnames_3 = "Los apellidos no son válidos";
+    let email_1 = "El email es requerido";
+    let email_2 = "El email no es válido";
+
+    if (idioma == 'en') {
+        name_1 = "Name required";
+        name_2 = "Name cannot exceed 32 characters";
+        name_3 = "Invalid name";
+        surnames_1 = "Surname is required";
+        surnames_2 = "Surname cannot exceed 32 characters";
+        surnames_3 = "Invalid surname";
+        email_1 = "Email required";
+        email_2 = "Invalid email";
+    }
+    else if (idioma == 'eu') {
+        name_1 = "Izena beharrezkoa da";
+        name_2 = "Izenak ezin ditu 32 karaktere baino gehiago izan";
+        name_3 = "Formatua ez da baliozkoa";
+        surnames_1 = "Abizena beharrezkoa da";
+        surnames_2 = "Abizenak ezin ditu 32 karaktere baino gehiago izan";
+        surnames_3 = "Formatua ez da baliozkoa";
+        email_1 = "Helbide elektronikoa beharrezkoa da";
+        email_2 = "Formatua ez da baliozkoa";
+    }
+
     $("#modificar_perfil").validate({
         onkeyup: false,
         rules: {
@@ -73,24 +105,22 @@ $(document).ready(function () {
             email: {
                 required: true,
                 formatoEmail: true,
-                email: true,
             },
         },
         messages: {
             name: {
-                required: "El nombre es requerido",
-                maxlength: "El nombre no puede exceder los 32 caracteres",
-                formatoTexto: "El nombre no es válido",
+                required: name_1,
+                maxlength: name_2,
+                formatoTexto: name_3,
             },
             surnames: {
-                required: "El nombre es requerido",
-                maxlength: "El nombre no puede exceder los 64 caracteres",
-                formatoTexto: "El nombre no es válido",
+                required: surnames_1,
+                maxlength: surnames_2,
+                formatoTexto: surnames_3,
             },
             email: {
-                required: "El email es requerido",
-                formatoEmail: "Formato de email no válido",
-                email: "Formato de email no válido",
+                required: email_1,
+                formatoEmail: email_2,
             },
         },
     });
@@ -101,6 +131,36 @@ $(document).ready(function () {
         }
         return this.optional(element);
     });
+
+    let password_1 = "La contraseña es requerida";
+    let password_2 = "La contraseña debe tener al menos 8 caracteres";
+    let password_3 = "La contraseña no puede exceder los 32 caracteres";
+    let password_2_1 = "Repite la contraseña";
+    let password_2_2 = "Las contraseñas no coinciden";
+    let file_1 = "El currículum es requerido";
+    let address_1 = "La dirección es requerida";
+    let locality_1 = "La localidad es requerida";
+
+    if (idioma == 'en') {
+        password_1 = "Password required";
+        password_2 = "Password must be at least 8 characters long";
+        password_3 = "Password cannot exceed 32 characters";
+        password_2_1 = "Repeat password";
+        password_2_2 = "Passwords do not match";
+        file_1 = "Curriculum required";
+        address_1 = "Address required";
+        locality_1 = "Locality required";
+    }
+    else if (idioma == 'eu') {
+        password_1 = "Pasahitza beharrezkoa da";
+        password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
+        password_3 = "Pasahitzak ezin ditu 32 karaktere baino gehiago izan"; 
+        password_2_1 = "Errepikatu pasahitza";
+        password_2_2 = "Pasahitzak ez datoz bat";
+        file_1 = "Curriculuma beharrezkoa da";
+        address_1 = "Helbidea beharrezkoa da";
+        locality_1 = "Herria beharrezkoa da";
+    }
 
     $("#modificar_password").validate({
         onkeyup: false,
@@ -122,18 +182,18 @@ $(document).ready(function () {
         },
         messages: {
             password1: {
-                required: "La contraseña es requerida",
-                minlength: "La contraseña debe tener al menos 8 caracteres",
-                maxlength: "La contraseña no puede exceder los 32 caracteres",
+                required: password_1,
+                minlength: password_2,
+                maxlength: password_3,
             },
             password2: {
-                required: "La contraseña es requerida",
-                minlength: "La contraseña debe tener al menos 8 caracteres",
-                maxlength: "La contraseña no puede exceder los 32 caracteres",
+                required: password_1,
+                minlength: password_2,
+                maxlength: password_3,
             },
             password3: {
-                required: "Repite la contraseña",
-                matchPassword: "Las contraseñas no coinciden",
+                required: password_2_1,
+                matchPassword: password_2_2,
             },
         },
     });
@@ -158,16 +218,16 @@ $(document).ready(function () {
         },
         messages: {
             file: {
-                required: "El currículum es requerido",
+                required: file_1,
             },
             name: {
-                required: "El nombre es requerido",
+                required: name_1,
             },
             address: {
-                required: "La dirección es requerida",
+                required: address_1,
             },
             locality: {
-                required: "La localidad es requerida",
+                required: locality_1,
             },
         },
     });

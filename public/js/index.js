@@ -112,6 +112,29 @@ $(document).ready(function () {
         return this.optional(element) || pattern.test(value);
     });
 
+    let idioma = $('html').attr('lang');
+
+    let email_1 = "El email es requerido";
+    let email_2 = "Formato de email no válido";
+    let password_1 = "La contraseña es requerida";
+    let password_2 = "La contraseña debe tener al menos 8 caracteres";
+    let password_3 = "La contraseña no puede exceder los 32 caracteres";
+
+    if (idioma == 'en') {
+        email_1 = "Email required";
+        email_2 = "Invalid format";
+        password_1 = "Password required";
+        password_2 = "Password must be at least 8 characters long";
+        password_3 = "Password cannot exceed 32 characters"; 
+    }
+    else if (idioma == 'eu') {
+        email_1 = "Helbide elektronikoa beharrezkoa da";
+        email_2 = "Formatua ez da baliozkoa";
+        password_1 = "Pasahitza beharrezkoa da";
+        password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
+        password_3 = "Pasahitzak ezin ditu 32 karaktere baino gehiago izan"; 
+    }
+
     $("#iniciar_sesion").validate({
         onkeyup: false,
         rules: {
@@ -128,14 +151,14 @@ $(document).ready(function () {
         },
         messages: {
             email: {
-                required: "El email es requerido",
-                formatoEmail: "Formato de email no válido",
-                email: "Formato de email no válido",
+                required: email_1,
+                formatoEmail: email_2,
+                email: email_2,
             },
             password: {
-                required: "La contraseña es requerida",
-                minlength: "La contraseña debe tener al menos 8 caracteres",
-                maxlength: "La contraseña no puede exceder los 32 caracteres",
+                required: password_1,
+                minlength: password_2,
+                maxlength: password_3,
             },
         },
     });
@@ -169,6 +192,42 @@ $(document).ready(function () {
         }
         return this.optional(element);
     });
+
+    let name_1 = "El nombre es requerido";
+    let name_2 = "El nombre no puede exceder los 32 caracteres";
+    let name_3 = "El nombre no es válido";
+    let surnames_1 = "Los apellidos son requeridos";
+    let surnames_2 = "Los apellidos no pueden exceder los 32 caracteres";
+    let surnames_3 = "Los apellidos no son válidos";
+    let dni_1 = "El DNI es requerido";
+    let dni_2 = "DNI no válido";
+    let password_2_1 = "Repite la contraseña";
+    let password_2_2 = "Las contraseñas no coinciden";
+
+    if (idioma == 'en') {
+        name_1 = "Name is required";
+        name_2 = "Name cannot exceed 32 characters";
+        name_3 = "Invalid name";
+        surnames_1 = "Surname required";
+        surnames_2 = "Surname cannot exceed 32 characters";
+        surnames_3 = "Invalid surname";
+        dni_1 = "ID is required";
+        dni_2 = "Invalid ID";
+        password_2_1 = "Repeat password";
+        password_2_2 = "Passwords do not match";
+    }
+    else if (idioma == 'eu') {
+        name_1 = "Izena beharrezkoa da";
+        name_2 = "Izenak ezin ditu 32 karaktere baino gehiago izan";
+        name_3 = "Formatua ez da baliozkoa";
+        surnames_1 = "Abizena beharrezkoa da";
+        surnames_2 = "Abizenak ezin ditu 32 karaktere baino gehiago izan";
+        surnames_3 = "Formatua ez da baliozkoa";
+        dni_1 = "NAN-a beharrezkoa da";
+        dni_2 = "Formatua ez da baliozkoa";
+        password_2_1 = "Errepikatu pasahitza";
+        password_2_2 = "Pasahitzak ez datoz bat";
+    }
 
     $("#registrarse").validate({
         onkeyup: false,
@@ -204,32 +263,32 @@ $(document).ready(function () {
         },
         messages: {
             name: {
-                required: "El nombre es requerido",
-                maxlength: "El nombre no puede exceder los 32 caracteres",
-                formatoTexto: "El nombre no es válido",
+                required: name_1,
+                maxlength: name_2,
+                formatoTexto: name_3,
             },
             surnames: {
-                required: "El nombre es requerido",
-                maxlength: "El nombre no puede exceder los 64 caracteres",
-                formatoTexto: "El nombre no es válido",
+                required: surnames_1,
+                maxlength: surnames_2,
+                formatoTexto: surnames_3,
             },
             dni: {
-                required: "El DNI es requerido",
-                formatoDNI: "DNI no válido",
+                required: dni_1,
+                formatoDNI: dni_2,
             },
             email: {
-                required: "El email es requerido",
-                formatoEmail: "Formato de email no válido",
-                email: "Formato de email no válido",
+                required: email_1,
+                formatoEmail: email_2,
+                email: email_2,
             },
             password1: {
-                required: "La contraseña es requerida",
-                minlength: "La contraseña debe tener al menos 8 caracteres",
-                maxlength: "La contraseña no puede exceder los 32 caracteres",
+                required: password_1,
+                minlength: password_2,
+                maxlength: password_3,
             },
             password2: {
-                required: "Repite la contraseña",
-                matchPassword: "Las contraseñas no coinciden",
+                required: password_2_1,
+                matchPassword: password_2_2,
             },
         },
     });

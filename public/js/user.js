@@ -66,6 +66,26 @@ $(document).ready(function () {
     // FIN ANIMACIÓN IMÁGENES CURSOS
 
     // VALIDACIÓN HACERSE CREADOR
+    let idioma = $('html').attr('lang');
+
+    let file_1 = "El currículum es requerido";
+    let name_1 = "El nombre es requerido";
+    let address_1 = "La dirección es requerida";
+    let locality_1 = "La localidad es requerida";
+
+    if (idioma == 'en') {
+        file_1 = "Curriculum required";
+        name_1 = "Name required";
+        address_1 = "Address required";
+        locality_1 = "Locality required";
+    }
+    else if (idioma == 'eu') {
+        file_1 = "Curriculuma beharrezkoa da";
+        name_1 = "Izena beharrezkoa da";
+        address_1 = "Helbidea beharrezkoa da";
+        locality_1 = "Herria beharrezkoa da";
+    }
+
     $("#hacerse_creador").validate({
         onkeyup: false,
         rules: {
@@ -84,16 +104,16 @@ $(document).ready(function () {
         },
         messages: {
             file: {
-                required: "El currículum es requerido",
+                required: file_1,
             },
             name: {
-                required: "El nombre es requerido",
+                required: name_1,
             },
             address: {
-                required: "La dirección es requerida",
+                required: address_1,
             },
             locality: {
-                required: "La localidad es requerida",
+                required: locality_1,
             },
         },
     });

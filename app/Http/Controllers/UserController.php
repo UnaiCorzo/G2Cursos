@@ -59,7 +59,13 @@ class UserController extends Controller
 
             return redirect()->to(route('login', app()->getLocale()));
         }
-        return back()->withErrors(['message' => 'La contraseña no es correcta']);
+        $message = 'La contraseña no es correcta';
+        if (app()->getLocale() == "en") {
+            $message = 'Password is not correct';
+        } else if (app()->getLocale() == "en") {
+            $message = 'Pasahitza ez da zuzena';
+        }
+        return back()->withErrors(['message' => $message]);
     }
 
     public function upgrade(Request $request)

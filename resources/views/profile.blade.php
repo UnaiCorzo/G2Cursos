@@ -36,7 +36,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 form-group mb-1 d-flex justify-content-between align-items-start gap-2" id="email_pefil">
                             <i class="fas fa-envelope iconos_perfil"></i>
                             <div class="campos_perfil">
-                                <input class="form-control p-2 items" type="email" name="email" placeholder="Email" value="{{ auth()->user()->email }}" disabled/>
+                                <input class="form-control p-2 items" type="text" name="email" placeholder="Email" value="{{ auth()->user()->email }}" disabled/>
                             </div>
                             <button class="btn py-2 items boton_editar" id="editButton4" type="button">
                                 <i class="fas fa-pencil-alt"></i>
