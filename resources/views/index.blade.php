@@ -245,7 +245,7 @@
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
                 <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="card1" data-bs-toggle="modal" data-bs-target="#modal_sesion">
+                    <div class="portfolio-item" id="card1" data-bs-toggle="modal" data-bs-target="#modal_registro">
                         <div class="imagen_card">
                             <span class="badge badge-pill text-white bg-success items modalidad">{{ __('Presencial') }}</span>
                             <img class="img-fluid" src="{{ asset('assets/img/laravel.png') }}" alt="..." />
@@ -281,7 +281,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="card2" data-bs-toggle="modal" data-bs-target="#modal_sesion">
+                    <div class="portfolio-item" id="card2" data-bs-toggle="modal" data-bs-target="#modal_registro">
                         <div class="imagen_card">
                             <span class="badge badge-pill text-white bg-info items modalidad">Online</span>
                             <img class="img-fluid" src="{{ asset('assets/img/css_grid.jpg') }}" alt="..." />
@@ -317,7 +317,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="card3" data-bs-toggle="modal" data-bs-target="#modal_sesion">
+                    <div class="portfolio-item" id="card3" data-bs-toggle="modal" data-bs-target="#modal_registro">
                         <div class="imagen_card">
                             <span class="badge badge-pill text-white bg-info items modalidad">Online</span>
                             <img class="img-fluid" src="{{ asset('assets/img/docker.jpeg') }}" alt="..." />
