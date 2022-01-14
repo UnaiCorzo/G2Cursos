@@ -292,6 +292,68 @@ $(document).ready(function () {
             },
         },
     });
+
+    $.validator.addMethod("formatoPhone", function (value, element) {
+        var pattern = /^\d+/;
+        return this.optional(element) || pattern.test(value);
+    });
+
+    let phone_1 = "El teléfono es requerido";
+    let phone_2 = "El teléfono solo puede contener números";
+    let comments_1 = "El comentario es requerido";
+
+    if (idioma == 'en') {
+        phone_1 = "Phone required";
+        phone_2 = "Phone can only contain numbers";
+        comments_1 = "Comments are required";
+    }
+    else if (idioma == 'eu') {
+        phone_1 = "Telefonoa beharrezkoa da";
+        phone_2 = "Telefonoak zenbakiak baino ezin ditu izan";
+        comments_1 = "Iruzkina beharrezkoa da";
+    }
+
+    $("#contactForm").validate({
+        onkeyup: false,
+        rules: {
+            name: {
+                required: true,
+                maxlength: 32,
+                formatoTexto: true,
+            },
+            email: {
+                required: true,
+                formatoEmail: true,
+                email: true,
+            },
+            phone: {
+                required: true,
+                formatoPhone: true,
+            },
+            comments: {
+                required: true,
+            },
+        },
+        messages: {
+            name: {
+                required: name_1,
+                maxlength: name_2,
+                formatoTexto: name_3,
+            },
+            email: {
+                required: email_1,
+                formatoEmail: email_2,
+                email: email_2,
+            },
+            phone: {
+                required: phone_1,
+                formatoPhone: phone_2,
+            },
+            comments: {
+                required: comments_1,
+            },
+        },
+    });
     // FIN VALIDACIÓN FORMULARIOS
 
     // CAMBIAR IDIOMA

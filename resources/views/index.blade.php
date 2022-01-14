@@ -411,27 +411,35 @@
                 <h2 class="section-heading text-uppercase">{{ __('Contacto') }}</h2>
                 <h3 class="section-subheading text-muted">{{ __('¿Tienes alguna duda o sugerencia?') }}</h3>
             </div>
-            <form id="contactForm">
+            <form id="contactForm" method="post">
                 <div class="row d-flex justify-content-center align-items-stretch mb-5 formulario_contacto">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-user mb-2 iconos_contacto"></i>
-                            <input class="form-control p-2 campos_contacto" type="text" placeholder="{{ __('Nombre') }}" />
+                            <div class="campos_registro">
+                                <input class="form-control p-2 campos_contacto" type="text" name="name" placeholder="{{ __('Nombre') }}" />
+                            </div>
                         </div>
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-envelope mb-2 iconos_contacto"></i>
-                            <input class="form-control p-2 campos_contacto" type="email" placeholder="Email" />
+                            <div class="campos_registro">
+                                <input class="form-control p-2 campos_contacto" type="email" name="email" placeholder="Email" />
+                            </div>
                         </div>
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-phone mb-2 iconos_contacto"></i>
-                            <input class="form-control p-2 campos_contacto" type="text" placeholder="{{ __('Teléfono') }}" />
+                            <div class="campos_registro">
+                                <input class="form-control p-2 campos_contacto" type="text" name="phone" placeholder="{{ __('Teléfono') }}" />
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-comments mb-2 iconos_contacto"></i>
-                            <textarea class="form-control p-2 campos_contacto" id="message" placeholder="{{ __('Comentarios') }}"
+                            <div class="campos_registro">
+                                <textarea class="form-control p-2 campos_contacto" id="message" name="comments" placeholder="{{ __('Comentarios') }}"
                                 rows="5"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>

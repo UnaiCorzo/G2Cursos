@@ -11760,9 +11760,6 @@ section#contact {
 section#contact .section-heading {
   color: #fff;
 }
-section#contact form#contactForm .form-group {
-  margin-bottom: 1.5rem;
-}
 section#contact form#contactForm .form-group input,
 section#contact form#contactForm .form-group textarea {
   padding: 1.25rem;
