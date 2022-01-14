@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\File;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class FileController extends Controller
 {
     public function store(Request $request)
     {
-
         if (isset($request->file)) {
             $fileName = auth()->user()->name . '_' . time() . 'CV.' . $request->file->extension();
 
-
+            if (auth()->user()->cv != null) {
+                $user = User::find(auth()->user()->id);
+                $image_path = public_path() . '/files' . '/' . $user->cv;
+                unlink($image_path);
+            }
             $request->file->move(public_path('files'), $fileName);
 
             DB::table('users')

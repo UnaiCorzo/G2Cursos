@@ -69,17 +69,20 @@ class UserController extends Controller
     }
 
     public function upgrade(Request $request)
-    { 
-
+    {
         if ($request->btn == "accept") {
-           DB::table('users')
-              ->where('id', $request->user)
-              ->update(['role_id' => 2, 'cv' => null]);
+            DB::table('users')
+                ->where('id', $request->user)
+                ->update(['role_id' => 2, 'cv' => null]);
         } 
         else {
+            $user = User::find($request->user);
+            $image_path = public_path() . '/files' . '/' . $user->cv;
+            unlink($image_path);
+
             DB::table('users')
-            ->where('id', $request->user)
-            ->update(['cv' => null]);
+                ->where('id', $request->user)
+                ->update(['cv' => null]);
         }
         return back();
     }

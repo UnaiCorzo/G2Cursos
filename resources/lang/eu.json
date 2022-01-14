@@ -33,6 +33,10 @@
     "Comentarios": "Iruzkinak",
     "Contraseña": "Pasahitza",
     "DNI": "NAN",
+    "Descarga": "Deskarga",
+    "Nombre de empresa": "Enpresaren izena",
+    "Dirección": "Helbidea",
+    "Rechazar": "Baztertu", 
     "Contraseña actual": "Egungo pasahitza",
     "Nueva contraseña": "Pasahitza berria",
     "Repetir contraseña": "Errepikatu pasahitza",
@@ -63,5 +67,6 @@
     "Borrar cuenta": "Kontua ezabatu",
     "¿Seguro que quieres borrar este perfil?": "Ziur zaude profil hau ezabatu nahi duzula?",
     "Sí": "Bai",
-    "No": "Ez"
+    "No": "Ez",
+    "No hay peticiones nuevas": "Ez dago eskaera berririk"
 }
