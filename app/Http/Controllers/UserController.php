@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUser;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,7 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         $validatedData = $request->validated();
-        User::create([
+        $user = User::create([
             'name' => $validatedData["name"],
             'surnames' => $validatedData["surnames"],
             'email' => strtolower($validatedData["email"]),
@@ -21,7 +22,9 @@ class UserController extends Controller
             'dni' => strtoupper($validatedData["dni"]),
             'role_id' => 1,
         ]);
-        return redirect()->to(route('login', app()->getLocale()));
+        auth()->login($user);
+        event(new Registered($user));
+        return redirect()->route('verification.notice', app()->getLocale());
     }
 
     public function myprofile()

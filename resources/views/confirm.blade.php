@@ -1,0 +1,1 @@
+<h1>Se te ha enviado un correo, confirmalo</h1>
