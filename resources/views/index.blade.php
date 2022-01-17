@@ -25,7 +25,7 @@
                 <i class="fas fa-bars ms-1"></i>
             </button>
             <div class="collapse navbar-collapse p-0" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto me-lg-5 p2-2 py-lg-0 text-center">
+                <ul class="navbar-nav text-uppercase ms-auto me-lg-5 p2-2 py-lg-0 text-center align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#cursos"
                             style="color: #E8EEF2; text-shadow: #0B132B 1px 1px 1px;">{{ __('Cursos') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="#nosotros"

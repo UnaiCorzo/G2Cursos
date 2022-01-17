@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'dni',
         'cv',
         'role_id',
-        'company_id'
+        'company_id',
     ];
 
     /**
@@ -46,28 +46,36 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     /** Get the post that owns the comment. */
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
     }
+
     public function course_teacher()
     {
-        return $this->hasMany('App\Models\Course','teacher_id');
+        return $this->hasMany('App\Models\Course', 'teacher_id');
     }
+
     public function ratings()
     {
-        return $this->hasMany('App\Models\Rating','user_id');
+        return $this->hasMany('App\Models\Rating', 'user_id');
     }
-    public function courses(){
+
+    public function courses()
+    {
         return $this->belongsToMany('App\Models\Course')
-        ->withTimestamps();
+            ->withTimestamps();
     }
-    public function setPasswordAttribute($password){
+
+    public function setPasswordAttribute($password)
+    {
         $this->attributes['password'] = bcrypt($password);
     }
-    public function company(){
+
+    public function company()
+    {
         return $this->belongsTo('App\Models\Company');
     }
-    
 }

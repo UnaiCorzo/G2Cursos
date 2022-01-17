@@ -74,17 +74,16 @@ class UserController extends Controller
 
     public function upgrade(Request $request)
     {
-        $user =  User::findOrFail($request->user);
+        $user = User::findOrFail($request->user);
+        $image_path = public_path() . '/files' . '/' . $user->cv;
+        unlink($image_path);
+
         if ($request->btn == "accept") {
             DB::table('users')
                 ->where('id', $request->user)
                 ->update(['role_id' => 2, 'cv' => null]);
-                $user->notify(new NotificarCreador());
-        } 
-        else {
-            $image_path = public_path() . '/files' . '/' . $user->cv;
-            unlink($image_path);
-
+            $user->notify(new NotificarCreador());
+        } else {
             DB::table('users')
                 ->where('id', $request->user)
                 ->update(['cv' => null]);

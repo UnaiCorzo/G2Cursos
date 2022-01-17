@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
 
 class FileController extends Controller
 {
@@ -30,12 +30,12 @@ class FileController extends Controller
                 $id = DB::table('companies')
                     ->where('name', $nombre)
                     ->value('id');
-  
+
                 if (is_null($id)) {
                     $id = DB::table('companies')->insertGetId(
-                        ['name' => $nombre, 'direction' => $request->address,'location'=>$request->locality]
-                    );  
-                } 
+                        ['name' => $nombre, 'direction' => $request->address, 'location' => $request->locality]
+                    );
+                }
                 DB::table('users')
                     ->where('id', auth()->user()->id)
                     ->limit(1)

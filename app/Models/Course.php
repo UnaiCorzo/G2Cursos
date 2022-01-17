@@ -14,17 +14,21 @@ class Course extends Model
         'description',
         'price',
         'image',
-        'teacher_id'
+        'teacher_id',
     ];
+
     public function teacher()
     {
         return $this->belongsTo('App\Models\User');
     }
-    public function users(){
+
+    public function users()
+    {
         return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
-    public function ratings(){
+
+    public function ratings()
+    {
         return $this->hasMany('App\Models\Rating');
     }
-    
 }

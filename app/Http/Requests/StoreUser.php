@@ -26,9 +26,9 @@ class StoreUser extends FormRequest
         return [
             'name' => 'required', 'max:20',
             'surnames' => 'required', 'max:60',
-            'dni' => 'required','unique:users', 'max:9',
+            'dni' => 'required', 'unique:users', 'max:9',
             'password1' => 'required', 'max:30',
-            'email' => 'required','unique:users', 'max:50',
+            'email' => 'required', 'unique:users', 'max:50',
         ];
     }
     public function messages()
@@ -42,9 +42,9 @@ class StoreUser extends FormRequest
             'dni.unique:users' => 'El dni ya está registrado',
             'dni.max' => 'El dni es demasiado largo',
             'password1.required' => 'La contraseña es requerida',
-            'password1.max '=>'La contraseña es demasiado larga',
+            'password1.max ' => 'La contraseña es demasiado larga',
             'email.required' => 'El email es requerido',
-            'email.max '=>'El email es demasiado largo',
+            'email.max ' => 'El email es demasiado largo',
             'email.unique:users' => 'El email ya está registrado',
         ];
     }
