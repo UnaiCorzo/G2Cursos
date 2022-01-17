@@ -11685,6 +11685,45 @@ a:focus {
     height: 100%;
 }
 
+.alerta_registro {
+  width: 30vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed!important;
+  left: 0!important;
+  right: 0!important;
+  margin: auto;
+  z-index: 2!important;
+  border-radius: .25rem!important;
+  animation-duration: 1s;
+  animation-name: alerta_registro;
+}
+
+@keyframes alerta_registro {
+  from {
+    top: -10vh;
+  }
+
+  to {
+    top: 10px;
+  }
+}
+
+.alerta_registro p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: #0B132B!important;
+}
+
+.alerta_registro button {
+  top: 50%;
+}
+
 /* MODAL DE INICIAR SESIÓN */
 .fondo_formulario_sesion {
     display: flex;
@@ -12268,6 +12307,38 @@ a:focus {
     padding: 10px 20px;
 }
 /* FIN PÁGINA BÚSQUEDA DE CURSOS */
+
+/* PÁGINA DE CREAR CURSO */
+.selector_cat {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.categorias_crear {
+  padding: 5px 15px;
+  font-size: .8rem;
+  border-radius: 30px;
+  border: solid 3px transparent;
+  transition: all .2s ease-in-out;
+}
+
+.categorias_crear:hover {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  border: solid 3px white;
+  box-shadow: 0px 0px 3px #0B132B;
+}
+
+.categoria_activa {
+  transition: all .2s ease-in-out;
+  border: solid 3px white;
+  box-shadow: 0px 0px 3px #0B132B;
+}
+/* FIN PÁGINA DE CREAR CURSO */
 
 /* PÁGINA DEL USUARIO */
 /* RESPONSIVE */

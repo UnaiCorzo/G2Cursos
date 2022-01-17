@@ -38,7 +38,7 @@
                             </li>
                         @else
                             <li class="nav-item d-flex justify-content-center align-items-center">
-                                <a class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;" href="#">
+                                <a class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;" href="{{ route('create', app()->getLocale()) }}">
                                     {{ __('Crear curso') }}
                                 </a>
                             </li>

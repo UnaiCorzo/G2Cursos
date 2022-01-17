@@ -1,7 +1,7 @@
 @extends('template_user')
 
 @section('title')
-    <title>{{ __('Cursos') }} | G2Cursos</title>
+    <title>{{ __('Buscador de cursos') }} | G2Cursos</title>
 @endsection
 
 @section('user_content')

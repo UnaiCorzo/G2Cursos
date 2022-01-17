@@ -84,6 +84,15 @@
                 </ul>
             </div>
         </div>
+        
+        <!-- ALERTA DE REGISTRO COMPLETADO -->
+        @if (isset($success))
+            <div class="alert alert-success alert-dismissible alerta_registro">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <p class="m-0">{{ $success }} <i class="fas fa-check-circle check_curso"></i></p>
+            </div>
+        @endif
+        <!-- FIN ALERTA DE REGISTRO COMPLETADO -->
     </nav>
     <!-- FIN BARRA DE NAVEGACIÓN -->
 

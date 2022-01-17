@@ -13,4 +13,9 @@ class CourseController extends Controller
     {
         return view("find_courses");
     }
+
+    public function create()
+    {
+        return view("create_course");
+    }
 }

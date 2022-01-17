@@ -51,6 +51,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/profile/delete/{id}', [UserController::class, 'delete'])->name('delete_profile');
     Route::get('/course', [CourseController::class, 'course'])->middleware('auth')->name('course');
     Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
+    Route::get('/course/create', [CourseController::class, 'create'])->middleware('auth')->name('create');
     Route::post('/session', [SessionController::class, 'store'])->name('session');
     Route::post('/file', [FileController::class, 'store'])->name('file');
     Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');
