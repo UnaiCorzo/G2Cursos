@@ -31,4 +31,10 @@ class Course extends Model
     {
         return $this->hasMany('App\Models\Rating');
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\Category');
+    }
+
 }
