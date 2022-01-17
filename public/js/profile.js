@@ -57,6 +57,13 @@ $(document).ready(function () {
         return true;
     });
 
+    $.validator.addMethod("matchPassword", function (value, element) {
+        if ($("#password_2").val() == value) {
+            return true;
+        }
+        return this.optional(element);
+    });
+
     let idioma = $('html').attr('lang');
 
     let name_1 = "El nombre es requerido";
@@ -67,6 +74,14 @@ $(document).ready(function () {
     let surnames_3 = "Los apellidos no son válidos";
     let email_1 = "El email es requerido";
     let email_2 = "El email no es válido";
+    let password_1 = "La contraseña es requerida";
+    let password_2 = "La contraseña debe tener al menos 8 caracteres";
+    let password_3 = "La contraseña no puede exceder los 32 caracteres";
+    let password_2_1 = "Repite la contraseña";
+    let password_2_2 = "Las contraseñas no coinciden";
+    let file_1 = "El currículum es requerido";
+    let address_1 = "La dirección es requerida";
+    let locality_1 = "La localidad es requerida";
 
     if (idioma == 'en') {
         name_1 = "Name required";
@@ -77,6 +92,14 @@ $(document).ready(function () {
         surnames_3 = "Invalid surname";
         email_1 = "Email required";
         email_2 = "Invalid email";
+        password_1 = "Password required";
+        password_2 = "Password must be at least 8 characters long";
+        password_3 = "Password cannot exceed 32 characters";
+        password_2_1 = "Repeat password";
+        password_2_2 = "Passwords do not match";
+        file_1 = "Curriculum required";
+        address_1 = "Address required";
+        locality_1 = "Locality required";
     }
     else if (idioma == 'eu') {
         name_1 = "Izena beharrezkoa da";
@@ -87,6 +110,14 @@ $(document).ready(function () {
         surnames_3 = "Formatua ez da baliozkoa";
         email_1 = "Helbide elektronikoa beharrezkoa da";
         email_2 = "Formatua ez da baliozkoa";
+        password_1 = "Pasahitza beharrezkoa da";
+        password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
+        password_3 = "Pasahitzak ezin ditu 32 karaktere baino gehiago izan";
+        password_2_1 = "Errepikatu pasahitza";
+        password_2_2 = "Pasahitzak ez datoz bat";
+        file_1 = "Curriculuma beharrezkoa da";
+        address_1 = "Helbidea beharrezkoa da";
+        locality_1 = "Herria beharrezkoa da";
     }
 
     $("#modificar_perfil").validate({
@@ -124,43 +155,6 @@ $(document).ready(function () {
             },
         },
     });
-
-    $.validator.addMethod("matchPassword", function (value, element) {
-        if ($("#password_2").val() == value) {
-            return true;
-        }
-        return this.optional(element);
-    });
-
-    let password_1 = "La contraseña es requerida";
-    let password_2 = "La contraseña debe tener al menos 8 caracteres";
-    let password_3 = "La contraseña no puede exceder los 32 caracteres";
-    let password_2_1 = "Repite la contraseña";
-    let password_2_2 = "Las contraseñas no coinciden";
-    let file_1 = "El currículum es requerido";
-    let address_1 = "La dirección es requerida";
-    let locality_1 = "La localidad es requerida";
-
-    if (idioma == 'en') {
-        password_1 = "Password required";
-        password_2 = "Password must be at least 8 characters long";
-        password_3 = "Password cannot exceed 32 characters";
-        password_2_1 = "Repeat password";
-        password_2_2 = "Passwords do not match";
-        file_1 = "Curriculum required";
-        address_1 = "Address required";
-        locality_1 = "Locality required";
-    }
-    else if (idioma == 'eu') {
-        password_1 = "Pasahitza beharrezkoa da";
-        password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
-        password_3 = "Pasahitzak ezin ditu 32 karaktere baino gehiago izan"; 
-        password_2_1 = "Errepikatu pasahitza";
-        password_2_2 = "Pasahitzak ez datoz bat";
-        file_1 = "Curriculuma beharrezkoa da";
-        address_1 = "Helbidea beharrezkoa da";
-        locality_1 = "Herria beharrezkoa da";
-    }
 
     $("#modificar_password").validate({
         onkeyup: false,
@@ -242,7 +236,7 @@ $(document).ready(function () {
     // LINKS MENÚ ACTIVOS
     var title_pagina = $(document).attr("title");
     eliminarActivoPerfil();
-    
+
     if (title_pagina == 'Mis Cursos | G2Cursos'
         || title_pagina == 'My Courses | G2Cursos'
         || title_pagina == 'Nire Kurtsoak | G2Cursos'
@@ -255,7 +249,7 @@ $(document).ready(function () {
     ) {
         $('#link3').addClass('link_activo');
     }
-    
+
     function eliminarActivoPerfil() {
         $('.opciones_perfil').removeClass('link_activo');
     }

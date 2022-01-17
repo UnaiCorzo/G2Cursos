@@ -112,57 +112,6 @@ $(document).ready(function () {
         return this.optional(element) || pattern.test(value);
     });
 
-    let idioma = $('html').attr('lang');
-
-    let email_1 = "El email es requerido";
-    let email_2 = "Formato de email no válido";
-    let password_1 = "La contraseña es requerida";
-    let password_2 = "La contraseña debe tener al menos 8 caracteres";
-    let password_3 = "La contraseña no puede exceder los 32 caracteres";
-
-    if (idioma == 'en') {
-        email_1 = "Email required";
-        email_2 = "Invalid format";
-        password_1 = "Password required";
-        password_2 = "Password must be at least 8 characters long";
-        password_3 = "Password cannot exceed 32 characters"; 
-    }
-    else if (idioma == 'eu') {
-        email_1 = "Helbide elektronikoa beharrezkoa da";
-        email_2 = "Formatua ez da baliozkoa";
-        password_1 = "Pasahitza beharrezkoa da";
-        password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
-        password_3 = "Pasahitzak ezin ditu 32 karaktere baino gehiago izan"; 
-    }
-
-    $("#iniciar_sesion").validate({
-        onkeyup: false,
-        rules: {
-            email: {
-                required: true,
-                formatoEmail: true,
-                email: true,
-            },
-            password: {
-                required: true,
-                minlength: 8,
-                maxlength: 32,
-            },
-        },
-        messages: {
-            email: {
-                required: email_1,
-                formatoEmail: email_2,
-                email: email_2,
-            },
-            password: {
-                required: password_1,
-                minlength: password_2,
-                maxlength: password_3,
-            },
-        },
-    });
-
     $.validator.addMethod("formatoDNI", function (value, element) {
         if (/^([0-9]{8})*[a-zA-Z]+$/.test(value)) {
             var numero = value.substr(0, value.length - 1);
@@ -193,6 +142,17 @@ $(document).ready(function () {
         return this.optional(element);
     });
 
+    $.validator.addMethod("formatoPhone", function (value, element) {
+        for (let i = 0; i < value.length; i++) {
+            if (value[i] < '0' || value[i] > '9') {
+                return this.optional(element);
+            }
+        }
+        return true;
+    });
+
+    let idioma = $('html').attr('lang');
+
     let name_1 = "El nombre es requerido";
     let name_2 = "El nombre no puede exceder los 32 caracteres";
     let name_3 = "El nombre no es válido";
@@ -203,6 +163,14 @@ $(document).ready(function () {
     let dni_2 = "DNI no válido";
     let password_2_1 = "Repite la contraseña";
     let password_2_2 = "Las contraseñas no coinciden";
+    let phone_1 = "El teléfono es requerido";
+    let phone_2 = "El teléfono solo puede contener números";
+    let comments_1 = "El comentario es requerido";
+    let email_1 = "El email es requerido";
+    let email_2 = "Formato de email no válido";
+    let password_1 = "La contraseña es requerida";
+    let password_2 = "La contraseña debe tener al menos 8 caracteres";
+    let password_3 = "La contraseña no puede exceder los 32 caracteres";
 
     if (idioma == 'en') {
         name_1 = "Name is required";
@@ -215,6 +183,14 @@ $(document).ready(function () {
         dni_2 = "Invalid ID";
         password_2_1 = "Repeat password";
         password_2_2 = "Passwords do not match";
+        phone_1 = "Phone required";
+        phone_2 = "Phone can only contain numbers";
+        comments_1 = "Comments are required";
+        email_1 = "Email required";
+        email_2 = "Invalid format";
+        password_1 = "Password required";
+        password_2 = "Password must be at least 8 characters long";
+        password_3 = "Password cannot exceed 32 characters";
     }
     else if (idioma == 'eu') {
         name_1 = "Izena beharrezkoa da";
@@ -227,7 +203,43 @@ $(document).ready(function () {
         dni_2 = "Formatua ez da baliozkoa";
         password_2_1 = "Errepikatu pasahitza";
         password_2_2 = "Pasahitzak ez datoz bat";
+        phone_1 = "Telefonoa beharrezkoa da";
+        phone_2 = "Telefonoak zenbakiak baino ezin ditu izan";
+        comments_1 = "Iruzkina beharrezkoa da";
+        email_1 = "Helbide elektronikoa beharrezkoa da";
+        email_2 = "Formatua ez da baliozkoa";
+        password_1 = "Pasahitza beharrezkoa da";
+        password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
+        password_3 = "Pasahitzak ezin ditu 32 karaktere baino gehiago izan";
     }
+
+    $("#iniciar_sesion").validate({
+        onkeyup: false,
+        rules: {
+            email: {
+                required: true,
+                formatoEmail: true,
+                email: true,
+            },
+            password: {
+                required: true,
+                minlength: 8,
+                maxlength: 32,
+            },
+        },
+        messages: {
+            email: {
+                required: email_1,
+                formatoEmail: email_2,
+                email: email_2,
+            },
+            password: {
+                required: password_1,
+                minlength: password_2,
+                maxlength: password_3,
+            },
+        },
+    });
 
     $("#registrarse").validate({
         onkeyup: false,
@@ -292,26 +304,6 @@ $(document).ready(function () {
             },
         },
     });
-
-    $.validator.addMethod("formatoPhone", function (value, element) {
-        var pattern = /^\d+/;
-        return this.optional(element) || pattern.test(value);
-    });
-
-    let phone_1 = "El teléfono es requerido";
-    let phone_2 = "El teléfono solo puede contener números";
-    let comments_1 = "El comentario es requerido";
-
-    if (idioma == 'en') {
-        phone_1 = "Phone required";
-        phone_2 = "Phone can only contain numbers";
-        comments_1 = "Comments are required";
-    }
-    else if (idioma == 'eu') {
-        phone_1 = "Telefonoa beharrezkoa da";
-        phone_2 = "Telefonoak zenbakiak baino ezin ditu izan";
-        comments_1 = "Iruzkina beharrezkoa da";
-    }
 
     $("#contactForm").validate({
         onkeyup: false,
