@@ -55,6 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Models\Course','teacher_id');
     }
+    public function ratings()
+    {
+        return $this->hasMany('App\Models\Rating','user_id');
+    }
     public function courses(){
         return $this->belongsToMany('App\Models\Course')
         ->withTimestamps();

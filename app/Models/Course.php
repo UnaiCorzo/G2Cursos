@@ -23,5 +23,8 @@ class Course extends Model
     public function users(){
         return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
+    public function ratings(){
+        return $this->hasMany('App\Models\Rating');
+    }
     
 }

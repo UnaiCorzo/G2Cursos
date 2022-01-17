@@ -19,7 +19,7 @@ class FileController extends Controller
                 unlink($image_path);
             }
             $request->file->move(public_path('files'), $fileName);
-
+          
             DB::table('users')
                 ->where('id', auth()->user()->id)
                 ->limit(1)

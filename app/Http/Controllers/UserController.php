@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUser;
 use App\Models\User;
+use App\Notifications\NotificarCreador;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -73,13 +74,14 @@ class UserController extends Controller
 
     public function upgrade(Request $request)
     {
+        $user =  User::findOrFail($request->user);
         if ($request->btn == "accept") {
             DB::table('users')
                 ->where('id', $request->user)
                 ->update(['role_id' => 2, 'cv' => null]);
+                $user->notify(new NotificarCreador());
         } 
         else {
-            $user = User::find($request->user);
             $image_path = public_path() . '/files' . '/' . $user->cv;
             unlink($image_path);
 
