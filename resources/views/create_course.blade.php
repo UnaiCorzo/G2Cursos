@@ -46,7 +46,22 @@
                         <div class="col-6 form-group px-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
                             <p class="m-0">Selecciona las categorías</p>
                             <div class="selector_cat">
-                                <span class="badge badge-pill text-white items categorias_crear bg-secondary">PHP</span>
+                                @foreach ($categories as $category)
+                                    <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name   }}</span>
+                                @endforeach
+
+                                <script>
+                                    const categorias = <?php echo $categories ?>;
+                                    for (let i = 1; i <= categorias.length; i++) {
+                                        let color = categorias[i - 1].color;
+                                        const badge_categoria = document.getElementById(i);
+                                        badge_categoria.style.background = color;
+                                    }
+
+                                    
+                                </script>
+
+                                <!-- <span class="badge badge-pill text-white items categorias_crear bg-secondary">PHP</span>
                                 <span class="badge badge-pill text-white items categorias_crear bg-success">JAVA</span>
                                 <span class="badge badge-pill text-white items categorias_crear bg-danger">LARAVEL</span>
                                 <span class="badge badge-pill text-white items categorias_crear bg-secondary">DOCKER</span>
@@ -54,7 +69,7 @@
                                 <span class="badge badge-pill text-white items categorias_crear bg-danger">JS</span>
                                 <span class="badge badge-pill text-white items categorias_crear bg-secondary">JQUERY</span>
                                 <span class="badge badge-pill text-white items categorias_crear bg-success">CSS</span>
-                                <span class="badge badge-pill text-white items categorias_crear bg-danger">HTML</span>
+                                <span class="badge badge-pill text-white items categorias_crear bg-danger">HTML</span> -->
                             </div>
                             <input type="hidden" name="categories" id="categories" value="">
                         </div>

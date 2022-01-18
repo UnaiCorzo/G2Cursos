@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CourseController extends Controller
 {
@@ -18,8 +19,9 @@ class CourseController extends Controller
     }
 
     public function create()
-    {
-        return view("create_course");
+    {   
+        $categories = Category::all();
+        return view("create_course")->with('categories', $categories);
     }
     public function store(Request $request){
         

@@ -36,8 +36,7 @@ $(document).ready(function () {
     function anadirActiva() {
         const categoria = $(this);
         categoria.addClass('categoria_activa');
-        input_categorias.val(input_categorias.val() + categoria.text() + ';');
-        console.log('AÑADIR: ' + input_categorias.val());
+        input_categorias.val(input_categorias.val() + categoria.attr('id') + ';');
 
         categoria.click(quitarActiva);
     }
@@ -51,7 +50,7 @@ $(document).ready(function () {
         input_categorias.val('');
 
         for (let i = 0; i < categorias_lista.length; i++) {
-            if (categorias_lista[i] != categoria.text()) {
+            if (categorias_lista[i] != categoria.attr('id')) {
                 if (i < (categorias_lista.length - 1)) {
                     input_categorias.val(input_categorias.val() + categorias_lista[i] + ';');
                 }
@@ -60,7 +59,6 @@ $(document).ready(function () {
                 }
             }
         }
-        console.log('QUITAR: ' + input_categorias.val());
 
         categoria.click(anadirActiva);
     }
