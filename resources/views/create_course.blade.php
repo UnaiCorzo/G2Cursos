@@ -40,7 +40,7 @@
                         <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
                             <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_sesion" type="text" name="descripcion" placeholder="{{ __('Descripcion curso') }}"/>
+                                <textarea class="form-control p-2 campos_sesion" rows="5" name="descripcion" placeholder="{{ __('Descripcion curso') }}" style="resize: none;"></textarea>
                             </div>
                         </div>
                         <div class="col-6 form-group px-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
@@ -64,8 +64,8 @@
                                 <input class="form-check-input presencial" type="checkbox" id="switchPresencial" name="presencial" value="no">
                                 <label class="form-check-label" for="switchPresencial">{{ __('Presencial') }}</label>
                             </div>
-                            <div class="map" style="width: 100%; height: 300px; background-color: white;">
-                            </div>
+                            <div class="map" id="map" style="width: 100%; height: 300px;"></div>
+                            <input type="hidden" value="" name="location" id="location">
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
                             <button class="btn submit_sesion boton_sesion py-2 items text-uppercase"
@@ -82,4 +82,7 @@
 
 @section('script_link')
     <script src="{{ asset('js/create.js') }}"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
 @endsection

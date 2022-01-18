@@ -47,11 +47,11 @@ $(document).ready(function () {
         categoria.removeClass('categoria_activa');
 
         let categorias_lista = input_categorias.val().split(';')
-        
+
         input_categorias.val('');
 
         for (let i = 0; i < categorias_lista.length; i++) {
-            if (categorias_lista[i] != categoria.text(  )) {
+            if (categorias_lista[i] != categoria.text()) {
                 if (i < (categorias_lista.length - 1)) {
                     input_categorias.val(input_categorias.val() + categorias_lista[i] + ';');
                 }
@@ -81,7 +81,33 @@ $(document).ready(function () {
             mapa.css('opacity', '0');
         }
     }
-
     // FIN MOSTRAR/OCULTAR MAPA (CREAR CURSO)
-});
 
+    // API MAPA
+    const platform = new H.service.Platform({
+        "app_id": "0JK53jN7Faa5a5rF35Sz",
+        "app_code": "SqWcupOF8jY3JHYYKD0NSw",
+    });
+    const map = new H.Map(
+        document.getElementById("map"),
+        platform.createDefaultLayers().satellite.map,
+        {
+            zoom: 14,
+            center: { lat: 43.32738577185026, lng: -1.9703783098086092 }
+        }
+    );
+    const mapEvents = new H.mapevents.MapEvents(map);
+    new H.mapevents.Behavior(mapEvents);
+
+    map.addEventListener("tap", event => {
+        map.removeObjects(map.getObjects());
+        const position = map.screenToGeo(
+            event.currentPointer.viewportX,
+            event.currentPointer.viewportY
+        );
+        $("#location").val(position.lat + ";" + position.lng);
+        const marker = new H.map.Marker(position);
+        map.addObject(marker);
+    });
+    // FIN API MAPA
+});
