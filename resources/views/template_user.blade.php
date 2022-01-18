@@ -16,7 +16,7 @@
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="userNav">
         <div class="container-fluid">
-            <p class="h3 ms-lg-5 mb-0">G2Cursos</p>
+            <p class="h3 ms-lg-5 mb-0"><a href="{{ route('home', app()->getLocale()) }}" style="text-decoration: none;">G2Cursos</a></p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 {{ __('Menú') }}
