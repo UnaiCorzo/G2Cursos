@@ -15,6 +15,25 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         $validatedData = $request->validated();
+        foreach (User::all() as $check) {
+            if ($check->email == strtolower($validatedData["email"])) {
+                $message_email = 'Email no disponible';
+                if (app()->getLocale() == "en") {
+                    $message_email = 'Email not available';
+                } else if (app()->getLocale() == "eu") {
+                    $message_email = 'Posta elektronikoa ez dago erabilgarri';
+                }
+                return back()->withErrors(['message_email' => $message_email]);
+            } else if ($check->dni == strtoupper($validatedData["dni"])) {
+                $message_dni = 'DNI no disponible';
+                if (app()->getLocale() == "en") {
+                    $message_dni = 'ID not available';
+                } else if (app()->getLocale() == "eu") {
+                    $message_dni = 'NAN-a ez dago erabilgarri';
+                }
+                return back()->withErrors(['message_dni' => $message_dni]);
+            }
+        }
         $user = User::create([
             'name' => $validatedData["name"],
             'surnames' => $validatedData["surnames"],

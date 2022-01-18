@@ -104,6 +104,10 @@ $(document).ready(function () {
     if ($("#error_sesion").length > 0) {
         $("#modal_sesion").modal("show");
     }
+
+    if ($("#error_registro").length > 0) {
+        $("#modal_registro").modal("show");
+    }
     // FIN ABRIR MODAL CON ERROR
 
     // VALIDACIÓN FORMULARIOS
@@ -206,7 +210,7 @@ $(document).ready(function () {
         phone_1 = "Telefonoa beharrezkoa da";
         phone_2 = "Telefonoak zenbakiak baino ezin ditu izan";
         comments_1 = "Iruzkina beharrezkoa da";
-        email_1 = "Helbide elektronikoa beharrezkoa da";
+        email_1 = "Posta elektronikoa beharrezkoa da";
         email_2 = "Formatua ez da baliozkoa";
         password_1 = "Pasahitza beharrezkoa da";
         password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";

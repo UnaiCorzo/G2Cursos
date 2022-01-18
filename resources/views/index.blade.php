@@ -84,7 +84,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- ALERTA DE REGISTRO COMPLETADO -->
         @if (isset($success))
             <div class="alert alert-success alert-dismissible alerta_registro">
@@ -183,8 +183,11 @@
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-id-card iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
-                                                    <input class="form-control p-2" type="text" placeholder="{{ __('DNI') }}"
+                                                    <input class="form-control p-2" type="text" id="dni_registro" placeholder="{{ __('DNI') }}"
                                                         name="dni" />
+                                                        @error ('message_dni')
+                                                            <label class="error" id="error_registro" for="dni_registro">{{ $message }}</label>
+                                                        @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -192,8 +195,11 @@
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-envelope iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
-                                                    <input class="form-control p-2" type="email" placeholder="Email"
+                                                    <input class="form-control p-2" type="email" id="email_registro" placeholder="Email"
                                                         name="email" />
+                                                        @error ('message_email')
+                                                            <label class="error" id="error_registro" for="email_registro">{{ $message }}</label>
+                                                        @enderror
                                                 </div>
                                             </div>
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
@@ -405,7 +411,7 @@
                     </span>
                     <h4 class="my-3 titulo_servicios">{{ __('Ventajas') }}</h4>
                     <p class="text-muted texto_servicios mb-5">
-                        {{ __('Con nosotros obtendrás ventajas y descuentos exclusivos en los cursos') }}    
+                        {{ __('Con nosotros obtendrás ventajas y descuentos exclusivos en los cursos') }}
                     </p>
                 </div>
             </div>

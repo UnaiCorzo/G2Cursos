@@ -108,7 +108,7 @@ $(document).ready(function () {
         surnames_1 = "Abizena beharrezkoa da";
         surnames_2 = "Abizenak ezin ditu 32 karaktere baino gehiago izan";
         surnames_3 = "Formatua ez da baliozkoa";
-        email_1 = "Helbide elektronikoa beharrezkoa da";
+        email_1 = "Posta elektronikoa beharrezkoa da";
         email_2 = "Formatua ez da baliozkoa";
         password_1 = "Pasahitza beharrezkoa da";
         password_2 = "Pasahitzak gutxienez 8 karaktere izan behar ditu";
