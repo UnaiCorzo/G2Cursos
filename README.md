@@ -18,7 +18,8 @@ Para utilizar la aplicación localmente, es necesario seguir los siguientes paso
 
 - Copiar el archivo `.env.example` y renombrarlo a `.env`
 - Cambiar las variables referentes a la base de datos (`DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`)
-- Cambiar las variables referentes al email (`MAIL_DRIVER`, `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM_ADDRESS`)
+- Cambiar las variables referentes al email (`MAIL_DRIVER`, `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM_ADDRESS`).
+  Estos identifican el email que enviará los correos de verificación y recuperación de contraseña.
 
 Después hay que ejecutar los siguientes comandos:
 
