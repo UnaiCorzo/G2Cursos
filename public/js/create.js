@@ -65,5 +65,23 @@ $(document).ready(function () {
         categoria.click(anadirActiva);
     }
     // FIN CATEGORÍAS ACTIVAS
+
+    // MOSTRAR/OCULTAR MAPA (CREAR CURSO)
+    const switch_presencial = $('#switchPresencial');
+    switch_presencial.change(mostrarOcularMapa);
+
+    function mostrarOcularMapa() {
+        const mapa = $('.map');
+
+        if (switch_presencial.prop('checked')) {
+            mapa.css('transition', 'all .2s ease-in-out');
+            mapa.css('opacity', '1');
+        }
+        else {
+            mapa.css('opacity', '0');
+        }
+    }
+
+    // FIN MOSTRAR/OCULTAR MAPA (CREAR CURSO)
 });
 

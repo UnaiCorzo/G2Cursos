@@ -58,6 +58,15 @@
                             </div>
                             <input type="hidden" name="categories" id="categories" value="">
                         </div>
+                        <div class="col-6 form-group px-5 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <i class="fas fa-street-view iconos_sesion"></i>
+                            <div class="form-check form-switch items campos_sesion">
+                                <input class="form-check-input presencial" type="checkbox" id="switchPresencial" name="presencial" value="no">
+                                <label class="form-check-label" for="switchPresencial">{{ __('Presencial') }}</label>
+                            </div>
+                            <div class="map" style="width: 100%; height: 300px; background-color: white;">
+                            </div>
+                        </div>
                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
                             <button class="btn submit_sesion boton_sesion py-2 items text-uppercase"
                                 id="submitButton" type="submit">{{ __('Crear') }}
