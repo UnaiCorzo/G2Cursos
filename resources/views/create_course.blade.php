@@ -13,7 +13,7 @@
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
                 <div class="col-12 mb-5 d-flex justify-content-between align-items-center">
-                    <form action="" method="post" class="row">
+                    <form action="{{ route('course-store', app()->getLocale()) }}" method="post" class="row" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
@@ -40,7 +40,7 @@
                         <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
                             <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_registro">
-                                <textarea class="form-control p-2 campos_sesion" rows="5" name="descripcion" placeholder="{{ __('Descripcion curso') }}" style="resize: none;"></textarea>
+                                <textarea class="form-control p-2 campos_sesion" rows="5" name="description" placeholder="{{ __('Descripcion curso') }}" style="resize: none;"></textarea>
                             </div>
                         </div>
                         <div class="col-6 form-group px-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">

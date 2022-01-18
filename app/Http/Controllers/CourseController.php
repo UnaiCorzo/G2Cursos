@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
 class CourseController extends Controller
 {
     public function course()
@@ -17,5 +20,23 @@ class CourseController extends Controller
     public function create()
     {
         return view("create_course");
+    }
+    public function store(Request $request){
+        
+        $name = $request->name  ."." . $request->file('image')->extension();
+        if (!is_null($request->location)) {
+             DB::table('courses')->insert(
+                ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price,'location' => $request->location,'teacher_id' => auth()->user()->id]
+            );
+        }
+        else{
+             DB::table('courses')->insert(
+                ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price, 'teacher_id' => auth()->user()->id]
+            );
+            
+            $request->file('image')->move(public_path('images'), $name);
+           
+        }
+        return back();
     }
 }
