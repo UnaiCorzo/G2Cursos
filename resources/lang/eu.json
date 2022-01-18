@@ -68,5 +68,10 @@
     "¿Seguro que quieres borrar este perfil?": "Ziur zaude profil hau ezabatu nahi duzula?",
     "Sí": "Bai",
     "No": "Ez",
-    "No hay peticiones nuevas": "Ez dago eskaera berririk"
+    "No hay peticiones nuevas": "Ez dago eskaera berririk",
+    "Título curso": "Ikastaroaren izenburua",
+    "Precio curso": "Ikastaroaren prezioa",
+    "Imagen curso": "Ikastaroaren irudia",
+    "Descripción curso": "Ikastaroaren deskribapena",
+    "Selecciona las categorías:": "Hautatu kategoriak:"
 }
