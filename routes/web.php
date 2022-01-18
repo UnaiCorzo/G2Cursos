@@ -4,10 +4,9 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PasswordController;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +55,9 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/file', [FileController::class, 'store'])->name('file');
     Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
+    Route::get('/forgot-password', [PasswordController::class, 'index'])->middleware('guest')->name('password.request');
+   
+   
 });
 
 Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
@@ -67,3 +69,10 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     $request->fulfill();
     return redirect('/');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::get('/reset-password/{token}', function ($token) {
+    return view('change_password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/forgot-password/send', [PasswordController::class, 'send'])->middleware('guest')->name('password-request');
+Route::post('/forgot-password/reset', [PasswordController::class, 'reset'])->middleware('guest')->name('password-reset');
