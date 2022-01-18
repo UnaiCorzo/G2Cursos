@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
@@ -27,17 +28,21 @@ class CourseController extends Controller
         
         $name = $request->name  ."." . $request->file('image')->extension();
         if (!is_null($request->location)) {
-             DB::table('courses')->insert(
+            $id =  DB::table('courses')->insertGetId(
                 ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price,'location' => $request->location,'teacher_id' => auth()->user()->id]
             );
         }
         else{
-             DB::table('courses')->insert(
+             $id = DB::table('courses')->insertGetId(
                 ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price, 'teacher_id' => auth()->user()->id]
             );
-            
-            $request->file('image')->move(public_path('images'), $name);
            
+        }
+        $course = Course::find($id);
+        $request->file('image')->move(public_path('images'), $name);
+        $arrayCategorias = explode(";", $request->categories);
+        for ($i=0; $i <count($arrayCategorias)-1 ; $i++) { 
+          $course->categories()->attach($arrayCategorias[$i]);
         }
         return back();
     }

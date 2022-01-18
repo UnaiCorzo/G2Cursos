@@ -14,7 +14,7 @@ class Category extends Model
     ];
     public function courses()
     {
-        return $this->belongsToMany('App\Models\Course');
+        return $this->belongsToMany('App\Models\Course')->withTimestamps;
     }
 
 }

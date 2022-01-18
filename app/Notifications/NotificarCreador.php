@@ -43,7 +43,7 @@ class NotificarCreador extends Notification
         return (new MailMessage)
                     ->greeting('Hola')
                     ->line('¡Enhorabuena! Has sido elegido como creador de cursos.')
-                    ->action('Empieza a crear cursos', url('/es/course'))
+                    ->action('Empieza a crear cursos', url('/es/course/create'))
                     ->line('¡Esperamos que crees muchos cursos a lo largo de estos años!')
                     ->salutation('Un saludo de parte del equipo de G2Cursos');
     }
