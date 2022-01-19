@@ -44,7 +44,13 @@
                             </div>
                         </div>
                         <div class="col-6 form-group px-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
-                            <p class="m-0">{{ __('Selecciona las categorías:') }}</p>
+                            <div class="titulo_crear">
+                                <p class="m-0">{{ __('Selecciona las categorías:') }}</p>
+                                <div class="info_crear_curso top">
+                                    <i class="fas fa-info-circle"> </i>
+                                    <p>Categorías o 'tags' que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.</p>
+                                </div>
+                            </div>
                             <div class="selector_cat mt-2">
                                 @foreach ($categories as $category)
                                     <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
@@ -66,8 +72,14 @@
                         <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-center flex-wrap gap-3">
                             <i class="fas fa-street-view iconos_sesion"></i>
                             <div class="form-check form-switch items campos_sesion">
-                                <input class="form-check-input presencial" type="checkbox" id="switchPresencial" name="presencial" value="no">
-                                <label class="form-check-label" for="switchPresencial">{{ __('Presencial') }}</label>
+                                <input class="form-check-input presencial me-2" type="checkbox" id="switchPresencial" name="presencial" value="no">
+                                <div class="titulo_crear">
+                                    <p class="m-0">{{ __('Presencial') }}</p>
+                                    <div class="info_crear_curso top">
+                                        <i class="fas fa-info-circle"> </i>
+                                        <p>Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="map mt-2" id="map" style="width: 100%; height: 300px;"></div>
                             <div class="campos_registro">

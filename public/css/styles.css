@@ -12355,6 +12355,62 @@ a:focus {
     transition: all .2s ease-in-out;
     opacity: 0;
 }
+
+.titulo_crear {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.info_crear_curso {
+    position: relative;
+}
+
+.info_crear_curso svg {
+    font-size: .8rem;
+    margin: 0 0 5px 5px;
+}
+
+.info_crear_curso:hover {
+    cursor: pointer;
+}
+
+.info_crear_curso p {
+    display: none;
+    width: 300px;
+    background-color: white;
+    text-align: center;
+    font-size: .8rem;
+    border-radius: 5px;
+    padding: 2px 10px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.info_crear_curso p::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.info_crear_curso:hover p {
+    display: block;
+}
+
+.info_crear_curso.top p {
+    margin-left: -150px;
+    bottom: 100%;
+    left: 50%;
+}
+.info_crear_curso.top p::after{
+    margin-left: -5px;
+    top: 100%;
+    left: 50%;
+    border-color: white transparent transparent transparent;
+}
 /* FIN PÁGINA DE CREAR CURSO */
 
 /* PÁGINA DEL USUARIO */
