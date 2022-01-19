@@ -427,6 +427,7 @@
                 <h3 class="section-subheading text-muted">{{ __('¿Tienes alguna duda o sugerencia?') }}</h3>
             </div>
             <form id="contactForm" method="post">
+                {{ csrf_field() }}
                 <div class="row d-flex justify-content-center align-items-stretch mb-5 formulario_contacto">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">

@@ -73,7 +73,6 @@ Route::group(['prefix' => '{language}'], function () {
 
 Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
 
-
 Route::get('/reset-password/{token}', function ($token) {
     return view('change_password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');

@@ -136,7 +136,7 @@ $(document).ready(function () {
         if (filename.length != 2) {
             return this.optional(element);
         }
-        let extension = filename[1];
+        let extension = filename[1].toLowerCase();
         if (extension == "jpg" || extension == "jpeg" || extension == "png") {
             return true;
         }
