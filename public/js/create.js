@@ -37,7 +37,7 @@ $(document).ready(function () {
         const categoria = $(this);
         categoria.addClass('categoria_activa');
         input_categorias.val(input_categorias.val() + categoria.attr('id') + ';');
-
+        // console.log('AÑADIR: ' + input_categorias.val());
         categoria.click(quitarActiva);
     }
 
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 }
             }
         }
-
+        // console.log('QUITAR: ' + input_categorias.val());
         categoria.click(anadirActiva);
     }
     // FIN CATEGORÍAS ACTIVAS

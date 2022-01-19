@@ -44,7 +44,7 @@ class UserController extends Controller
         ]);
         auth()->login($user);
         event(new Registered($user));
-        return redirect()->route('verification.notice', app()->getLocale());
+        return redirect()->to(route('verification.notice'));
     }
 
     public function myprofile()

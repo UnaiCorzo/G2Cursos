@@ -43,9 +43,9 @@
                                 <textarea class="form-control p-2 campos_sesion" rows="5" name="description" placeholder="{{ __('Descripción curso') }}" style="resize: none;"></textarea>
                             </div>
                         </div>
-                        <div class="col-6 form-group px-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
+                        <div class="col-6 form-group px-5 mb-2 mt-5 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
                             <p class="m-0">{{ __('Selecciona las categorías:') }}</p>
-                            <div class="selector_cat">
+                            <div class="selector_cat mt-2">
                                 @foreach ($categories as $category)
                                     <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
                                 @endforeach
@@ -61,13 +61,13 @@
                             </div>
                             <input type="hidden" name="categories" id="categories" value="">
                         </div>
-                        <div class="col-6 form-group px-5 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                        <div class="col-6 form-group px-5 mb-2 mt-5 d-flex justify-content-between align-items-center flex-wrap gap-3">
                             <i class="fas fa-street-view iconos_sesion"></i>
                             <div class="form-check form-switch items campos_sesion">
                                 <input class="form-check-input presencial" type="checkbox" id="switchPresencial" name="presencial" value="no">
                                 <label class="form-check-label" for="switchPresencial">{{ __('Presencial') }}</label>
                             </div>
-                            <div class="map" id="map" style="width: 100%; height: 300px;"></div>
+                            <div class="map mt-2" id="map" style="width: 100%; height: 300px;"></div>
                             <input type="hidden" value="" name="location" id="location">
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">

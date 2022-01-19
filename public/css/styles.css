@@ -11685,37 +11685,44 @@ a:focus {
 }
 
 .alerta_registro {
-  width: 30vw;
+  width: 35vw;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
   background-color: white;
   position: fixed!important;
+  top: -15vh;
   left: 0!important;
   right: 0!important;
   margin: auto;
+  padding: 0px 20px;
   z-index: 2!important;
   border-radius: .25rem!important;
-  animation-duration: 1s;
+  animation-duration: 10s;
   animation-name: alerta_registro;
 }
 
 @keyframes alerta_registro {
-  from {
-    top: -10vh;
+  0% {
+    top: -15vh;
   }
 
-  to {
+  20% {
     top: 10px;
+  }
+
+  80% {
+      top: 10px;
+  }
+
+  100% {
+    top: -15vh;
   }
 }
 
 .alerta_registro p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
   color: #0B132B!important;
 }
 
