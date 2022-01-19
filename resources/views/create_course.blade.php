@@ -50,7 +50,7 @@
                                 <p class="m-0">{{ __('Selecciona las categorías:') }}</p>
                                 <div class="info_crear_curso top">
                                     <i class="fas fa-info-circle"> </i>
-                                    <p>Categorías o 'tags' que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.</p>
+                                    <p>{{ __('Categorías o tags que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.') }}</p>
                                 </div>
                             </div>
                             <div class="selector_cat mt-2">
@@ -78,7 +78,7 @@
                                     <p class="m-0">{{ __('Presencial') }}</p>
                                     <div class="info_crear_curso top">
                                         <i class="fas fa-info-circle"> </i>
-                                        <p>Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.</p>
+                                        <p>{{ __('Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.') }}</p>
                                     </div>
                                 </div>
                             </div>
