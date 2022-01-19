@@ -3,7 +3,9 @@
 @section('title')
     <title>{{ __('Crear curso') }} | G2Cursos</title>
 @endsection
-
+@section('lang')
+@include('partials.langNav')
+@endsection
 @section('user_content')
     <!-- SECCIÓN CREADOR CURSOS -->
     <section class="page-section seccion_cursos mt-3" id="cursos">
@@ -55,7 +57,6 @@
                                 @foreach ($categories as $category)
                                     <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
                                 @endforeach
-
                                 <script>
                                     const categorias = <?php echo $categories ?>;
                                     for (let i = 1; i <= categorias.length; i++) {

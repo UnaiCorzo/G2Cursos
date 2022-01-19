@@ -3,7 +3,9 @@
 @section('title')
     <title>{{ __('Buscador de cursos') }} | G2Cursos</title>
 @endsection
-
+@section('lang')
+@include('partials.langNav')
+@endsection
 @section('user_content')
     <!-- SECCIÓN BUSCADOR CURSOS -->
     <section class="page-section seccion_cursos mt-5" id="cursos">
@@ -21,7 +23,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="portfolio-item">
-                        <a href="{{ route('course', app()->getLocale()) }}" class="link_curso" id="curso">
+                        <a href="" class="link_curso" id="curso">
                             <div class="imagen_card">
                                 <span class="badge badge-pill text-white bg-success items modalidad">{{ __('Presencial') }}</span>
                                 <img class="img-fluid" src="{{ asset('assets/img/laravel.png') }}" alt="..."/>

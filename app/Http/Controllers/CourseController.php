@@ -9,9 +9,11 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
-    public function course()
+    public function course($lang, $id)
     {
-        return view("course");
+        $course = Course::find($id);
+     
+        return view("course")->with(['id'=>$id,'course'=>$course,'language'=> $lang,'categories'=>$course->categories]);
     }
 
     public function find()
@@ -22,6 +24,7 @@ class CourseController extends Controller
     public function create()
     {   
         $categories = Category::all();
+  
         return view("create_course")->with('categories', $categories);
     }
     public function store(Request $request){

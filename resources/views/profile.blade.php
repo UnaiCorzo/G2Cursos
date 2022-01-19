@@ -3,7 +3,9 @@
 @section('title')
     <title>{{ __('Mi Perfil') }} | G2Cursos</title>
 @endsection
-
+@section('lang')
+@include('partials.langNav')
+@endsection
 @section('user_content')
     <!-- SECCIÓN PERFIL -->
     <section class="page-section seccion_perfil mt-3" id="perfil">
