@@ -11830,6 +11830,12 @@ a:focus {
     font-size: .8rem;
 }
 
+.campos_registro_area {
+    width: 90%;
+    min-height: 11rem;
+    font-size: 0.8rem;
+}
+
 .submit_registro {
     box-shadow: #b3001b 1px 1px 1px;
     background-color: #b3001b!important;
