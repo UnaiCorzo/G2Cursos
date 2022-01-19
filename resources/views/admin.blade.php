@@ -2,7 +2,9 @@
 
 @section('title')
 <title>{{ __('Panel') }} | G2Cursos</title>
-
+@endsection
+@section('lang')
+@include('partials.langNav')
 @endsection
 @section('user_content')
 <!-- SECCIÓN PETICIONES CREADOR -->

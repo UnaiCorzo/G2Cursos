@@ -152,8 +152,8 @@ $(document).ready(function () {
 
     let idioma = $('html').attr('lang');
 
-    let title_1 = "El título es requerido";
-    let title_2 = "El título no puede superar los 64 caracteres";
+    let name_1 = "El título es requerido";
+    let name_2 = "El título no puede superar los 64 caracteres";
     let price_1 = "El precio es requerido";
     let price_2 = "El precio no puede ser negativo";
     let categories_1 = "Mínimo de categorías: 1";
@@ -164,8 +164,8 @@ $(document).ready(function () {
     let location_1 = "La ubicación es requerida";
 
     if (idioma == 'en') {
-        title_1 = "Title required";
-        title_2 = "Title cannot exceed 64 characters";
+        name_1 = "Title required";
+        name_2 = "Title cannot exceed 64 characters";
         price_1 = "Price required";
         price_2 = "Price cannot be negative";
         categories_1 = "Minimum categories: 1";
@@ -176,8 +176,8 @@ $(document).ready(function () {
         location_1 = "Location required";
     }
     else if (idioma == 'eu') {
-        title_1 = "Izenburua beharrezkoa da";
-        title_2 = "Izenburuak ezin ditu 64 karaktere baino gehiago izan";
+        name_1 = "Izenburua beharrezkoa da";
+        name_2 = "Izenburuak ezin ditu 64 karaktere baino gehiago izan";
         price_1 = "Prezioa beharrezkoa da";
         price_2 = "Prezioa ezin da negatiboa izan";
         categories_1 = "Gutxieneko kategoriak: 1";
@@ -192,7 +192,7 @@ $(document).ready(function () {
         ignore: "",
         onkeyup: false,
         rules: {
-            title: {
+            name: {
                 required: true,
                 maxlength: 64,
             },
@@ -216,9 +216,9 @@ $(document).ready(function () {
             },
         },
         messages: {
-            title: {
-                required: title_1,
-                maxlength: title_2,
+            name: {
+                required: name_1,
+                maxlength: name_2,
             },
             price: {
                 required: price_1,

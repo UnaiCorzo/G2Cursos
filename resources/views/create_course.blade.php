@@ -21,7 +21,7 @@
                         <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
                             <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_sesion" type="text" id="title" name="title" placeholder="{{ __('Título curso') }}"/>
+                                <input class="form-control p-2 campos_sesion" type="text" id="name" name="name" placeholder="{{ __('Título curso') }}"/>
                             </div>
                         </div>
                         <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start">
