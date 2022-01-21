@@ -73,9 +73,14 @@
                         <p class="m-0 pt-1 items">(52)</p>
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-5">
-                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
-                            {{ __('Quitar') }}
-                        </button>
+                        <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}"class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                            {{ __('Quitar') }}</a>
+                        <a href="{{ route('course',  ['id'=>$id,'language'=> 'eu']) }}"class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                            {{ __('Valorar') }}</a>
+                        @if (isset($course->location))
+                        <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">    {{ __('Cómo llegar') }}</a>
+                        @endif
+                      
                     </div>
                 </div>
             </div>
@@ -94,11 +99,9 @@
                     <div class="col-12 m-0 p-0 mt-3 categorias d-flex justify-content-end align-items-center">
                         @foreach ($categories as $category)
                         <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
-                       
                         @endforeach
                         <script>
                                     var categorias = <?php echo $categories ?>;
-                                    console.log(categorias);
                                     for (let i = 1; i <= categorias.length; i++) {
                                         let color = categorias[i - 1].color;
                                         var badge_categoria = document.getElementById(categorias[i - 1].id);
