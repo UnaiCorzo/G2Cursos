@@ -54,6 +54,15 @@ class UserController extends Controller
 
     public function modify(Request $request, $lang, $id)
     {
+        if (isset($request->admin_action) && $request->admin_action != "modify_user") {
+            $action = $request->admin_action;
+            if ($action == "ban_user") {
+                // TODO
+            } else {
+                User::find($request->id)->delete();
+            }
+            return redirect()->to(route('admin', $lang));
+        }
         $user_modify = User::find($id);
         if ($request->get("name") != null) {
             $user_modify->name = $request->get("name");
@@ -66,6 +75,10 @@ class UserController extends Controller
         }
 
         $user_modify->save();
+
+        if (auth()->user()->role_id == 3 && $request->panel) {
+            return redirect()->to(route('admin', $lang));
+        }
         return redirect()->to(route('profile', $lang));
     }
 

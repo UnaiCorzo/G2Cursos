@@ -43,7 +43,8 @@ Route::group(['prefix' => '{language}'], function () {
             ->whereNotNull('cv')
             ->where('role_id', 1)
             ->get();
-            return view('admin', ['users' => $users]);
+            $all_users = User::all();
+            return view('admin', ['users' => $users, 'all_users' => $all_users]);
         }
         return redirect()->to(route('login', app()->getLocale()));
     })->name('admin');
