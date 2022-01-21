@@ -5,6 +5,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordController;
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Gate;
@@ -43,8 +44,7 @@ Route::group(['prefix' => '{language}'], function () {
             ->whereNotNull('cv')
             ->where('role_id', 1)
             ->get();
-            $all_users = User::all();
-            return view('admin', ['users' => $users, 'all_users' => $all_users]);
+            return view('admin', ['users' => $users, 'all_users' => User::all(), 'courses' => Course::all()]);
         }
         return redirect()->to(route('login', app()->getLocale()));
     })->name('admin');
@@ -56,6 +56,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/profile/delete/{id}', [UserController::class, 'delete'])->middleware('auth')->name('delete_profile');
     Route::get('/course/view/{id}', [CourseController::class, 'course'])->middleware('auth')->name('course');
     Route::get('/course/route/{id}/{coordinates}', [CourseController::class, 'geolocalization'])->middleware('auth')->name('geolocalization');
+    Route::post('/course/delete/{id}', [CourseController::class, 'delete'])->middleware('auth')->name('delete_course');
     Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
     Route::get('/course/create', [CourseController::class, 'create'])->middleware('auth')->name('create');
     Route::post('/session', [SessionController::class, 'store'])->name('session');

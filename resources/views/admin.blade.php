@@ -86,6 +86,9 @@
                             <th class="p-1 px-3">{{ __('Banear') }}</th>
                             <th class="p-1 px-3">{{ __('Eliminar') }}</th>
                         </tr>
+                        @if (count($users) == 0)
+                            <tr><td align="center" colspan="8">{{ __('No hay usuarios') }}</td></tr>
+                        @endif
                         @foreach($all_users as $single_user)
                         <form class="form-control formulario_sesion" method="post" action="{{ route('profile_modify', array(app()->getLocale(), $single_user->id)) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -128,7 +131,41 @@
         </section>
     </div>
     <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+        <section class="page-section seccion_cursos">
+            <div class="container mt-0">
+                <div class="table table-white d-flex justify-content-center text-center">
+                    <table border="1">
+                        <tr>
+                            <th class="p-1 px-3">{{ __('Título') }}</th>
+                            <th class="p-1 px-3">{{ __('Precio') }}</th>
+                            <th class="p-1 px-3">{{ __('Creador') }}</th>
+                            <th class="p-1 px-3">{{ __('Email') }}</th>
+                            <th class="p-1 px-3">{{ __('Eliminar') }}</th>
+                        </tr>
+                        @if (count($users) == 0)
+                            <tr><td align="center" colspan="8">{{ __('No hay cursos creados') }}</td></tr>
+                        @endif
+                        @foreach($courses as $course)
+                        <form class="form-control formulario_sesion" method="post" action="{{ route('delete_course', array(app()->getLocale(), $course->id)) }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <tr>
+                                <td class="p-1 px-3">{{ $course->name }}</td>
+                                <td class="p-1 px-3">{{ $course->price }}</td>
+                                <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</td>
+                                <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->email }}</td>
 
+                                <td class="p-1 px-3">
+                                    <button type="submit" class="btn" name="admin_action" value="delete_user">
+                                        <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </form>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
     
     <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
