@@ -75,5 +75,8 @@
     "Descripción curso": "Ikastaroaren deskribapena",
     "Selecciona las categorías:": "Hautatu kategoriak:",
     "Categorías o tags que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.": "Ikastaroarekin erlazionatuko diren kategoriak edo tag-ak. Gutxienez bat hautatu behar duzu, eta gehienez bost.",
-    "Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.": "Sakatu switch hau ikastaroak modalitate presentziala izango badu. Mapan kokapen bat hautatu behar duzu." 
+    "Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.": "Sakatu switch hau ikastaroak modalitate presentziala izango badu. Mapan kokapen bat hautatu behar duzu.",
+    "Selecciona las categorías:": "Hautatu kategoriak:",
+    "Valorar": "Baloratu",
+    "Cómo llegar": "Nola iritsi" 
 }
