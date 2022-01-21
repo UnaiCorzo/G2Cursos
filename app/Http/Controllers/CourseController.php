@@ -21,6 +21,22 @@ class CourseController extends Controller
         return view("find_courses");
     }
 
+    public function findAll()
+    {
+        $all_courses = Course::all();
+        $array_courses = null;
+
+        for ($i = 0; $i < count($all_courses); $i++) {
+            $array_courses[$i] = [
+                'course' => $all_courses[$i],
+                'language' => app()->getLocale(),
+                'categories' => $all_courses[$i]->categories,
+            ];
+        }
+
+        return response(json_encode($array_courses, 200));
+    }
+
     public function geolocalization($lang, $id, $location)
     {
         return view("./geo_leaflet/view/index")->with(['id' => $id, 'language' => $lang, 'location' => $location]);

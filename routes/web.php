@@ -58,6 +58,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/course/route/{id}/{coordinates}', [CourseController::class, 'geolocalization'])->middleware('auth')->name('geolocalization');
     Route::post('/course/delete/{id}', [CourseController::class, 'delete'])->middleware('auth')->name('delete_course');
     Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
+    Route::get('/find/all', [CourseController::class, 'findAll'])->middleware('auth')->name('find_all');
     Route::get('/course/create', [CourseController::class, 'create'])->middleware('auth')->name('create');
     Route::post('/session', [SessionController::class, 'store'])->name('session');
     Route::post('/file', [FileController::class, 'store'])->middleware('auth')->name('file');

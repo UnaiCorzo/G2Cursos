@@ -10,18 +10,18 @@
     <!-- SECCIÓN BUSCADOR CURSOS -->
     <section class="page-section seccion_cursos mt-5" id="cursos">
         <div class="container mt-0">
-            <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
+            <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0" id="cursos_mostrar">
                 <div class="col-12 mb-5 d-flex justify-content-between align-items-center">
                     <div class="input_busqueda">
                         <i class="fas fa-search"></i>
-                        <input type="text" name="course_name" placeholder="{{ __('Nombre del curso...') }}">
+                        <input type="text" name="course_name" id="course_name" placeholder="{{ __('Nombre del curso...') }}">
                     </div>
                     <button class="btn text-uppercase mx-2 py-2 items boton_sesion boton_busqueda" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
                         {{ __('Filtros') }}
                         <i class="fas fa-filter"></i>
                     </button>
                 </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="portfolio-item">
                         <a href="" class="link_curso" id="curso">
                             <div class="imagen_card">
@@ -56,7 +56,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -65,4 +65,5 @@
 
 @section('script_link')
     <script src="{{ asset('js/user.js') }}"></script>
+    <script src="{{ asset('js/find.js') }}"></script>
 @endsection
