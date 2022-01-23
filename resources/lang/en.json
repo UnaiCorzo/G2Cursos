@@ -74,7 +74,15 @@
     "Selecciona las categorías:": "Select the categories:",
     "Categorías o tags que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.": "Categories or tags that will be related to the course. You must select a minimum of one and a maximum of five.",
     "Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.": "Activate this switch if the course is going to be presential. You must select a location on the map.", 
-    "Selecciona las categorías:": "Select the categories:",
     "Valorar": "Rate",
-    "Cómo llegar": "How to get there"
+    "Cómo llegar": "How to get there",
+    "Rango de precio": "Price range",
+    "Especifica el rango de precio en el que quieres buscar (máximo y mínimo)": "Specify the price range in which you want to search (maximum and minimum)",
+    "Modalidad": "Modality",
+    "Elige la modalidad de asistencia al curso (online o presencial)": "Choose how you want to attend the course (online or presential)",
+    "Cualquiera": "Anyone",
+    "Categorías": "Categories",
+    "Selecciona las categorías o tags que quieres que tenga el curso que buscas": "Select the categories or tags you want the course you are looking for to have",
+    "Aplicar": "Apply",
+    "¡Lo siento! No se encontraron coincidencias": "Sorry! No matches found"
 }

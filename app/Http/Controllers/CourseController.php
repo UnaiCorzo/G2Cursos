@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,9 @@ class CourseController extends Controller
 
     public function find()
     {
-        return view("find_courses");
+        $categories = Category::all();
+
+        return view("find_courses")->with('categories', $categories);
     }
 
     public function findAll()
@@ -31,6 +34,7 @@ class CourseController extends Controller
                 'course' => $all_courses[$i],
                 'language' => app()->getLocale(),
                 'categories' => $all_courses[$i]->categories,
+                'teacher' => User::find($all_courses[$i]->teacher_id),
             ];
         }
 

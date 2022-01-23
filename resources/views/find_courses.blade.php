@@ -21,42 +21,67 @@
                         <i class="fas fa-filter"></i>
                     </button>
                 </div>
-                <!-- <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item">
-                        <a href="" class="link_curso" id="curso">
-                            <div class="imagen_card">
-                                <span class="badge badge-pill text-white bg-success items modalidad">{{ __('Presencial') }}</span>
-                                <img class="img-fluid" src="{{ asset('assets/img/laravel.png') }}" alt="..."/>
-                            </div>
-                            <div class="portfolio-caption">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="portfolio-caption-heading lead items titulo_curso me-2">Laravel desde 0</div>
-                                    <div class="lead bold descripcion_cursos"><i class="fas fa-check-circle check_curso"></i></div>
-                                </div>
-                                <div class="row m-0 p-0">
-                                    <div class="col-12 p-0 docente_cursos">
-                                        <p class="m-0 items">Alberto Ramírez (Backskills)</p>
-                                    </div>
-
-                                    <div class="col-12 p-0 valoracion">
-                                        <p class="m-0 me-1 pt-1 items">3.5</p>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i><br>
-                                        <p class="m-0 pt-1 items">(52)</p>
-                                    </div>
-                                    <div class="col-12 m-0 p-0 mt-2 categorias">
-                                        <span class="badge badge-pill text-white items categorias_cursos bg-info">PHP</span>
-                                        <span class="badge badge-pill text-white items categorias_cursos bg-warning">Laravel</span>
-                                        <span class="badge badge-pill text-white items categorias_cursos bg-success">Backend</span>
-                                    </div>
+                <div class="col-12 mb-5 filtros">
+                    <div class="opciones_filtros">
+                        <div class="precio">
+                            <div class="titulo_filtro">
+                                <p class="m-0">{{ __('Rango de precio') }}</p>
+                                <div class="info_crear_curso top">
+                                    <i class="fas fa-info-circle"> </i>
+                                    <p>{{ __('Especifica el rango de precio en el que quieres buscar (máximo y mínimo)') }}</p>
                                 </div>
                             </div>
-                        </a>
+                            <div class="max_min">
+                                <input type="number" name="max" id="max" class="form-control" placeholder="max">
+                                <input type="number" name="min" id="min" class="form-control" placeholder="min">
+                            </div>
+                        </div>
+                        <div class="modalidad_filtro">
+                            <div class="titulo_filtro">
+                                <p class="m-0">{{ __('Modalidad') }}</p>
+                                <div class="info_crear_curso top">
+                                    <i class="fas fa-info-circle"> </i>
+                                    <p>{{ __('Elige la modalidad de asistencia al curso (online o presencial)') }}</p>
+                                </div>
+                            </div>
+                            <select class="form-select modalidad_select">
+                                <option value="default" selected>{{ __('Cualquiera') }}</option>
+                                <option value="presencial">{{ __('Presencial') }}</option>
+                                <option value="online">Online</option>
+                            </select>
+                        </div>
                     </div>
-                </div> -->
+                    <div class="categorias_filtros">
+                        <div class="titulo_filtro">
+                            <p class="m-0">{{ __('Categorías') }}</p>
+                            <div class="info_crear_curso top">
+                                <i class="fas fa-info-circle"> </i>
+                                <p>{{ __('Selecciona las categorías o tags que quieres que tenga el curso que buscas') }}</p>
+                            </div>
+                        </div>
+                        
+                        @foreach ($categories as $category)
+                            <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
+                        @endforeach
+                        <script>
+                            const categorias2 = <?php echo $categories ?>;
+                            for (let i = 1; i <= categorias2.length; i++) {
+                                let color = categorias2[i - 1].color;
+                                const badge_categoria = document.getElementById(i);
+                                badge_categoria.style.background = color;
+                            }
+                        </script>
+                    </div>
+                    <div class="aplicar">
+                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" id="aplicar">
+                            {{ __('Aplicar') }}
+                        </button>
+                    </div>
+                </div>
+                <div class="no_coincidencias">
+                    <p class="m-0 text-uppercase">{{ __('¡Lo siento! No se encontraron coincidencias') }}</p>
+                    <i class="far fa-frown"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -64,6 +89,6 @@
 @endsection
 
 @section('script_link')
-    <script src="{{ asset('js/user.js') }}"></script>
     <script src="{{ asset('js/find.js') }}"></script>
+    <script src="{{ asset('js/user.js') }}"></script>
 @endsection

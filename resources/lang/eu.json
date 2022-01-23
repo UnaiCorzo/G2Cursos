@@ -76,7 +76,15 @@
     "Selecciona las categorías:": "Hautatu kategoriak:",
     "Categorías o tags que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.": "Ikastaroarekin erlazionatuko diren kategoriak edo tag-ak. Gutxienez bat hautatu behar duzu, eta gehienez bost.",
     "Acciona este switch si el curso va a tener la modalidad presencial. Debes seleccionar una ubicación en el mapa.": "Sakatu switch hau ikastaroak modalitate presentziala izango badu. Mapan kokapen bat hautatu behar duzu.",
-    "Selecciona las categorías:": "Hautatu kategoriak:",
     "Valorar": "Baloratu",
-    "Cómo llegar": "Nola iritsi" 
+    "Cómo llegar": "Nola iritsi",
+    "Rango de precio": "Prezio-tartea",
+    "Especifica el rango de precio en el que quieres buscar (máximo y mínimo)": "Zehaztu zein prezio-tartetan bilatu nahi duzun (maximoa eta minimoa)",
+    "Modalidad": "Modalitatea",
+    "Elige la modalidad de asistencia al curso (online o presencial)": "Aukeratu ikastarora joateko modalitatea (online edo aurrez aurre)",
+    "Cualquiera": "Edozein",
+    "Categorías": "Kategoriak",
+    "Selecciona las categorías o tags que quieres que tenga el curso que buscas": "Hautatu nahi duzun ikastaroak zer kategoria edo tag izatea nahi duzun",
+    "Aplicar": "Aplikatu",
+    "¡Lo siento! No se encontraron coincidencias": "Sentitzen dut! Ez da kointzidentziarik aurkitu"
 }
