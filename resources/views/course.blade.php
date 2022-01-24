@@ -69,6 +69,7 @@
                         <p class="m-0 pt-1 items">({{ $ratings->count() }})</p>
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-5">
+                        @if ($subscribed)
                         <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
                             {{ __('Quitar') }}</a>
                         @if ($rated == false)
@@ -78,7 +79,9 @@
                         @if (isset($course->location))
                         <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Cómo llegar') }}</a>
                         @endif
-
+                        @else
+                        <a href="{{ route('subscribe',  ['id'=>$id,'language'=>  app()->getLocale()]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Añadir') }}</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -115,14 +118,14 @@
         <table class="table mt-5">
             <thead class="thead-light">
                 <tr>
-                    <th class="w-25"scope="col">Usuario</th>
+                    <th class="w-25" scope="col">Usuario</th>
                     <th class="w-25" scope="col">Valoración</th>
                     <th scope="col">Comentario</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($ratings as $rating)
-                <tr >
+                <tr>
                     <th class="w-25" scope="row">{{ $rating->user->name. " ". $rating->user->surnames}}</th>
                     <td class="w-25 rating" value="{{$rating->rating}}">{{$rating->rating}}</td>
                     <td>{{ $rating->comment }}</td>

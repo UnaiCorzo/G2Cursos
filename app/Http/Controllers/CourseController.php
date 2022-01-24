@@ -14,13 +14,20 @@ class CourseController extends Controller
     {
         $course = Course::find($id);
         $hasRated = false;
+        $hasSubscribed = false;
         for ($i=0; $i <count(auth()->user()->ratings) ; $i++) { 
             if (auth()->user()->ratings[$i]->course_id == $id) {
                 $hasRated = true;
             }
+           
         }
-
-        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated,'ratings' => $course->ratings]);
+        for ($i=0; $i <count(auth()->user()->courses) ; $i++) { 
+            if (auth()->user()->courses[$i]->id == $id) {
+                $hasSubscribed = true;
+            }
+           
+        }
+        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated,'subscribed' => $hasSubscribed,'ratings' => $course->ratings]);
     }
     public function rate(Request $request,$lang,$id){
         DB::table('ratings')->insert(
@@ -28,6 +35,10 @@ class CourseController extends Controller
         );
         return back();
 
+    }
+    public function subscribe($lang, $id){
+        auth()->user()->courses()->attach($id);
+        return back();
     }
     public function find()
     {
