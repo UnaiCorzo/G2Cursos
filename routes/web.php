@@ -67,6 +67,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/session', [SessionController::class, 'store'])->name('session');
     Route::post('/file', [FileController::class, 'store'])->middleware('auth')->name('file');
     Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');
+    Route::post('/course/rate/{id}', [CourseController::class, 'rate'])->name('rate');
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
     Route::get('/forgot-password', [PasswordController::class, 'index'])->middleware('guest')->name('password.request');
     Route::post('/course/store', [CourseController::class, 'store'])->name('course-store');

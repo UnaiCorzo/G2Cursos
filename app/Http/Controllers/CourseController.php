@@ -16,7 +16,13 @@ class CourseController extends Controller
 
         return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories]);
     }
+    public function rate(Request $request,$lang,$id){
+        DB::table('ratings')->insert(
+            ['rating' => $request->rating, 'comment' => $request->comment, 'user_id' => auth()->user()->id, 'course_id' => $id]
+        );
+        return back();
 
+    }
     public function find()
     {
         $categories = Category::all();

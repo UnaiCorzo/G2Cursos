@@ -73,12 +73,12 @@
                         <p class="m-0 pt-1 items">(52)</p>
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-5">
-                        <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}"class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                        <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
                             {{ __('Quitar') }}</a>
-                        <a href="{{ route('course',  ['id'=>$id,'language'=> 'eu']) }}"class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                        <a href="" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" data-bs-toggle="modal" data-bs-target="#valorar_curso">
                             {{ __('Valorar') }}</a>
                         @if (isset($course->location))
-                        <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">    {{ __('Cómo llegar') }}</a>
+                        <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Cómo llegar') }}</a>
                         @endif
 
                     </div>
@@ -109,15 +109,67 @@
                             }
                         </script>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- FIN SECCIÓN CURSO DETALLADO -->
+
+<!-- Modal -->
+<div class="modal fade" id="valorar_curso">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <section class="fondo_formulario_registro">
+                <div class="container contenedor_modal contenedor_registro">
+                    <form class="form-control formulario_valorar" id="registrarse" method="post" action="{{ route('rate', ['id'=>$id,'language'=>  app()->getLocale()] )}}">
+                        {{ csrf_field() }}
+                        <div class="row d-flex justify-content-start formulario_valorar">
+                            <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">{{ $course->name }}</h2>
+                                    </div>
+                                    <div class="row col-lg-12 col-12 px-5">
+                                        <div class="col-4 mb-3">
+                                            Estrellas:
+                                        </div>
+                                        <div id="contenedor_est" class="col-8 mb-3">
+                                            <i class="bi bi-star-fill estrella" value="1" style="color:yellow"></i>
+                                            <i class="bi bi-star estrella" value="2" style="color:yellow"></i>
+                                            <i class="bi bi-star estrella" value="3" style="color:yellow"></i>
+                                            <i class="bi bi-star estrella" value="4" style="color:yellow"></i>
+                                            <i class="bi bi-star estrella" value="5" style="color:yellow"></i>
+                                            <input id="estr_valor" name="rating" type="hidden" value="1">
+                                        </div>
+                                        <div class="col-4 mb-3">
+                                            Comentarios
+                                        </div>
+                                        <div class="col-8 mb-3">
+                                            <textarea class="form-control p-2 campos_contacto" id="message" name="comment" placeholder="{{ __('Comentarios') }}" rows="5" style="resize:none"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center">
+
+                                        <button class="btn submit_registro boton_sesion py-2 items me-3 text-uppercase" type="submit">{{ __('Valorar') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <i class="far fa-times-circle boton_cerrar_modal" data-bs-dismiss="modal"></i>
+            </section>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script_link')
 <script src="{{ asset('js/user.js') }}"></script>
 <script src="{{ asset('js/course.js') }}"></script>
+<script src="{{ asset('js/rate.js') }}"></script>
 @endsection
