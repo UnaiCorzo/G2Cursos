@@ -20,7 +20,6 @@ class CourseController extends Controller
             }
         }
 
-
         return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated,'ratings' => $course->ratings]);
     }
     public function rate(Request $request,$lang,$id){

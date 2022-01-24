@@ -64,13 +64,9 @@
                         <p class="m-0 items creador_curso">{{$course->teacher->name ." " .$course->teacher->surnames}}</p>
                     </div>
                     <div class="col-6 p-0 valoracion d-flex justify-content-end align-items-center">
-                        <p class="m-0 me-1 pt-1 items">3.5</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i><br>
-                        <p class="m-0 pt-1 items">(52)</p>
+                        <p class="m-0 me-1 pt-1 items">{{ $ratings->average('rating') }}</p>
+                        <div class="rating" value=" {{round($ratings->average('rating'))}}"></div><br>
+                        <p class="m-0 pt-1 items">({{ $ratings->count() }})</p>
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-5">
                         <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
@@ -127,7 +123,7 @@
             <tbody>
                 @foreach ($ratings as $rating)
                 <tr >
-                    <th class="w-25" scope="row">{{ $rating->first()->user->name. " ". $rating->first()->user->surnames}}</th>
+                    <th class="w-25" scope="row">{{ $rating->user->name. " ". $rating->user->surnames}}</th>
                     <td class="w-25 rating" value="{{$rating->rating}}">{{$rating->rating}}</td>
                     <td>{{ $rating->comment }}</td>
                 </tr>
