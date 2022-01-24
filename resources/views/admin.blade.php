@@ -10,10 +10,10 @@
 
 <nav style="margin-top: 7%;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Peticiones</button>
-        <button class="nav-link text-dark" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Usuarios</button>
-        <button class="nav-link text-dark" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Cursos</button>
-        <button class="nav-link text-dark" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Estadísticas</button>
+        <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{{ __('Peticiones') }}</button>
+        <button class="nav-link text-dark" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{{ __('Usuarios') }}</button>
+        <button class="nav-link text-dark" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Cursos') }}</button>
+        <button class="nav-link text-dark" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Estadísticas') }}</button>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -136,8 +136,8 @@
                 <div class="table table-white d-flex justify-content-center text-center">
                     <table border="1">
                         <tr>
-                            <th class="p-1 px-3">{{ __('Título') }}</th>
-                            <th class="p-1 px-3">{{ __('Precio') }}</th>
+                            <th class="p-1 px-3">{{ __('Título curso') }}</th>
+                            <th class="p-1 px-3">{{ __('Precio curso') }}</th>
                             <th class="p-1 px-3">{{ __('Creador') }}</th>
                             <th class="p-1 px-3">{{ __('Email') }}</th>
                             <th class="p-1 px-3">{{ __('Eliminar') }}</th>

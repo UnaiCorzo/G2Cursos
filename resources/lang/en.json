@@ -84,5 +84,13 @@
     "Categorías": "Categories",
     "Selecciona las categorías o tags que quieres que tenga el curso que buscas": "Select the categories or tags you want the course you are looking for to have",
     "Aplicar": "Apply",
-    "¡Lo siento! No se encontraron coincidencias": "Sorry! No matches found"
+    "¡Lo siento! No se encontraron coincidencias": "Sorry! No matches found",
+    "No hay cursos creados": "There are no courses created",
+    "No hay usuarios": "There are no users",
+    "Banear": "Ban",
+    "Eliminar": "Delete",
+    "Creador": "Creator",
+    "Peticiones": "Requests",
+    "Usuarios": "Users",
+    "Estadísticas": "Statistics"
 }

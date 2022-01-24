@@ -81,10 +81,18 @@
     "Rango de precio": "Prezio-tartea",
     "Especifica el rango de precio en el que quieres buscar (máximo y mínimo)": "Zehaztu zein prezio-tartetan bilatu nahi duzun (maximoa eta minimoa)",
     "Modalidad": "Modalitatea",
-    "Elige la modalidad de asistencia al curso (online o presencial)": "Aukeratu ikastarora joateko modalitatea (online edo aurrez aurre)",
+    "Elige la modalidad de asistencia al curso (online o presencial)": "Aukeratu ikastarora joateko modalitatea (online edo presentziala)",
     "Cualquiera": "Edozein",
     "Categorías": "Kategoriak",
     "Selecciona las categorías o tags que quieres que tenga el curso que buscas": "Hautatu nahi duzun ikastaroak zer kategoria edo tag izatea nahi duzun",
     "Aplicar": "Aplikatu",
-    "¡Lo siento! No se encontraron coincidencias": "Sentitzen dut! Ez da kointzidentziarik aurkitu"
+    "¡Lo siento! No se encontraron coincidencias": "Sentitzen dut! Ez da kointzidentziarik aurkitu",
+    "No hay cursos creados": "Ez dago ikastarorik sortuta",
+    "No hay usuarios": "Ez dago erabiltzailerik",
+    "Banear": "Baneatu",
+    "Eliminar": "Ezabatu",
+    "Creador": "Sortzailea",
+    "Peticiones": "Eskaerak",
+    "Usuarios": "Erabiltzaileak",
+    "Estadísticas": "Estatistikak"
 }
