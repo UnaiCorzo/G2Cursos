@@ -12,15 +12,16 @@ class Rating extends Model
         'rating',
         'comment',
         'user_id',
-        'course_id'
+        'course_id',
     ];
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
-    public function course(){
+
+    public function course()
+    {
         return $this->belongsTo('App\Models\Course');
     }
- 
-
 }

@@ -12,9 +12,9 @@ class Category extends Model
         'name',
         'color'
     ];
+
     public function courses()
     {
         return $this->belongsToMany('App\Models\Course')->withTimestamps;
     }
-
 }

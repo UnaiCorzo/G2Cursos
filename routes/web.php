@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PasswordController;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -41,10 +41,13 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/admin', function () {
         if (Gate::allows('access-admin')) {
             $users = User::select("*")
-            ->whereNotNull('cv')
-            ->where('role_id', 1)
-            ->get();
-            return view('admin', ['users' => $users, 'all_users' => User::all(), 'courses' => Course::all()]);
+                ->whereNotNull('cv')
+                ->where('role_id', 1)
+                ->get();
+            $num_users = count(User::all());
+            $num_courses = count(Course::all());
+            $best_course = "TODO";
+            return view('admin', ['users' => $users, 'all_users' => User::all(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course]);
         }
         return redirect()->to(route('login', app()->getLocale()));
     })->name('admin');
@@ -76,7 +79,6 @@ Route::group(['prefix' => '{language}'], function () {
 });
 
 Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
-
 
 Route::get('/reset-password/{token}', function ($token) {
     return view('change_password', ['token' => $token]);

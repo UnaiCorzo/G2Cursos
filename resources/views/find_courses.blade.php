@@ -59,7 +59,7 @@
                                 <p>{{ __('Selecciona las categorías o tags que quieres que tenga el curso que buscas') }}</p>
                             </div>
                         </div>
-                        
+
                         @foreach ($categories as $category)
                             <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
                         @endforeach

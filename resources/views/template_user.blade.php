@@ -62,7 +62,7 @@
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-4">
                         <select id="prueba" class="bg-secondary text-white rounded-2 p-1">
-                            @yield('lang') 
+                            @yield('lang')
                         </select>
                     </li>
                 </ul>

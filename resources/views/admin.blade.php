@@ -169,7 +169,26 @@
     </div>
     
     <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
-
+        <section class="page-section seccion_cursos">
+            <div class="container mt-0">
+                <div class="table table-white d-flex justify-content-center text-center">
+                    <table border="1">
+                        <tr>
+                            <th class="p-1 px-3">{{ __('Usuarios') }}</th>
+                            <td class="p-1 px-3">{{ $num_users }}</th>
+                        </tr>
+                        <tr>
+                            <th class="p-1 px-3">{{ __('Cursos creados') }}</th>
+                            <td class="p-1 px-3">{{ $num_courses }}</th>
+                        </tr>
+                        <tr>
+                            <th class="p-1 px-3">{{ __('Curso mejor valorado') }}</th>
+                            <td class="p-1 px-3">{{ $best_course }}</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 @endsection

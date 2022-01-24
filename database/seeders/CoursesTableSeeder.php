@@ -128,8 +128,5 @@ class CoursesTableSeeder extends Seeder
         $course->categories()->attach(Category::find(4));
         $course->categories()->attach(Category::find(2));
         $course->categories()->attach(Category::find(3));
-
-        
-
     }
 }

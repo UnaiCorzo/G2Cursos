@@ -80,7 +80,7 @@
                         @if (isset($course->location))
                         <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">    {{ __('Cómo llegar') }}</a>
                         @endif
-                      
+
                     </div>
                 </div>
             </div>
@@ -101,15 +101,14 @@
                         <span class="badge badge-pill text-white items categorias_cursos" id="{{ $category->id }}">{{ $category->name }}</span>
                         @endforeach
                         <script>
-                                    var categorias = <?php echo $categories ?>;
-                                    for (let i = 1; i <= categorias.length; i++) {
-                                        let color = categorias[i - 1].color;
-                                        var badge_categoria = document.getElementById(categorias[i - 1].id);
-                                        badge_categoria.style.background = color;
-                                    }
-                                </script>
+                            var categorias = <?php echo $categories ?>;
+                            for (let i = 1; i <= categorias.length; i++) {
+                                let color = categorias[i - 1].color;
+                                var badge_categoria = document.getElementById(categorias[i - 1].id);
+                                badge_categoria.style.background = color;
+                            }
+                        </script>
                     </div>
-               
                 </div>
             </div>
         </div>

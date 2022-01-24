@@ -13,6 +13,7 @@ class Company extends Model
         'direction',
         'location',
     ];
+
     public function employees()
     {
         return $this->hasMany('App\Models\User');
