@@ -51,6 +51,7 @@ class CoursesTableSeeder extends Seeder
         ]);
 
         $course = Course::find($id);
+        $course->categories()->attach(Category::find(28));
         $course->categories()->attach(Category::find(23));
         $course->categories()->attach(Category::find(24));
         $course->categories()->attach(Category::find(25));
