@@ -24,6 +24,11 @@ $(document).ready(function () {
             let precio;
             if (cursos_json[i].course.price == 0) {
                 precio = "GRATIS";
+                if (lang == 'en') {
+                    precio = "FREE";
+                } else if (lang == 'eu') {
+                    precio = "DOAN";
+                }
             }
             else {
                 precio = cursos_json[i].course.price + " €";
@@ -31,13 +36,11 @@ $(document).ready(function () {
 
             let modalidad;
             if (cursos_json[i].course.location != null) {
-                if (lang == 'es') {
-                    modalidad = "Presencial";
-                }
-                else if (lang == 'en') {
+                modalidad = "Presencial";
+                if (lang == 'en') {
                     modalidad = "Presential";
                 }
-                else {
+                else if (lang == 'eu') {
                     modalidad = "Presentziala";
                 }
             }
@@ -47,7 +50,7 @@ $(document).ready(function () {
 
             let ruta = "/" + lang + "/course/view/" + cursos_json[i].course.id;
 
-            cursos_mostrar.html(cursos_mostrar.html() + "<div class='col-lg-4 col-sm-6 mb-4 cursos_buscar'><div class='portfolio-item'><a href='" + ruta + "' class='link_curso' id='curso_" + cursos_json[i].course.id + "'><div class='imagen_card'><span class='badge badge-pill text-white bg-success items modalidad'>" + modalidad + "</span><img class='img-fluid' src='/images/" + cursos_json[i].course.image + "' alt='" + cursos_json[i].course.name + "'/></div><div class='portfolio-caption'><div class='d-flex justify-content-between align-items-center'><div class='portfolio-caption-heading lead items titulo_curso me-2'>" + cursos_json[i].course.name + "</div><div class='lead bold descripcion_cursos'>" + precio + "</div></div><div class='row m-0 p-0'><div class='col-12 p-0 docente_cursos'><p class='m-0 items'>" + cursos_json[i].teacher.name + " " + cursos_json[i].teacher.surnames +  "</p></div><div class='col-12 p-0 valoracion'><p class='m-0 me-1 pt-1 items'>3.5</p><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star-half-alt'></i><i class='far fa-star'></i><br><p class='m-0 pt-1 items'>(52)</p></div><div class='col-12 m-0 p-0 mt-2 categorias'>" + categorias_html + "</div></div></div></a></div></div>");
+            cursos_mostrar.html(cursos_mostrar.html() + "<div class='col-lg-4 col-sm-6 mb-4 cursos_buscar'><div class='portfolio-item'><a href='" + ruta + "' class='link_curso' id='curso_" + cursos_json[i].course.id + "'><div class='imagen_card'><span class='badge badge-pill text-white bg-success items modalidad'>" + modalidad + "</span><img class='img-fluid' src='/images/" + cursos_json[i].course.image + "' alt='" + cursos_json[i].course.name + "'/></div><div class='portfolio-caption'><div class='d-flex justify-content-between align-items-center'><div class='portfolio-caption-heading lead items titulo_curso me-2'>" + cursos_json[i].course.name + "</div><div class='lead bold descripcion_cursos'>" + precio + "</div></div><div class='row m-0 p-0'><div class='col-12 p-0 docente_cursos'><p class='m-0 items'>" + cursos_json[i].teacher.name + " " + cursos_json[i].teacher.surnames + "</p></div><div class='col-12 p-0 valoracion'><p class='m-0 me-1 pt-1 items'>3.5</p><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star'></i><i class='fas fa-star-half-alt'></i><i class='far fa-star'></i><br><p class='m-0 pt-1 items'>(52)</p></div><div class='col-12 m-0 p-0 mt-2 categorias'>" + categorias_html + "</div></div></div></a></div></div>");
         }
 
         // ANIMACIÓN IMÁGENES CURSOS
@@ -152,14 +155,14 @@ $(document).ready(function () {
             let min_precio;
             let max_precio;
 
-            if($('#min').val() == "") {
+            if ($('#min').val() == "") {
                 min_precio = 0;
             }
             else {
                 min_precio = $('#min').val();
             }
 
-            if($('#max').val() == "") {
+            if ($('#max').val() == "") {
                 max_precio = 99999;
             }
             else {
@@ -182,7 +185,7 @@ $(document).ready(function () {
 
             const cursos_filtrar = $('.cursos_buscar');
 
-            cursos_filtrar.each(function(indice) {
+            cursos_filtrar.each(function (indice) {
                 let nombre_curso = cursos[indice].course.name.toLowerCase();
 
                 let modalidad_curso;
@@ -192,7 +195,7 @@ $(document).ready(function () {
                 else {
                     modalidad_curso = "online";
                 }
-                
+
 
                 if ((nombre_curso.includes(nombre_busqueda)) && (cursos[indice].course.price <= max_precio && cursos[indice].course.price >= min_precio) && (modalidad_curso == modalidad[0] || modalidad_curso == modalidad[1]) && filtrarCategorias(cursos[indice].categories)) {
                     $(this).css('display', 'inline');
@@ -220,7 +223,7 @@ $(document).ready(function () {
                     for (let j = 0; j < categorias_curso_filtrar.length; j++) {
                         if (categorias_curso_filtrar[j].id == categorias_seleccionadas[i]) {
                             coincidencias++;
-                        } 
+                        }
                     }
                 }
 
