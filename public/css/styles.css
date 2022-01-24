@@ -11061,6 +11061,7 @@ p {
 }
 
 .page-section {
+    min-height: 80vh;
     padding: 6rem 0;
 }
 
@@ -12589,6 +12590,12 @@ select:focus {
 }
 /* FIN PÁGINA RECUPERAR CONTRASEÑA */
 
+/* PÁGINA VERIFICAR EMAIL */
+.enviado_email {
+    margin: 0!important;
+}
+/* FIN PÁGINA VERIFICAR EMAIL */
+
 /* RESPONSIVE */
 @media screen and (max-width: 991px) {
     #mainNav {
@@ -12675,6 +12682,12 @@ select:focus {
     .categorias_filtros .titulo_filtro {
         flex-basis: 100%;
     }
+
+    .seccion_recuperar {
+        width: 70%;
+        left: 15%;
+        right: 15%;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -12758,6 +12771,16 @@ select:focus {
 
     .info_crear_curso.top p {
         font-size: .6rem!important;
+    }
+
+    .seccion_recuperar {
+        width: 90%;
+        left: 5px;
+        right: 5px;
+    }
+
+    .seccion_recuperar h2 {
+        font-size: 1.2rem;
     }
 }
 /* FIN RESPONSIVE */
