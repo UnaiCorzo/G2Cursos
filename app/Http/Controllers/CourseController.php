@@ -90,6 +90,8 @@ class CourseController extends Controller
     public function delete($lang, $id)
     {
         $course = Course::find($id);
+        $image_path = public_path() . '/images' . '/' . $course->image;
+        unlink($image_path);
         $course->delete();
         return redirect()->to(route('admin', $lang));
     }
