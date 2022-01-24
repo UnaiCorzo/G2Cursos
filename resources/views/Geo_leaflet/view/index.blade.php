@@ -22,7 +22,7 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
-                prompt("Geolokalizazioa ezin da kargatu zure nabigatzailean.");
+                prompt("Geolocalization can't be initialized.");
             }
         }
         function showPosition(position) {

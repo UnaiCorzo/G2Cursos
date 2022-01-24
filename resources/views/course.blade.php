@@ -141,13 +141,13 @@
                                             <i class="bi bi-star estrella" value="3" style="color:yellow"></i>
                                             <i class="bi bi-star estrella" value="4" style="color:yellow"></i>
                                             <i class="bi bi-star estrella" value="5" style="color:yellow"></i>
-                                            <input id="estr_valor" name="rating" type="hidden" value="1">
+                                            <input id="estr_valor" type="hidden" value="1">
                                         </div>
                                         <div class="col-4 mb-3">
                                             Comentarios
                                         </div>
                                         <div class="col-8 mb-3">
-                                            <textarea class="form-control p-2 campos_contacto" id="message" name="comment" placeholder="{{ __('Comentarios') }}" rows="5" style="resize:none"></textarea>
+                                            <textarea class="form-control p-2 campos_contacto" id="message" name="comments" placeholder="{{ __('Comentarios') }}" rows="5" style="resize:none"></textarea>
                                         </div>
                                     </div>
 

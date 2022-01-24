@@ -18,9 +18,6 @@ class CreateCourseUserTable extends Migration
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->integer('num_students');
             $table->timestamps();
         });
     }
