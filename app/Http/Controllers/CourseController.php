@@ -13,8 +13,14 @@ class CourseController extends Controller
     public function course($lang, $id)
     {
         $course = Course::find($id);
-
-        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories]);
+        $hasRated = false;
+        for ($i=0; $i <count(auth()->user()->ratings) ; $i++) { 
+            if (auth()->user()->ratings[$i]->course_id == $id) {
+                $hasRated = true;
+            }
+        }
+ 
+        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated]);
     }
     public function rate(Request $request,$lang,$id){
         DB::table('ratings')->insert(

@@ -75,8 +75,10 @@
                     <div class="col-12 d-flex justify-content-center mt-5">
                         <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
                             {{ __('Quitar') }}</a>
+                        @if ($rated == false)
                         <a href="" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" data-bs-toggle="modal" data-bs-target="#valorar_curso">
                             {{ __('Valorar') }}</a>
+                        @endif
                         @if (isset($course->location))
                         <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Cómo llegar') }}</a>
                         @endif
@@ -141,13 +143,13 @@
                                             <i class="bi bi-star estrella" value="3" style="color:yellow"></i>
                                             <i class="bi bi-star estrella" value="4" style="color:yellow"></i>
                                             <i class="bi bi-star estrella" value="5" style="color:yellow"></i>
-                                            <input id="estr_valor" type="hidden" value="1">
+                                            <input id="estr_valor"name="rating" type="hidden" value="1">
                                         </div>
                                         <div class="col-4 mb-3">
                                             Comentarios
                                         </div>
                                         <div class="col-8 mb-3">
-                                            <textarea class="form-control p-2 campos_contacto" id="message" name="comments" placeholder="{{ __('Comentarios') }}" rows="5" style="resize:none"></textarea>
+                                            <textarea class="form-control p-2 campos_contacto" id="message" name="comment" placeholder="{{ __('Comentarios') }}" rows="5" style="resize:none"></textarea>
                                         </div>
                                     </div>
 
