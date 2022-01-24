@@ -426,7 +426,7 @@
                 <h2 class="section-heading text-uppercase">{{ __('Contacto') }}</h2>
                 <h3 class="section-subheading text-muted">{{ __('¿Tienes alguna duda o sugerencia?') }}</h3>
             </div>
-            <form id="contactForm" method="post">
+            <form id="contactForm" method="post" action="{{ route('contact_send', app()->getLocale()) }}">
                 {{ csrf_field() }}
                 <div class="row d-flex justify-content-center align-items-stretch mb-5 formulario_contacto">
                     <div class="col-lg-6 col-md-6 col-sm-12">

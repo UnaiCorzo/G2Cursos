@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PasswordController;
@@ -69,6 +70,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
     Route::get('/forgot-password', [PasswordController::class, 'index'])->middleware('guest')->name('password.request');
     Route::post('/course/store', [CourseController::class, 'store'])->name('course-store');
+    Route::post('/contact/send', [ContactController::class, 'store'])->name('contact_send');
 
     Route::get('/{success?}', function ($lang, $success = false) {
         if ($success) {
