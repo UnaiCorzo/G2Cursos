@@ -56,7 +56,7 @@ Route::group(['prefix' => '{language}'], function () {
             $num_users = count(User::all());
             $num_courses = count(Course::all());
             $best_course = "TODO";
-            return view('admin', ['cvs' => $cvs, 'all_users' => User::all(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course, 'messages' => Contact::all()]);
+            return view('admin', ['cvs' => $cvs, 'all_users' => User::all(), 'banned_users' => User::onlyTrashed()->get(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course, 'messages' => Contact::all()]);
         }
         return redirect()->to(route('login', app()->getLocale()));
     })->name('admin');

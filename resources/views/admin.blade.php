@@ -136,7 +136,6 @@
                             <th class="p-1 px-3">{{ __('Email') }}</th>
                             <th class="p-1 px-3">{{ __('Modificar') }}</th>
                             <th class="p-1 px-3">{{ __('Banear') }}</th>
-                            <th class="p-1 px-3">{{ __('Eliminar') }}</th>
                         </tr>
                         @if (count($all_users) == 0)
                             <tr><td align="center" colspan="8">{{ __('No hay usuarios') }}</td></tr>
@@ -167,6 +166,49 @@
                                 <td class="p-1 px-3">
                                     <button type="submit" class="btn" name="admin_action" value="ban_user">
                                         <i class="btn bi bi-dash-circle-fill" style="color: red; font-size: 30px;" name="btn"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </form>
+                        @endforeach
+                    </table>
+                </div>
+
+                <div class="col-12 text-center m-2 lead">{{ __('Usuarios baneados') }}</div>
+                <div class="table table-white d-flex justify-content-center text-center">
+                    <table border="1">
+                        <tr>
+                            <th class="p-1 px-3">{{ __('Nombre') }}</th>
+                            <th class="p-1 px-3">{{ __('Apellidos') }}</th>
+                            <th class="p-1 px-3">{{ __('DNI') }}</th>
+                            <th class="p-1 px-3">{{ __('Email') }}</th>
+                            <th class="p-1 px-3">{{ __('Restaurar') }}</th>
+                            <th class="p-1 px-3">{{ __('Eliminar') }}</th>
+                        </tr>
+                        @if (count($banned_users) == 0)
+                            <tr><td align="center" colspan="8">{{ __('No hay usuarios baneados') }}</td></tr>
+                        @endif
+                        @foreach($banned_users as $banned_user)
+                        <form class="form-control formulario_sesion" method="post" action="{{ route('profile_modify', array(app()->getLocale(), $banned_user->id)) }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <input type='hidden' name='panel' value="true">
+                            <tr>
+                                <td class="p-1 px-3">
+                                    <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
+                                </td>
+                                <td class="p-1 px-3">
+                                    <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
+                                </td>
+                                <td class="p-1 px-3">
+                                    <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
+                                </td>
+                                <td class="p-1 px-3">
+                                    <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
+                                </td>
+
+                                <td class="p-1 px-3">
+                                    <button type="submit" class="btn" name="admin_action" value="restore_user">
+                                    <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
                                     </button>
                                 </td>
                                 <td class="p-1 px-3">
