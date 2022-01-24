@@ -22,7 +22,7 @@
                 {{ __('Menú') }}
                 <i class="fas fa-bars ms-1"></i>
             </button>
-            <div class="collapse navbar-collapse p-0" id="navbarResponsive">
+            <div class="collapse navbar-collapse p-0 mt-3 mt-lg-0" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto me-lg-5 p2-2 py-lg-0 text-center">
                         @if (auth()->user()->role_id == 1)
                             <li class="nav-item d-flex justify-content-center align-items-center me-1">

@@ -12347,7 +12347,7 @@ select:focus {
 }
 
 .titulo_filtro {
-    width: 50%;
+    flex-basis: 50%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -12359,10 +12359,11 @@ select:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .precio .max_min {
-    width: 50%;
+    flex-basis: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12380,7 +12381,7 @@ select:focus {
 }
 
 .modalidad_filtro select {
-    width: 50%!important;
+    flex-basis: 50%!important;
 }
 
 .categorias_filtros {
@@ -12576,6 +12577,28 @@ select:focus {
     .navbar-nav .dropdown-menu {
         position: absolute!important;
     }
+
+    .filtros {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .opciones_filtros {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .categorias_filtros {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .categorias_filtros .titulo_filtro {
+        flex-basis: 100%;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -12604,6 +12627,61 @@ select:focus {
         align-items: center;
         gap: 10px;
         padding-bottom: 20px;
+    }
+
+    .titulo_filtro {
+        flex-basis: 100%;
+        justify-content: center;
+    }
+
+    .precio .max_min {
+        flex-basis: 100%;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .modalidad_filtro {
+        flex-wrap: wrap;
+    }
+
+    .modalidad_filtro select {
+        flex-basis: 100%!important;
+        margin-top: 20px;
+    }
+
+    .categorias_filtros {
+        justify-content: center;
+    }
+
+    .categorias_filtros .titulo_filtro {
+        margin-bottom: 10px;
+    }
+
+    .input_busqueda {
+        width: 70%;
+        font-size: .8rem!important;
+    }
+
+    .boton_busqueda {
+        width: 30%;
+        font-size: .8rem!important;
+    }
+
+    .filtros p {
+        font-size: .8rem!important;
+    }
+
+    .precio input {
+        font-size: .8rem!important;
+    }
+
+    .modalidad_filtro select {
+        font-size: .8rem!important;
+    }
+
+    .info_crear_curso.top p {
+        font-size: .6rem!important;
     }
 }
 /* FIN RESPONSIVE */
