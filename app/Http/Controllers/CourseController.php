@@ -19,8 +19,9 @@ class CourseController extends Controller
                 $hasRated = true;
             }
         }
- 
-        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated]);
+
+
+        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated,'ratings' => $course->ratings]);
     }
     public function rate(Request $request,$lang,$id){
         DB::table('ratings')->insert(

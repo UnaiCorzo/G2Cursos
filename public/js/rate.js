@@ -2,6 +2,17 @@ var stars;
 $(document).ready(function () {
     stars = $('#contenedor_est .estrella');
     stars.click(colorear);
+    $('.rating').each(function(){
+        var estrellas ="";
+        for (let i = 0; i < $(this).attr("value"); i++) {
+            estrellas +=  '<i class="bi bi-star-fill estrella"  style="color:yellow"></i>';
+        }
+        for (let i = 0; i <5 - $(this).attr("value"); i++) {
+            estrellas +=  '<i class="bi bi-star estrella"  style="color:yellow"></i>';
+            
+        }
+        $(this).html(estrellas);
+    });
 });
 function colorear(){
     let current_star = $(this).attr('value');

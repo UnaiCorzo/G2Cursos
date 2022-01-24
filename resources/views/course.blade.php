@@ -111,10 +111,29 @@
                             }
                         </script>
                     </div>
-
                 </div>
             </div>
+
         </div>
+
+        <table class="table mt-5">
+            <thead class="thead-light">
+                <tr>
+                    <th class="w-25"scope="col">Usuario</th>
+                    <th class="w-25" scope="col">Valoración</th>
+                    <th scope="col">Comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($ratings as $rating)
+                <tr >
+                    <th class="w-25" scope="row">{{ $rating->first()->user->name. " ". $rating->first()->user->surnames}}</th>
+                    <td class="w-25 rating" value="{{$rating->rating}}">{{$rating->rating}}</td>
+                    <td>{{ $rating->comment }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </section>
 <!-- FIN SECCIÓN CURSO DETALLADO -->
@@ -143,7 +162,7 @@
                                             <i class="bi bi-star estrella" value="3" style="color:yellow"></i>
                                             <i class="bi bi-star estrella" value="4" style="color:yellow"></i>
                                             <i class="bi bi-star estrella" value="5" style="color:yellow"></i>
-                                            <input id="estr_valor"name="rating" type="hidden" value="1">
+                                            <input id="estr_valor" name="rating" type="hidden" value="1">
                                         </div>
                                         <div class="col-4 mb-3">
                                             Comentarios
@@ -162,6 +181,7 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
                 <i class="far fa-times-circle boton_cerrar_modal" data-bs-dismiss="modal"></i>
             </section>
