@@ -6,6 +6,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Models\Contact;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -41,14 +42,14 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::get('/admin', function () {
         if (Gate::allows('access-admin')) {
-            $users = User::select("*")
+            $cvs = User::select("*")
                 ->whereNotNull('cv')
                 ->where('role_id', 1)
                 ->get();
             $num_users = count(User::all());
             $num_courses = count(Course::all());
             $best_course = "TODO";
-            return view('admin', ['users' => $users, 'all_users' => User::all(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course]);
+            return view('admin', ['cvs' => $cvs, 'all_users' => User::all(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course, 'messages' => Contact::all()]);
         }
         return redirect()->to(route('login', app()->getLocale()));
     })->name('admin');
@@ -72,6 +73,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/forgot-password', [PasswordController::class, 'index'])->middleware('guest')->name('password.request');
     Route::post('/course/store', [CourseController::class, 'store'])->name('course-store');
     Route::post('/contact/send', [ContactController::class, 'store'])->name('contact_send');
+    Route::post('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact_delete');
 
     Route::get('/{success?}', function ($lang, $success = false) {
         if ($success) {

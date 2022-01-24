@@ -10,14 +10,66 @@
 
 <nav style="margin-top: 7%;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{{ __('Peticiones') }}</button>
-        <button class="nav-link text-dark" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{{ __('Usuarios') }}</button>
-        <button class="nav-link text-dark" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Cursos') }}</button>
-        <button class="nav-link text-dark" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Estadísticas') }}</button>
+        <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+            {{ __('Mensajes') }}
+            @if (count($messages) > 0)
+            <span class="ms-1 badge rounded-pill bg-danger">
+                {{ count($messages) }}
+            </span>
+            @endif
+        </button>
+        <button class="nav-link text-dark" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+            {{ __('Peticiones') }}
+            @if (count($cvs) > 0)
+            <span class="ms-1 badge rounded-pill bg-danger">
+                {{ count($cvs) }}
+            </span>
+            @endif
+        </button>
+        <button class="nav-link text-dark" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Usuarios') }}</button>
+        <button class="nav-link text-dark" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Cursos') }}</button>
+        <button class="nav-link text-dark" id="nav-5-tab" data-bs-toggle="tab" data-bs-target="#nav-5" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Estadísticas') }}</button>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+        <section class="page-section seccion_cursos">
+            <div class="container mt-0">
+                <div class="table table-white d-flex justify-content-center text-center">
+                    <table border="1">
+                        <tr>
+                            <th class="p-1 px-3">{{ __('Nombre') }}</th>
+                            <th class="p-1 px-3">{{ __('Email') }}</th>
+                            <th class="p-1 px-3">{{ __('Teléfono') }}</th>
+                            <th class="p-1 px-3">{{ __('Comentarios') }}</th>
+                            <th class="p-1 px-3">{{ __('Eliminar') }}</th>
+                        </tr>
+                        @if (count($messages) == 0)
+                            <tr><td align="center" colspan="8">{{ __('No hay mensajes nuevos') }}</td></tr>
+                        @endif
+                        @foreach($messages as $message)
+                        <form class="form-control formulario_sesion" method="post" action="{{ route('contact_delete', array(app()->getLocale(), $message->id)) }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <tr>
+                                <td class="p-1 px-3">{{ $message->name }}</td>
+                                <td class="p-1 px-3">{{ $message->email }}</td>
+                                <td class="p-1 px-3">{{ $message->phone }}</td>
+                                <td class="p-1 px-3">{{ $message->comments }}</td>
+
+                                <td class="p-1 px-3">
+                                    <button type="submit" class="btn" name="admin_action" value="delete">
+                                        <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </form>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table table-white d-flex justify-content-center text-center">
@@ -33,21 +85,21 @@
                             <th class="p-1 pe-4">{{ __('Rechazar') }}</th>
                         </tr>
 
-                        @if (count($users) == 0)
+                        @if (count($cvs) == 0)
                             <tr><td align="center" colspan="8">{{ __('No hay peticiones nuevas') }}</td></tr>
                         @endif
-                        @foreach($users as $user)
+                        @foreach($cvs as $cv)
                         <form class="form-control formulario_sesion" method="post" action="{{ route('upgrade', app()->getLocale()) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
-                            <input type='hidden' name='user' value="{{$user->id}}">
+                            <input type='hidden' name='user' value="{{ $cv->id }}">
                             <tr>
-                                <td class="p-1 pe-4">{{ $user->name }}</td>
-                                <td class="p-1 pe-4">{{ $user->surnames }}</td>
-                                <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', $user->cv) }}">{{ $user->cv }}</a></td>
-                                @if(isset($user->company->name))
-                                <td class="p-1 pe-4">{{ $user->company->name }}</td>
-                                <td class="p-1 pe-4">{{ $user->company->direction }}</td>
-                                <td class="p-1 pe-4">{{ $user->company->location }}</td>
+                                <td class="p-1 pe-4">{{ $cv->name }}</td>
+                                <td class="p-1 pe-4">{{ $cv->surnames }}</td>
+                                <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
+                                @if(isset($cv->company->name))
+                                <td class="p-1 pe-4">{{ $cv->company->name }}</td>
+                                <td class="p-1 pe-4">{{ $cv->company->direction }}</td>
+                                <td class="p-1 pe-4">{{ $cv->company->location }}</td>
                                 @else
                                 <td class="p-1 pe-4">-</td>
                                 <td class="p-1 pe-4">-</td>
@@ -72,7 +124,7 @@
             </div>
         </section>
     </div>
-    <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+    <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table table-white d-flex justify-content-center text-center">
@@ -130,7 +182,7 @@
             </div>
         </section>
     </div>
-    <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+    <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table table-white d-flex justify-content-center text-center">
@@ -167,8 +219,8 @@
             </div>
         </section>
     </div>
-    
-    <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
+
+    <div class="tab-pane fade" id="nav-5" role="tabpanel" aria-labelledby="nav-5-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table table-white d-flex justify-content-center text-center">

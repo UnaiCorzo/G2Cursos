@@ -17,4 +17,9 @@ class ContactController extends Controller
 
         return redirect()->to(route('login', app()->getLocale()));
     }
+
+    public function delete($lang, $id) {
+        Contact::find($id)->delete();
+        return redirect()->to(route('admin', $lang));
+    }
 }
