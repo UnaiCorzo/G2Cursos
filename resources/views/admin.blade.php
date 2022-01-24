@@ -142,7 +142,7 @@
                             <th class="p-1 px-3">{{ __('Email') }}</th>
                             <th class="p-1 px-3">{{ __('Eliminar') }}</th>
                         </tr>
-                        @if (count($users) == 0)
+                        @if (count($courses) == 0)
                             <tr><td align="center" colspan="8">{{ __('No hay cursos creados') }}</td></tr>
                         @endif
                         @foreach($courses as $course)
