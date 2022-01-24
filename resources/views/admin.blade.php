@@ -86,7 +86,7 @@
                             <th class="p-1 px-3">{{ __('Banear') }}</th>
                             <th class="p-1 px-3">{{ __('Eliminar') }}</th>
                         </tr>
-                        @if (count($users) == 0)
+                        @if (count($all_users) == 0)
                             <tr><td align="center" colspan="8">{{ __('No hay usuarios') }}</td></tr>
                         @endif
                         @foreach($all_users as $single_user)
