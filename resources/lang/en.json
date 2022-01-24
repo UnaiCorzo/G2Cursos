@@ -102,5 +102,8 @@
     "Mensajes": "Messages",
     "No hay mensajes nuevos": "No new messages",
     "Se te ha enviado un correo, confírmalo": "An email has been sent to you, please confirm it",
-    "Verificar email": "Verify email"
+    "Verificar email": "Verify email",
+    "Restaurar": "Restore",
+    "Usuarios baneados": "Banned users",
+    "No hay usuarios baneados": "There are no banned users"
 }

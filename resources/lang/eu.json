@@ -104,5 +104,8 @@
     "Mensajes": "Mezuak",
     "No hay mensajes nuevos": "Ez dago mezu berririk",
     "Se te ha enviado un correo, confírmalo": "Mezu bat bidali zaizu, berretsi",
-    "Verificar email": "Egiaztatu helbide elektronikoa"
+    "Verificar email": "Egiaztatu helbide elektronikoa",
+    "Restaurar": "Berreskuratu",
+    "Usuarios baneados": "Erabiltzaile baneatuak",
+    "No hay usuarios baneados": "Ez dago baneatutako erabiltzailerik"
 }
