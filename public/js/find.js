@@ -115,8 +115,6 @@ $(document).ready(function () {
             categoria_buscar.addClass('categoria_activa');
             cat_activas += categoria_buscar.attr('id') + ";";
             categoria_buscar.click(quitarActiva);
-
-            console.log("ANADIR: " + cat_activas);
         }
 
         function quitarActiva() {
@@ -138,8 +136,6 @@ $(document).ready(function () {
                 }
             }
             categoria_buscar.click(anadirActiva);
-
-            console.log("QUITAR: " + cat_activas);
         }
         // FIN CATEGORÍAS ACTIVAS
 

@@ -35,6 +35,13 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     return redirect('/es/true');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
+Route::get('/reset-password/{token}', function ($token) {
+    return view('change_password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/forgot-password/send', [PasswordController::class, 'send'])->middleware('guest')->name('password-request');
+Route::post('/forgot-password/reset', [PasswordController::class, 'reset'])->middleware('guest')->name('password-reset');
+
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/home', function () {
         return view('user');
@@ -84,10 +91,3 @@ Route::group(['prefix' => '{language}'], function () {
 });
 
 Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
-
-Route::get('/reset-password/{token}', function ($token) {
-    return view('change_password', ['token' => $token]);
-})->middleware('guest')->name('password.reset');
-
-Route::post('/forgot-password/send', [PasswordController::class, 'send'])->middleware('guest')->name('password-request');
-Route::post('/forgot-password/reset', [PasswordController::class, 'reset'])->middleware('guest')->name('password-reset');

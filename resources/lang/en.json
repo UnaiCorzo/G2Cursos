@@ -92,5 +92,10 @@
     "Creador": "Creator",
     "Peticiones": "Requests",
     "Usuarios": "Users",
-    "Estadísticas": "Statistics"
+    "Estadísticas": "Statistics",
+    "Recuperar contraseña": "Password recovery",
+    "Introduce el email de tu cuenta y recibirás en el mismo un mensaje de recuperación": "Enter your account email and you will receive a recovery message",
+    "Paso 1": "Step 1",
+    "Paso 2": "Step 2",
+    "Introduce tu email y especifica una nueva contraseña para terminar de recuperarla": "Enter your email and specify a new password to finish recovering it"
 }

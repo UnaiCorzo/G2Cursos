@@ -64,7 +64,7 @@
                             <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
                         @endforeach
                         <script>
-                            const categorias2 = <?php echo $categories ?>;
+                            var categorias2 = <?php echo $categories ?>;
                             for (let i = 1; i <= categorias2.length; i++) {
                                 let color = categorias2[i - 1].color;
                                 const badge_categoria = document.getElementById(i);

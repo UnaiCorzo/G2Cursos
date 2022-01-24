@@ -138,6 +138,9 @@
                                                  type="submit">{{ __('Entrar') }}
                                             </button>
                                         </div>
+                                        <div class="col-12 d-flex justify-content-center align-items-end px-5 text-center mt-3">
+                                            <a href="{{ route('password.request', app()->getLocale()) }}" class="registrarse_sesion items">{{ __('Recuperar contraseña') }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

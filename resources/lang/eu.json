@@ -94,5 +94,10 @@
     "Creador": "Sortzailea",
     "Peticiones": "Eskaerak",
     "Usuarios": "Erabiltzaileak",
-    "Estadísticas": "Estatistikak"
+    "Estadísticas": "Estatistikak",
+    "Recuperar contraseña": "Berreskuratu pasahitza",
+    "Introduce el email de tu cuenta y recibirás en el mismo un mensaje de recuperación": "Sartu zure kontuko helbide elektronikoa eta berreskuratze-mezu bat jasoko duzu",
+    "Paso 1": "1. Pausoa",
+    "Paso 2": "2. Pausoa",
+    "Introduce tu email y especifica una nueva contraseña para terminar de recuperarla": "Sartu zure helbide elektronikoa eta zehaztu pasahitz berria berreskuratzen amaitzeko"
 }
