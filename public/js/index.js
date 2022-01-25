@@ -155,6 +155,9 @@ $(document).ready(function () {
     });
 
     $.validator.addMethod("formatoPhone", function (value, element) {
+        if (value.length != 9) {
+            return this.optional(element);
+        }
         for (let i = 0; i < value.length; i++) {
             if (value[i] < '0' || value[i] > '9') {
                 return this.optional(element);
@@ -176,7 +179,7 @@ $(document).ready(function () {
     let password_2_1 = "Repite la contraseña";
     let password_2_2 = "Las contraseñas no coinciden";
     let phone_1 = "El teléfono es requerido";
-    let phone_2 = "El teléfono solo puede contener números";
+    let phone_2 = "El teléfono debe contener 9 dígitos";
     let comments_1 = "El comentario es requerido";
     let email_1 = "El email es requerido";
     let email_2 = "Formato de email no válido";
@@ -196,7 +199,7 @@ $(document).ready(function () {
         password_2_1 = "Repeat password";
         password_2_2 = "Passwords do not match";
         phone_1 = "Phone required";
-        phone_2 = "Phone can only contain numbers";
+        phone_2 = "Phone must contain 9 digits";
         comments_1 = "Comments are required";
         email_1 = "Email required";
         email_2 = "Invalid format";
@@ -216,7 +219,7 @@ $(document).ready(function () {
         password_2_1 = "Errepikatu pasahitza";
         password_2_2 = "Pasahitzak ez datoz bat";
         phone_1 = "Telefonoa beharrezkoa da";
-        phone_2 = "Telefonoak zenbakiak baino ezin ditu izan";
+        phone_2 = "Telefonoak 9 digito izan behar ditu";
         comments_1 = "Iruzkina beharrezkoa da";
         email_1 = "Posta elektronikoa beharrezkoa da";
         email_2 = "Formatua ez da baliozkoa";
