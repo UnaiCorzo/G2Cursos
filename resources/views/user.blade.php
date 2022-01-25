@@ -14,6 +14,9 @@
                 <p class="h5 items mb-5 mt-2">{{ __('Mis cursos') }}</p>
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
+                @if (count(auth()->user()->courses) == 0)
+                    <div class="text-center mb-5">{{ __('No has añadido ningún curso') }}</div>
+                @endif
                 @foreach (auth()->user()->courses as $course)
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
