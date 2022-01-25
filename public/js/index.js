@@ -43,16 +43,24 @@ window.addEventListener('DOMContentLoaded', event => {
 
 $(document).ready(function () {
     // CERRAR COOKIES
-    const boton_aceptar = $('.boton_cookie button');
-    boton_aceptar.click(cerrarCookies);
+    const cookies = $('.cookies');
+    const consent = sessionStorage.getItem("cookies_accepted");
 
-    const boton_cerrar = $('.cerrar_cookies');
-    boton_cerrar.click(cerrarCookies);
-
-    function cerrarCookies() {
-        const cookies = $('.cookies');
-        cookies.fadeOut();
+    if (consent == "true") {
+        cookies.css('display', 'none');
+    } else {
+        const boton_aceptar = $('.boton_cookie button');
+        boton_aceptar.click(cerrarCookies);
+    
+        const boton_cerrar = $('.cerrar_cookies');
+        boton_cerrar.click(cerrarCookies);
+    
+        function cerrarCookies() {
+            cookies.fadeOut();
+            sessionStorage.setItem("cookies_accepted", "true");
+        }
     }
+
     // FIN CERRAR COOKIES
 
     // ANIMACIÓN IMÁGENES CURSOS
