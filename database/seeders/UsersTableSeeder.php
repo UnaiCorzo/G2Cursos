@@ -16,6 +16,26 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => '77777',
+            'name' => 'Usuario',
+            'surnames' => 'Invitado',
+            'password' => '$2y$10$lPofQAkjhZMpH71arudNW.RojHjXlxhNkoSSzq3Xs2KzlU/VOOkH6',
+            'email' => 'user@user.com',
+            'dni' => '00000000T',
+            'role_id' => '1',
+        ]);
+
+        DB::table('users')->insert([
+            'id' => '88888',
+            'name' => 'Creador',
+            'surnames' => 'Creativo',
+            'password' => '$2y$10$lPofQAkjhZMpH71arudNW.RojHjXlxhNkoSSzq3Xs2KzlU/VOOkH6',
+            'email' => 'creador@creador.com',
+            'dni' => '11111111H',
+            'role_id' => '2',
+        ]);
+
+        DB::table('users')->insert([
+            'id' => '99999',
             'name' => 'Administrador',
             'surnames' => 'Admin',
             'password' => '$2y$10$lPofQAkjhZMpH71arudNW.RojHjXlxhNkoSSzq3Xs2KzlU/VOOkH6',
