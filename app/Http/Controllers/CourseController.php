@@ -150,8 +150,11 @@ class CourseController extends Controller
             $course_modify->categories()->attach($arrayCategorias[$i]);
         }
 
-        if ($request->location != null) {
+        if ($request->location != null && $request->location != "") {
             $course_modify->location = $request->location;
+        }
+        else {
+            $course_modify->location = null;
         }
 
         $course_modify->save();

@@ -22,7 +22,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '67.99',
             'description' => 'En este curso daremos Laravel desde 0',
             'image' => 'laravel.png',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -34,7 +34,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '0',
             'description' => 'Con esta tecnología podrás realizar layouts modernos y atractivos con facilidad. Conviértete en pro, pásate a CSS Grid',
             'image' => 'css_grid.jpg',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -47,7 +47,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '97.99',
             'description' => 'Aprende como desplegar tus proyectos con Docker, una tecnología muy demandada y usada por las empresas',
             'image' => 'docker.jpeg',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -61,7 +61,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '24.99',
             'description' => 'Angular es un framework frontend que te facilitará tus desarrollos aplicando componentes y módulos',
             'image' => 'angular_js.png',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -73,7 +73,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '59.90',
             'description' => 'En este curso te enseñaremos cómo gestionar las versiones de tus proyectos tanto localmente (Git), como remotamente (GitHub)',
             'image' => 'git_github.png',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -85,7 +85,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '67.99',
             'description' => 'Aprende a programar eventos, validaciones, animaciones y mucho más con el lenguaje Javascript puro',
             'image' => 'javascript.jpg',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -97,7 +97,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '19.99',
             'description' => '¿Estás empezando en el mundo del desarrollo web? Este es tu curso, en él aprenderemos los conceptos básicos del lenguaje de marcas HTML',
             'image' => 'html.jpg',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -110,7 +110,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '95.99',
             'description' => 'En este curso nos adentraremos en el apasionante lenguaje Java. POO, bases de datos y swing serán los principales temas que aprenderemos',
             'image' => 'java.jpg',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);
@@ -122,7 +122,7 @@ class CoursesTableSeeder extends Seeder
             'price' => '0',
             'description' => 'Aprende a maquetar tus webs de una manera sencilla con la librería Bootstrap. Con ella podrás diseñar layouts responsive, crear animaciones y mucho más',
             'image' => 'bootstrap.png',
-            'teacher_id' => '77777',
+            'teacher_id' => '88888',
         ]);
 
         $course = Course::find($id);

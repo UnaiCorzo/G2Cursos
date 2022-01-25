@@ -123,7 +123,7 @@ $(document).ready(function () {
         }
         else {
             mapa.css('opacity', '0');
-            $("#location").val(null);
+            $("#location").val("");
         }
     }
     // FIN MOSTRAR/OCULTAR MAPA (EDITAR CURSO)
