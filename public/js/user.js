@@ -66,21 +66,36 @@ $(document).ready(function () {
     // FIN ANIMACIÓN IMÁGENES CURSOS
 
     // VALIDACIÓN HACERSE CREADOR
+    $.validator.addMethod("cvFormat", function (value, element) {
+        let filename = value.split(".");
+        if (filename.length != 2) {
+            return this.optional(element);
+        }
+        let extension = filename[1].toLowerCase();
+        if (extension == "pdf" || extension == "jpg" || extension == "jpeg" || extension == "png") {
+            return true;
+        }
+        return this.optional(element);
+    });
+
     let idioma = $('html').attr('lang');
 
     let file_1 = "El currículum es requerido";
+    let file_2 = "Formatos válidos: .pdf, .jpg, .jpeg, .png";
     let name_1 = "El nombre es requerido";
     let address_1 = "La dirección es requerida";
     let locality_1 = "La localidad es requerida";
 
     if (idioma == 'en') {
         file_1 = "Curriculum required";
+        file_2 = "Valid formats: .jpg, .jpeg, .png";
         name_1 = "Name required";
         address_1 = "Address required";
         locality_1 = "Locality required";
     }
     else if (idioma == 'eu') {
         file_1 = "Curriculuma beharrezkoa da";
+        file_2 = "Baliozko formatuak: .jpg, .jpeg, .png";
         name_1 = "Izena beharrezkoa da";
         address_1 = "Helbidea beharrezkoa da";
         locality_1 = "Herria beharrezkoa da";
@@ -91,6 +106,7 @@ $(document).ready(function () {
         rules: {
             file: {
                 required: true,
+                cvFormat: true,
             },
             name: {
                 required: true,
@@ -105,6 +121,7 @@ $(document).ready(function () {
         messages: {
             file: {
                 required: file_1,
+                cvFormat: file_2,
             },
             name: {
                 required: name_1,

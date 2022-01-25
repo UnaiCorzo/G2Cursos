@@ -43,7 +43,7 @@ $(document).ready(function () {
     });
     // FIN INPUTS DE EMPRESA
 
-    // VALIDACIÓN FORMULARIO
+    // VALIDACIÓN FORMULARIOS
     $.validator.addMethod("formatoEmail", function (value, element) {
         var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
         return this.optional(element) || pattern.test(value);
@@ -59,6 +59,18 @@ $(document).ready(function () {
 
     $.validator.addMethod("matchPassword", function (value, element) {
         if ($("#password_2").val() == value) {
+            return true;
+        }
+        return this.optional(element);
+    });
+
+    $.validator.addMethod("cvFormat", function (value, element) {
+        let filename = value.split(".");
+        if (filename.length != 2) {
+            return this.optional(element);
+        }
+        let extension = filename[1].toLowerCase();
+        if (extension == "pdf" || extension == "jpg" || extension == "jpeg" || extension == "png") {
             return true;
         }
         return this.optional(element);
@@ -80,6 +92,7 @@ $(document).ready(function () {
     let password_2_1 = "Repite la contraseña";
     let password_2_2 = "Las contraseñas no coinciden";
     let file_1 = "El currículum es requerido";
+    let file_2 = "Formatos válidos: .pdf, .jpg, .jpeg, .png";
     let address_1 = "La dirección es requerida";
     let locality_1 = "La localidad es requerida";
 
@@ -98,6 +111,7 @@ $(document).ready(function () {
         password_2_1 = "Repeat password";
         password_2_2 = "Passwords do not match";
         file_1 = "Curriculum required";
+        file_2 = "Valid formats: .jpg, .jpeg, .png";
         address_1 = "Address required";
         locality_1 = "Locality required";
     }
@@ -116,6 +130,7 @@ $(document).ready(function () {
         password_2_1 = "Errepikatu pasahitza";
         password_2_2 = "Pasahitzak ez datoz bat";
         file_1 = "Curriculuma beharrezkoa da";
+        file_2 = "Baliozko formatuak: .jpg, .jpeg, .png";
         address_1 = "Helbidea beharrezkoa da";
         locality_1 = "Herria beharrezkoa da";
     }
@@ -191,14 +206,13 @@ $(document).ready(function () {
             },
         },
     });
-    // FIN VALIDACIÓN FORMULARIO
 
-    // VALIDACIÓN HACERSE CREADOR
     $("#hacerse_creador").validate({
         onkeyup: false,
         rules: {
             file: {
                 required: true,
+                cvFormat: true,
             },
             name: {
                 required: true,
@@ -213,6 +227,7 @@ $(document).ready(function () {
         messages: {
             file: {
                 required: file_1,
+                cvFormat: file_2,
             },
             name: {
                 required: name_1,
@@ -225,7 +240,7 @@ $(document).ready(function () {
             },
         },
     });
-    // FIN VALIDACIÓN HACERSE CREADOR
+    // FIN VALIDACIÓN FORMULARIOS
 
     // ABRIR MODAL CON ERROR
     if ($("#error_password").length > 0) {
