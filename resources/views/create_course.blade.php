@@ -2,6 +2,7 @@
 
 @section('title')
     <title>{{ __('Crear curso') }} | G2Cursos</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 @endsection
 @section('lang')
 @include('partials.langNav')
