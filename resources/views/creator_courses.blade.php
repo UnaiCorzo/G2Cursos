@@ -43,21 +43,21 @@
                                     </div>
                                     <div class="row m-0 p-0">
                                         <div class="col-12 p-0 docente_cursos">
-                                            <p class="m-0 items">{{$course->teacher->name ." " .$course->teacher->surnames}}</p>
+                                            <p class="m-0 items">{{ $course->teacher->name . " " . $course->teacher->surnames }}</p>
                                         </div>
 
                                         <div class="col-12 p-0 valoracion">
-                                            <p class="m-0 me-1 pt-1 items">3.5</p>
+                                            <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}</p>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
                                             <i class="far fa-star"></i><br>
-                                            <p class="m-0 pt-1 items">(52)</p>
+                                            <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>
                                         </div>
                                         <div class="col-12 m-0 p-0 mt-2 categorias">
                                             @foreach ($course->categories as $category)
-                                                <span class="badge badge-pill text-white items categorias_cursos" id="{{ $course->name . "_" . $category->id }}">{{ $category->name }}</span>
+                                                <span class="badge badge-pill text-white items categorias_cursos" id="{{ $course->name . '_' . $category->id }}">{{ $category->name }}</span>
                                             @endforeach
                                             <script>
                                                 var course = <?php echo $course ?>;
