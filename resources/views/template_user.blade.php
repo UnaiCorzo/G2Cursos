@@ -77,7 +77,7 @@
             <div class="modal-content">
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
-                    <form class="form-control formulario_sesion" id="hacerse_creador" method="post" action="{{ route('file', app()->getLocale()) }}" enctype="multipart/form-data">
+                        <form class="form-control formulario_sesion" id="hacerse_creador" method="post" action="{{ route('file', app()->getLocale()) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
                                 <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
