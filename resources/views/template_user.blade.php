@@ -52,7 +52,7 @@
                             </button>
                             <div class="dropdown-menu mt-3 p-2" style="width: 18rem;" aria-labelledby="dropdownMenuButton">
                                 @if (auth()->user()->role_id == 2)
-                                    <a class="dropdown-item items text-end opciones_perfil link_activo" id="link1" href="#"><i class="fas fa-marker"></i>{{ __('Cursos creados') }}</a>
+                                    <a class="dropdown-item items text-end opciones_perfil link_activo" id="link1" href="{{ route('created_courses', app()->getLocale()) }}"><i class="fas fa-marker"></i>{{ __('Cursos creados') }}</a>
                                 @endif
                                     <a class="dropdown-item items text-end opciones_perfil link_activo" id="link2" href="{{ route('home', app()->getLocale()) }}"><i class="fas fa-clipboard-list"></i>{{ __('Mis cursos') }}</a>
                                     <a class="dropdown-item items text-end opciones_perfil" id="link3" href="{{ route('profile', app()->getLocale()) }}"><i class="fas fa-user-alt"></i>{{ __('Mi perfil') }}</a>

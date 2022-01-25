@@ -152,7 +152,13 @@ $(document).ready(function () {
     ) {
         $('#link3').addClass('link_activo');
     }
-
+    else if (title_pagina == 'Cursos creados | G2Cursos'
+        || title_pagina == 'Created Courses | G2Cursos'
+        || title_pagina == 'Sortutako kurtsoak | G2Cursos'
+    ) {
+        $('#link1').addClass('link_activo');
+    }
+    
     function eliminarActivoPerfil() {
         $('.opciones_perfil').removeClass('link_activo');
     }

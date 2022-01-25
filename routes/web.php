@@ -74,6 +74,9 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
     Route::get('/find/all', [CourseController::class, 'findAll'])->middleware('auth')->name('find_all');
     Route::get('/course/create', [CourseController::class, 'create'])->middleware('auth')->name('create');
+    Route::get('/course/list', [CourseController::class, 'creatorCourses'])->middleware('auth')->name('created_courses');
+    Route::get('/course/edit/{id}', [CourseController::class, 'editCourse'])->middleware('auth')->name('edit_course');
+    Route::post('/course/modify', [CourseController::class, 'modifyCourse'])->middleware('auth')->name('course-modify');
     Route::post('/session', [SessionController::class, 'store'])->name('session');
     Route::post('/file', [FileController::class, 'store'])->middleware('auth')->name('file');
     Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');

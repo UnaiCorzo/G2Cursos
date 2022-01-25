@@ -34,6 +34,42 @@ $(document).ready(function () {
     });
     // FIN CAMBIAR IDIOMA
 
+    // ANIMACIÓN IMÁGENES CURSOS
+    const cards_cursos = $('.portfolio-item a');
+    cards_cursos.mouseover(escalarImagenes);
+    cards_cursos.mouseout(rescalarImagenes);
+
+    function escalarImagenes() {
+        const card_curso = $(this);
+        let id_card = card_curso.attr('id');
+
+        let imagen_card = $('#' + id_card + ' .imagen_card img');
+        imagen_card.css('transition', 'transform .2s');
+        imagen_card.css('transform', 'scale(1.1)');
+
+        const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
+        modalidad.css('transition', 'opacity .2s ease-in-out');
+        modalidad.css('opacity', '1');
+        modalidad.css('transition', 'box-shadow .2s ease-in-out');
+        modalidad.css('box-shadow', '#0B132B 0px 0px 2px');
+    }
+
+    function rescalarImagenes() {
+        const card_curso = $(this);
+        let id_card = card_curso.attr('id');
+
+        let imagen_card = $('#' + id_card + ' img');
+        imagen_card.css('transition', 'transform .2s');
+        imagen_card.css('transform', 'scale(1)');
+
+        const modalidad = $('#' + id_card + ' .imagen_card .modalidad');
+        modalidad.css('transition', 'opacity .2s ease-in-out');
+        modalidad.css('opacity', '.8');
+        modalidad.css('transition', 'box-shadow .2s ease-in-out');
+        modalidad.css('box-shadow', 'transparent 0px 0px 0px');
+    }
+    // FIN ANIMACIÓN IMÁGENES CURSOS
+
     // CATEGORÍAS ACTIVAS
     const categorias = $('.categorias_crear');
     categorias.click(anadirActiva);
@@ -68,9 +104,13 @@ $(document).ready(function () {
         // console.log('QUITAR: ' + input_categorias.val());
         categoria.click(anadirActiva);
     }
+
+    for (let i = 0; i < categorias_actuales.length; i++) {
+        $('#' + categorias_actuales[i].id).click();
+    }
     // FIN CATEGORÍAS ACTIVAS
 
-    // MOSTRAR/OCULTAR MAPA (CREAR CURSO)
+    // MOSTRAR/OCULTAR MAPA (EDITAR CURSO)
     const switch_presencial = $('#switchPresencial');
     switch_presencial.change(mostrarOcularMapa);
 
@@ -86,21 +126,42 @@ $(document).ready(function () {
             $("#location").val(null);
         }
     }
-    // FIN MOSTRAR/OCULTAR MAPA (CREAR CURSO)
+    // FIN MOSTRAR/OCULTAR MAPA (EDITAR CURSO)
 
     // API MAPA
-    const platform = new H.service.Platform({
+        const platform = new H.service.Platform({
         "app_id": "0JK53jN7Faa5a5rF35Sz",
         "app_code": "SqWcupOF8jY3JHYYKD0NSw",
     });
-    const map = new H.Map(
-        document.getElementById("map"),
-        platform.createDefaultLayers().satellite.map,
-        {
-            zoom: 14,
-            center: { lat: 43.32738577185026, lng: -1.9703783098086092 }
-        }
-    );
+
+    var map;
+    if (curso.location != null) {
+        let coordenadas = curso.location.split(';');
+
+        map = new H.Map(
+            document.getElementById("map"),
+            platform.createDefaultLayers().satellite.map,
+            {
+                zoom: 14,
+                center: { lat: coordenadas[0], lng: coordenadas[1] }
+            }
+        );
+
+        $('#switchPresencial').val('yes');
+        $('#switchPresencial').prop('checked', 'checked');
+        $('.map').css('opacity', '1');
+    }
+    else {
+        map = new H.Map(
+            document.getElementById("map"),
+            platform.createDefaultLayers().satellite.map,
+            {
+                zoom: 14,
+                center: { lat: 43.32738577185026, lng: -1.9703783098086092 }
+            }
+        );
+    }
+    
     const mapEvents = new H.mapevents.MapEvents(map);
     new H.mapevents.Behavior(mapEvents);
 
@@ -165,7 +226,6 @@ $(document).ready(function () {
     let price_2 = "El precio no puede ser negativo";
     let categories_1 = "Mínimo de categorías: 1";
     let categories_2 = "Máximo de categorías: 5";
-    let image_1 = "La imagen es requerida";
     let image_2 = "Formatos válidos: .jpg, .jpeg, .png";
     let description_1 = "La descripción es requerida";
     let location_1 = "La ubicación es requerida";
@@ -177,7 +237,6 @@ $(document).ready(function () {
         price_2 = "Price cannot be negative";
         categories_1 = "Minimum categories: 1";
         categories_2 = "Maximum categories: 5";
-        image_1 = "Image required";
         image_2 = "Valid formats: .jpg, .jpeg, .png";
         description_1 = "Description required";
         location_1 = "Location required";
@@ -189,7 +248,6 @@ $(document).ready(function () {
         price_2 = "Prezioa ezin da negatiboa izan";
         categories_1 = "Gutxieneko kategoriak: 1";
         categories_2 = "Gehieneko kategoriak: 5";
-        image_1 = "Irudia beharrezkoa da";
         image_2 = "Baliozko formatuak: .jpg, .jpeg, .png";
         description_1 = "Deskribapena beharrezkoa da";
         location_1 = "Kokapena beharrezkoa da";
@@ -212,7 +270,6 @@ $(document).ready(function () {
                 categoriesMax: true,
             },
             image: {
-                required: true,
                 imageFormat: true,
             },
             description: {
@@ -236,7 +293,6 @@ $(document).ready(function () {
                 categoriesMax: categories_2,
             },
             image: {
-                required: image_1,
                 imageFormat: image_2,
             },
             description: {

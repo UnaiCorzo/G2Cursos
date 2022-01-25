@@ -110,4 +110,52 @@ class CourseController extends Controller
         $course->delete();
         return redirect()->to(route('admin', $lang));
     }
+
+    public function creatorCourses()
+    {
+        $courses = auth()->user()->course_teacher;
+        return view("creator_courses")->with('courses', $courses);
+    }
+
+    public function editCourse($lang, $id)
+    {
+        $course = Course::find($id);
+        $current_categories = $course->categories;
+        $categories = Category::all();
+        return view("edit_course")->with('course', $course)->with('categories', $categories)->with('current_categories', $current_categories);
+    }
+
+    public function modifyCourse($lang, Request $request)
+    {
+        $course_modify = Course::find($request->id);
+
+        $course_modify->name = $request->name;
+        $course_modify->description = $request->description;
+        $course_modify->price = $request->price;
+        
+        if ($request->image != null) {
+            $image_path = public_path() . '/images' . '/' . $course_modify->image;
+            unlink($image_path);
+
+            $name = $request->name . "." . $request->file('image')->extension();
+            $course_modify->image = $name;
+            
+            $request->file('image')->move(public_path('images'), $name);
+        }
+
+        $arrayCategorias = explode(";", $request->categories);
+
+        $course_modify->categories()->detach();
+        for ($i = 0; $i < count($arrayCategorias) - 1; $i++) {
+            $course_modify->categories()->attach($arrayCategorias[$i]);
+        }
+
+        if ($request->location != null) {
+            $course_modify->location = $request->location;
+        }
+
+        $course_modify->save();
+
+        return redirect()->to(route('created_courses', app()->getLocale()));
+    }
 }
