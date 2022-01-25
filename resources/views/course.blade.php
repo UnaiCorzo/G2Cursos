@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-5">
                         @if ($subscribed)
-                        <a href="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                        <a href="{{ route('unsubscribe',  ['id'=>$id,'language'=>  app()->getLocale()]) }} }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
                             {{ __('Quitar') }}</a>
                         @if ($rated == false)
                         <a href="" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" data-bs-toggle="modal" data-bs-target="#valorar_curso">

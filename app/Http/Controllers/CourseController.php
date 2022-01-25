@@ -40,6 +40,10 @@ class CourseController extends Controller
         auth()->user()->courses()->attach($id);
         return back();
     }
+    public function unsubscribe($lang, $id){
+        auth()->user()->courses()->detach($id);
+        return back();
+    }
     public function find()
     {
         $categories = Category::all();

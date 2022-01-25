@@ -70,6 +70,7 @@ Route::group(['prefix' => '{language}'], function () {
     Route::get('/course/route/{id}/{coordinates}', [CourseController::class, 'geolocalization'])->middleware('auth')->name('geolocalization');
     Route::post('/course/delete/{id}', [CourseController::class, 'delete'])->middleware('auth')->name('delete_course');
     Route::get('/course/subscribe/{id}', [CourseController::class, 'subscribe'])->middleware('auth')->name('subscribe');
+    Route::get('/course/unsubscribe/{id}', [CourseController::class, 'unsubscribe'])->middleware('auth')->name('unsubscribe');
     Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
     Route::get('/find/all', [CourseController::class, 'findAll'])->middleware('auth')->name('find_all');
     Route::get('/course/create', [CourseController::class, 'create'])->middleware('auth')->name('create');
