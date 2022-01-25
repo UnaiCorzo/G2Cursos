@@ -17,7 +17,7 @@
                 @foreach (auth()->user()->courses as $course)
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a id="{{ "curso_" . $course->id }}"href="{{ route('course', ['id' => $course->id, 'language' => app()->getLocale()]) }}"
+                            <a id="curso_{{ $course->id }}"href="{{ route('course', ['id' => $course->id, 'language' => app()->getLocale()]) }}"
                                 class="link_curso" id="curso">
                                 <div class="imagen_card">
                                     <span class="badge badge-pill text-white bg-success items modalidad">
