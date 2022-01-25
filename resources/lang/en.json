@@ -111,5 +111,7 @@
     "Valoración": "Rating",
     "Comentario": "Comment",
     "Estrellas:": "Stars:",
-    "Añadir": "Add"
+    "Añadir": "Add",
+    "Modificar curso": "Modify course",
+    "Todavía no has creado ningún curso": "You have not yet created any courses"
 }

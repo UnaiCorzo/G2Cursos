@@ -14,6 +14,14 @@
                 <p class="h5 items mb-5 mt-2">{{ __('Cursos creados') }}</p>
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
+                @if (count($courses) == 0)
+                    <div class="d-flex flex-column justify-content-center align-items-center gap-5">
+                        {{ __('Todavía no has creado ningún curso') }}
+                        <a class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;" href="{{ route('create', app()->getLocale()) }}">
+                            {{ __('Crear curso') }}
+                        </a>
+                    </div>
+                @endif
                 @foreach ($courses as $course)
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
