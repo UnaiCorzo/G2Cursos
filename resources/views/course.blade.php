@@ -70,17 +70,17 @@
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-5">
                         @if ($subscribed)
-                        <a href="{{ route('unsubscribe',  ['id'=>$id,'language'=>  app()->getLocale()]) }} }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
-                            {{ __('Quitar') }}</a>
+                            <a href="{{ route('unsubscribe',  ['id'=>$id,'language'=>  app()->getLocale()]) }} }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                                {{ __('Quitar') }}</a>
                         @if ($rated == false)
-                        <a href="" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" data-bs-toggle="modal" data-bs-target="#valorar_curso">
-                            {{ __('Valorar') }}</a>
+                            <a href="" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" data-bs-toggle="modal" data-bs-target="#valorar_curso">
+                                {{ __('Valorar') }}</a>
                         @endif
                         @if (isset($course->location))
-                        <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Cómo llegar') }}</a>
+                            <a href="{{ route('geolocalization',  ['id'=>$id,'language'=>  app()->getLocale() , 'coordinates'=>$course->location]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Cómo llegar') }}</a>
                         @endif
                         @else
-                        <a href="{{ route('subscribe',  ['id'=>$id,'language'=>  app()->getLocale()]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Añadir') }}</a>
+                            <a href="{{ route('subscribe',  ['id'=>$id,'language'=>  app()->getLocale()]) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"> {{ __('Añadir') }}</a>
                         @endif
                     </div>
                 </div>
@@ -90,9 +90,9 @@
                     <div class="col-12 imagen_card p-0">
                         <span class="badge badge-pill text-white bg-success items modalidad mod_curso">
                             @if (!is_null($course->location))
-                            {{ __('Presencial') }}
+                                {{ __('Presencial') }}
                             @else
-                            Online
+                                Online
                             @endif
                         </span>
                         <img class="img-fluid img_curso" src="/images/{{ $course->image }}" alt="..." />
@@ -117,9 +117,9 @@
         <table class="table mt-5">
             <thead class="thead-light">
                 <tr>
-                    <th class="w-25" scope="col">Usuario</th>
-                    <th class="w-25" scope="col">Valoración</th>
-                    <th scope="col">Comentario</th>
+                    <th class="w-25" scope="col">{{ __('Usuario') }}</th>
+                    <th class="w-25" scope="col">{{ __('Valoración') }}</th>
+                    <th scope="col">{{ __('Comentario') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -136,7 +136,7 @@
 </section>
 <!-- FIN SECCIÓN CURSO DETALLADO -->
 
-<!-- Modal -->
+<!-- MODAL -->
 <div class="modal fade" id="valorar_curso">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -152,7 +152,7 @@
                                     </div>
                                     <div class="row col-lg-12 col-12 px-5">
                                         <div class="col-4 mb-3">
-                                            Estrellas:
+                                            {{ __('Estrellas:') }}
                                         </div>
                                         <div id="contenedor_est" class="col-8 mb-3">
                                             <i class="bi bi-star-fill estrella" value="1" style="color:yellow"></i>
@@ -163,7 +163,7 @@
                                             <input id="estr_valor" name="rating" type="hidden" value="1">
                                         </div>
                                         <div class="col-4 mb-3">
-                                            Comentarios
+                                            {{ __('Comentarios') }}
                                         </div>
                                         <div class="col-8 mb-3">
                                             <textarea class="form-control p-2 campos_contacto" id="message" name="comment" placeholder="{{ __('Comentarios') }}" rows="5" style="resize:none"></textarea>
@@ -171,21 +171,19 @@
                                     </div>
 
                                     <div class="d-flex justify-content-center">
-
-                                        <button class="btn submit_registro boton_sesion py-2 items me-3 text-uppercase" type="submit">{{ __('Valorar') }}
-                                        </button>
+                                        <button class="btn submit_registro boton_sesion py-2 items me-3 text-uppercase" type="submit">{{ __('Valorar') }}</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
                 <i class="far fa-times-circle boton_cerrar_modal" data-bs-dismiss="modal"></i>
             </section>
         </div>
     </div>
 </div>
+<!-- FIN MODAL -->
 @endsection
 
 @section('script_link')

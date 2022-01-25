@@ -106,5 +106,10 @@
     "Restaurar": "Restore",
     "Usuarios baneados": "Banned users",
     "No hay usuarios baneados": "There are no banned users",
-    "No has añadido ningún curso": "You have no courses added"
+    "No has añadido ningún curso": "You have no courses added",
+    "Usuario": "User",
+    "Valoración": "Rating",
+    "Comentario": "Comment",
+    "Estrellas:": "Stars:",
+    "Añadir": "Add"
 }

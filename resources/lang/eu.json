@@ -109,5 +109,10 @@
     "Usuarios baneados": "Erabiltzaile baneatuak",
     "No hay usuarios baneados": "Ez dago baneatutako erabiltzailerik",
     "Error": "Errorea",
-    "No has añadido ningún curso": "Ez duzu ikastarorik gehitu"
+    "No has añadido ningún curso": "Ez duzu ikastarorik gehitu",
+    "Usuario": "Erabiltzailea",
+    "Valoración": "Balorazioa",
+    "Comentario": "Iruzkina",
+    "Estrellas:": "Izarrak:",
+    "Añadir": "Gehitu"
 }
