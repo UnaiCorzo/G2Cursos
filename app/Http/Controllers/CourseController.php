@@ -15,35 +15,39 @@ class CourseController extends Controller
         $course = Course::find($id);
         $hasRated = false;
         $hasSubscribed = false;
-        for ($i=0; $i <count(auth()->user()->ratings) ; $i++) { 
+        for ($i = 0; $i < count(auth()->user()->ratings); $i++) { 
             if (auth()->user()->ratings[$i]->course_id == $id) {
                 $hasRated = true;
             }
-           
         }
-        for ($i=0; $i <count(auth()->user()->courses) ; $i++) { 
+        for ($i = 0; $i < count(auth()->user()->courses); $i++) { 
             if (auth()->user()->courses[$i]->id == $id) {
                 $hasSubscribed = true;
             }
-           
         }
-        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories,'rated' => $hasRated,'subscribed' => $hasSubscribed,'ratings' => $course->ratings]);
+        return view("course")->with(['id' => $id, 'course' => $course, 'language' => $lang, 'categories' => $course->categories, 'rated' => $hasRated, 'subscribed' => $hasSubscribed, 'ratings' => $course->ratings]);
     }
-    public function rate(Request $request,$lang,$id){
+
+    public function rate(Request $request, $lang, $id)
+    {
         DB::table('ratings')->insert(
             ['rating' => $request->rating, 'comment' => $request->comment, 'user_id' => auth()->user()->id, 'course_id' => $id]
         );
         return back();
-
     }
-    public function subscribe($lang, $id){
+
+    public function subscribe($lang, $id)
+    {
         auth()->user()->courses()->attach($id);
         return back();
     }
-    public function unsubscribe($lang, $id){
+
+    public function unsubscribe($lang, $id)
+    {
         auth()->user()->courses()->detach($id);
         return back();
     }
+
     public function find()
     {
         $categories = Category::all();
@@ -64,13 +68,12 @@ class CourseController extends Controller
                 'teacher' => User::find($all_courses[$i]->teacher_id),
             ];
         }
-
         return response(json_encode($array_courses, 200));
     }
 
     public function geolocalization($lang, $id, $location)
     {
-        return view("./geo_leaflet/view/index")->with(['id' => $id, 'language' => $lang, 'location' => $location]);
+        return view("./Geo_leaflet/view/index")->with(['id' => $id, 'language' => $lang, 'location' => $location]);
     }
 
     public function create()
