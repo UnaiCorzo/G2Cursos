@@ -5,35 +5,35 @@
 @endsection
 @section('lang')
 @if (app()->getLocale() == "es")
-<option id="es" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'es']) }}" selected>
-    ES
-</option>
-<option id="en" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'en']) }}">
-    EN
-</option>
-<option id="eu" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }} ">
-    EU
-</option>
+    <option id="es" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'es']) }}" selected>
+        ES
+    </option>
+    <option id="en" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'en']) }}">
+        EN
+    </option>
+    <option id="eu" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }} ">
+        EU
+    </option>
 @elseif (app()->getLocale() == "en")
-<option id="es" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'es']) }}">
-    ES
-</option>
-<option id="en" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'en']) }}" selected>
-    EN
-</option>
-<option id="eu" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}">
-    EU
-</option>
+    <option id="es" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'es']) }}">
+        ES
+    </option>
+    <option id="en" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'en']) }}" selected>
+        EN
+    </option>
+    <option id="eu" value=" {{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}">
+        EU
+    </option>
 @else
-<option id="es" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'es']) }}">
-    ES
-</option>
-<option id="en" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'en']) }}">
-    EN
-</option>
-<option id="eu" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" selected>
-    EU
-</option>
+    <option id="es" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'es']) }}">
+        ES
+    </option>
+    <option id="en" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'en']) }}">
+        EN
+    </option>
+    <option id="eu" value="{{ route(Route::currentRouteName(),  ['id'=>$id,'language'=> 'eu']) }}" selected>
+        EU
+    </option>
 @endif
 @endsection
 @section('user_content')

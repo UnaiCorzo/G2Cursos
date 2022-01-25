@@ -7,35 +7,35 @@
 
 @section('lang')
 @if (app()->getLocale() == "es")
-<option id="es" value=" {{ route(Route::currentRouteName(),  ['language'=> 'es', 'id' => $course->id]) }}" selected>
-    ES
-</option>
-<option id="en" value="{{ route(Route::currentRouteName(),  ['language'=> 'en', 'id' => $course->id]) }}">
-    EN
-</option>
-<option id="eu" value="{{ route(Route::currentRouteName(),  ['language'=> 'eu', 'id' => $course->id]) }} ">
-    EU
-</option>
+    <option id="es" value=" {{ route(Route::currentRouteName(),  ['language'=> 'es', 'id' => $course->id]) }}" selected>
+        ES
+    </option>
+    <option id="en" value="{{ route(Route::currentRouteName(),  ['language'=> 'en', 'id' => $course->id]) }}">
+        EN
+    </option>
+    <option id="eu" value="{{ route(Route::currentRouteName(),  ['language'=> 'eu', 'id' => $course->id]) }} ">
+        EU
+    </option>
 @elseif (app()->getLocale() == "en")
-<option id="es" value=" {{ route(Route::currentRouteName(),  ['language'=> 'es', 'id' => $course->id]) }}">
-    ES
-</option>
-<option id="en" value=" {{ route(Route::currentRouteName(),  ['language'=> 'en', 'id' => $course->id]) }}" selected>
-    EN
-</option>
-<option id="eu" value=" {{ route(Route::currentRouteName(),  ['language'=> 'eu', 'id' => $course->id]) }}">
-    EU
-</option>
+    <option id="es" value=" {{ route(Route::currentRouteName(),  ['language'=> 'es', 'id' => $course->id]) }}">
+        ES
+    </option>
+    <option id="en" value=" {{ route(Route::currentRouteName(),  ['language'=> 'en', 'id' => $course->id]) }}" selected>
+        EN
+    </option>
+    <option id="eu" value=" {{ route(Route::currentRouteName(),  ['language'=> 'eu', 'id' => $course->id]) }}">
+        EU
+    </option>
 @else
-<option id="es" value="{{ route(Route::currentRouteName(),  ['language'=> 'es', 'id' => $course->id]) }}">
-    ES
-</option>
-<option id="en" value="{{ route(Route::currentRouteName(),  ['language'=> 'en', 'id' => $course->id]) }}">
-    EN
-</option>
-<option id="eu" value="{{ route(Route::currentRouteName(),  ['language'=> 'eu', 'id' => $course->id]) }}" selected>
-    EU
-</option>
+    <option id="es" value="{{ route(Route::currentRouteName(),  ['language'=> 'es', 'id' => $course->id]) }}">
+        ES
+    </option>
+    <option id="en" value="{{ route(Route::currentRouteName(),  ['language'=> 'en', 'id' => $course->id]) }}">
+        EN
+    </option>
+    <option id="eu" value="{{ route(Route::currentRouteName(),  ['language'=> 'eu', 'id' => $course->id]) }}" selected>
+        EU
+    </option>
 @endif
 @endsection
 
