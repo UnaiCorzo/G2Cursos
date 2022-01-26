@@ -4,7 +4,7 @@
     <title>{{ __('Buscador de cursos') }} | G2Cursos</title>
 @endsection
 @section('lang')
-@include('partials.langNav')
+    @include('partials.langNav')
 @endsection
 @section('user_content')
     <!-- SECCIÓN BUSCADOR CURSOS -->
@@ -14,9 +14,11 @@
                 <div class="col-12 mb-5 d-flex justify-content-between align-items-center">
                     <div class="input_busqueda">
                         <i class="fas fa-search"></i>
-                        <input type="text" name="course_name" id="course_name" placeholder="{{ __('Nombre del curso...') }}">
+                        <input type="text" name="course_name" id="course_name"
+                            placeholder="{{ __('Nombre del curso...') }}">
                     </div>
-                    <button class="btn text-uppercase mx-2 py-2 items boton_sesion boton_busqueda" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                    <button class="btn text-uppercase mx-2 py-2 items boton_sesion boton_busqueda"
+                        style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
                         {{ __('Filtros') }}
                         <i class="fas fa-filter"></i>
                     </button>
@@ -28,7 +30,8 @@
                                 <p class="m-0">{{ __('Rango de precio') }}</p>
                                 <div class="info_crear_curso top">
                                     <i class="fas fa-info-circle"> </i>
-                                    <p>{{ __('Especifica el rango de precio en el que quieres buscar (máximo y mínimo)') }}</p>
+                                    <p>{{ __('Especifica el rango de precio en el que quieres buscar (máximo y mínimo)') }}
+                                    </p>
                                 </div>
                             </div>
                             <div class="max_min">
@@ -56,24 +59,37 @@
                             <p class="m-0">{{ __('Categorías') }}</p>
                             <div class="info_crear_curso top">
                                 <i class="fas fa-info-circle"> </i>
-                                <p>{{ __('Selecciona las categorías o tags que quieres que tenga el curso que buscas') }}</p>
+                                <p>{{ __('Selecciona las categorías o tags que quieres que tenga el curso que buscas') }}
+                                </p>
                             </div>
                         </div>
 
                         @foreach ($categories as $category)
-                            <span class="badge badge-pill text-white items categorias_crear" id="{{ $category->id }}">{{ $category->name }}</span>
+                            <span class="badge badge-pill text-white items categorias_crear"
+                                id="{{ $category->id }}">{{ $category->name }}</span>
                         @endforeach
                         <script>
-                            var categorias2 = <?php echo $categories ?>;
+                            var categorias2 = <?php echo $categories; ?>;
                             for (let i = 1; i <= categorias2.length; i++) {
                                 let color = categorias2[i - 1].color;
                                 const badge_categoria = document.getElementById(i);
                                 badge_categoria.style.background = color;
                             }
+                            $('.rating').each(function() {
+                                var estrellas = "";
+                                for (let i = 0; i < $(this).attr("value"); i++) {
+                                    estrellas += '<i class="bi bi-star-fill estrella"  style="color:yellow"></i>';
+                                }
+                                for (let i = 0; i < 5 - $(this).attr("value"); i++) {
+                                    estrellas += '<i class="bi bi-star estrella"  style="color:yellow"></i>';
+                                }
+                                $(this).html(estrellas);
+                            });
                         </script>
                     </div>
                     <div class="aplicar">
-                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" id="aplicar">
+                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion"
+                            style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" id="aplicar">
                             {{ __('Aplicar') }}
                         </button>
                     </div>
@@ -91,4 +107,5 @@
 @section('script_link')
     <script src="{{ asset('js/find.js') }}"></script>
     <script src="{{ asset('js/user.js') }}"></script>
+    <script src="{{ asset('js/rate.js') }}"></script>
 @endsection

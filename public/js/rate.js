@@ -9,7 +9,6 @@ $(document).ready(function () {
         }
         for (let i = 0; i <5 - $(this).attr("value"); i++) {
             estrellas +=  '<i class="bi bi-star estrella"  style="color:yellow"></i>';
-            
         }
         $(this).html(estrellas);
     });

@@ -66,6 +66,7 @@ class CourseController extends Controller
                 'language' => app()->getLocale(),
                 'categories' => $all_courses[$i]->categories,
                 'teacher' => User::find($all_courses[$i]->teacher_id),
+                'ratings' => $all_courses[$i]->ratings,
             ];
         }
         return response(json_encode($array_courses, 200));
