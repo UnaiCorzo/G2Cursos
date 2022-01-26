@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/styles.css')  }}" rel="stylesheet" />
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -48,7 +48,7 @@
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
                         <select id="prueba" class="bg-secondary text-white rounded-2 p-1">
-                            @if (app()->getLocale() == "es")
+                            @if (app()->getLocale() == 'es')
                                 <option id="es" value="{{ route(Route::currentRouteName(), 'es') }}" selected>
                                     ES
                                 </option>
@@ -58,7 +58,7 @@
                                 <option id="eu" value="{{ route(Route::currentRouteName(), 'eu') }}">
                                     EU
                                 </option>
-                            @elseif (app()->getLocale() == "en")
+                            @elseif (app()->getLocale() == 'en')
                                 <option id="es" value="{{ route(Route::currentRouteName(), 'es') }}">
                                     ES
                                 </option>
@@ -86,10 +86,11 @@
         </div>
 
         <!-- ALERTA DE REGISTRO COMPLETADO -->
-        @if (isset($success) && !$errors->any() && $success == "true")
+        @if (isset($success) && !$errors->any() && $success == 'true')
             <div class="alert alert-success alert-dismissible alerta_registro">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <p class="m-0">¡USUARIO VERIFICADO CORRECTAMENTE!</p><i class="fas fa-check-circle check_curso"></i>
+                <p class="m-0">¡USUARIO VERIFICADO CORRECTAMENTE!</p><i
+                    class="fas fa-check-circle check_curso"></i>
             </div>
         @endif
         <!-- FIN ALERTA DE REGISTRO COMPLETADO -->
@@ -102,14 +103,16 @@
             <div class="modal-content">
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
-                        <form class="form-control formulario_sesion" id="iniciar_sesion" method="post" name="signin" action="{{ route('session', app()->getLocale()) }}">
+                        <form class="form-control formulario_sesion" id="iniciar_sesion" method="post" name="signin"
+                            action="{{ route('session', app()->getLocale()) }}">
                             {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
                                 <div
                                     class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
                                     <div class="row">
                                         <div class="col-12 mb-5">
-                                            <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">{{ __('Iniciar sesión') }}</h2>
+                                            <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">
+                                                {{ __('Iniciar sesión') }}</h2>
                                         </div>
                                         <div
                                             class="col-12 form-group px-5 mt-3 d-flex justify-content-between flex-wrap">
@@ -124,22 +127,27 @@
                                             <i class="fas fa-lock mb-2 iconos_sesion icono_formulario"></i>
                                             <div class="campos_registro">
                                                 <input class="form-control p-2 campos_sesion" type="password"
-                                                    placeholder="{{ __('Contraseña') }}" name="password" id="password_sesion"/>
-                                                    @error ('message')
-                                                        <label class="error" id="error_sesion" for="password_sesion">{{ $message }}</label>
-                                                    @enderror
+                                                    placeholder="{{ __('Contraseña') }}" name="password"
+                                                    id="password_sesion" />
+                                                @error('message')
+                                                    <label class="error" id="error_sesion"
+                                                        for="password_sesion">{{ $message }}</label>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div
                                             class="col-12 d-flex justify-content-between align-items-end px-5 text-center mt-3 mb-4">
                                             <a href="#" class="registrarse_sesion items ms-5" data-bs-toggle="modal"
                                                 data-bs-target="#modal_registro">{{ __('Registrarse') }}</a>
-                                            <button class="btn submit_sesion boton_sesion py-2 items me-5 text-uppercase"
-                                                 type="submit">{{ __('Entrar') }}
+                                            <button
+                                                class="btn submit_sesion boton_sesion py-2 items me-5 text-uppercase"
+                                                type="submit">{{ __('Entrar') }}
                                             </button>
                                         </div>
-                                        <div class="col-12 d-flex justify-content-center align-items-end px-5 text-center mt-3">
-                                            <a href="{{ route('password.request', app()->getLocale()) }}" class="registrarse_sesion items">{{ __('Recuperar contraseña') }}</a>
+                                        <div
+                                            class="col-12 d-flex justify-content-center align-items-end px-5 text-center mt-3">
+                                            <a href="{{ route('password.request', app()->getLocale()) }}"
+                                                class="registrarse_sesion items">{{ __('Recuperar contraseña') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -159,38 +167,41 @@
             <div class="modal-content">
                 <section class="fondo_formulario_registro">
                     <div class="container contenedor_modal contenedor_registro">
-                        <form class="form-control formulario_registro" id="registrarse" method="post" action="{{ route('user', app()->getLocale()) }}">
+                        <form class="form-control formulario_registro" id="registrarse" method="post"
+                            action="{{ route('user', app()->getLocale()) }}">
                             {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_registro">
                                 <div
                                     class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
                                     <div class="row">
                                         <div class="col-12 mb-5">
-                                            <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">{{ __('Registrarse') }}</h2>
+                                            <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">
+                                                {{ __('Registrarse') }}</h2>
                                         </div>
                                         <div class="col-lg-6 col-12 px-5">
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-user iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
-                                                    <input class="form-control p-2" type="text" placeholder="{{ __('Nombre') }}"
-                                                        name="name" />
+                                                    <input class="form-control p-2" type="text"
+                                                        placeholder="{{ __('Nombre') }}" name="name" />
                                                 </div>
                                             </div>
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-user iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
-                                                    <input class="form-control p-2" type="text" placeholder="{{ __('Apellidos') }}"
-                                                        name="surnames" />
+                                                    <input class="form-control p-2" type="text"
+                                                        placeholder="{{ __('Apellidos') }}" name="surnames" />
                                                 </div>
                                             </div>
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-id-card iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
-                                                    <input class="form-control p-2" type="text" id="dni_registro" placeholder="{{ __('DNI') }}"
-                                                        name="dni" />
-                                                        @error ('message_dni')
-                                                            <label class="error" id="error_registro" for="dni_registro">{{ $message }}</label>
-                                                        @enderror
+                                                    <input class="form-control p-2" type="text" id="dni_registro"
+                                                        placeholder="{{ __('DNI') }}" name="dni" />
+                                                    @error('message_dni')
+                                                        <label class="error" id="error_registro"
+                                                            for="dni_registro">{{ $message }}</label>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -198,18 +209,20 @@
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-envelope iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
-                                                    <input class="form-control p-2" type="email" id="email_registro" placeholder="Email"
-                                                        name="email" />
-                                                        @error ('message_email')
-                                                            <label class="error" id="error_registro" for="email_registro">{{ $message }}</label>
-                                                        @enderror
+                                                    <input class="form-control p-2" type="email" id="email_registro"
+                                                        placeholder="Email" name="email" />
+                                                    @error('message_email')
+                                                        <label class="error" id="error_registro"
+                                                            for="email_registro">{{ $message }}</label>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
                                                 <i class="fas fa-lock iconos_registro icono_formulario"></i>
                                                 <div class="campos_registro">
                                                     <input class="form-control p-2" type="password"
-                                                        placeholder="{{ __('Contraseña') }}" id="password_1" name="password1" />
+                                                        placeholder="{{ __('Contraseña') }}" id="password_1"
+                                                        name="password1" />
                                                 </div>
                                             </div>
                                             <div class="col-12 form-group mb-1 d-flex justify-content-between">
@@ -225,8 +238,9 @@
                                             class="col-12 d-flex justify-content-between px-5 align-items-end text-center mt-3">
                                             <a href="#" class="sesion_registro items ms-3" data-bs-toggle="modal"
                                                 data-bs-target="#modal_sesion">{{ __('Iniciar sesión') }}</a>
-                                            <button class="btn submit_registro boton_sesion py-2 items me-3 text-uppercase"
-                                             type="submit">{{ __('Entrar') }}
+                                            <button
+                                                class="btn submit_registro boton_sesion py-2 items me-3 text-uppercase"
+                                                type="submit">{{ __('Entrar') }}
                                             </button>
                                         </div>
                                     </div>
@@ -244,12 +258,13 @@
     <!-- CABECERA ESLOGAN Y BOTÓN COMENZAR -->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading" style="text-shadow: #0B132B 2px 2px 5px;">{{ __('Empieza a aprender') }}</div>
+            <div class="masthead-subheading" style="text-shadow: #0B132B 2px 2px 5px;">{{ __('Empieza a aprender') }}
+            </div>
             <div class="masthead-heading text-uppercase" style="text-shadow: #0B132B 2px 2px 5px;">
                 {{ __('Conectando el conocimiento') }}
             </div>
-            <a class="btn btn-xl text-uppercase boton_sesion boton_ver_cursos" href="#cursos">{{ __('Ver cursos') }}<i
-                    class="fas fa-arrow-down ms-3"></i></a>
+            <a class="btn btn-xl text-uppercase boton_sesion boton_ver_cursos"
+                href="#cursos">{{ __('Ver cursos') }}<i class="fas fa-arrow-down ms-3"></i></a>
         </div>
     </header>
     <!-- FIN CABECERA ESLOGAN Y BOTÓN COMENZAR -->
@@ -263,56 +278,63 @@
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
                 @foreach ($courses as $course)
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="curso_{{ $course->id }}" data-bs-toggle="modal" data-bs-target="#modal_registro">
-                        <div class="imagen_card">
-                            <span class="badge badge-pill text-white bg-success items modalidad">
-                                @if (!is_null($course->location))
-                                    {{ __('Presencial') }}
-                                @else
-                                     Online
-                                @endif
-                            </span>
-                            <img class="img-fluid" src="/images/{{ $course->image }}" alt="{{ $course->name }}"/>
-                        </div>
-                        <div class="portfolio-caption">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <div class="portfolio-caption-heading lead items titulo_curso me-2">{{ $course->name }}</div>
-                                <div class="lead bold descripcion_cursos text-uppercase">
-                                    @if ($course->price > 0)
-                                        {{ $course->price . '€' }}
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item" id="curso_{{ $course->id }}" data-bs-toggle="modal"
+                            data-bs-target="#modal_registro">
+                            <div class="imagen_card">
+                                <span class="badge badge-pill text-white bg-success items modalidad">
+                                    @if (!is_null($course->location))
+                                        {{ __('Presencial') }}
                                     @else
-                                        {{ __('Gratis') }}
+                                        Online
                                     @endif
-                                </div>
+                                </span>
+                                <img class="img-fluid" src="/images/{{ $course->image }}"
+                                    alt="{{ $course->name }}" />
                             </div>
-                            <div class="row m-0 p-0">
-                                <div class="col-12 p-0 docente_cursos">
-                                    <p class="m-0 items">{{ $course->teacher->name . " " . $course->teacher->surnames }}</p>
+                            <div class="portfolio-caption">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <div class="portfolio-caption-heading lead items titulo_curso me-2">
+                                        {{ $course->name }}</div>
+                                    <div class="lead bold descripcion_cursos text-uppercase">
+                                        @if ($course->price > 0)
+                                            {{ $course->price . '€' }}
+                                        @else
+                                            {{ __('Gratis') }}
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="col-12 p-0 valoracion">
-                                    <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}</p>
-                                    <div class="rating" value=" {{ round($course->ratings()->average('rating')) }}"></div><br>
-                                    <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>
-                                </div>
-                                <div class="col-12 m-0 p-0 mt-2 categorias">
-                                    @foreach ($course->categories as $category)
-                                        <span class="badge badge-pill text-white items categorias_cursos" id="{{ $course->name . '_' . $category->id }}">{{ $category->name }}</span>
-                                    @endforeach
-                                    <script>
-                                        var course = <?php echo $course ?>;
-                                        var categorias = <?php echo $course->categories ?>;
-                                        for (let i = 1; i <= categorias.length; i++) {
-                                            let color = categorias[i - 1].color;
-                                            var badge_categoria = document.getElementById(course.name + "_" + categorias[i - 1].id);
-                                            badge_categoria.style.background = color;
-                                        }
-                                    </script>
+                                <div class="row m-0 p-0">
+                                    <div class="col-12 p-0 docente_cursos">
+                                        <p class="m-0 items">
+                                            {{ $course->teacher->name . ' ' . $course->teacher->surnames }}</p>
+                                    </div>
+                                    <div class="col-12 p-0 valoracion d-flex justify-content-end align-items-center">
+                                        <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}
+                                        </p>
+                                        <div class="rating"
+                                            value="{{ round($course->ratings()->average('rating')) }}"></div><br>
+                                        <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>
+                                    </div>
+                                    <div class="col-12 m-0 p-0 mt-2 categorias">
+                                        @foreach ($course->categories as $category)
+                                            <span class="badge badge-pill text-white items categorias_cursos"
+                                                id="{{ $course->name . '_' . $category->id }}">{{ $category->name }}</span>
+                                        @endforeach
+                                        <script>
+                                            var course = <?php echo $course; ?>;
+                                            var categorias = <?php echo $course->categories; ?>;
+                                            for (let i = 1; i <= categorias.length; i++) {
+                                                let color = categorias[i - 1].color;
+                                                var badge_categoria = document.getElementById(course.name + "_" + categorias[i - 1].id);
+                                                badge_categoria.style.background = color;
+                                            }
+                                        </script>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
                 <div class="row d-flex justify-content-center m-0 mt-4">
                     <div class="col-lg-2 col-md-3 col-sm-3 py-2 px-1 btn mt-2 ms-sm-2 items boton_ver_mas boton_sesion text-uppercase"
@@ -380,19 +402,22 @@
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-user mb-2 iconos_contacto"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_contacto" type="text" name="name" placeholder="{{ __('Nombre') }}" />
+                                <input class="form-control p-2 campos_contacto" type="text" name="name"
+                                    placeholder="{{ __('Nombre') }}" />
                             </div>
                         </div>
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-envelope mb-2 iconos_contacto"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_contacto" type="email" name="email" placeholder="Email" />
+                                <input class="form-control p-2 campos_contacto" type="email" name="email"
+                                    placeholder="Email" />
                             </div>
                         </div>
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-phone mb-2 iconos_contacto"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_contacto" type="text" name="phone" placeholder="{{ __('Teléfono') }}" />
+                                <input class="form-control p-2 campos_contacto" type="text" name="phone"
+                                    placeholder="{{ __('Teléfono') }}" />
                             </div>
                         </div>
                     </div>
@@ -400,13 +425,14 @@
                         <div class="form-group px-1 d-flex justify-content-between gap-md-3">
                             <i class="fas fa-comments mb-2 iconos_contacto"></i>
                             <div class="campos_registro">
-                                <textarea class="form-control p-2 campos_contacto" id="message" name="comments" placeholder="{{ __('Comentarios') }}"
-                                rows="5"></textarea>
+                                <textarea class="form-control p-2 campos_contacto" id="message" name="comments"
+                                    placeholder="{{ __('Comentarios') }}" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="text-center"><button class="btn boton_sesion boton_contacto items p-2 px-4 text-uppercase"
+                <div class="text-center"><button
+                        class="btn boton_sesion boton_contacto items p-2 px-4 text-uppercase"
                         type="submit">{{ __('Enviar') }}</button></div>
             </form>
         </div>
@@ -421,10 +447,10 @@
                 <div class="col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2 iconos_footer icono_twitter" href="https://www.twitter.com"
                         target="blank"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_facebook" href="https://www.facebook.com"
-                        target="blank"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_linkedin" href="https://www.linkedin.com"
-                        target="blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_facebook"
+                        href="https://www.facebook.com" target="blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_linkedin"
+                        href="https://www.linkedin.com" target="blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a class="link-dark text-decoration-none me-3" href="#!">{{ __('Política de Privacidad') }}</a>
@@ -439,7 +465,8 @@
     <div class="cookies">
         <div class="texto_cookies">
             <p class="items m-0">{{ __('Esta página utiliza cookies, acéptalas para seguir navegando.') }}</p>
-            <a href="http://www.interior.gob.es/politica-de-cookies" target="_blank" class="items">{{ __('Más información') }}</a>
+            <a href="http://www.interior.gob.es/politica-de-cookies" target="_blank"
+                class="items">{{ __('Más información') }}</a>
         </div>
         <div class="boton_cookie">
             <button class="btn items boton_sesion">{{ __('Aceptar') }}</button>
@@ -455,6 +482,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <script src="{{ asset('js/index.js') }}"></script>
+    <script src="{{ asset('js/rate.js') }}"></script>
 </body>
+
 </html>

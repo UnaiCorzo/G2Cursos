@@ -45,14 +45,10 @@
                                         <div class="col-12 p-0 docente_cursos">
                                             <p class="m-0 items">{{ $course->teacher->name . " " . $course->teacher->surnames }}</p>
                                         </div>
-
-                                        <div class="col-12 p-0 valoracion">
+                                        <div class="col-12 p-0 valoracion d-flex justify-content-end align-items-center">
                                             <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}</p>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i><br>
+                                            <div class="rating"
+                                                value=" {{ round($course->ratings()->average('rating')) }}"></div><br>
                                             <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>
                                         </div>
                                         <div class="col-12 m-0 p-0 mt-2 categorias">
@@ -83,4 +79,5 @@
 
 @section('script_link')
     <script src="{{ asset('js/user.js') }}"></script>
+    <script src="{{ asset('js/rate.js') }}"></script>
 @endsection
