@@ -116,5 +116,7 @@
     "Estrellas:": "Izarrak:",
     "Añadir": "Gehitu",
     "Modificar curso": "Aldatu ikastaroa",
-    "Todavía no has creado ningún curso": "Oraindik ez duzu ikastarorik sortu"
+    "Todavía no has creado ningún curso": "Oraindik ez duzu ikastarorik sortu",
+    "Borrar curso": "Ezabatu ikastaroa",
+    "¿Seguro que quieres borrar este curso?": "Ziur zaude ikastaro hau ezabatu nahi duzula?"
 }

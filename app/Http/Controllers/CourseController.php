@@ -117,7 +117,12 @@ class CourseController extends Controller
         $image_path = public_path() . '/images' . '/' . $course->image;
         unlink($image_path);
         $course->delete();
-        return redirect()->to(route('admin', $lang));
+
+        if (auth()->user()->role_id == 3) {
+            return redirect()->to(route('admin', $lang));
+        }
+
+        return redirect()->to(route('created_courses', $lang));
     }
 
     public function creatorCourses()
