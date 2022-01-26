@@ -114,7 +114,7 @@
                                     Online
                                 @endif
                             </span>
-                            <img class="img-fluid img_curso" src="/images/{{ $course->image }}" alt="..." />
+                            <img class="img-fluid img_curso" src="/images/{{ $course->image }}" alt="..."/>
                         </div>
                         <div class="col-12 m-0 p-0 mt-3 categorias d-flex justify-content-end align-items-center">
                             @foreach ($categories as $category)

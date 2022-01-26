@@ -12280,7 +12280,8 @@ select:focus {
     font-size: .8rem;
 }
 
-.img_curso {
+.imagen_card .img_curso {
+    height: auto!important;
     border-radius: 0px!important;
 }
 
