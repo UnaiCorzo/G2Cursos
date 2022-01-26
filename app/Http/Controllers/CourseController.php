@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class CourseController extends Controller
 {
@@ -51,7 +52,6 @@ class CourseController extends Controller
     public function find()
     {
         $categories = Category::all();
-
         return view("find_courses")->with('categories', $categories);
     }
 
@@ -78,31 +78,37 @@ class CourseController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-
-        return view("create_course")->with('categories', $categories);
+        if (Gate::allows('access-creator')) {
+            $categories = Category::all();
+            return view("create_course")->with('categories', $categories);
+        }
+        abort(404);
     }
 
     public function store(Request $request)
     {
-        $name = $request->name . "." . $request->file('image')->extension();
-        if (!is_null($request->location)) {
-            $id = DB::table('courses')->insertGetId(
-                ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price, 'location' => $request->location, 'teacher_id' => auth()->user()->id]
-            );
-        } else {
-            $id = DB::table('courses')->insertGetId(
-                ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price, 'teacher_id' => auth()->user()->id]
-            );
+        if (Gate::allows('access-creator')) {
+            $name = $request->name . "." . $request->file('image')->extension();
+            if (!is_null($request->location)) {
+                $id = DB::table('courses')->insertGetId(
+                    ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price, 'location' => $request->location, 'teacher_id' => auth()->user()->id]
+                );
+            } else {
+                $id = DB::table('courses')->insertGetId(
+                    ['name' => $request->name, 'image' => $name, 'description' => $request->description, 'price' => $request->price, 'teacher_id' => auth()->user()->id]
+                );
+            }
+            $course = Course::find($id);
+            $request->file('image')->move(public_path('images'), $name);
+            $arrayCategorias = explode(";", $request->categories);
+    
+            for ($i = 0; $i < count($arrayCategorias) - 1; $i++) {
+                $course->categories()->attach($arrayCategorias[$i]);
+            }
+            return back();
         }
-        $course = Course::find($id);
-        $request->file('image')->move(public_path('images'), $name);
-        $arrayCategorias = explode(";", $request->categories);
-
-        for ($i = 0; $i < count($arrayCategorias) - 1; $i++) {
-            $course->categories()->attach($arrayCategorias[$i]);
-        }
-        return back();
+        abort(404);
+        
     }
 
     public function delete($lang, $id)
@@ -116,21 +122,28 @@ class CourseController extends Controller
 
     public function creatorCourses()
     {
-        $courses = auth()->user()->course_teacher;
-        return view("creator_courses")->with('courses', $courses);
+        if (Gate::allows('access-creator')) {
+            $courses = auth()->user()->course_teacher;
+            return view("creator_courses")->with('courses', $courses);
+        }
+        abort(404);
     }
 
     public function editCourse($lang, $id)
     {
-        $course = Course::find($id);
-        $current_categories = $course->categories;
-        $categories = Category::all();
-        return view("edit_course")->with('course', $course)->with('categories', $categories)->with('current_categories', $current_categories);
+        if (Gate::allows('access-creator')) {
+            $course = Course::find($id);
+            $current_categories = $course->categories;
+            $categories = Category::all();
+            return view("edit_course")->with('course', $course)->with('categories', $categories)->with('current_categories', $current_categories);
+        }
+        abort(404);
     }
 
     public function modifyCourse($lang, Request $request)
     {
-        $course_modify = Course::find($request->id);
+        if (Gate::allows('access-creator')) {
+            $course_modify = Course::find($request->id);
 
         $course_modify->name = $request->name;
         $course_modify->description = $request->description;
@@ -163,5 +176,8 @@ class CourseController extends Controller
         $course_modify->save();
 
         return redirect()->to(route('created_courses', app()->getLocale()));
+        }
+        abort(404);
+        
     }
 }

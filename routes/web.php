@@ -62,28 +62,28 @@ Route::group(['prefix' => '{language}'], function () {
     })->name('admin');
 
     Route::post('/user', [UserController::class, 'store'])->name('user');
-    Route::get('/profile', [UserController::class, 'myprofile'])->middleware('auth')->name('profile');
-    Route::post('/profile/modify/{id}', [UserController::class, 'modify'])->middleware('auth')->name('profile_modify');
-    Route::post('/profile/reset/password', [UserController::class, 'password'])->middleware('auth')->name('reset_password');
-    Route::post('/profile/delete/{id}', [UserController::class, 'delete'])->middleware('auth')->name('delete_profile');
-    Route::get('/course/view/{id}', [CourseController::class, 'course'])->middleware('auth')->name('course');
-    Route::get('/course/route/{id}/{coordinates}', [CourseController::class, 'geolocalization'])->middleware('auth')->name('geolocalization');
-    Route::post('/course/delete/{id}', [CourseController::class, 'delete'])->middleware('auth')->name('delete_course');
-    Route::get('/course/subscribe/{id}', [CourseController::class, 'subscribe'])->middleware('auth')->name('subscribe');
-    Route::get('/course/unsubscribe/{id}', [CourseController::class, 'unsubscribe'])->middleware('auth')->name('unsubscribe');
-    Route::get('/find', [CourseController::class, 'find'])->middleware('auth')->name('find');
-    Route::get('/find/all', [CourseController::class, 'findAll'])->middleware('auth')->name('find_all');
-    Route::get('/course/create', [CourseController::class, 'create'])->middleware('auth')->name('create');
-    Route::get('/course/list', [CourseController::class, 'creatorCourses'])->middleware('auth')->name('created_courses');
-    Route::get('/course/edit/{id}', [CourseController::class, 'editCourse'])->middleware('auth')->name('edit_course');
-    Route::post('/course/modify', [CourseController::class, 'modifyCourse'])->middleware('auth')->name('course-modify');
+    Route::get('/profile', [UserController::class, 'myprofile'])->middleware('verified')->middleware('auth')->name('profile');
+    Route::post('/profile/modify/{id}', [UserController::class, 'modify'])->middleware('verified')->middleware('auth')->name('profile_modify');
+    Route::post('/profile/reset/password', [UserController::class, 'password'])->middleware('verified')->middleware('auth')->name('reset_password');
+    Route::post('/profile/delete/{id}', [UserController::class, 'delete'])->middleware('verified')->middleware('auth')->name('delete_profile');
+    Route::get('/course/view/{id}', [CourseController::class, 'course'])->middleware('verified')->middleware('auth')->name('course');
+    Route::get('/course/route/{id}/{coordinates}', [CourseController::class, 'geolocalization'])->middleware('verified')->middleware('auth')->name('geolocalization');
+    Route::post('/course/delete/{id}', [CourseController::class, 'delete'])->middleware('verified')->middleware('auth')->name('delete_course');
+    Route::get('/course/subscribe/{id}', [CourseController::class, 'subscribe'])->middleware('verified')->middleware('auth')->name('subscribe');
+    Route::get('/course/unsubscribe/{id}', [CourseController::class, 'unsubscribe'])->middleware('verified')->middleware('auth')->name('unsubscribe');
+    Route::get('/find', [CourseController::class, 'find'])->middleware('verified')->middleware('auth')->name('find');
+    Route::get('/find/all', [CourseController::class, 'findAll'])->middleware('verified')->middleware('auth')->name('find_all');
+    Route::get('/course/create', [CourseController::class, 'create'])->middleware('verified')->middleware('auth')->name('create');
+    Route::get('/course/list', [CourseController::class, 'creatorCourses'])->middleware('verified')->middleware('auth')->name('created_courses');
+    Route::get('/course/edit/{id}', [CourseController::class, 'editCourse'])->middleware('verified')->middleware('auth')->name('edit_course');
+    Route::post('/course/modify', [CourseController::class, 'modifyCourse'])->middleware('verified')->middleware('auth')->name('course-modify');
     Route::post('/session', [SessionController::class, 'store'])->name('session');
-    Route::post('/file', [FileController::class, 'store'])->middleware('auth')->name('file');
-    Route::post('/user/upgrade', [UserController::class, 'upgrade'])->name('upgrade');
-    Route::post('/course/rate/{id}', [CourseController::class, 'rate'])->name('rate');
+    Route::post('/file', [FileController::class, 'store'])->middleware('verified')->middleware('auth')->name('file');
+    Route::post('/user/upgrade', [UserController::class, 'upgrade'])->middleware('verified')->middleware('auth')->name('upgrade');
+    Route::post('/course/rate/{id}', [CourseController::class, 'rate'])->middleware('auth')->name('rate');
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
     Route::get('/forgot-password', [PasswordController::class, 'index'])->middleware('guest')->name('password.request');
-    Route::post('/course/store', [CourseController::class, 'store'])->name('course-store');
+    Route::post('/course/store', [CourseController::class, 'store'])->middleware('auth')->name('course-store');
     Route::post('/contact/send', [ContactController::class, 'store'])->name('contact_send');
     Route::post('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact_delete');
 
@@ -97,4 +97,4 @@ Route::group(['prefix' => '{language}'], function () {
     })->name("login");
 });
 
-Route::get('/show/{file}', [FileController::class, 'show'])->name('show');
+Route::get('/show/{file}', [FileController::class, 'show'])->middleware('verified')->middleware('auth')->name('show');
