@@ -163,7 +163,7 @@
             <div class="modal-content">
                 <section class="fondo_formulario_registro">
                     <div class="container contenedor_modal contenedor_registro">
-                        <form class="form-control formulario_valorar" id="registrarse" method="post"
+                        <form class="form-control formulario_valorar" id="valorar" method="post"
                             action="{{ route('rate', ['id' => $id, 'language' => app()->getLocale()]) }}">
                             {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_valorar">
@@ -174,10 +174,14 @@
                                                 {{ $course->name }}</h2>
                                         </div>
                                         <div class="row col-lg-12 col-12 px-5">
-                                            <div class="col-4 mb-3">
+                                            <div class="col-4 mb-5 mt-5 d-flex justify-content-start align-items-end">
                                                 {{ __('Estrellas:') }}
+                                                <div class="info_crear_curso top info_valorar">
+                                                    <i class="fas fa-info-circle ms-2"> </i>
+                                                    <p>{{ __('Selecciona las estrellas que representan tu valoración (como mínimo y por defecto una)') }}</p>
+                                                </div>
                                             </div>
-                                            <div id="contenedor_est" class="col-8 mb-3">
+                                            <div id="contenedor_est" class="col-8 mb-5 contenedor_est mt-5 mb-2">
                                                 <i class="bi bi-star-fill estrella" value="1" style="color:yellow"></i>
                                                 <i class="bi bi-star estrella" value="2" style="color:yellow"></i>
                                                 <i class="bi bi-star estrella" value="3" style="color:yellow"></i>
@@ -185,13 +189,19 @@
                                                 <i class="bi bi-star estrella" value="5" style="color:yellow"></i>
                                                 <input id="estr_valor" name="rating" type="hidden" value="1">
                                             </div>
-                                            <div class="col-4 mb-3">
+                                            <div class="col-4 mb-3 d-flex justify-content-start align-items-start">
                                                 {{ __('Comentarios') }}
+                                                <div class="info_crear_curso top info_valorar">
+                                                    <i class="fas fa-info-circle ms-2"> </i>
+                                                    <p>{{ __('Añade un comentario a tu valoración (este se mostrará en la página del curso)') }}</p>
+                                                </div>
                                             </div>
                                             <div class="col-8 mb-3">
-                                                <textarea class="form-control p-2 campos_contacto" id="message"
+                                                <div class="campos_registro_area">
+                                                    <textarea class="form-control p-2 campos_contacto" id="message"
                                                     name="comment" placeholder="{{ __('Comentarios') }}" rows="5"
                                                     style="resize:none"></textarea>
+                                                </div>
                                             </div>
                                         </div>
 

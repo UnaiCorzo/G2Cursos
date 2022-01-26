@@ -27,4 +27,33 @@ $(document).ready(function () {
         $(location).attr("href", language);
     });
     // FIN CAMBIAR IDIOMA
+
+    // VALIDACIÓN VALORAR CURSO
+    let idioma = $('html').attr('lang');
+
+    let comment_1 = "El comentario es requerido";
+
+
+    if (idioma == 'en') {
+        comment_1 = "Comment required";
+    }
+    else if (idioma == 'eu') {
+        comment_1 = "Iruzkina beharrezkoa da";
+    }
+
+    $("#valorar").validate({
+        ignore: "",
+        onkeyup: false,
+        rules: {
+            comment: {
+                required: true,
+            },
+        },
+        messages: {
+            comment: {
+                required: comment_1,
+            },
+        },
+    });
+    // FIN VALIDACIÓN VALORAR CURSO
 });

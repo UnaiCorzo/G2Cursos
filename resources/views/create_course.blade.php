@@ -48,7 +48,7 @@
                         <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
                             <div class="titulo_crear">
                                 <p class="m-0">{{ __('Selecciona las categorías:') }}</p>
-                                <div class="info_crear_curso top">
+                                <div class="info_crear_curso top info_valorar">
                                     <i class="fas fa-info-circle"> </i>
                                     <p>{{ __('Categorías o tags que se relacionarán con el curso. Debes seleccionar mínimo una y como máximo cinco.') }}</p>
                                 </div>

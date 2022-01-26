@@ -12287,6 +12287,24 @@ select:focus {
 .mod_curso {
     opacity: 1!important;
 }
+
+.contenedor_est {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+.contenedor_est i {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+
+.info_valorar p {
+    width: 200px!important;
+    margin-left: -100px!important;
+}
 /* FIN PÁGINA DE CURSO */
 
 /* PÁGINA BÚSQUEDA DE CURSOS */

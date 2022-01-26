@@ -119,5 +119,7 @@
     "Todavía no has creado ningún curso": "Oraindik ez duzu ikastarorik sortu",
     "Borrar curso": "Ezabatu ikastaroa",
     "¿Seguro que quieres borrar este curso?": "Ziur zaude ikastaro hau ezabatu nahi duzula?",
-    "¡Usuario verificado correctamente!": "Erabiltzailea behar bezala egiaztatu da!"
+    "¡Usuario verificado correctamente!": "Erabiltzailea behar bezala egiaztatu da!",
+    "Selecciona las estrellas que representan tu valoración (como mínimo y por defecto una)": "Hautatu zure balorazioa adierazten duten izarrak (gutxienez bat eta lehenespenez)",
+    "Añade un comentario a tu valoración (este se mostrará en la página del curso)": "Gehitu iruzkin bat zure balorazioari (ikastaroaren orrian azalduko da)"
 }
