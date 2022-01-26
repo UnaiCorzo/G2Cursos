@@ -30,7 +30,7 @@ $(document).ready(function () {
                     sum_ratings += cursos_json[i].ratings[k].rating;
                 }
                 let avg_ratings = sum_ratings/count_ratings;
-                ratings_html+=  "<p class='m-0 me-1 pt-1 items'>"+avg_ratings+"</p><div class='rating'value='"+Math.round(avg_ratings)+"'></div><br><p class='m-0 pt-1 items'>("+sum_ratings+")</p></div>";
+                ratings_html+=  "<p class='m-0 me-1 pt-1 items'>"+avg_ratings+"</p><div class='rating'value='"+Math.round(avg_ratings)+"'></div><br><p class='m-0 pt-1 items'>("+count_ratings+")</p></div>";
             }
             else{
                 ratings_html += "<div class='col-12 p-0 valoracion d-flex justify-content-end align-items-center'><p class='m-0 me-1 pt-1 items'>"+0+"</p><div class='rating' value='"+0+"'></div><br><p class='m-0 pt-1 items'>("+0+")</p></div>";

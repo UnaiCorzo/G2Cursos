@@ -107,5 +107,4 @@
 @section('script_link')
     <script src="{{ asset('js/find.js') }}"></script>
     <script src="{{ asset('js/user.js') }}"></script>
-    <script src="{{ asset('js/rate.js') }}"></script>
 @endsection
