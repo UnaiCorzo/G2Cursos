@@ -262,114 +262,58 @@
                 <h3 class="section-subheading text-muted">{{ __('Descubre los cursos más destacados') }}</h3>
             </div>
             <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
+                @foreach ($courses as $course)
                 <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="card1" data-bs-toggle="modal" data-bs-target="#modal_registro">
+                    <div class="portfolio-item" id="curso_{{ $course->id }}" data-bs-toggle="modal" data-bs-target="#modal_registro">
                         <div class="imagen_card">
-                            <span class="badge badge-pill text-white bg-success items modalidad">{{ __('Presencial') }}</span>
-                            <img class="img-fluid" src="{{ asset('assets/img/laravel.png') }}" alt="..." />
+                            <span class="badge badge-pill text-white bg-success items modalidad">
+                                @if (!is_null($course->location))
+                                    {{ __('Presencial') }}
+                                @else
+                                     Online
+                                @endif
+                            </span>
+                            <img class="img-fluid" src="/images/{{ $course->image }}" alt="{{ $course->name }}"/>
                         </div>
                         <div class="portfolio-caption">
                             <div class="d-flex justify-content-between align-items-baseline">
-                                <div class="portfolio-caption-heading lead items titulo_curso me-2">Laravel desde 0
+                                <div class="portfolio-caption-heading lead items titulo_curso me-2">{{ $course->name }}</div>
+                                <div class="lead bold descripcion_cursos text-uppercase">
+                                    @if ($course->price > 0)
+                                        {{ $course->price . '€' }}
+                                    @else
+                                        {{ __('Gratis') }}
+                                    @endif
                                 </div>
-                                <div class="lead bold descripcion_cursos">74,95€</div>
                             </div>
                             <div class="row m-0 p-0">
                                 <div class="col-12 p-0 docente_cursos">
-                                    <p class="m-0 items">Alberto Ramírez (Backskills)</p>
+                                    <p class="m-0 items">{{ $course->teacher->name . " " . $course->teacher->surnames }}</p>
                                 </div>
                                 <div class="col-12 p-0 valoracion">
-                                    <p class="m-0 me-1 pt-1 items">3.5</p>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <i class="far fa-star"></i><br>
-                                    <p class="m-0 pt-1 items">(52)</p>
+                                    <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}</p>
+                                    <div class="rating" value=" {{ round($course->ratings()->average('rating')) }}"></div><br>
+                                    <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>
                                 </div>
                                 <div class="col-12 m-0 p-0 mt-2 categorias">
-                                    <span class="badge badge-pill text-white items categorias_cursos bg-info">PHP</span>
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-warning">Laravel</span>
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-success">Backend</span>
+                                    @foreach ($course->categories as $category)
+                                        <span class="badge badge-pill text-white items categorias_cursos" id="{{ $course->name . '_' . $category->id }}">{{ $category->name }}</span>
+                                    @endforeach
+                                    <script>
+                                        var course = <?php echo $course ?>;
+                                        var categorias = <?php echo $course->categories ?>;
+                                        for (let i = 1; i <= categorias.length; i++) {
+                                            let color = categorias[i - 1].color;
+                                            var badge_categoria = document.getElementById(course.name + "_" + categorias[i - 1].id);
+                                            badge_categoria.style.background = color;
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="card2" data-bs-toggle="modal" data-bs-target="#modal_registro">
-                        <div class="imagen_card">
-                            <span class="badge badge-pill text-white bg-info items modalidad">Online</span>
-                            <img class="img-fluid" src="{{ asset('assets/img/css_grid.jpg') }}" alt="..." />
-                        </div>
-                        <div class="portfolio-caption">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <div class="portfolio-caption-heading lead items titulo_curso me-2">CSS Grid</div>
-                                <div class="lead bold descripcion_cursos">{{ __('Gratis') }}</div>
-                            </div>
-                            <div class="row m-0 p-0">
-                                <div class="col-12 p-0 docente_cursos">
-                                    <p class="m-0 items">Sandra Gómez (WD Academy)</p>
-                                </div>
-                                <div class="col-12 p-0 valoracion">
-                                    <p class="m-0 me-1 pt-1 items">4</p>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i><br>
-                                    <p class="m-0 pt-1 items">(35)</p>
-                                </div>
-                                <div class="col-12 m-0 p-0 mt-2 categorias">
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-warning">CSS</span>
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-secondary">HTML</span>
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-info">Frontend</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="portfolio-item" id="card3" data-bs-toggle="modal" data-bs-target="#modal_registro">
-                        <div class="imagen_card">
-                            <span class="badge badge-pill text-white bg-info items modalidad">Online</span>
-                            <img class="img-fluid" src="{{ asset('assets/img/docker.jpeg') }}" alt="..." />
-                        </div>
-                        <div class="portfolio-caption">
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <div class="portfolio-caption-heading lead items titulo_curso me-2">Docker</div>
-                                <div class="lead bold descripcion_cursos">49,99€</div>
-                            </div>
-                            <div class="row m-0 p-0">
-                                <div class="col-12 p-0 docente_cursos">
-                                    <p class="m-0 items">Gorka Iturriaga</p>
-                                </div>
-                                <div class="col-12 p-0 valoracion">
-                                    <p class="m-0 me-1 pt-1 items">4.5</p>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i><br>
-                                    <p class="m-0 pt-1 items">(67)</p>
-                                </div>
-                                <div class="col-12 m-0 p-0 mt-2 categorias">
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-dark">Despliegue</span>
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-danger">Linux</span>
-                                    <span
-                                        class="badge badge-pill text-white items categorias_cursos bg-primary">Windows</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <div class="row d-flex justify-content-center m-0 mt-4">
                     <div class="col-lg-2 col-md-3 col-sm-3 py-2 px-1 btn mt-2 ms-sm-2 items boton_ver_mas boton_sesion text-uppercase"
                         data-bs-toggle="modal" data-bs-target="#modal_sesion">{{ __('Ver más') }}</div>

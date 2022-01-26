@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'user@user.com',
             'dni' => '00000000T',
             'role_id' => '1',
+            'email_verified_at' => date("Y-m-d H:i:s"),
         ]);
 
         DB::table('users')->insert([
@@ -32,6 +33,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'creador@creador.com',
             'dni' => '11111111H',
             'role_id' => '2',
+            'email_verified_at' => date("Y-m-d H:i:s"),
         ]);
 
         DB::table('users')->insert([
@@ -42,6 +44,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@admin.com',
             'dni' => '22222222Q',
             'role_id' => '3',
+            'email_verified_at' => date("Y-m-d H:i:s"),
         ]);
     }
 }

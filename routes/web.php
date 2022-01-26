@@ -82,18 +82,18 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/user/upgrade', [UserController::class, 'upgrade'])->middleware('verified')->middleware('auth')->name('upgrade');
     Route::post('/course/rate/{id}', [CourseController::class, 'rate'])->middleware('auth')->name('rate');
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
-    Route::get('/forgot-password', [PasswordController::class, 'index'])->middleware('guest')->name('password.request');
+    Route::get('/forgot-password', [PasswordController::class, 'index'])->name('password.request');
     Route::post('/course/store', [CourseController::class, 'store'])->middleware('auth')->name('course-store');
     Route::post('/contact/send', [ContactController::class, 'store'])->name('contact_send');
     Route::post('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact_delete');
 
     Route::get('/{success?}', function ($lang, $success = "false") {
         if ($success == "true") {
-            return view('index')->with('success', $success);
-        } else if ($success != "false") {
+            return view('index')->with('success', $success)->with('courses', Course::inRandomOrder()->limit(3)->get());
+        } else if ($success != "false" || ($lang != 'es' && $lang != 'en' && $lang != 'eu')) {
             abort(404);
         }
-        return view('index');
+        return view('index', ['courses' => Course::inRandomOrder()->limit(3)->get()]);
     })->name("login");
 });
 
