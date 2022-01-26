@@ -89,8 +89,7 @@
         @if (isset($success) && !$errors->any() && $success == 'true')
             <div class="alert alert-success alert-dismissible alerta_registro">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <p class="m-0">¡USUARIO VERIFICADO CORRECTAMENTE!</p><i
-                    class="fas fa-check-circle check_curso"></i>
+                <p class="m-0 text-uppercase">{{ __('¡Usuario verificado correctamente!') }}</p><i class="fas fa-check-circle check_curso"></i>
             </div>
         @endif
         <!-- FIN ALERTA DE REGISTRO COMPLETADO -->

@@ -12422,6 +12422,12 @@ select:focus {
 /* FIN PÁGINA BÚSQUEDA DE CURSOS */
 
 /* PÁGINA DE CREAR CURSO */
+.seccion_crear {
+    background-color: white;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
 .selector_cat {
   width: 90%;
   display: flex;
@@ -12443,13 +12449,13 @@ select:focus {
   cursor: pointer;
   transition: all .2s ease-in-out;
   border: solid 3px white;
-  box-shadow: 0px 0px 3px #0B132B;
+  box-shadow: 1px 1px 10px #0B132B;
 }
 
 .categoria_activa {
   transition: all .2s ease-in-out;
   border: solid 3px white;
-  box-shadow: 0px 0px 3px #0B132B;
+  box-shadow: 1px 1px 10px #0B132B;
 }
 
 .map {
@@ -12511,6 +12517,14 @@ select:focus {
     top: 100%;
     left: 50%;
     border-color: white transparent transparent transparent;
+}
+
+.campos_hidden {
+    min-height: 2.25rem!important;
+}
+
+.campos_crear {
+    width: 100%;
 }
 /* FIN PÁGINA DE CREAR CURSO */
 
@@ -12787,6 +12801,10 @@ select:focus {
 
     .seccion_recuperar h2 {
         font-size: 1.2rem;
+    }
+
+    .campos_crear {
+        font-size: .8rem;
     }
 }
 /* FIN RESPONSIVE */

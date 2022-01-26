@@ -43,7 +43,7 @@
                                 </a>
                             </li>
                         @endif
-                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu" id="link4" href="{{ route('find', app()->getLocale()) }}">{{ __('Buscador') }}</a></li>
+                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu px-2 rounded" id="link4" href="{{ route('find', app()->getLocale()) }}">{{ __('Buscador') }}</a></li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
                         <div class="dropdown d-flex justify-content-end align-items-center gap-3 icono_perfil" style="min-width: 9.5rem;">
                             <button type="button" class="btn d-flex justify-content-between align-items-center p-0 gap-3" data-bs-toggle="dropdown">

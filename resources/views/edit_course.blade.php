@@ -46,41 +46,40 @@
             <div class="text-center">
                 <p class="h5 items mb-5 mt-2">{{ __('Modificar curso') }}</p>
             </div>
-            <div class="row mx-4 mx-sm-0 mx-md-0 mx-lg-0">
-                <div class="col-12 mb-5 d-flex justify-content-between align-items-center">
-                    <form action="{{ route('course-modify', array(app()->getLocale(), $course->id)) }}" method="post" class="row align-content-start" id="crear_curso" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-
+            <form action="{{ route('course-modify', array(app()->getLocale(), $course->id)) }}" method="post" class="row p-3" id="crear_curso" enctype="multipart/form-data">
+            {{ csrf_field() }}
+                <div class="col-12 mx-0 mx-lg-4 mx-md-4 mx-sm-0 mx-md-0 mx-lg-0 seccion_crear px-3 pt-5">
+                    <div class="row mb-5 p-3">
                         <input type="hidden" name="id" value="{{ $course->id }}">
 
-                        <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
+                        <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
                             <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_sesion" type="text" id="name" name="name" placeholder="{{ __('Título curso') }}" value="{{ $course->name }}"/>
+                                <input class="form-control p-2 campos_sesion campos_crear" type="text" id="name" name="name" placeholder="{{ __('Título curso') }}" value="{{ $course->name }}"/>
                             </div>
                         </div>
-                        <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start">
+                        <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex justify-content-between align-items-start">
                             <i class="fas fa-images mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_sesion">
                                 <label class="form-file-label items mb-1" for="image">{{ __('Imagen curso') }}</label>
                                 <div class="campos_registro">
-                                    <input class="form-control-file items archivo" type="file" id="image" name="image">
+                                    <input class="form-control-file items archivo campos_crear" type="file" id="image" name="image">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
+                        <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
                             <i class="fas fa-hand-holding-usd mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_registro">
-                                <input class="form-control p-2 campos_sesion" type="number" id="price" step="0.01" name="price" placeholder="{{ __('Precio curso') }}" value="{{ $course->price }}"/>
+                                <input class="form-control p-2 campos_sesion campos_crear" type="number" id="price" step="0.01" name="price" placeholder="{{ __('Precio curso') }}" value="{{ $course->price }}"/>
                             </div>
                         </div>
-                        <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
+                        <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex justify-content-between align-items-start" id="nombre">
                             <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
                             <div class="campos_registro_area">
-                                <textarea class="form-control p-2 campos_sesion" rows="5" id="description" name="description" placeholder="{{ __('Descripción curso') }}" style="resize: none;">{{ $course->description }}</textarea>
+                                <textarea class="form-control p-2 campos_sesion campos_crear" rows="5" id="description" name="description" placeholder="{{ __('Descripción curso') }}" style="resize: none;">{{ $course->description }}</textarea>
                             </div>
                         </div>
-                        <div class="col-6 form-group px-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
+                        <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex flex-column justify-content-start align-items-start gap-3" id="nombre">
                             <div class="titulo_crear">
                                 <p class="m-0">{{ __('Selecciona las categorías:') }}</p>
                                 <div class="info_crear_curso top">
@@ -107,7 +106,7 @@
                                 <input type="hidden" name="categories" id="categories" value="">
                             </div>
                         </div>
-                        <div class="col-6 form-group px-5 mb-2 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                        <div class="col-lg-6 col-12 form-group px-2 px-lg-5 px-md-5 mb-2 d-flex justify-content-between align-items-center flex-wrap gap-3">
                             <i class="fas fa-street-view iconos_sesion"></i>
                             <div class="form-check form-switch items campos_sesion">
                                 <input class="form-check-input presencial me-2" type="checkbox" id="switchPresencial" name="presencial" value="no">
@@ -133,12 +132,12 @@
                                 id="submitButton" type="submit">{{ __('Modificar') }}
                             </button>
                         </div>
-                        <div class="col-12 mt-3 d-flex justify-content-end align-items-center">
+                        <div class="col-12 mt-5 d-flex justify-content-end align-items-center">
                             <a href="" class="registrarse_sesion items px-5" data-bs-toggle="modal" data-bs-target="#modal_eliminar_curso">{{ __('Borrar curso') }}</a>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
     <!-- FIN SECCIÓN CREADOR CURSOS -->
