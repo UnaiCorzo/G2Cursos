@@ -42,6 +42,8 @@ Route::get('/reset-password/{token}', function ($token) {
 Route::post('/forgot-password/send', [PasswordController::class, 'send'])->middleware('guest')->name('password-request');
 Route::post('/forgot-password/reset', [PasswordController::class, 'reset'])->middleware('guest')->name('password-reset');
 
+Route::get('/show/{file}', [FileController::class, 'show'])->middleware('verified')->middleware('auth')->name('show');
+
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/home', function () {
         return view('user');
@@ -96,5 +98,3 @@ Route::group(['prefix' => '{language}'], function () {
         return view('index', ['courses' => Course::inRandomOrder()->limit(3)->get()]);
     })->name("login");
 });
-
-Route::get('/show/{file}', [FileController::class, 'show'])->middleware('verified')->middleware('auth')->name('show');
