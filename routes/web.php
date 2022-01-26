@@ -87,9 +87,11 @@ Route::group(['prefix' => '{language}'], function () {
     Route::post('/contact/send', [ContactController::class, 'store'])->name('contact_send');
     Route::post('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact_delete');
 
-    Route::get('/{success?}', function ($lang, $success = false) {
-        if ($success) {
+    Route::get('/{success?}', function ($lang, $success = "false") {
+        if ($success == "true") {
             return view('index')->with('success', $success);
+        } else if ($success != "false") {
+            abort(404);
         }
         return view('index');
     })->name("login");
