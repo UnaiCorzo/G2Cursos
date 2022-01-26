@@ -49,10 +49,14 @@
                         <div class="col-4 p-0">
                             <!-- IF PARA MOSTRAR EL PRECIO O ICONO SEGÚN SE ESTÉ SUSCRITO O NO -->
                             <div class="d-flex justify-content-end lead">
-                                @if ($course->price == 0)
-                                    {{ __('Gratis') }}
+                                @if ($subscribed) 
+                                    <i class='fas fa-check-circle check_curso'></i>
                                 @else
-                                    {{ $course->price }}€
+                                    @if ($course->price == 0)
+                                        {{ __('Gratis') }}
+                                    @else
+                                        {{ $course->price }}€
+                                    @endif
                                 @endif
                                 </i>
                             </div>

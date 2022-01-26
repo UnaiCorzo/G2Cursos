@@ -13,7 +13,6 @@ $(document).ready(function () {
 
     function recibirCursos(cursos_json) {
         cursos = cursos_json;
-        console.log (cursos_json);
         const cursos_mostrar = $('#cursos_mostrar');
         for (let i = 0; i < cursos_json.length; i++) {
             let categorias_html = "";
@@ -66,8 +65,19 @@ $(document).ready(function () {
 
             let ruta = "/" + lang + "/course/view/" + cursos_json[i].course.id;
 
+            let curso_suscrito = false;
+
+            for (j = 0; j < cursos_json[i].user_courses.length; j++) {
+                if (cursos_json[i].user_courses[j].id == cursos_json[i].course.id) {
+                    curso_suscrito = true;
+                }
+            }
+
+            if (curso_suscrito) {
+                precio = "<i class='fas fa-check-circle check_curso'></i>";
+            }
+
             cursos_mostrar.html(cursos_mostrar.html() + "<div class='col-lg-4 col-sm-6 mb-4 cursos_buscar'><div class='portfolio-item'><a href='" + ruta + "' class='link_curso' id='curso_" + cursos_json[i].course.id + "'><div class='imagen_card'><span class='badge badge-pill text-white bg-success items modalidad'>" + modalidad + "</span><img class='img-fluid' src='/images/" + cursos_json[i].course.image + "' alt='" + cursos_json[i].course.name + "'/></div><div class='portfolio-caption'><div class='d-flex justify-content-between align-items-center'><div class='portfolio-caption-heading lead items titulo_curso me-2'>" + cursos_json[i].course.name + "</div><div class='lead bold descripcion_cursos'>" + precio + "</div></div><div class='row m-0 p-0'><div class='col-12 p-0 docente_cursos'><p class='m-0 items'>" + cursos_json[i].teacher.name + " " + cursos_json[i].teacher.surnames + "</p></div>"+ ratings_html +"</div><div class='col-12 m-0 p-0 mt-2 categorias'>" + categorias_html + "</div></div></div></a></div></div>");
-            console.log(cursos_json[i]);
         }
 
         // ANIMACIÓN IMÁGENES CURSOS
@@ -247,6 +257,19 @@ $(document).ready(function () {
             return false;
         }
         // FIN BÚSQUEDA Y FILTROS
+
+        // VALORACIONES CARDS
+        $('.rating').each(function() {
+            var estrellas = "";
+            for (let i = 0; i < $(this).attr("value"); i++) {
+                estrellas += '<i class="bi bi-star-fill estrella"  style="color:yellow"></i>';
+            }
+            for (let i = 0; i < 5 - $(this).attr("value"); i++) {
+                estrellas += '<i class="bi bi-star estrella"  style="color:yellow"></i>';
+            }
+            $(this).html(estrellas);
+        });
+        // FIN VALORACIONES CARDS
 
     }
     // FIN PETICIÓN AJAX DE CURSOS

@@ -67,6 +67,7 @@ class CourseController extends Controller
                 'categories' => $all_courses[$i]->categories,
                 'teacher' => User::find($all_courses[$i]->teacher_id),
                 'ratings' => $all_courses[$i]->ratings,
+                'user_courses' => auth()->user()->courses,
             ];
         }
         return response(json_encode($array_courses, 200));
