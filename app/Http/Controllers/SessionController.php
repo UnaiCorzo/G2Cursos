@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class SessionController extends Controller
 {
-    public function store()
+    public function store(Request $request)
     {
-        if (auth()->attempt(request(['email', 'password'])) == false) {
+        if (isset($request->remember_me)) {
+            $remember_me = true;
+        }
+        else{
+            $remember_me = false;
+        }
+        if (auth()->attempt(request(['email', 'password']),$remember_me) == false) {
             $message = 'El email o la contraseña no es correcta';
             if (app()->getLocale() == "en") {
                 $message = 'Email or password is not correct';
