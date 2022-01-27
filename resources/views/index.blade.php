@@ -348,7 +348,7 @@
                 @endforeach
                 <div class="row d-flex justify-content-center m-0 mt-4">
                     <div class="col-lg-2 col-md-3 col-sm-3 py-2 px-1 btn mt-2 ms-sm-2 items boton_ver_mas boton_sesion text-uppercase"
-                        data-bs-toggle="modal" data-bs-target="#modal_sesion">{{ __('Ver más') }}</div>
+                        data-bs-toggle="modal" data-bs-target="#modal_registro">{{ __('Ver más') }}</div>
                 </div>
             </div>
         </div>
