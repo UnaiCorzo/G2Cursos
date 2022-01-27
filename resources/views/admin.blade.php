@@ -266,17 +266,9 @@
     <div class="tab-pane fade" id="nav-5" role="tabpanel" aria-labelledby="nav-5-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
-                <div class="table table-white d-flex justify-content-center text-center">
-                    <table border="1">
-                        <tr>
-                            <th class="p-1 px-3">{{ __('Usuarios') }}</th>
-                            <td class="p-1 px-3">{{ $num_users }}</th>
-                        </tr>
-                        <tr>
-                            <th class="p-1 px-3">{{ __('Cursos creados') }}</th>
-                            <td class="p-1 px-3">{{ $num_courses }}</th>
-                        </tr>
-                    </table>
+                <div class="mt-3 row d-flex justify-content-center text-center">
+                    <p class="lead fw-bold">{{ __('Usuarios') }}: {{ $num_users }}</p>
+                    <p class="lead fw-bold">{{ __('Cursos creados') }}: {{ $num_courses }}</p>
                 </div>
 
                 <div class="mt-5 row d-flex justify-content-center text-center">
@@ -345,7 +337,7 @@
                 </div>
 
                 <div class="mt-5 mb-0 row d-flex justify-content-center text-center">
-                    <p class="lead col-12">{{ __('Número de categorías totales') }}</p>
+                    <p class="lead col-12">{{ __('Número de categorías en total') }}</p>
                     <canvas class="w-50 h-50" id="categorias"></canvas>
                 </div>
 
@@ -380,7 +372,8 @@
                             },
                         },
                     });
-                </script>
+                    Chart.defaults.global.defaultFontSize = 32;
+                    </script>
             </div>
         </section>
     </div>
