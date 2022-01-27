@@ -276,12 +276,111 @@
                             <th class="p-1 px-3">{{ __('Cursos creados') }}</th>
                             <td class="p-1 px-3">{{ $num_courses }}</th>
                         </tr>
-                        <tr>
-                            <th class="p-1 px-3">{{ __('Curso mejor valorado') }}</th>
-                            <td class="p-1 px-3">{{ $best_course }}</th>
-                        </tr>
                     </table>
                 </div>
+
+                <div class="mt-5 row d-flex justify-content-center text-center">
+                    <p class="lead col-12">{{ __('Curso mejor valorado') }}</p>
+                    <div class="row justify-content-center mx-4 mx-sm-0 mx-md-0 mx-lg-0">
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <div class="portfolio-item">
+                                <a id="curso_{{ $best_course->id }}"href="{{ route('course', ['id' => $best_course->id, 'language' => app()->getLocale()]) }}"
+                                    class="link_curso" id="curso">
+                                    <div class="imagen_card">
+                                        <span class="badge badge-pill text-white bg-success items modalidad">
+                                            @if (!is_null($best_course->location))
+                                                {{ __('Presencial') }}
+                                            @else
+                                                Online
+                                            @endif
+                                        </span>
+                                        <img class="img-fluid" src="/images/{{ $best_course->image }}"
+                                            alt="{{ $best_course->name }}" />
+                                    </div>
+                                    <div class="portfolio-caption">
+                                        <div class="d-flex justify-content-between align-items-baseline">
+                                            <div class="portfolio-caption-heading lead items titulo_curso me-2">
+                                                {{ $best_course->name }}</div>
+                                            <div class="lead bold descripcion_cursos text-uppercase">
+                                                @if ($best_course->price > 0)
+                                                    {{ $best_course->price . '€' }}
+                                                @else
+                                                    {{ __('Gratis') }}
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="row m-0 p-0">
+                                            <div class="col-12 p-0 docente_cursos text-start">
+                                                <p class="m-0 items">
+                                                    {{ $best_course->teacher->name . ' ' . $best_course->teacher->surnames }}</p>
+                                            </div>
+                                            <div class="col-12 p-0 valoracion d-flex justify-content-end align-items-center">
+                                                <p class="m-0 me-1 pt-1 items">{{ $best_course->ratings()->average('rating') }}
+                                                </p>
+                                                <div class="rating"
+                                                    value="{{ round($best_course->ratings()->average('rating')) }}"></div><br>
+                                                <p class="m-0 pt-1 items">({{ $best_course->ratings()->count() }})</p>
+                                            </div>
+                                            <div class="col-12 m-0 p-0 mt-2 categorias">
+                                                @foreach ($best_course->categories as $category)
+                                                    <span class="badge badge-pill text-white items categorias_cursos"
+                                                        id="{{ $best_course->name . '_' . $category->id }}">{{ $category->name }}</span>
+                                                @endforeach
+                                                <script>
+                                                    var course = <?php echo $best_course; ?>;
+                                                    var categorias = <?php echo $best_course->categories; ?>;
+                                                    for (let i = 1; i <= categorias.length; i++) {
+                                                        let color = categorias[i - 1].color;
+                                                        var badge_categoria = document.getElementById(course.name + "_" + categorias[i - 1].id);
+                                                        badge_categoria.style.background = color;
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 mb-0 row d-flex justify-content-center text-center">
+                    <p class="lead col-12">{{ __('Número de categorías totales') }}</p>
+                    <canvas class="w-50 h-50" id="categorias"></canvas>
+                </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+                <script>
+                    var tag_names = <?php echo json_encode($tag_names); ?>;
+                    var names = [];
+                    for (let i = 0; i < tag_names.length; i++) {
+                        names.push(tag_names[i]["name"]);
+                    }
+
+                    var tag_colors = <?php echo json_encode($tag_colors); ?>;
+                    var colors = [];
+                    for (let i = 0; i < tag_colors.length; i++) {
+                        colors.push(tag_colors[i]["color"]);
+                    }
+
+                    var tag_number = <?php echo json_encode($tag_number); ?>;
+
+                    new Chart("categorias", {
+                        type: "doughnut",
+                        data: {
+                            labels: names,
+                            datasets: [{
+                                backgroundColor: colors,
+                                data: tag_number,
+                            }],
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                            },
+                        },
+                    });
+                </script>
             </div>
         </section>
     </div>
@@ -318,4 +417,5 @@
 <script src="{{ asset('js/user.js') }}"></script>
 <script src="{{ asset('js/course.js')  }}"></script>
 <script src="{{ asset('js/admin.js')  }}"></script>
+<script src="{{ asset('js/rate.js') }}"></script>
 @endsection

@@ -6,10 +6,12 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
@@ -67,10 +69,30 @@ Route::group(['prefix' => '{language}'], function () {
                 $score += mt_rand() / mt_getrandmax(); // Componente aleatorio
                 if ($score > $best_score) {
                     $best_score = $score;
-                    $best_course = $course->name . " - id: " . $course->id;
+                    $best_course = Course::find($course->id);
                 }
             }
-            return view('admin', ['cvs' => $cvs, 'all_users' => User::all(), 'banned_users' => User::onlyTrashed()->get(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course, 'messages' => Contact::all()]);
+            $tag_names = DB::table('categories')->select('name')->get()->toArray();
+            $tag_colors = DB::table('categories')->select('color')->get()->toArray();
+            $tag_number = array();
+            for ($i = 0; $i < count(Category::all()); $i++) { 
+                array_push($tag_number, 0);
+            }
+
+            $count = -1;
+            foreach ($courses as $course) {
+                $count = -1;
+                foreach (Category::all() as $category_name) {
+                    $count++;
+                    foreach ($course->categories as $category) {
+                        if ($category_name->name == Category::find($category->id)->name) {
+                            $tag_number[$count] += 1;
+                        }
+                    }
+                }
+            }
+
+            return view('admin', ['cvs' => $cvs, 'all_users' => User::all(), 'banned_users' => User::onlyTrashed()->get(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course, 'messages' => Contact::all(), 'tag_names' => $tag_names, 'tag_colors' => $tag_colors, 'tag_number' => $tag_number]);
         }
         abort(404);
     })->name('admin');
