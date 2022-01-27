@@ -57,7 +57,19 @@ Route::group(['prefix' => '{language}'], function () {
                 ->get();
             $num_users = count(User::all());
             $num_courses = count(Course::all());
-            $best_course = "TODO";
+            $courses = Course::all();
+            $best_score = 0;
+            $best_course = "";
+            foreach ($courses as $course) {
+                $value = $course->ratings()->average('rating');
+                $number = $course->ratings()->count();
+                $score = ($value + 1) ** 3 * (sqrt($number) / ($number + 0.01)) * $number;
+                $score += mt_rand() / mt_getrandmax(); // Componente aleatorio
+                if ($score > $best_score) {
+                    $best_score = $score;
+                    $best_course = $course->name . " - id: " . $course->id;
+                }
+            }
             return view('admin', ['cvs' => $cvs, 'all_users' => User::all(), 'banned_users' => User::onlyTrashed()->get(), 'courses' => Course::all(), 'num_users' => $num_users, 'num_courses' => $num_courses, 'best_course' => $best_course, 'messages' => Contact::all()]);
         }
         abort(404);
