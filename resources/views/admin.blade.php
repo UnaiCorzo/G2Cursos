@@ -29,6 +29,7 @@
         <button class="nav-link text-dark" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Usuarios') }}</button>
         <button class="nav-link text-dark" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Cursos') }}</button>
         <button class="nav-link text-dark" id="nav-5-tab" data-bs-toggle="tab" data-bs-target="#nav-5" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Estadísticas') }}</button>
+        <button class="nav-link text-dark" id="nav-6-tab" data-bs-toggle="tab" data-bs-target="#nav-6" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Buscar empresa') }}</button>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -284,10 +285,37 @@
             </div>
         </section>
     </div>
+
+    <div class="tab-pane fade show active" id="nav-6" role="tabpanel" aria-labelledby="nav-6-tab">
+        <section class="page-section seccion_cursos">
+            <div class="container mt-0">
+                <div class="row">
+                    <div class="col-12 mb-5 d-flex justify-content-between align-items-center">
+                        <div class="input_busqueda">
+                            <i class="fas fa-search"></i>
+                            <input type="text" name="course_name" id="course_name"
+                                placeholder="{{ __('Nombre de la empresa...') }}">
+                        </div>
+                        <button class="btn text-uppercase mx-2 py-2 items boton_sesion boton_busqueda"
+                            style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;">
+                            {{ __('Buscar') }}
+                            <!-- <i class="fas fa-filter"></i> -->
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <div class="info_empresas">
+
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </section>
+    </div>
 </div>
 @endsection
 
 @section('script_link')
 <script src="{{ asset('js/user.js') }}"></script>
 <script src="{{ asset('js/course.js')  }}"></script>
+<script src="{{ asset('js/admin.js')  }}"></script>
 @endsection
