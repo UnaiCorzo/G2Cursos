@@ -36,6 +36,32 @@ Finalmente, la aplicación estará disponible en `localhost:8000`
 
 Para desplegar la aplicación con Docker, es necesario ejecutar los siguientes comandos:
 
+Primero para configurar correctamente la replicación entre las dos bases de datos es necesario introducir los siguientes comandos en los contenedores de base de datos:
+
+- En los siguientes comandos reemplazar los campos (`NOMBRE_DE_USUARIO_REPLICACIÓN`, `CONTRASEÑA`, `NOMBRE_DEL_HOST`)
+
+En el servidor de BD principal:
+
+```
+CREATE USER 'NOMBRE_DE_USUARIO_REPLICACIÓN'@'%' IDENTIFIED WITH mysql_native_password BY 'CONTRASEÑA';
+GRANT REPLICATION SLAVE ON *.* TO 'NOMBRE_DE_USUARIO_REPLICACIÓN'@'%';
+```
+
+En el servidor de BD secundario:
+
+```
+CHANGE MASTER TO
+MASTER_HOST='NOMBRE_DEL_HOST',
+MASTER_USER='NOMBRE_DE_USUARIO_REPLICACIÓN',
+MASTER_PASSWORD='CONTRASEÑA',
+MASTER_LOG_FILE='87e8982d00d1-bin.000004',
+MASTER_LOG_POS=349;
+reset slave;
+start slave;
+```
+
+Ahora los siguientes comandos para desplegar y ejecutar la aplicación:
+
 ```
 docker-compose build app
 docker-compose up -d
