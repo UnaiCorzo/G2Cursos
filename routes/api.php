@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/course', function(){
+    return Course::all();
+});
+Route::get('/course/{course}', function(Course $course){
+    return response()->json($course,201);
+});
+Route::get('/category', function(){
+    return Category::all();
+});
+Route::get('/category/{category}', function(Category $category){
+    return response()->json($category,201);
+});
+

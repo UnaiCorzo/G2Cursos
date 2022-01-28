@@ -41,9 +41,11 @@ class NotificarCreador extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->from("g2cursosinfo@gmail.com","Equipo de G2Cursos")
+                    ->subject("Petición de hacerte creador aceptada")
                     ->greeting('Hola')
                     ->line('¡Enhorabuena! Has sido elegido como creador de cursos.')
-                    ->action('Empieza a crear cursos', url('/es/course/create'))
+                    ->action('Empieza a crear cursos', url('/es'))
                     ->line('¡Esperamos que crees muchos cursos a lo largo de estos años!')
                     ->salutation('Un saludo de parte del equipo de G2Cursos');
     }

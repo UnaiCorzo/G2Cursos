@@ -122,7 +122,7 @@ class UserController extends Controller
                 ->where('id', $request->user)
                 ->update(['cv' => null]);
         }
-        return back();
+        return redirect()->to(route('admin', app()->getLocale()));
     }
 
     public function delete($lang, $id)
