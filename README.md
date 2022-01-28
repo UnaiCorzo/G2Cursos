@@ -4,7 +4,7 @@ Aplicación web para acceder y crear cursos online y presenciales en el ámbito 
 
 ## Instalación
 
-#### Requisitos
+### Requisitos
 G2Cursos requiere el siguiente software:
 
 - PHP
@@ -13,15 +13,18 @@ G2Cursos requiere el siguiente software:
 - Docker (opcional)
 - docker-compose (opcional)
 
-
-Para utilizar la aplicación localmente, es necesario seguir los siguientes pasos:
+### Desplegar
+Para poder desplegar la aplicación correctamente, ya sea localmente o a través de Docker, es necesario seguir estos pasos:
 
 - Copiar el archivo `.env.example` y renombrarlo a `.env`
 - Cambiar las variables referentes a la base de datos (`DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`)
 - Cambiar las variables referentes al email (`MAIL_DRIVER`, `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM_ADDRESS`).
   Estos identifican el email que enviará los correos de verificación y recuperación de contraseña.
 
-Después hay que ejecutar los siguientes comandos:
+Después hay que ejecutar diferentes comandos dependiendo de la opción de despliegue.
+
+#### Local
+Para utilizar la aplicación localmente, es necesario ejecutar los siguientes comandos:
 
 ```
 composer update
@@ -34,20 +37,24 @@ php artisan serve
 Finalmente, la aplicación estará disponible en `localhost:8000`
 
 
-Para desplegar la aplicación con Docker, es necesario ejecutar los siguientes comandos:
+#### Docker
+Para desplegar la aplicación con Docker, primero es necesario ejecutar los siguientes comandos:
 
-Primero para configurar correctamente la replicación entre las dos bases de datos es necesario introducir los siguientes comandos en los contenedores de base de datos:
+```
+docker-compose build app
+docker-compose up -d
+```
 
-- En los siguientes comandos reemplazar los campos (`NOMBRE_DE_USUARIO_REPLICACIÓN`, `CONTRASEÑA`, `NOMBRE_DEL_HOST`)
+Para configurar correctamente la replicación entre las dos bases de datos es necesario introducir los siguientes comandos en los contenedores de base de datos:
 
-En el servidor de BD principal:
+- En el servidor de BD principal:
 
 ```
 CREATE USER 'NOMBRE_DE_USUARIO_REPLICACIÓN'@'%' IDENTIFIED WITH mysql_native_password BY 'CONTRASEÑA';
 GRANT REPLICATION SLAVE ON *.* TO 'NOMBRE_DE_USUARIO_REPLICACIÓN'@'%';
 ```
 
-En el servidor de BD secundario:
+- En el servidor de BD secundario:
 
 ```
 CHANGE MASTER TO
@@ -60,11 +67,12 @@ reset slave;
 start slave;
 ```
 
-Ahora los siguientes comandos para desplegar y ejecutar la aplicación:
+En estos comandos es recomendable reemplazar los campos `NOMBRE_DE_USUARIO_REPLICACIÓN`, `CONTRASEÑA` y `NOMBRE_DEL_HOST`.<br>
+Se puede acceder a los contenedores de bases de datos con el comando `docker-compose exec [db/db2] bash`, y posteriormente ejecutar `mysql -p` e introducir la contraseña y los anteriores comandos.
+
+Por último, se deberán ejecutar los comandos para inicializar la aplicación:
 
 ```
-docker-compose build app
-docker-compose up -d
 docker-compose exec app composer update
 docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate
