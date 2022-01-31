@@ -6,6 +6,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     @yield('title')
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
@@ -138,6 +139,28 @@
 
     @yield('user_content')
 
+    <!-- WIDGET FECHA/HORA -->
+        <div class="fecha_hora">
+            <div class="cabecera_fecha_hora">
+                <p>FECHA - HORA</p>
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            <div class="contenido_fecha_hora">
+                <p class="nombre_zona"></p>
+                <div class="info">
+                    <p class="hora"></p>
+                    <p class="fecha"></p>
+                </div>
+                <div class="selector_fecha">
+                    <!-- <p>Selecciona la zona horaria:</p> -->
+                    <select name="zona" id="zona" class="zona">
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+    <!-- FIN WIDGET FECHA/HORA -->
+
     <!-- PIE DE LA PÁGINA -->
     <footer class="footer py-4">
         <div class="container">
@@ -164,6 +187,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     @yield('script_link')
+    <script src="{{ asset('js/fecha_hora_api.js') }}"></script>
 
 </body>
 

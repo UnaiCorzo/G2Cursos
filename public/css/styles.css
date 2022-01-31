@@ -12635,6 +12635,94 @@ select:focus {
 }
 /* FIN PÁGINA VERIFICAR EMAIL */
 
+/* WIDGET FECHA/HORA */
+.fecha_hora {
+    width: 500px;
+    position: fixed;
+    top: calc(100vh - 50px);
+    left: 10px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all .2s ease-in-out;
+    box-shadow: 1px 1px 5px black;
+}
+
+.cabecera_fecha_hora {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cabecera_fecha_hora p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0!important;
+}
+
+.cabecera_fecha_hora svg {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.contenido_fecha_hora {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.nombre_zona {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 5px 0 0 0!important;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 50px;
+}
+
+.info p:nth-child(1) {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0!important;
+}
+
+.info p:nth-child(2) {
+    font-size: 1.5rem;
+    margin: 0!important;
+}
+
+.selector_fecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 50px 20px 50px;
+}
+
+.selector_fecha p {
+    margin: 0!important;
+}
+
+.zona {
+    padding: 10px;
+    border-radius: 5px;
+}
+/* FIN WIDGET FECHA/HORA */
+
 /* RESPONSIVE */
 @media screen and (max-width: 991px) {
     #mainNav {
