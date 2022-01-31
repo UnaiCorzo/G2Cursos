@@ -16,12 +16,12 @@ class CourseController extends Controller
         $course = Course::find($id);
         $hasRated = false;
         $hasSubscribed = false;
-        for ($i = 0; $i < count(auth()->user()->ratings); $i++) { 
+        for ($i = 0; $i < count(auth()->user()->ratings); $i++) {
             if (auth()->user()->ratings[$i]->course_id == $id) {
                 $hasRated = true;
             }
         }
-        for ($i = 0; $i < count(auth()->user()->courses); $i++) { 
+        for ($i = 0; $i < count(auth()->user()->courses); $i++) {
             if (auth()->user()->courses[$i]->id == $id) {
                 $hasSubscribed = true;
             }
@@ -103,14 +103,14 @@ class CourseController extends Controller
             $course = Course::find($id);
             $request->file('image')->move(public_path('images'), $name);
             $arrayCategorias = explode(";", $request->categories);
-    
+
             for ($i = 0; $i < count($arrayCategorias) - 1; $i++) {
                 $course->categories()->attach($arrayCategorias[$i]);
             }
             return back();
         }
         abort(404);
-        
+
     }
 
     public function delete($lang, $id)
@@ -152,39 +152,38 @@ class CourseController extends Controller
         if (Gate::allows('access-creator')) {
             $course_modify = Course::find($request->id);
 
-        $course_modify->name = $request->name;
-        $course_modify->description = $request->description;
-        $course_modify->price = $request->price;
-        
-        if ($request->image != null) {
-            $image_path = public_path() . '/images' . '/' . $course_modify->image;
-            unlink($image_path);
+            $course_modify->name = $request->name;
+            $course_modify->description = $request->description;
+            $course_modify->price = $request->price;
 
-            $name = $request->name . "." . $request->file('image')->extension();
-            $course_modify->image = $name;
-            
-            $request->file('image')->move(public_path('images'), $name);
-        }
+            if ($request->image != null) {
+                $image_path = public_path() . '/images' . '/' . $course_modify->image;
+                unlink($image_path);
 
-        $arrayCategorias = explode(";", $request->categories);
+                $name = $request->name . "." . $request->file('image')->extension();
+                $course_modify->image = $name;
 
-        $course_modify->categories()->detach();
-        for ($i = 0; $i < count($arrayCategorias) - 1; $i++) {
-            $course_modify->categories()->attach($arrayCategorias[$i]);
-        }
+                $request->file('image')->move(public_path('images'), $name);
+            }
 
-        if ($request->location != null && $request->location != "") {
-            $course_modify->location = $request->location;
-        }
-        else {
-            $course_modify->location = null;
-        }
+            $arrayCategorias = explode(";", $request->categories);
 
-        $course_modify->save();
+            $course_modify->categories()->detach();
+            for ($i = 0; $i < count($arrayCategorias) - 1; $i++) {
+                $course_modify->categories()->attach($arrayCategorias[$i]);
+            }
 
-        return redirect()->to(route('created_courses', app()->getLocale()));
+            if ($request->location != null && $request->location != "") {
+                $course_modify->location = $request->location;
+            } else {
+                $course_modify->location = null;
+            }
+
+            $course_modify->save();
+
+            return redirect()->to(route('created_courses', app()->getLocale()));
         }
         abort(404);
-        
+
     }
 }

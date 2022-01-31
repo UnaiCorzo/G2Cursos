@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -15,10 +16,10 @@ class FileController extends Controller
 
             if (auth()->user()->cv != null) {
                 $user = User::find(auth()->user()->id);
-                $image_path = public_path() . '/files' . '/' . $user->cv;
+                $image_path = storage_path('app/' . $user->cv);
                 unlink($image_path);
             }
-            $request->file->move(public_path('files'), $fileName);
+            Storage::disk('local')->put($fileName, 'Contents');
 
             DB::table('users')
                 ->where('id', auth()->user()->id)
@@ -40,15 +41,18 @@ class FileController extends Controller
                     ->where('id', auth()->user()->id)
                     ->limit(1)
                     ->update(array('company_id' => $id));
+            } else if (auth()->user()->company_id != null) {
+                $user = User::find(auth()->user()->id);
+                $user->company_id = null;
+                $user->save();
             }
             return redirect()->to(route('home', app()->getLocale()))->withSuccess(__('File added successfully.'));
-        } else {
-            return redirect()->to(route('home', app()->getLocale()));
         }
+        return redirect()->to(route('home', app()->getLocale()));
     }
 
     public function show($file)
     {
-        return response()->download(public_path('files/' . $file));
+        return response()->download(storage_path('app/' . $file));
     }
 }
