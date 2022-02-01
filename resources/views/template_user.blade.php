@@ -141,9 +141,8 @@
 
     <!-- WIDGET FECHA/HORA -->
         <div class="fecha_hora">
-            <div class="cabecera_fecha_hora">
-                <p>FECHA - HORA</p>
-                <i class="fas fa-chevron-up"></i>
+            <div class="cabecera_fecha_hora" title="Abrir RELOJ">
+                <i class="far fa-clock reloj"></i>
             </div>
             <div class="contenido_fecha_hora">
                 <p class="nombre_zona"></p>
