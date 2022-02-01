@@ -73,8 +73,16 @@ $(document).ready(function () {
                     widget_fecha_hora.css('width', '500px');
                     cabecera_fecha_hora.css('height', '50px');
                     cabecera_fecha_hora.css('justify-content', 'space-between');
-                    cabecera_fecha_hora.html("<p>RELOJ</p><i class='fas fa-chevron-down flecha'></i>");
-                    cabecera_fecha_hora.attr('title', 'Cerrar RELOJ');
+
+                    let reloj = 'Reloj';
+                    if (lang == 'en') {
+                        reloj = 'Clock';
+                    }
+                    else if (lang == 'eu') {
+                        reloj = 'Erlojua';
+                    }
+
+                    cabecera_fecha_hora.html("<p class='text-uppercase'>" + reloj + "</p><i class='fas fa-chevron-down flecha'></i>");
 
                     let height_widget = widget_fecha_hora.css('height');
                     widget_fecha_hora.css('transition', 'all .2s ease-in-out');
@@ -85,7 +93,6 @@ $(document).ready(function () {
                     cabecera_fecha_hora.css('height', '70px');
                     cabecera_fecha_hora.css('justify-content', 'center');
                     cabecera_fecha_hora.html("<i class='far fa-clock reloj'></i>");
-                    cabecera_fecha_hora.attr('title', 'Abrir RELOJ');
 
                     clearInterval(intervalo_ajax);
         
