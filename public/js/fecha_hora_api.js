@@ -70,7 +70,13 @@ $(document).ready(function () {
                 nombre_zona.html(zona);
 
                 if (estado == 'abierto') {
-                    widget_fecha_hora.css('width', '500px');
+                    if ($(window).width() > 550) {
+                        widget_fecha_hora.css('width', '500px');
+                    }
+                    else {
+                        widget_fecha_hora.css('width', '100%');
+                    }
+
                     cabecera_fecha_hora.css('height', '50px');
                     cabecera_fecha_hora.css('justify-content', 'space-between');
 
@@ -86,7 +92,13 @@ $(document).ready(function () {
 
                     let height_widget = widget_fecha_hora.css('height');
                     widget_fecha_hora.css('transition', 'all .2s ease-in-out');
-                    widget_fecha_hora.css('top', 'calc(100vh - ' + height_widget + ')');
+
+                    if ($(window).width() > 550) {
+                        widget_fecha_hora.css('top', 'calc(100vh - 300px)');
+                    }
+                    else {
+                        widget_fecha_hora.css('top', 'calc(100vh - 250px)');
+                    }
                 }
                 else {
                     widget_fecha_hora.css('width', '100px');
