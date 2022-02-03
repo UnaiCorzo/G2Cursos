@@ -11645,6 +11645,10 @@ select:focus {
     box-shadow: #0B132B 0px 0px 3px!important;
 }
 
+select:focus-visible {
+    outline: none!important;
+}
+
 .boton_sesion {
     box-shadow: #b3001b 1px 1px 1px;
     background-color: #b3001b;
@@ -12638,6 +12642,7 @@ select:focus {
 /* WIDGET FECHA/HORA */
 .fecha_hora {
     width: 100px;
+    height: 300px;
     position: fixed;
     top: calc(100vh - 70px);
     left: -5px;
@@ -12645,6 +12650,7 @@ select:focus {
     border-top-right-radius: 10px;
     transition: all .2s ease-in-out;
     box-shadow: 1px 1px 5px black;
+    z-index: 2;
 }
 
 .cabecera_fecha_hora {
@@ -12916,6 +12922,74 @@ select:focus {
 
     .campos_crear {
         font-size: .8rem;
+    }
+
+    .fecha_hora {
+        height: 250px;
+    }
+
+    .cabecera_fecha_hora p {
+        font-size: 1rem;
+    }
+    
+    .cabecera_fecha_hora .flecha {
+        font-size: 1rem;
+    }
+    
+    .cabecera_fecha_hora .reloj {
+        font-size: 1.7rem;
+    }
+    
+    .contenido_fecha_hora {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .nombre_zona {
+        font-size: 1rem;
+    }
+    
+    .info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 20px;
+    }
+    
+    .info p:nth-child(1) {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0!important;
+    }
+    
+    .info p:nth-child(2) {
+        font-size: 1rem;
+        margin: 0!important;
+    }
+    
+    .selector_fecha {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 0 50px 20px 50px;
+    }
+    
+    .selector_fecha p {
+        margin: 0!important;
+    }
+    
+    .zona {
+        width: 90%!important;
+        padding: 10px;
+        border-radius: 5px;
     }
 }
 /* FIN RESPONSIVE */
