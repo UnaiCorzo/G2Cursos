@@ -8,7 +8,7 @@
 @endsection
 @section('user_content')
 
-<nav style="margin-top: 7%;">
+<nav style="margin-top: 7.5%;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
             {{ __('Mensajes') }}
@@ -382,6 +382,5 @@
 @section('script_link')
 <script src="{{ asset('js/user.js') }}"></script>
 <script src="{{ asset('js/course.js')  }}"></script>
-<script src="{{ asset('js/admin.js')  }}"></script>
 <script src="{{ asset('js/rate.js') }}"></script>
 @endsection
