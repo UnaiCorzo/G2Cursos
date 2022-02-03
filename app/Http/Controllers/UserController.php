@@ -60,10 +60,19 @@ class UserController extends Controller
         if (isset($request->admin_action) && $request->admin_action != "modify_user") {
             $action = $request->admin_action;
             if ($action == "ban_user") {
+                foreach (Course::where('teacher_id', $request->id)->get() as $course) {
+                    $course->delete();
+                }
                 User::find($request->id)->delete();
             } else if ($action == "restore_user") {
+                foreach (Course::onlyTrashed()->where('teacher_id', $request->id)->get() as $course) {
+                    $course->restore();
+                }
                 User::onlyTrashed()->where('id', $request->id)->restore();
             } else { // 'delete_user'
+                foreach (Course::onlyTrashed()->where('teacher_id', $request->id)->get() as $course) {
+                    $course->forceDelete();
+                }
                 User::onlyTrashed()->where('id', $request->id)->forceDelete();
             }
             return redirect()->to(route('admin', $lang));
