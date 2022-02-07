@@ -44,6 +44,9 @@
                                 </a>
                             </li>
                         @endif
+                    @if (auth()->user()->role_id == 2)
+                        <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu px-2 rounded" id="link4" href="{{ route('created_courses', app()->getLocale()) }}">{{ __('Cursos creados') }}</a></li>
+                    @endif
                     <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu px-2 rounded" id="link4" href="{{ route('find', app()->getLocale()) }}">{{ __('Buscador') }}</a></li>
                     <li class="nav-item d-flex justify-content-center align-items-center ms-2">
                         <div class="dropdown d-flex justify-content-end align-items-center gap-3 icono_perfil" style="min-width: 9.5rem;">
@@ -52,9 +55,6 @@
                                 <img src="{{ asset('assets/img/perfil.jpg') }}" alt="perfil" class="rounded-circle border border-1 border-dark" width="50px;">
                             </button>
                             <div class="dropdown-menu mt-3 p-2" style="width: 18rem;" aria-labelledby="dropdownMenuButton">
-                                @if (auth()->user()->role_id == 2)
-                                    <a class="dropdown-item items text-end opciones_perfil link_activo" id="link1" href="{{ route('created_courses', app()->getLocale()) }}"><i class="fas fa-marker"></i>{{ __('Cursos creados') }}</a>
-                                @endif
                                     <a class="dropdown-item items text-end opciones_perfil link_activo" id="link2" href="{{ route('home', app()->getLocale()) }}"><i class="fas fa-clipboard-list"></i>{{ __('Mis cursos') }}</a>
                                     <a class="dropdown-item items text-end opciones_perfil" id="link3" href="{{ route('profile', app()->getLocale()) }}"><i class="fas fa-user-alt"></i>{{ __('Mi perfil') }}</a>
                                     <a href="{{ route('logout', app()->getLocale()) }}" class="dropdown-item items text-end opciones_perfil"><i class="fas fa-sign-out-alt"></i>{{ __('Cerrar sesión') }}</a>
