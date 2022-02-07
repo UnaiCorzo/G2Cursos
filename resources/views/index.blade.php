@@ -303,7 +303,7 @@
                                     alt="{{ $course->name }}" />
                             </div>
                             <div class="portfolio-caption">
-                                <div class="d-flex justify-content-between align-items-baseline">
+                                <div class="d-flex justify-content-between align-items-baseline mb-3">
                                     <div class="portfolio-caption-heading lead items titulo_curso me-2">
                                         {{ $course->name }}</div>
                                     <div class="lead bold descripcion_cursos text-uppercase">
@@ -315,11 +315,11 @@
                                     </div>
                                 </div>
                                 <div class="row m-0 p-0">
-                                    <div class="col-12 p-0 docente_cursos">
+                                    <div class="col-6 p-0 docente_cursos">
                                         <p class="m-0 items">
                                             {{ $course->teacher->name . ' ' . $course->teacher->surnames }}</p>
                                     </div>
-                                    <div class="col-12 p-0 valoracion d-flex justify-content-end align-items-center">
+                                    <div class="col-6 p-0 valoracion d-flex justify-content-end align-items-center">
                                         <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}
                                         </p>
                                         <div class="rating"

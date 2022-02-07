@@ -12027,6 +12027,9 @@ select:focus-visible {
 }
 
 .docente_cursos {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     font-style: italic;
     font-size: .8rem;
 }

@@ -21,7 +21,7 @@ $(document).ready(function () {
                 categorias_html += "<span class='badge badge-pill text-white items categorias_cursos' id='" + cursos_json[i].categories[j].id + "' style='background-color: " + cursos_json[i].categories[j].color + "'>" + cursos_json[i].categories[j].name + "</span>"
             }
             if (cursos_json[i].ratings.length != 0) {
-                ratings_html += "<div class='col-12 p-0 valoracion d-flex justify-content-end align-items-center'>";
+                ratings_html += "<div class='col-6 p-0 valoracion d-flex justify-content-end align-items-center'>";
                 let count_ratings = 0;
                 let sum_ratings = 0;
                 for (let k = 0; k < cursos_json[i].ratings.length; k++) {
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 ratings_html += "<p class='m-0 me-1 pt-1 items'>" + avg_ratings + "</p><div class='rating'value='" + Math.round(avg_ratings) + "'></div><br><p class='m-0 pt-1 items'>(" + count_ratings + ")</p></div>";
             }
             else {
-                ratings_html += "<div class='col-12 p-0 valoracion d-flex justify-content-end align-items-center'><p class='m-0 me-1 pt-1 items'>" + 0 + "</p><div class='rating' value='" + 0 + "'></div><br><p class='m-0 pt-1 items'>(" + 0 + ")</p></div>";
+                ratings_html += "<div class='col-6 p-0 valoracion d-flex justify-content-end align-items-center'><p class='m-0 me-1 pt-1 items'>" + 0 + "</p><div class='rating' value='" + 0 + "'></div><br><p class='m-0 pt-1 items'>(" + 0 + ")</p></div>";
             }
 
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
                 precio = "<i class='fas fa-check-circle check_curso'></i>";
             }
 
-            cursos_mostrar.html(cursos_mostrar.html() + "<div class='col-lg-4 col-sm-6 mb-4 cursos_buscar'><div class='portfolio-item'><a href='" + ruta + "' class='link_curso' id='curso_" + cursos_json[i].course.id + "'><div class='imagen_card'><span class='badge badge-pill text-white bg-success items modalidad'>" + modalidad + "</span><img class='img-fluid' src='/images/" + cursos_json[i].course.image + "' alt='" + cursos_json[i].course.name + "'/></div><div class='portfolio-caption'><div class='d-flex justify-content-between align-items-center'><div class='portfolio-caption-heading lead items titulo_curso me-2'>" + cursos_json[i].course.name + "</div><div class='lead bold descripcion_cursos'>" + precio + "</div></div><div class='row m-0 p-0'><div class='col-12 p-0 docente_cursos'><p class='m-0 items'>" + cursos_json[i].teacher.name + " " + cursos_json[i].teacher.surnames + "</p></div>" + ratings_html + "</div><div class='col-12 m-0 p-0 mt-2 categorias'>" + categorias_html + "</div></div></div></a></div></div>");
+            cursos_mostrar.html(cursos_mostrar.html() + "<div class='col-lg-4 col-sm-6 mb-4 cursos_buscar'><div class='portfolio-item'><a href='" + ruta + "' class='link_curso' id='curso_" + cursos_json[i].course.id + "'><div class='imagen_card'><span class='badge badge-pill text-white bg-success items modalidad'>" + modalidad + "</span><img class='img-fluid' src='/images/" + cursos_json[i].course.image + "' alt='" + cursos_json[i].course.name + "'/></div><div class='portfolio-caption'><div class='d-flex justify-content-between align-items-center mb-3'><div class='portfolio-caption-heading lead items titulo_curso me-2 m-0'>" + cursos_json[i].course.name + "</div><div class='lead bold descripcion_cursos'>" + precio + "</div></div><div class='row m-0 p-0'><div class='col-6 p-0 docente_cursos'><p class='m-0 items'>" + cursos_json[i].teacher.name + " " + cursos_json[i].teacher.surnames + "</p></div>" + ratings_html + "</div><div class='col-12 m-0 p-0 mt-2 categorias'>" + categorias_html + "</div></div></div></a></div></div>");
         }
 
         // ANIMACIÓN IMÁGENES CURSOS
