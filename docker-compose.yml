@@ -34,7 +34,7 @@ services:
 
   db2:
     image: mysql:5.7
-    container_name: g2cursos-db-slave
+    container_name: g2cursos-db-slave-1
     restart: unless-stopped
     volumes:
      - ./mysql/slave/1/my.cnf:/etc/my.cnf
