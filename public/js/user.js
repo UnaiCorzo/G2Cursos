@@ -158,7 +158,7 @@ $(document).ready(function () {
     ) {
         $('#link1').addClass('link_activo');
     }
-    
+
     function eliminarActivoPerfil() {
         $('.opciones_perfil').removeClass('link_activo');
     }

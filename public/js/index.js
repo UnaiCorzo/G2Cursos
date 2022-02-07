@@ -51,10 +51,10 @@ $(document).ready(function () {
     } else {
         const boton_aceptar = $('.boton_cookie button');
         boton_aceptar.click(cerrarCookies);
-    
+
         const boton_cerrar = $('.cerrar_cookies');
         boton_cerrar.click(cerrarCookies);
-    
+
         function cerrarCookies() {
             cookies.fadeOut();
             sessionStorage.setItem("cookies_accepted", "true");

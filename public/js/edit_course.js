@@ -129,7 +129,7 @@ $(document).ready(function () {
     // FIN MOSTRAR/OCULTAR MAPA (EDITAR CURSO)
 
     // API MAPA
-        const platform = new H.service.Platform({
+    const platform = new H.service.Platform({
         "app_id": "0JK53jN7Faa5a5rF35Sz",
         "app_code": "SqWcupOF8jY3JHYYKD0NSw",
     });
@@ -161,7 +161,7 @@ $(document).ready(function () {
             }
         );
     }
-    
+
     const mapEvents = new H.mapevents.MapEvents(map);
     new H.mapevents.Behavior(mapEvents);
 

@@ -7,8 +7,8 @@ $(document).ready(function () {
         url: "http://worldtimeapi.org/api/timezone/",
         dataType: 'json',
         success: rellenarZonas,
-        error: function() {
-        console.log(arguments);
+        error: function () {
+            console.log(arguments);
         }
     });
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
     const input_zona = $('#zona');
     input_zona.change(cambiarFechaHora);
 
-    function cambiarFechaHora () {
+    function cambiarFechaHora() {
         let zona_cambiar = $('#zona option:selected').val();
         zona = zona_cambiar;
     }
@@ -38,7 +38,7 @@ $(document).ready(function () {
     cabecera_fecha_hora.click(mostrarOcultarWidget);
     var estado = 'cerrado';
 
-    function mostrarOcultarWidget () {
+    function mostrarOcultarWidget() {
         if (estado == 'cerrado') {
             estado = 'abierto';
         }
@@ -46,26 +46,26 @@ $(document).ready(function () {
             estado = 'cerrado';
         }
 
-        const intervalo_ajax = setInterval(function() {
+        const intervalo_ajax = setInterval(function () {
             $.ajax({
                 url: "http://worldtimeapi.org/api/timezone/" + zona,
                 dataType: 'json',
                 success: mostrarFecha,
-                error: function() {
-                console.log(arguments);
+                error: function () {
+                    console.log(arguments);
                 }
             });
-    
+
             function mostrarFecha(respuesta) {
                 const hora = $('.hora');
                 const fecha = $('.fecha');
-        
+
                 let hora_mostrar = respuesta.datetime.split('T')[1].substring(0, 8);
                 let fecha_mostrar = respuesta.datetime.split('T')[0];
-        
+
                 hora.html(hora_mostrar);
                 fecha.html(fecha_mostrar);
-        
+
                 const nombre_zona = $('.nombre_zona');
                 nombre_zona.html(zona);
 
@@ -107,7 +107,7 @@ $(document).ready(function () {
                     cabecera_fecha_hora.html("<i class='far fa-clock reloj'></i>");
 
                     clearInterval(intervalo_ajax);
-        
+
                     widget_fecha_hora.css('transition', 'all .2s ease-in-out');
                     widget_fecha_hora.css('top', 'calc(100vh - 70px)');
                 }
