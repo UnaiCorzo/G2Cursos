@@ -8,6 +8,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Models\Course;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,9 @@ Route::get('/show/{file}', [FileController::class, 'show'])->middleware('verifie
 
 Route::group(['prefix' => '{language}'], function () {
     Route::get('/home', function () {
+        if (Gate::allows('access-admin')) {
+            return redirect()->to(route('admin', app()->getLocale()));
+        }
         return view('user');
     })->middleware('auth')->name('home');
 
