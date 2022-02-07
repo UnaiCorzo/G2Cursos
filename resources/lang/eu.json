@@ -30,7 +30,6 @@
     "Nombre": "Izena",
     "Apellidos": "Abizenak",
     "Teléfono": "Telefonoa",
-    "Comentarios": "Iruzkinak",
     "Contraseña": "Pasahitza",
     "DNI": "NAN",
     "Descarga": "Deskarga",
@@ -122,5 +121,6 @@
     "¡Usuario verificado correctamente!": "Erabiltzailea behar bezala egiaztatu da!",
     "Selecciona las estrellas que representan tu valoración (como mínimo y por defecto una)": "Hautatu zure balorazioa adierazten duten izarrak (gutxienez bat eta lehenespenez)",
     "Añade un comentario a tu valoración (este se mostrará en la página del curso)": "Gehitu iruzkin bat zure balorazioari (ikastaroaren orrian azalduko da)",
-    "Número de categorías en total": "Kategoria kopurua guztira"
+    "Número de categorías en total": "Kategoria kopurua guztira",
+    "Usuarios existentes": "Lehendik dauden erabiltzaileak"
 }

@@ -8,7 +8,7 @@
 @endsection
 @section('user_content')
 
-<nav style="margin-top: 7.5%;">
+<nav class="nav_admin" style="margin-top: 7.5%;">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
             {{ __('Mensajes') }}
@@ -35,13 +35,13 @@
     <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
-                <div class="table table-white d-flex justify-content-center text-center">
-                    <table border="1">
+                <div class="table-responsive text-center">
+                    <table class="table table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Nombre') }}</th>
                             <th class="p-1 px-3">{{ __('Email') }}</th>
                             <th class="p-1 px-3">{{ __('Teléfono') }}</th>
-                            <th class="p-1 px-3">{{ __('Comentarios') }}</th>
+                            <th class="p-1 px-3">{{ __('Comentario') }}</th>
                             <th class="p-1 px-3">{{ __('Eliminar') }}</th>
                         </tr>
                         @if (count($messages) == 0)
@@ -51,10 +51,10 @@
                             <form class="form-control formulario_sesion" method="post" action="{{ route('contact_delete', array(app()->getLocale(), $message->id)) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <tr>
-                                    <td class="p-1 px-3">{{ $message->name }}</td>
-                                    <td class="p-1 px-3">{{ $message->email }}</td>
-                                    <td class="p-1 px-3">{{ $message->phone }}</td>
-                                    <td class="p-1 px-3">{{ $message->comments }}</td>
+                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->name }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->email }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->phone }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->comments }}</p></td>
 
                                     <td class="p-1 px-3">
                                         <button type="submit" class="btn" name="admin_action" value="delete">
@@ -72,8 +72,8 @@
     <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
-                <div class="table table-white d-flex justify-content-center text-center">
-                    <table border="1">
+                <div class="table-responsive text-center">
+                    <table class="table text-striped table-dark">
                         <tr>
                             <th class="p-1 pe-4 ps-4">{{ __('Nombre') }}</th>
                             <th class="p-1 pe-4">{{ __('Apellidos') }}</th>
@@ -93,17 +93,17 @@
                                 {{ csrf_field() }}
                                 <input type='hidden' name='user' value="{{ $cv->id }}">
                                 <tr>
-                                    <td class="p-1 pe-4">{{ $cv->name }}</td>
-                                    <td class="p-1 pe-4">{{ $cv->surnames }}</td>
-                                    <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->name }}</p></td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->surnames }}</p></td>
+                                    <td class="p-1 pe-4"><a class="text-white celdas_admin" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
                                     @if(isset($cv->company->name))
-                                    <td class="p-1 pe-4">{{ $cv->company->name }}</td>
-                                    <td class="p-1 pe-4">{{ $cv->company->direction }}</td>
-                                    <td class="p-1 pe-4">{{ $cv->company->location }}</td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->name }}</p></td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->direction }}</p></td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->location }}</p></td>
                                     @else
-                                    <td class="p-1 pe-4">-</td>
-                                    <td class="p-1 pe-4">-</td>
-                                    <td class="p-1 pe-4">-</td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">-</p></td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">-</p></td>
+                                    <td class="p-1 pe-4"><p class="celdas_admin">-</p></td>
                                     @endif
 
                                     <td class="p-1 pe-4">
@@ -127,8 +127,8 @@
     <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
-                <div class="table table-white d-flex justify-content-center text-center">
-                    <table border="1">
+                <div class="table-responsive text-center">
+                    <table class="table table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Nombre') }}</th>
                             <th class="p-1 px-3">{{ __('Apellidos') }}</th>
@@ -146,16 +146,24 @@
                                 <input type='hidden' name='panel' value="true">
                                 <tr>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
+                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
+                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
+                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
+                                        </div>
                                     </td>
 
                                     <td class="p-1 px-3">
@@ -174,9 +182,9 @@
                     </table>
                 </div>
 
-                <div class="col-12 text-center m-2 lead">{{ __('Usuarios baneados') }}</div>
-                <div class="table table-white d-flex justify-content-center text-center">
-                    <table border="1">
+                <div class="col-12 text-center m-2 mt-4 lead">{{ __('Usuarios baneados') }}</div>
+                <div class="table-responsive text-center">
+                    <table class="table table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Nombre') }}</th>
                             <th class="p-1 px-3">{{ __('Apellidos') }}</th>
@@ -194,16 +202,24 @@
                                 <input type='hidden' name='panel' value="true">
                                 <tr>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
+                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
+                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
+                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
+                                        <div class="celdas_admin">
+                                            <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
+                                        </div>
                                     </td>
 
                                     <td class="p-1 px-3">
@@ -227,8 +243,8 @@
     <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
-                <div class="table table-white d-flex justify-content-center text-center">
-                    <table border="1">
+                <div class="table-responsive text-center">
+                    <table class="table table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Título curso') }}</th>
                             <th class="p-1 px-3">{{ __('Precio curso') }}</th>
@@ -243,10 +259,10 @@
                             <form class="form-control formulario_sesion" method="post" action="{{ route('delete_course', array(app()->getLocale(), $course->id)) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <tr>
-                                    <td class="p-1 px-3">{{ $course->name }}</td>
-                                    <td class="p-1 px-3">{{ $course->price }}</td>
-                                    <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</td>
-                                    <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->email }}</td>
+                                    <td class="p-1 px-3"><p class="celdas_admin">{{ $course->name }}</p></td>
+                                    <td class="p-1 px-3"><p class="celdas_admin">{{ $course->price }}</p></td>
+                                    <td class="p-1 px-3"><p class="celdas_admin">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</p></td>
+                                    <td class="p-1 px-3"><p class="celdas_admin">{{ App\Models\User::find($course->teacher_id)->email }}</p></td>
 
                                     <td class="p-1 px-3">
                                         <button type="submit" class="btn" name="admin_action" value="delete_user">
@@ -265,8 +281,8 @@
     <div class="tab-pane fade" id="nav-5" role="tabpanel" aria-labelledby="nav-5-tab">
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
-                <div class="mt-3 row d-flex justify-content-center text-center">
-                    <p class="lead fw-bold">{{ __('Usuarios') }}: {{ $num_users }}</p>
+                <div class="mt-3 d-flex justify-content-center align-items-center gap-5">
+                    <p class="lead fw-bold">{{ __('Usuarios existentes') }}: {{ $num_users }}</p>
                     <p class="lead fw-bold">{{ __('Cursos creados') }}: {{ $num_courses }}</p>
                 </div>
 
@@ -336,7 +352,7 @@
                 </div>
 
                 <div class="mt-5 mb-0 row d-flex justify-content-center text-center">
-                    <p class="lead col-12">{{ __('Número de categorías en total') }}</p>
+                    <p class="lead col-12 m-0">{{ __('Número de categorías en total') }}</p>
                     <canvas class="w-50 h-50" id="categorias"></canvas>
                 </div>
 

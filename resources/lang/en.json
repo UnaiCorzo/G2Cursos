@@ -30,7 +30,6 @@
     "Nombre": "Name",
     "Apellidos": "Surname",
     "Teléfono": "Phone",
-    "Comentarios": "Comments",
     "Contraseña": "Password",
     "DNI": "ID",
     "Descarga": "Download",
@@ -119,5 +118,6 @@
     "¡Usuario verificado correctamente!": "User successfully verified!",
     "Selecciona las estrellas que representan tu valoración (como mínimo y por defecto una)": "Select the stars that represent your rating (at least one by default)",
     "Añade un comentario a tu valoración (este se mostrará en la página del curso)": "Add a comment to your rating (this will be displayed on the course page)",
-    "Número de categorías en total": "Number of categories in total"
+    "Número de categorías en total": "Number of categories in total",
+    "Usuarios existentes": "Existing users"
 }
