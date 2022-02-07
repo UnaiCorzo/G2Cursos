@@ -148,7 +148,25 @@
                             <th class="w-25" scope="row">{{ $rating->user->name . ' ' . $rating->user->surnames }}
                             </th>
                             <td class="w-25 rating" value="{{ $rating->rating }}">{{ $rating->rating }}</td>
-                            <td>{{ $rating->comment }}</td>
+                            @if ($rating->user->id == auth()->user()->id)
+                                <form class="form-control formulario_sesion" method="post" action="{{ route('modify_rate', app()->getLocale()) }}" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="id" value="{{ $rating->id }}">
+                                    <td class="w-100"><input class="form-control" type="text" name="comment" value="{{ $rating->comment }}"></td>
+                                    <td class="m-0 p-0 w-25 h-25">
+                                        <button type="submit" class="btn p-0 m-0" name="action" value="modify">
+                                            <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
+                                        </button>
+                                    </td>
+                                    <td class="m-0 p-0 w-25 h-25">
+                                        <button type="submit" class="btn p-0 m-0" name="action" value="delete">
+                                            <i class="btn bi bi-dash-circle-fill" style="color: red; font-size: 30px;" name="btn"></i>
+                                        </button>
+                                    </td>
+                                </form>
+                            @else
+                                <td>{{ $rating->comment }}</td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

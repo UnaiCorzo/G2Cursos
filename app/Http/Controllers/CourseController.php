@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -185,5 +186,17 @@ class CourseController extends Controller
         }
         abort(404);
 
+    }
+
+    public function modify_rate(Request $request, $lang)
+    {
+        $rating = Rating::find($request->id);
+        if ($request->action == "modify" && $request->comment != null) {
+            $rating->comment = $request->comment;
+            $rating->save();
+        } else {
+            $rating->delete();
+        }
+        return back();
     }
 }

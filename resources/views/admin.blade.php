@@ -13,17 +13,17 @@
         <button class="nav-link active text-dark" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
             {{ __('Mensajes') }}
             @if (count($messages) > 0)
-            <span class="ms-1 badge rounded-pill bg-danger">
-                {{ count($messages) }}
-            </span>
+                <span class="ms-1 badge rounded-pill bg-danger">
+                    {{ count($messages) }}
+                </span>
             @endif
         </button>
         <button class="nav-link text-dark" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
             {{ __('Peticiones') }}
             @if (count($cvs) > 0)
-            <span class="ms-1 badge rounded-pill bg-danger">
-                {{ count($cvs) }}
-            </span>
+                <span class="ms-1 badge rounded-pill bg-danger">
+                    {{ count($cvs) }}
+                </span>
             @endif
         </button>
         <button class="nav-link text-dark" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('Usuarios') }}</button>
@@ -48,21 +48,21 @@
                             <tr><td align="center" colspan="8">{{ __('No hay mensajes nuevos') }}</td></tr>
                         @endif
                         @foreach($messages as $message)
-                        <form class="form-control formulario_sesion" method="post" action="{{ route('contact_delete', array(app()->getLocale(), $message->id)) }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <tr>
-                                <td class="p-1 px-3">{{ $message->name }}</td>
-                                <td class="p-1 px-3">{{ $message->email }}</td>
-                                <td class="p-1 px-3">{{ $message->phone }}</td>
-                                <td class="p-1 px-3">{{ $message->comments }}</td>
+                            <form class="form-control formulario_sesion" method="post" action="{{ route('contact_delete', array(app()->getLocale(), $message->id)) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <tr>
+                                    <td class="p-1 px-3">{{ $message->name }}</td>
+                                    <td class="p-1 px-3">{{ $message->email }}</td>
+                                    <td class="p-1 px-3">{{ $message->phone }}</td>
+                                    <td class="p-1 px-3">{{ $message->comments }}</td>
 
-                                <td class="p-1 px-3">
-                                    <button type="submit" class="btn" name="admin_action" value="delete">
-                                        <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </form>
+                                    <td class="p-1 px-3">
+                                        <button type="submit" class="btn" name="admin_action" value="delete">
+                                            <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
                         @endforeach
                     </table>
                 </div>
@@ -89,35 +89,35 @@
                             <tr><td align="center" colspan="8">{{ __('No hay peticiones nuevas') }}</td></tr>
                         @endif
                         @foreach($cvs as $cv)
-                        <form class="form-control formulario_sesion" method="post" action="{{ route('upgrade', app()->getLocale()) }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type='hidden' name='user' value="{{ $cv->id }}">
-                            <tr>
-                                <td class="p-1 pe-4">{{ $cv->name }}</td>
-                                <td class="p-1 pe-4">{{ $cv->surnames }}</td>
-                                <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
-                                @if(isset($cv->company->name))
-                                <td class="p-1 pe-4">{{ $cv->company->name }}</td>
-                                <td class="p-1 pe-4">{{ $cv->company->direction }}</td>
-                                <td class="p-1 pe-4">{{ $cv->company->location }}</td>
-                                @else
-                                <td class="p-1 pe-4">-</td>
-                                <td class="p-1 pe-4">-</td>
-                                <td class="p-1 pe-4">-</td>
-                                @endif
+                            <form class="form-control formulario_sesion" method="post" action="{{ route('upgrade', app()->getLocale()) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type='hidden' name='user' value="{{ $cv->id }}">
+                                <tr>
+                                    <td class="p-1 pe-4">{{ $cv->name }}</td>
+                                    <td class="p-1 pe-4">{{ $cv->surnames }}</td>
+                                    <td class="p-1 pe-4"><a class="text-dark" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
+                                    @if(isset($cv->company->name))
+                                    <td class="p-1 pe-4">{{ $cv->company->name }}</td>
+                                    <td class="p-1 pe-4">{{ $cv->company->direction }}</td>
+                                    <td class="p-1 pe-4">{{ $cv->company->location }}</td>
+                                    @else
+                                    <td class="p-1 pe-4">-</td>
+                                    <td class="p-1 pe-4">-</td>
+                                    <td class="p-1 pe-4">-</td>
+                                    @endif
 
-                                <td class="p-1 pe-4">
-                                    <button type="submit" class="btn" name="btn" value="accept">
-                                        <i class="btn bi bi-check-circle-fill fa-lg" type="submit" style="color:green;font-size:30px" name="btn" value="accept"></i>
-                                    </button>
-                                </td>
-                                <td class="p-1 pe-4">
-                                    <button type="submit" class="btn" name="btn" value="decline">
-                                        <i class="btn bi bi-x-circle-fill" style="color:red;font-size:30px" name="btn" value="decline"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </form>
+                                    <td class="p-1 pe-4">
+                                        <button type="submit" class="btn" name="btn" value="accept">
+                                            <i class="btn bi bi-check-circle-fill fa-lg" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 pe-4">
+                                        <button type="submit" class="btn" name="btn" value="decline">
+                                            <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px;" name="btn" value="decline"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
                         @endforeach
                     </table>
                 </div>
@@ -141,35 +141,35 @@
                             <tr><td align="center" colspan="8">{{ __('No hay usuarios') }}</td></tr>
                         @endif
                         @foreach($all_users as $single_user)
-                        <form class="form-control formulario_sesion" method="post" action="{{ route('profile_modify', array(app()->getLocale(), $single_user->id)) }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type='hidden' name='panel' value="true">
-                            <tr>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
-                                </td>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
-                                </td>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
-                                </td>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
-                                </td>
+                            <form class="form-control formulario_sesion" method="post" action="{{ route('profile_modify', array(app()->getLocale(), $single_user->id)) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type='hidden' name='panel' value="true">
+                                <tr>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
+                                    </td>
 
-                                <td class="p-1 px-3">
-                                    <button type="submit" class="btn" name="admin_action" value="modify_user">
-                                        <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
-                                    </button>
-                                </td>
-                                <td class="p-1 px-3">
-                                    <button type="submit" class="btn" name="admin_action" value="ban_user">
-                                        <i class="btn bi bi-dash-circle-fill" style="color: red; font-size: 30px;" name="btn"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </form>
+                                    <td class="p-1 px-3">
+                                        <button type="submit" class="btn" name="admin_action" value="modify_user">
+                                            <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <button type="submit" class="btn" name="admin_action" value="ban_user">
+                                            <i class="btn bi bi-dash-circle-fill" style="color: red; font-size: 30px;" name="btn"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
                         @endforeach
                     </table>
                 </div>
@@ -189,35 +189,35 @@
                             <tr><td align="center" colspan="8">{{ __('No hay usuarios baneados') }}</td></tr>
                         @endif
                         @foreach($banned_users as $banned_user)
-                        <form class="form-control formulario_sesion" method="post" action="{{ route('profile_modify', array(app()->getLocale(), $banned_user->id)) }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type='hidden' name='panel' value="true">
-                            <tr>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
-                                </td>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
-                                </td>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
-                                </td>
-                                <td class="p-1 px-3">
-                                    <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
-                                </td>
+                            <form class="form-control formulario_sesion" method="post" action="{{ route('profile_modify', array(app()->getLocale(), $banned_user->id)) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type='hidden' name='panel' value="true">
+                                <tr>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
+                                    </td>
 
-                                <td class="p-1 px-3">
-                                    <button type="submit" class="btn" name="admin_action" value="restore_user">
-                                    <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
-                                    </button>
-                                </td>
-                                <td class="p-1 px-3">
-                                    <button type="submit" class="btn" name="admin_action" value="delete_user">
-                                        <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </form>
+                                    <td class="p-1 px-3">
+                                        <button type="submit" class="btn" name="admin_action" value="restore_user">
+                                        <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
+                                        </button>
+                                    </td>
+                                    <td class="p-1 px-3">
+                                        <button type="submit" class="btn" name="admin_action" value="delete_user">
+                                            <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
                         @endforeach
                     </table>
                 </div>
@@ -240,21 +240,21 @@
                             <tr><td align="center" colspan="8">{{ __('No hay cursos creados') }}</td></tr>
                         @endif
                         @foreach($courses as $course)
-                        <form class="form-control formulario_sesion" method="post" action="{{ route('delete_course', array(app()->getLocale(), $course->id)) }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <tr>
-                                <td class="p-1 px-3">{{ $course->name }}</td>
-                                <td class="p-1 px-3">{{ $course->price }}</td>
-                                <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</td>
-                                <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->email }}</td>
+                            <form class="form-control formulario_sesion" method="post" action="{{ route('delete_course', array(app()->getLocale(), $course->id)) }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <tr>
+                                    <td class="p-1 px-3">{{ $course->name }}</td>
+                                    <td class="p-1 px-3">{{ $course->price }}</td>
+                                    <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</td>
+                                    <td class="p-1 px-3">{{ App\Models\User::find($course->teacher_id)->email }}</td>
 
-                                <td class="p-1 px-3">
-                                    <button type="submit" class="btn" name="admin_action" value="delete_user">
-                                        <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </form>
+                                    <td class="p-1 px-3">
+                                        <button type="submit" class="btn" name="admin_action" value="delete_user">
+                                            <i class="btn bi bi-x-circle-fill" style="color: red; font-size: 30px" type="submit" name="btn"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </form>
                         @endforeach
                     </table>
                 </div>
