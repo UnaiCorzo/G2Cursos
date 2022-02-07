@@ -37,7 +37,7 @@ services:
     container_name: g2cursos-db-slave
     restart: unless-stopped
     volumes:
-     - ./mysql/slave/my.cnf:/etc/my.cnf
+     - ./mysql/slave/1/my.cnf:/etc/my.cnf
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
