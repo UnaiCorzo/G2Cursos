@@ -20,6 +20,11 @@
         <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">An email has been sent to you, please confirm it</div>
         <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">Mezu bat bidali dizugu, baieztatu</div>
     </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "/es"
+        }, 5000); // 5 second
+     </script>
 
     <!-- LINKS SCRIPTS DE BOOTSTRAP -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
