@@ -317,10 +317,10 @@
                                             {{ $course->price }}
                                         </td>
                                         <td>
-                                                {{ App\Models\User::find($course->teacher_id)->name .' ' .App\Models\User::find($course->teacher_id)->surnames }}
+                                            {{ App\Models\User::find($course->teacher_id)->name .' ' .App\Models\User::find($course->teacher_id)->surnames }}
                                         </td>
                                         <td>
-                                                {{ App\Models\User::find($course->teacher_id)->email }}
+                                            {{ App\Models\User::find($course->teacher_id)->email }}
                                         </td>
 
                                         <td class="p-1 px-3">
