@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class SessionController extends Controller
 {
@@ -16,6 +17,9 @@ class SessionController extends Controller
                 $message = 'Posta elektronikoa edo pasahitza ez da zuzena';
             }
             return back()->withErrors(['message' => $message]);
+        }
+        if (Gate::allows('access-admin')) {
+            return redirect()->to(route('admin', app()->getLocale()));
         }
         return redirect()->to(route('home', app()->getLocale()));
     }
