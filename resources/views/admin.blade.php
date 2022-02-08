@@ -194,8 +194,8 @@
                                                 value="{{ $single_user->name }}">
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="min-width: 13rem;" name="surnames" type="text"
-                                                value="{{ $single_user->surnames }}">
+                                            <input class="form-control" style="min-width: 13rem;" name="surnames"
+                                                type="text" value="{{ $single_user->surnames }}">
                                         </td>
                                         <td class="p-1 px-3">
                                             <input class="form-control" style="min-width: 13rem;" name="dni" type="text"
@@ -254,16 +254,16 @@
                                                 value="{{ $banned_user->name }}">
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="min-width: 13rem;" name="surnames" type="text"
-                                                value="{{ $banned_user->surnames }}">
+                                            <input class="form-control" style="min-width: 13rem;" name="surnames"
+                                                type="text" value="{{ $banned_user->surnames }}">
                                         </td>
                                         <td class="p-1 px-3">
                                             <input class="form-control" style="min-width: 13rem;" name="dni" type="text"
                                                 value="{{ $banned_user->dni }}" disabled>
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="min-width: 13rem;" name="email" type="text"
-                                                value="{{ $banned_user->email }}">
+                                            <input class="form-control" style="min-width: 13rem;" name="email"
+                                                type="text" value="{{ $banned_user->email }}">
                                         </td>
                                         <td class="p-1 px-3">
                                             <button type="submit" class="btn" name="admin_action"
