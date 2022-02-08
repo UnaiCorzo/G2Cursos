@@ -49,7 +49,7 @@
                         <div class="col-4 p-0">
                             <!-- IF PARA MOSTRAR EL PRECIO O ICONO SEGÚN SE ESTÉ SUSCRITO O NO -->
                             <div class="d-flex justify-content-end lead">
-                                @if ($subscribed) 
+                                @if ($subscribed)
                                     <i class='fas fa-check-circle check_curso'></i>
                                 @else
                                     @if ($course->price == 0)
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-6 d-flex justify-content-start align-items-end docente_cursos p-0">
                             <p class="m-0 items creador_curso">
-                                {{ $course->teacher->email}}</p>
+                                {{ $course->teacher->email }}</p>
                         </div>
                         <div class="col-12 d-flex justify-content-center mt-5">
                             @if ($subscribed)
@@ -90,9 +90,10 @@
                                         {{ __('Valorar') }}</a>
                                 @endif
                                 @if (isset($course->location))
-                                    <a href="{{ route('geolocalization', ['id' => $id, 'language' => app()->getLocale(), 'coordinates' => $course->location]) }}"
+                                    <a href="{{ route('geolocalization', ['id' => $id,'language' => app()->getLocale(),'coordinates' => $course->location]) }}"
                                         class="btn text-uppercase mx-2 py-2 items boton_sesion"
-                                        style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;" target="_blank">
+                                        style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem;"
+                                        target="_blank">
                                         {{ __('Cómo llegar') }}</a>
                                 @endif
                             @else
@@ -114,7 +115,7 @@
                                     Online
                                 @endif
                             </span>
-                            <img class="img-fluid img_curso" src="/images/{{ $course->image }}" alt="..."/>
+                            <img class="img-fluid img_curso" src="/images/{{ $course->image }}" alt="..." />
                         </div>
                         <div class="col-12 m-0 p-0 mt-3 categorias d-flex justify-content-end align-items-center">
                             @foreach ($categories as $category)
@@ -145,22 +146,28 @@
                 <tbody>
                     @foreach ($ratings as $rating)
                         <tr>
-                            <th class="w-25" scope="row">{{ $rating->user->name . ' ' . $rating->user->surnames }}
+                            <th class="w-25" scope="row">
+                                {{ $rating->user->name . ' ' . $rating->user->surnames }}
                             </th>
                             <td class="w-25 rating" value="{{ $rating->rating }}">{{ $rating->rating }}</td>
                             @if ($rating->user->id == auth()->user()->id)
-                                <form class="form-control formulario_sesion" method="post" action="{{ route('modify_rate', app()->getLocale()) }}" enctype="multipart/form-data">
+                                <form class="form-control formulario_sesion" method="post"
+                                    action="{{ route('modify_rate', app()->getLocale()) }}"
+                                    enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{ $rating->id }}">
-                                    <td class="w-100"><input class="form-control" type="text" name="comment" value="{{ $rating->comment }}"></td>
+                                    <td class="w-100"><input class="form-control" type="text" name="comment"
+                                            value="{{ $rating->comment }}"></td>
                                     <td class="m-0 p-0 w-25 h-25">
                                         <button type="submit" class="btn p-0 m-0" name="action" value="modify">
-                                            <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
+                                            <i class="btn bi bi-slash-circle-fill" type="submit"
+                                                style="color: green; font-size: 30px;" name="btn" value="accept"></i>
                                         </button>
                                     </td>
                                     <td class="m-0 p-0 w-25 h-25">
                                         <button type="submit" class="btn p-0 m-0" name="action" value="delete">
-                                            <i class="btn bi bi-dash-circle-fill" style="color: red; font-size: 30px;" name="btn"></i>
+                                            <i class="btn bi bi-dash-circle-fill" style="color: red; font-size: 30px;"
+                                                name="btn"></i>
                                         </button>
                                     </td>
                                 </form>
@@ -196,7 +203,8 @@
                                                 {{ __('Estrellas:') }}
                                                 <div class="info_crear_curso top info_valorar">
                                                     <i class="fas fa-info-circle ms-2"> </i>
-                                                    <p>{{ __('Selecciona las estrellas que representan tu valoración (como mínimo y por defecto una)') }}</p>
+                                                    <p>{{ __('Selecciona las estrellas que representan tu valoración (como mínimo y por defecto una)') }}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div id="contenedor_est" class="col-8 mb-5 contenedor_est mt-5 mb-2">
@@ -211,14 +219,15 @@
                                                 {{ __('Comentarios') }}
                                                 <div class="info_crear_curso top info_valorar">
                                                     <i class="fas fa-info-circle ms-2"> </i>
-                                                    <p>{{ __('Añade un comentario a tu valoración (este se mostrará en la página del curso)') }}</p>
+                                                    <p>{{ __('Añade un comentario a tu valoración (este se mostrará en la página del curso)') }}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="col-8 mb-3">
                                                 <div class="campos_registro_area">
                                                     <textarea class="form-control p-2 campos_contacto" id="message"
-                                                    name="comment" placeholder="{{ __('Comentarios') }}" rows="5"
-                                                    style="resize:none"></textarea>
+                                                        name="comment" placeholder="{{ __('Comentarios') }}" rows="5"
+                                                        style="resize:none"></textarea>
                                                 </div>
                                             </div>
                                         </div>

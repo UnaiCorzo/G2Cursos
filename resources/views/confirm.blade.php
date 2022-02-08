@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,15 +16,18 @@
 <body>
     <div class="seccion_recuperar pb-5">
         <span><i class="fa-5x bi bi-envelope-check"></i></span>
-        <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">Se te ha enviado un correo, confírmalo</div>
-        <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">An email has been sent to you, please confirm it</div>
-        <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">Mezu bat bidali dizugu, baieztatu</div>
+        <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">Se te ha enviado un correo,
+            confírmalo</div>
+        <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">An email has been sent to you,
+            please confirm it</div>
+        <div class="section-heading m-0 text-center text-dark h6 mb-3 enviado_email">Mezu bat bidali dizugu, baieztatu
+        </div>
     </div>
     <script>
         setTimeout(function() {
             window.location.href = "/es"
         }, 5000); // 5 second
-     </script>
+    </script>
 
     <!-- LINKS SCRIPTS DE BOOTSTRAP -->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -34,4 +37,5 @@
     <script src="{{ asset('js/recovery.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </body>
+
 </html>

@@ -89,7 +89,8 @@
         @if (isset($success) && !$errors->any() && $success == 'true')
             <div class="alert alert-success alert-dismissible alerta_registro">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <p class="m-0 text-uppercase">{{ __('¡Usuario verificado correctamente!') }}</p><i class="fas fa-check-circle check_curso"></i>
+                <p class="m-0 text-uppercase">{{ __('¡Usuario verificado correctamente!') }}</p><i
+                    class="fas fa-check-circle check_curso"></i>
             </div>
         @endif
         <!-- FIN ALERTA DE REGISTRO COMPLETADO -->
@@ -133,16 +134,17 @@
                                                         for="password_sesion">{{ $message }}</label>
                                                 @enderror
                                             </div>
-                                         
-                                              <div class="ms-4 ps-5 form-check form-switch items campos_sesion w-75">
-                                                <input class="form-check-input presencial mt-2" type="checkbox" id="remember_me" name="remember_me" value="remember_me">
+
+                                            <div class="ms-4 ps-5 form-check form-switch items campos_sesion w-75">
+                                                <input class="form-check-input presencial mt-2" type="checkbox"
+                                                    id="remember_me" name="remember_me" value="remember_me">
                                                 <div class="titulo_crear">
                                                     <p class="m-0">{{ __('Recuerdame') }}</p>
-                                                    
+
                                                 </div>
-                                          
+
                                             </div>
-                                          
+
                                         </div>
                                         <div
                                             class="col-12 d-flex justify-content-between align-items-end px-5 text-center mt-3 mb-4">
@@ -155,7 +157,7 @@
                                         </div>
                                         <div
                                             class="col-12 d-flex justify-content-center align-items-end px-5 text-center mt-3">
-                                            
+
                                             <a href="{{ route('password.request', app()->getLocale()) }}"
                                                 class="registrarse_sesion items">{{ __('Recuperar contraseña') }}</a>
                                         </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,7 +18,8 @@
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="userNav">
         <div class="container-fluid">
-            <p class="h3 ms-lg-5 mb-0"><a href="{{ route('home', app()->getLocale()) }}" style="text-decoration: none;">G2Cursos</a></p>
+            <p class="h3 ms-lg-5 mb-0"><a href="{{ route('home', app()->getLocale()) }}"
+                    style="text-decoration: none;">G2Cursos</a></p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 {{ __('Menú') }}
@@ -25,39 +27,62 @@
             </button>
             <div class="collapse navbar-collapse p-0 mt-3 mt-lg-0" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto me-lg-5 p2-2 py-lg-0 text-center">
-                        @if (auth()->user()->role_id == 1)
-                            <li class="nav-item d-flex justify-content-center align-items-center me-1">
-                                <button class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;"  data-bs-toggle="modal" data-bs-target="#modal_creador">
-                                    {{ __('Hazte creador') }}
-                                </button>
-                            </li>
-                        @elseif (auth()->user()->role_id == 3)
-                            <li class="nav-item d-flex justify-content-center align-items-center">
-                                <a href="{{ route('admin', app()->getLocale()) }}" class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;">
-                                    {{ __('Panel administrador') }}
-                                </a>
-                            </li>
-                        @else
-                            <li class="nav-item d-flex justify-content-center align-items-center">
-                                <a class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;" href="{{ route('create', app()->getLocale()) }}">
-                                    {{ __('Crear curso') }}
-                                </a>
-                            </li>
-                        @endif
-                    @if (auth()->user()->role_id == 2)
-                        <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu px-2 rounded" id="link4" href="{{ route('created_courses', app()->getLocale()) }}">{{ __('Cursos creados') }}</a></li>
-                    @endif
-                    <li class="nav-item d-flex justify-content-center align-items-center"><a class="nav-link opciones_menu px-2 rounded" id="link4" href="{{ route('find', app()->getLocale()) }}">{{ __('Buscador') }}</a></li>
-                    <li class="nav-item d-flex justify-content-center align-items-center ms-2">
-                        <div class="dropdown d-flex justify-content-end align-items-center gap-3 icono_perfil" style="min-width: 9.5rem;">
-                            <button type="button" class="btn d-flex justify-content-between align-items-center p-0 gap-3" data-bs-toggle="dropdown">
-                                <p class="m-0 items text-dark">{{ auth()->user()->name}} {{ auth()->user()->surnames}}</p>
-                                <img src="{{ asset('assets/img/perfil.jpg') }}" alt="perfil" class="rounded-circle border border-1 border-dark" width="50px;">
+                    @if (auth()->user()->role_id == 1)
+                        <li class="nav-item d-flex justify-content-center align-items-center me-1">
+                            <button class="btn text-uppercase mx-2 py-2 items boton_sesion"
+                                style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;"
+                                data-bs-toggle="modal" data-bs-target="#modal_creador">
+                                {{ __('Hazte creador') }}
                             </button>
-                            <div class="dropdown-menu mt-3 p-2" style="width: 18rem;" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item items text-end opciones_perfil link_activo" id="link2" href="{{ route('home', app()->getLocale()) }}"><i class="fas fa-clipboard-list"></i>{{ __('Mis cursos') }}</a>
-                                    <a class="dropdown-item items text-end opciones_perfil" id="link3" href="{{ route('profile', app()->getLocale()) }}"><i class="fas fa-user-alt"></i>{{ __('Mi perfil') }}</a>
-                                    <a href="{{ route('logout', app()->getLocale()) }}" class="dropdown-item items text-end opciones_perfil"><i class="fas fa-sign-out-alt"></i>{{ __('Cerrar sesión') }}</a>
+                        </li>
+                    @elseif (auth()->user()->role_id == 3)
+                        <li class="nav-item d-flex justify-content-center align-items-center">
+                            <a href="{{ route('admin', app()->getLocale()) }}"
+                                class="btn text-uppercase mx-2 py-2 items boton_sesion"
+                                style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;">
+                                {{ __('Panel administrador') }}
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav-item d-flex justify-content-center align-items-center">
+                            <a class="btn text-uppercase mx-2 py-2 items boton_sesion"
+                                style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;"
+                                href="{{ route('create', app()->getLocale()) }}">
+                                {{ __('Crear curso') }}
+                            </a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->role_id == 2)
+                        <li class="nav-item d-flex justify-content-center align-items-center"><a
+                                class="nav-link opciones_menu px-2 rounded" id="link4"
+                                href="{{ route('created_courses', app()->getLocale()) }}">{{ __('Cursos creados') }}</a>
+                        </li>
+                    @endif
+                    <li class="nav-item d-flex justify-content-center align-items-center"><a
+                            class="nav-link opciones_menu px-2 rounded" id="link4"
+                            href="{{ route('find', app()->getLocale()) }}">{{ __('Buscador') }}</a></li>
+                    <li class="nav-item d-flex justify-content-center align-items-center ms-2">
+                        <div class="dropdown d-flex justify-content-end align-items-center gap-3 icono_perfil"
+                            style="min-width: 9.5rem;">
+                            <button type="button"
+                                class="btn d-flex justify-content-between align-items-center p-0 gap-3"
+                                data-bs-toggle="dropdown">
+                                <p class="m-0 items text-dark">{{ auth()->user()->name }}
+                                    {{ auth()->user()->surnames }}</p>
+                                <img src="{{ asset('assets/img/perfil.jpg') }}" alt="perfil"
+                                    class="rounded-circle border border-1 border-dark" width="50px;">
+                            </button>
+                            <div class="dropdown-menu mt-3 p-2" style="width: 18rem;"
+                                aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item items text-end opciones_perfil link_activo" id="link2"
+                                    href="{{ route('home', app()->getLocale()) }}"><i
+                                        class="fas fa-clipboard-list"></i>{{ __('Mis cursos') }}</a>
+                                <a class="dropdown-item items text-end opciones_perfil" id="link3"
+                                    href="{{ route('profile', app()->getLocale()) }}"><i
+                                        class="fas fa-user-alt"></i>{{ __('Mi perfil') }}</a>
+                                <a href="{{ route('logout', app()->getLocale()) }}"
+                                    class="dropdown-item items text-end opciones_perfil"><i
+                                        class="fas fa-sign-out-alt"></i>{{ __('Cerrar sesión') }}</a>
                             </div>
                         </div>
                     </li>
@@ -78,49 +103,65 @@
             <div class="modal-content">
                 <section class="fondo_formulario_sesion">
                     <div class="container contenedor_modal contenedor_sesion">
-                        <form class="form-control formulario_sesion" id="hacerse_creador" method="post" action="{{ route('file', app()->getLocale()) }}" enctype="multipart/form-data">
+                        <form class="form-control formulario_sesion" id="hacerse_creador" method="post"
+                            action="{{ route('file', app()->getLocale()) }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row d-flex justify-content-start formulario_sesion">
-                                <div class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
+                                <div
+                                    class="col-12 p-3 d-flex justify-content-center align-items-center rounded bg-light">
                                     <div class="row">
                                         <div class="col-12 mb-5">
-                                            <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">{{ __('Hacerse creador') }}</h2>
+                                            <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase">
+                                                {{ __('Hacerse creador') }}</h2>
                                         </div>
-                                        <div class="col-12 form-group px-5 d-flex justify-content-start align-items-start gap-3">
+                                        <div
+                                            class="col-12 form-group px-5 d-flex justify-content-start align-items-start gap-3">
                                             <i class="fas fa-file-pdf iconos_sesion"></i>
                                             <div class="campos_sesion">
-                                                <label class="form-file-label items mb-1" for="curriculum">{{ __('Inserta tu CV') }}</label>
+                                                <label class="form-file-label items mb-1"
+                                                    for="curriculum">{{ __('Inserta tu CV') }}</label>
                                                 <div class="campos_registro">
-                                                    <input class="form-control-file items archivo" type="file" id="file" name="file">
+                                                    <input class="form-control-file items archivo" type="file" id="file"
+                                                        name="file">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 mb-4 d-flex justify-content-start align-items-center gap-3">
+                                        <div
+                                            class="col-12 form-group px-5 mb-4 d-flex justify-content-start align-items-center gap-3">
                                             <i class="fas fa-building iconos_sesion"></i>
                                             <div class="form-check form-switch items campos_sesion">
-                                                <input class="form-check-input empresa" type="checkbox" id="mySwitch" name="empresa" value="no">
-                                                <label class="form-check-label" for="mySwitch">{{ __('Pertenezco a una empresa') }}</label>
+                                                <input class="form-check-input empresa" type="checkbox" id="mySwitch"
+                                                    name="empresa" value="no">
+                                                <label class="form-check-label"
+                                                    for="mySwitch">{{ __('Pertenezco a una empresa') }}</label>
                                             </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start" id="nombre">
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start"
+                                            id="nombre">
                                             <i class="fas fa-sign mb-2 mt-2 iconos_sesion"></i>
                                             <div class="campos_registro">
-                                                <input class="form-control p-2 campos_sesion" type="text" name="name" placeholder="{{ __('Nombre empresa') }}"/>
+                                                <input class="form-control p-2 campos_sesion" type="text" name="name"
+                                                    placeholder="{{ __('Nombre empresa') }}" />
                                             </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start" id="direccion">
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start"
+                                            id="direccion">
                                             <i class="fas fa-map-marked-alt mb-2 mt-2 iconos_sesion"></i>
                                             <div class="campos_registro">
-                                                <input class="form-control p-2 campos_sesion" type="text" name="address" placeholder="{{ __('Dirección empresa') }}"/>
+                                                <input class="form-control p-2 campos_sesion" type="text" name="address"
+                                                    placeholder="{{ __('Dirección empresa') }}" />
                                             </div>
                                         </div>
-                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start" id="localidad">
+                                        <div class="col-12 form-group px-5 mb-2 d-none justify-content-between align-items-start"
+                                            id="localidad">
                                             <i class="fas fa-map-marker-alt mb-2 mt-2 iconos_sesion"></i>
                                             <div class="campos_registro">
-                                                <input class="form-control p-2 campos_sesion" type="text" name="locality" placeholder="{{ __('Localidad') }}"/>
+                                                <input class="form-control p-2 campos_sesion" type="text"
+                                                    name="locality" placeholder="{{ __('Localidad') }}" />
                                             </div>
                                         </div>
-                                        <div class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
+                                        <div
+                                            class="col-12 d-flex justify-content-center align-items-center text-center mt-3">
                                             <button class="btn submit_sesion boton_sesion py-2 items text-uppercase"
                                                 id="submitButton" type="submit">{{ __('Enviar') }}
                                             </button>
@@ -140,24 +181,24 @@
     @yield('user_content')
 
     <!-- WIDGET FECHA/HORA -->
-        <div class="fecha_hora">
-            <div class="cabecera_fecha_hora">
-                <i class="far fa-clock reloj"></i>
+    <div class="fecha_hora">
+        <div class="cabecera_fecha_hora">
+            <i class="far fa-clock reloj"></i>
+        </div>
+        <div class="contenido_fecha_hora">
+            <p class="nombre_zona"></p>
+            <div class="info">
+                <p class="hora"></p>
+                <p class="fecha"></p>
             </div>
-            <div class="contenido_fecha_hora">
-                <p class="nombre_zona"></p>
-                <div class="info">
-                    <p class="hora"></p>
-                    <p class="fecha"></p>
-                </div>
-                <div class="selector_fecha">
-                    <!-- <p>Selecciona la zona horaria:</p> -->
-                    <select name="zona" id="zona" class="zona">
-                        
-                    </select>
-                </div>
+            <div class="selector_fecha">
+                <!-- <p>Selecciona la zona horaria:</p> -->
+                <select name="zona" id="zona" class="zona">
+
+                </select>
             </div>
         </div>
+    </div>
     <!-- FIN WIDGET FECHA/HORA -->
 
     <!-- PIE DE LA PÁGINA -->
@@ -166,9 +207,12 @@
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">Copyright &copy; G2Cursos 2022</div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_twitter" href="https://www.twitter.com" target="blank"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_facebook" href="https://www.facebook.com" target="blank"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_linkedin" href="https://www.linkedin.com" target="blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_twitter" href="https://www.twitter.com"
+                        target="blank"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_facebook" href="https://www.facebook.com"
+                        target="blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2 iconos_footer icono_linkedin" href="https://www.linkedin.com"
+                        target="blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a class="link-dark text-decoration-none me-3" href="#!">{{ __('Política de Privacidad') }}</a>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-    
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,7 +15,8 @@
 
 <body>
     <div class="seccion_recuperar">
-        <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase mb-3">{{ __('Recuperar contraseña') }}</h2>
+        <h2 class="section-heading m-0 text-center text-dark h3 text-uppercase mb-3">{{ __('Recuperar contraseña') }}
+        </h2>
         <div class="subtitulo_recuperar">
             <p>{{ __('Paso 2') }}</p>
             <div class="info_crear_curso top">
@@ -23,22 +24,27 @@
                 <p>{{ __('Introduce tu email y especifica una nueva contraseña para terminar de recuperarla') }}</p>
             </div>
         </div>
-        <form class="d-flex flex-column justify-content-center align-items-center" method="post" action="{{ route('password-reset', app()->getLocale()) }}" id="recuperar_2">
+        <form class="d-flex flex-column justify-content-center align-items-center" method="post"
+            action="{{ route('password-reset', app()->getLocale()) }}" id="recuperar_2">
             {{ csrf_field() }}
             <input type="hidden" name="token" value="{{ $token }}">
             <div class="input_recuperar">
                 <div class="campos_registro">
-                    <input class="form-control p-2 campos_sesion campo_recuperar" type="email" placeholder="Email" name="email" />
+                    <input class="form-control p-2 campos_sesion campo_recuperar" type="email" placeholder="Email"
+                        name="email" />
                 </div>
             </div>
             <div class="input_recuperar">
                 <div class="campos_registro">
-                    <input class="form-control p-2 campos_sesion campo_recuperar" type="password" placeholder="{{ __('Contraseña') }}" name="password" id="password"/>
+                    <input class="form-control p-2 campos_sesion campo_recuperar" type="password"
+                        placeholder="{{ __('Contraseña') }}" name="password" id="password" />
                 </div>
             </div>
             <div class="input_recuperar">
                 <div class="campos_registro">
-                    <input class="form-control p-2 campos_sesion campo_recuperar" type="password" placeholder="{{ __('Repetir contraseña') }}" name="password_confirmation" id="password_confirmation"/>
+                    <input class="form-control p-2 campos_sesion campo_recuperar" type="password"
+                        placeholder="{{ __('Repetir contraseña') }}" name="password_confirmation"
+                        id="password_confirmation" />
                 </div>
             </div>
             <button class="btn submit_sesion boton_sesion py-2 items text-uppercase" type="submit">
@@ -54,4 +60,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/recovery.js') }}"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>{{ __('Error') }}</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
 </head>
+
 <body>
     <div class="container d-flex justify-content-center" style="height: 100vh;">
         <div class="align-self-center display-1">
@@ -14,4 +16,5 @@
         </div>
     </div>
 </body>
+
 </html>

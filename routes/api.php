@@ -14,21 +14,20 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/course', function(){
-    return Course::all('name','location','description');
+Route::get('/course', function () {
+    return Course::all('name', 'location', 'description');
 });
-Route::get('/course/{course}', function(Course $course){
-    return response()->json($course,201);
+Route::get('/course/{course}', function (Course $course) {
+    return response()->json($course, 201);
 });
-Route::get('/category', function(){
-    return Category::all('name','color');
+Route::get('/category', function () {
+    return Category::all('name', 'color');
 });
-Route::get('/category/{category}', function(Category $category){
-    return response()->json($category,201);
+Route::get('/category/{category}', function (Category $category) {
+    return response()->json($category, 201);
 });
-

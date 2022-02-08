@@ -4,7 +4,7 @@
     <title>{{ __('Cursos creados') }} | G2Cursos</title>
 @endsection
 @section('lang')
-@include('partials.langNav')
+    @include('partials.langNav')
 @endsection
 @section('user_content')
     <!-- SECCIÓN MIS CURSOS -->
@@ -17,7 +17,9 @@
                 @if (count($courses) == 0)
                     <div class="d-flex flex-column justify-content-center align-items-center gap-5">
                         {{ __('Todavía no has creado ningún curso') }}
-                        <a class="btn text-uppercase mx-2 py-2 items boton_sesion" style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;" href="{{ route('create', app()->getLocale()) }}">
+                        <a class="btn text-uppercase mx-2 py-2 items boton_sesion"
+                            style="font-weight: bold; text-shadow: #0B132B 1px 1px 1px; font-size: .9rem; color: white!important;"
+                            href="{{ route('create', app()->getLocale()) }}">
                             {{ __('Crear curso') }}
                         </a>
                     </div>
@@ -25,39 +27,46 @@
                 @foreach ($courses as $course)
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a href="{{ route('edit_course', array(app()->getLocale(), $course->id)) }}" class="link_curso" id="{{ $course->id }}">
+                            <a href="{{ route('edit_course', [app()->getLocale(), $course->id]) }}"
+                                class="link_curso" id="{{ $course->id }}">
                                 <div class="imagen_card">
                                     <span class="badge badge-pill text-white bg-success items modalidad">
-                                    @if (!is_null($course->location))
-                                        {{ __('Presencial') }}
-                                    @else
-                                        Online
-                                    @endif
+                                        @if (!is_null($course->location))
+                                            {{ __('Presencial') }}
+                                        @else
+                                            Online
+                                        @endif
                                     </span>
-                                    <img class="img-fluid" src="/images/{{ $course->image }}" alt="{{ $course->name }}"/>
+                                    <img class="img-fluid" src="/images/{{ $course->image }}"
+                                        alt="{{ $course->name }}" />
                                 </div>
                                 <div class="portfolio-caption">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div class="portfolio-caption-heading lead items titulo_curso me-2">{{ $course->name }}</div>
-                                        <div class="lead bold descripcion_cursos"><i class="fas fa-edit check_curso"></i></div>
+                                        <div class="portfolio-caption-heading lead items titulo_curso me-2">
+                                            {{ $course->name }}</div>
+                                        <div class="lead bold descripcion_cursos"><i class="fas fa-edit check_curso"></i>
+                                        </div>
                                     </div>
                                     <div class="row m-0 p-0">
                                         <div class="col-6 p-0 docente_cursos">
-                                            <p class="m-0 items">{{ $course->teacher->name . " " . $course->teacher->surnames }}</p>
+                                            <p class="m-0 items">
+                                                {{ $course->teacher->name . ' ' . $course->teacher->surnames }}</p>
                                         </div>
                                         <div class="col-6 p-0 valoracion d-flex justify-content-end align-items-center">
-                                            <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}</p>
+                                            <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}
+                                            </p>
                                             <div class="rating"
                                                 value=" {{ round($course->ratings()->average('rating')) }}"></div><br>
                                             <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>
                                         </div>
                                         <div class="col-12 m-0 p-0 mt-2 categorias">
                                             @foreach ($course->categories as $category)
-                                                <span class="badge badge-pill text-white items categorias_cursos" id="{{ $course->name . '_' . $category->id }}">{{ $category->name }}</span>
+                                                <span class="badge badge-pill text-white items categorias_cursos"
+                                                    id="{{ $course->name . '_' . $category->id }}">{{ $category->name }}</span>
                                             @endforeach
                                             <script>
-                                                var course = <?php echo $course ?>;
-                                                var categorias = <?php echo $course->categories ?>;
+                                                var course = <?php echo $course; ?>;
+                                                var categorias = <?php echo $course->categories; ?>;
                                                 for (let i = 1; i <= categorias.length; i++) {
                                                     let color = categorias[i - 1].color;
                                                     var badge_categoria = document.getElementById(course.name + "_" + categorias[i - 1].id);

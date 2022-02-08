@@ -20,7 +20,8 @@
                 @foreach (auth()->user()->courses as $course)
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a id="curso_{{ $course->id }}"href="{{ route('course', ['id' => $course->id, 'language' => app()->getLocale()]) }}"
+                            <a id="curso_{{ $course->id }}"
+                                href="{{ route('course', ['id' => $course->id, 'language' => app()->getLocale()]) }}"
                                 class="link_curso" id="curso">
                                 <div class="imagen_card">
                                     <span class="badge badge-pill text-white bg-success items modalidad">
@@ -47,7 +48,8 @@
                                         </div>
 
                                         <div class="col-6 p-0 valoracion d-flex justify-content-end align-items-center">
-                                            <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}</p>
+                                            <p class="m-0 me-1 pt-1 items">{{ $course->ratings()->average('rating') }}
+                                            </p>
                                             <div class="rating"
                                                 value=" {{ round($course->ratings()->average('rating')) }}"></div><br>
                                             <p class="m-0 pt-1 items">({{ $course->ratings()->count() }})</p>

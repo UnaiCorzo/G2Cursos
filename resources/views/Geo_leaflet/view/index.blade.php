@@ -18,6 +18,7 @@
     <script src="{{ asset('js/Control.Geocoder.js') }}"></script>
     <script>
         window.onload = getLocation;
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -25,6 +26,7 @@
                 prompt("Geolocalization can't be initialized.");
             }
         }
+
         function showPosition(position) {
             var wayPoint1 = L.latLng(position.coords.latitude, position.coords.longitude);
             var map = L.map('map');
@@ -36,27 +38,38 @@
             var control = L.Routing.control(L.extend(window.lrmConfig, {
                 waypoints: [
                     L.latLng(wayPoint1),
-                    <?php 
-                    $location = explode(";",$location);
+                    <?php
+                    $location = explode(';', $location);
                     ?>
-                    L.latLng('<?php echo $location[0]?>', '<?php echo $location[1]?>')
+                    L.latLng('<?php echo $location[0]; ?>', '<?php echo $location[1]; ?>')
                 ],
                 geocoder: L.Control.Geocoder.nominatim(),
                 <?php
-                    if($language == 'eu'){
-                        // No hay traducción para el idioma euskera
-                        $language = 'es';
-                    } 
+                if ($language == 'eu') {
+                    // No hay traducción para el idioma euskera
+                    $language = 'es';
+                }
                 ?>
-                language: '<?php echo $language?>',
+                language: '<?php echo $language; ?>',
                 routeWhileDragging: true,
                 reverseWaypoints: true,
                 showAlternatives: true,
                 altLineOptions: {
-                    styles: [
-                        { color: 'black', opacity: 0.15, weight: 9 },
-                        { color: 'white', opacity: 0.8, weight: 6 },
-                        { color: 'blue', opacity: 0.5, weight: 2 }
+                    styles: [{
+                            color: 'black',
+                            opacity: 0.15,
+                            weight: 9
+                        },
+                        {
+                            color: 'white',
+                            opacity: 0.8,
+                            weight: 6
+                        },
+                        {
+                            color: 'blue',
+                            opacity: 0.5,
+                            weight: 2
+                        }
                     ]
                 }
 

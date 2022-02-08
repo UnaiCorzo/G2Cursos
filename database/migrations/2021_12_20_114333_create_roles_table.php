@@ -20,13 +20,13 @@ class CreateRolesTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
-        $data = [[ 'id' => '1',
-        'name' => 'usuario',
-        'description' => 'Usuario que puede unirse a cursos'],[ 'id' => '2',
-        'name' => 'creador',
-        'description' => 'Creador que puede unirse a cursos y poder crearlos'],[  'id' => '3',
-        'name' => 'administrador',
-        'description' => 'Administrador que gestiona el sitio web']];
+        $data = [['id' => '1',
+            'name' => 'usuario',
+            'description' => 'Usuario que puede unirse a cursos'], ['id' => '2',
+            'name' => 'creador',
+            'description' => 'Creador que puede unirse a cursos y poder crearlos'], ['id' => '3',
+            'name' => 'administrador',
+            'description' => 'Administrador que gestiona el sitio web']];
         DB::table('roles')->insert($data);
     }
 
