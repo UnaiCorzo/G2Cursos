@@ -115,32 +115,32 @@
                                     <input type='hidden' name='user' value="{{ $cv->id }}">
                                     <tr>
                                         <td>
-                                            <p class="celdas_admin">{{ $cv->name }}</p>
+                                            {{ $cv->name }}
                                         </td>
                                         <td>
-                                            <p class="celdas_admin">{{ $cv->surnames }}</p>
+                                            {{ $cv->surnames }}
                                         </td>
-                                        <td><a class="text-white celdas_admin"
+                                        <td><a class="text-white"
                                                 href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
                                         @if (isset($cv->company->name))
                                             <td class="p-1 pe-4">
-                                                <p class="celdas_admin">{{ $cv->company->name }}</p>
+                                                {{ $cv->company->name }}
                                             </td>
                                             <td class="p-1 pe-4">
-                                                <p class="celdas_admin">{{ $cv->company->direction }}</p>
+                                                {{ $cv->company->direction }}
                                             </td>
                                             <td class="p-1 pe-4">
-                                                <p class="celdas_admin">{{ $cv->company->location }}</p>
+                                                {{ $cv->company->location }}
                                             </td>
                                         @else
                                             <td class="p-1 pe-4">
-                                                <p class="celdas_admin">-</p>
+                                                -
                                             </td>
                                             <td class="p-1 pe-4">
-                                                <p class="celdas_admin">-</p>
+                                                -
                                             </td>
                                             <td class="p-1 pe-4">
-                                                <p class="celdas_admin">-</p>
+                                                -
                                             </td>
                                         @endif
 
@@ -310,20 +310,17 @@
                                     enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <tr>
-                                        <td class="">
-                                            <p class="celdas_admin">{{ $course->name }}</p>
+                                        <td>
+                                            {{ $course->name }}
                                         </td>
-                                        <td class="">
-                                            <p class="celdas_admin">{{ $course->price }}</p>
+                                        <td>
+                                            {{ $course->price }}
                                         </td>
-                                        <td class="">
-                                            <p class="celdas_admin">
+                                        <td>
                                                 {{ App\Models\User::find($course->teacher_id)->name .' ' .App\Models\User::find($course->teacher_id)->surnames }}
-                                            </p>
                                         </td>
-                                        <td class=" ">
-                                            <p class="celdas_admin">
-                                                {{ App\Models\User::find($course->teacher_id)->email }}</p>
+                                        <td>
+                                                {{ App\Models\User::find($course->teacher_id)->email }}
                                         </td>
 
                                         <td class="p-1 px-3">
