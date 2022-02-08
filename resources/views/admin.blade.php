@@ -190,19 +190,19 @@
                                     <input type='hidden' name='panel' value="true">
                                     <tr>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="name" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="name" type="text"
                                                 value="{{ $single_user->name }}">
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="surnames" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="surnames" type="text"
                                                 value="{{ $single_user->surnames }}">
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="dni" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="dni" type="text"
                                                 value="{{ $single_user->dni }}" disabled>
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="email" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="email" type="text"
                                                 value="{{ $single_user->email }}">
                                         </td>
 
@@ -250,19 +250,19 @@
                                     <input type='hidden' name='panel' value="true">
                                     <tr>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="name" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="name" type="text"
                                                 value="{{ $banned_user->name }}">
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="surnames" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="surnames" type="text"
                                                 value="{{ $banned_user->surnames }}">
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="dni" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="dni" type="text"
                                                 value="{{ $banned_user->dni }}" disabled>
                                         </td>
                                         <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="email" type="text"
+                                            <input class="form-control" style="min-width: 13rem;" name="email" type="text"
                                                 value="{{ $banned_user->email }}">
                                         </td>
                                         <td class="p-1 px-3">
