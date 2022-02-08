@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', event => {
 $(document).ready(function () {
     // CERRAR COOKIES
     const cookies = $('.cookies');
-    const consent = sessionStorage.getItem("cookies_accepted");
+    const consent = localStorage.getItem("cookies_accepted");
 
     if (consent == "true") {
         cookies.css('display', 'none');
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
         function cerrarCookies() {
             cookies.fadeOut();
-            sessionStorage.setItem("cookies_accepted", "true");
+            localStorage.setItem("cookies_accepted", "true");
         }
     }
 
