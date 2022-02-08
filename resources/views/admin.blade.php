@@ -36,7 +36,7 @@
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table-responsive text-center">
-                    <table class="table table-striped table-dark">
+                    <table class="table align-middle table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Nombre') }}</th>
                             <th class="p-1 px-3">{{ __('Email') }}</th>
@@ -51,10 +51,10 @@
                             <form class="form-control formulario_sesion" method="post" action="{{ route('contact_delete', array(app()->getLocale(), $message->id)) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <tr>
-                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->name }}</p></td>
-                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->email }}</p></td>
-                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->phone }}</p></td>
-                                    <td class="p-1 px-3"><p class="m-0 celdas_admin">{{ $message->comments }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0">{{ $message->name }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0">{{ $message->email }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0">{{ $message->phone }}</p></td>
+                                    <td class="p-1 px-3"><p class="m-0">{{ $message->comments }}</p></td>
 
                                     <td class="p-1 px-3">
                                         <button type="submit" class="btn" name="admin_action" value="delete">
@@ -73,7 +73,7 @@
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table-responsive text-center">
-                    <table class="table text-striped table-dark">
+                    <table class="table align-middle text-striped table-dark">
                         <tr>
                             <th class="p-1 pe-4 ps-4">{{ __('Nombre') }}</th>
                             <th class="p-1 pe-4">{{ __('Apellidos') }}</th>
@@ -93,9 +93,9 @@
                                 {{ csrf_field() }}
                                 <input type='hidden' name='user' value="{{ $cv->id }}">
                                 <tr>
-                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->name }}</p></td>
-                                    <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->surnames }}</p></td>
-                                    <td class="p-1 pe-4"><a class="text-white celdas_admin" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
+                                    <td class=""><p class="celdas_admin">{{ $cv->name }}</p></td>
+                                    <td class=""><p class="celdas_admin">{{ $cv->surnames }}</p></td>
+                                    <td class=""><a class="text-white celdas_admin" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
                                     @if(isset($cv->company->name))
                                     <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->name }}</p></td>
                                     <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->direction }}</p></td>
@@ -128,7 +128,7 @@
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table-responsive text-center">
-                    <table class="table table-striped table-dark">
+                    <table class="table align-middle table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Nombre') }}</th>
                             <th class="p-1 px-3">{{ __('Apellidos') }}</th>
@@ -146,24 +146,16 @@
                                 <input type='hidden' name='panel' value="true">
                                 <tr>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
-                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
-                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
-                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
-                                        </div>
                                     </td>
 
                                     <td class="p-1 px-3">
@@ -184,7 +176,7 @@
 
                 <div class="col-12 text-center m-2 mt-4 lead">{{ __('Usuarios baneados') }}</div>
                 <div class="table-responsive text-center">
-                    <table class="table table-striped table-dark">
+                    <table class="table align-middle table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Nombre') }}</th>
                             <th class="p-1 px-3">{{ __('Apellidos') }}</th>
@@ -202,26 +194,17 @@
                                 <input type='hidden' name='panel' value="true">
                                 <tr>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
-                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
-                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
-                                        </div>
                                     </td>
                                     <td class="p-1 px-3">
-                                        <div class="celdas_admin">
                                             <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
-                                        </div>
                                     </td>
-
                                     <td class="p-1 px-3">
                                         <button type="submit" class="btn" name="admin_action" value="restore_user">
                                         <i class="btn bi bi-slash-circle-fill" type="submit" style="color: green; font-size: 30px;" name="btn" value="accept"></i>
@@ -244,7 +227,7 @@
         <section class="page-section seccion_cursos">
             <div class="container mt-0">
                 <div class="table-responsive text-center">
-                    <table class="table table-striped table-dark">
+                    <table class="table align-middle table-striped table-dark">
                         <tr>
                             <th class="p-1 px-3">{{ __('Título curso') }}</th>
                             <th class="p-1 px-3">{{ __('Precio curso') }}</th>
@@ -259,10 +242,10 @@
                             <form class="form-control formulario_sesion" method="post" action="{{ route('delete_course', array(app()->getLocale(), $course->id)) }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <tr>
-                                    <td class="p-1 px-3"><p class="celdas_admin">{{ $course->name }}</p></td>
-                                    <td class="p-1 px-3"><p class="celdas_admin">{{ $course->price }}</p></td>
-                                    <td class="p-1 px-3"><p class="celdas_admin">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</p></td>
-                                    <td class="p-1 px-3"><p class="celdas_admin">{{ App\Models\User::find($course->teacher_id)->email }}</p></td>
+                                    <td class=""><p class="celdas_admin">{{ $course->name }}</p></td>
+                                    <td class=""><p class="celdas_admin">{{ $course->price }}</p></td>
+                                    <td class=""><p class="celdas_admin">{{ App\Models\User::find($course->teacher_id)->name . " " . App\Models\User::find($course->teacher_id)->surnames }}</p></td>
+                                    <td class=" "><p class="celdas_admin">{{ App\Models\User::find($course->teacher_id)->email }}</p></td>
 
                                     <td class="p-1 px-3">
                                         <button type="submit" class="btn" name="admin_action" value="delete_user">
