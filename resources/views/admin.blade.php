@@ -93,9 +93,9 @@
                                 {{ csrf_field() }}
                                 <input type='hidden' name='user' value="{{ $cv->id }}">
                                 <tr>
-                                    <td class=""><p class="celdas_admin">{{ $cv->name }}</p></td>
-                                    <td class=""><p class="celdas_admin">{{ $cv->surnames }}</p></td>
-                                    <td class=""><a class="text-white celdas_admin" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
+                                    <td><p class="celdas_admin">{{ $cv->name }}</p></td>
+                                    <td><p class="celdas_admin">{{ $cv->surnames }}</p></td>
+                                    <td><a class="text-white celdas_admin" href="{{ route('show', $cv->cv) }}">{{ $cv->cv }}</a></td>
                                     @if(isset($cv->company->name))
                                     <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->name }}</p></td>
                                     <td class="p-1 pe-4"><p class="celdas_admin">{{ $cv->company->direction }}</p></td>
@@ -146,16 +146,16 @@
                                 <input type='hidden' name='panel' value="true">
                                 <tr>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
+                                        <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $single_user->name }}">
                                     </td>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
+                                        <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $single_user->surnames }}">
                                     </td>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
+                                        <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $single_user->dni }}" disabled>
                                     </td>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
+                                        <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $single_user->email }}">
                                     </td>
 
                                     <td class="p-1 px-3">
@@ -194,16 +194,16 @@
                                 <input type='hidden' name='panel' value="true">
                                 <tr>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
+                                        <input class="form-control" style="width: 13rem;" name="name" type="text" value="{{ $banned_user->name }}">
                                     </td>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
+                                        <input class="form-control" style="width: 13rem;" name="surnames" type="text" value="{{ $banned_user->surnames }}">
                                     </td>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
+                                        <input class="form-control" style="width: 13rem;" name="dni" type="text" value="{{ $banned_user->dni }}" disabled>
                                     </td>
                                     <td class="p-1 px-3">
-                                            <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
+                                        <input class="form-control" style="width: 13rem;" name="email" type="text" value="{{ $banned_user->email }}">
                                     </td>
                                     <td class="p-1 px-3">
                                         <button type="submit" class="btn" name="admin_action" value="restore_user">
